@@ -1,0 +1,72 @@
+{
+  "run_id": "ca535384d7604989b4aad1f9b1084abd",
+  "implementation_hash": "fef3a24c1ab33af8305109664da74af7d5a417bf902283fe5ba6a25e85c39046",
+  "config": {
+    "network_id": "baseline",
+    "policy": "S7",
+    "seed": 29,
+    "demand_scale": 1.4,
+    "duration_seconds": 9900.0,
+    "step_seconds": 0.5,
+    "trajectory": false,
+    "warmup_seconds": 900.0,
+    "demand_end_seconds": 8100.0,
+    "period": "pm",
+    "rate_per_gate": 120.0,
+    "drain_seconds": 0
+  },
+  "peak_rss_kib": 343580,
+  "wall_time_seconds": 112.3564520380005,
+  "cpu_count": 9,
+  "cpu_affinity_count": 9,
+  "meminfo": {
+    "MemTotal": "10206508 kB",
+    "MemAvailable": "7877088 kB"
+  },
+  "audit": {
+    "conservation_passed": true,
+    "conservation_max_residual": 0,
+    "teleports": 0,
+    "collisions": 0,
+    "explicit_failures": 0,
+    "unexplained_losses": 0,
+    "steps": 19800,
+    "field_calibrated": false,
+    "critical_unknowns": [
+      "Actual signals/turn permissions/driver behavior require field verification",
+      "Synthetic boundary OD and bus/curb events",
+      "No pedestrian demand or nonmotorized agents yet; lane geometry only"
+    ],
+    "status": "passed_software_checks"
+  },
+  "metrics": {
+    "generated": 6000,
+    "due": 6000,
+    "completed": 4258,
+    "inside": 1025,
+    "external_waiting": 717,
+    "explicit_failure": 0,
+    "completion_rate": 0.7096666666666667,
+    "tstt_vehicle_seconds": 10091093.570000004,
+    "mean_travel_time_seconds": 509.86159628933774,
+    "p95_travel_time_seconds": 1887.3605999999943,
+    "median_travel_time_seconds": 273.6750000000002,
+    "external_wait_vehicle_seconds": 2819684.57,
+    "core_vehicle_seconds": 1928169.5,
+    "periphery_vehicle_seconds": 5343752.0,
+    "max_queue_vehicles": 1081,
+    "teleports": 0,
+    "collisions": 0,
+    "duration_seconds": 9900.0,
+    "cohort": "peak",
+    "interpretation": "Finite-window cumulative time including due but uninserted target trips. Incomplete trips are right-censored; completed-only mean is secondary.",
+    "all_cohort_generated": 6558,
+    "all_cohort_completed": 4816,
+    "all_cohort_inserted": 5841,
+    "spatial_time_method": "End-of-step rectangular integration; peak core/periphery may differ by <= step boundary terms from exact trip elapsed time.",
+    "queue_population": "All cohorts; stopped-speed threshold <0.1 m/s is a count proxy, not contiguous physical queue length.",
+    "observed_stop_starts": 268,
+    "signal_extensions": 957,
+    "bus_completed": 106
+  }
+}

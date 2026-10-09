@@ -1,0 +1,15 @@
+services:
+  traffic:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      TRAFFIC_STATE_DIR: /app/var
+      TRAFFIC_API_TOKEN: ${TRAFFIC_API_TOKEN:-}
+    volumes:
+      - traffic-runs:/app/var
+    mem_limit: 6g
+    cpus: 2
+    restart: unless-stopped
+volumes:
+  traffic-runs:

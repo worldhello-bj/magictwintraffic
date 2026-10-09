@@ -1,0 +1,104 @@
+{
+  "restricted_edge": "-569688458#0",
+  "total_reference_route_hits": 0,
+  "inventory_trips_including_warmup": 57214,
+  "interpretation": "No reference boundary-demand route in the 12 baseline inventories uses this link. The S4 permission change is real but the formal E0 demand provides no test of its effect on users of that link. Do not claim demonstrated neighborhood benefit.",
+  "runs": [
+    {
+      "run_id": "3fd30ea26d6b4934b269c95722ec0353",
+      "period": "pm",
+      "seed": 11,
+      "demand_scale": 1.4,
+      "inventory_trips_including_warmup": 6503,
+      "reference_route_hits": 0
+    },
+    {
+      "run_id": "0481ef235c6f445d9b8c3b1a59604476",
+      "period": "pm",
+      "seed": 29,
+      "demand_scale": 1.4,
+      "inventory_trips_including_warmup": 6558,
+      "reference_route_hits": 0
+    },
+    {
+      "run_id": "1fee147b64984f448c46cb6209372e53",
+      "period": "am",
+      "seed": 29,
+      "demand_scale": 1.4,
+      "inventory_trips_including_warmup": 6872,
+      "reference_route_hits": 0
+    },
+    {
+      "run_id": "63d8ee1a5de44ba186e477b264fe320e",
+      "period": "pm",
+      "seed": 11,
+      "demand_scale": 0.6,
+      "inventory_trips_including_warmup": 2809,
+      "reference_route_hits": 0
+    },
+    {
+      "run_id": "286b4fd9b9564487b2e1903eee43f76d",
+      "period": "pm",
+      "seed": 11,
+      "demand_scale": 1.0,
+      "inventory_trips_including_warmup": 4591,
+      "reference_route_hits": 0
+    },
+    {
+      "run_id": "3b5e8ebb2d814727be60de8b3b0f8dd6",
+      "period": "am",
+      "seed": 11,
+      "demand_scale": 0.6,
+      "inventory_trips_including_warmup": 2930,
+      "reference_route_hits": 0
+    },
+    {
+      "run_id": "ad46926fe9df4c47842373072446a6a8",
+      "period": "am",
+      "seed": 29,
+      "demand_scale": 1.0,
+      "inventory_trips_including_warmup": 4873,
+      "reference_route_hits": 0
+    },
+    {
+      "run_id": "a55c5ccd6cb04887b2b4cd2e9b7cd158",
+      "period": "pm",
+      "seed": 29,
+      "demand_scale": 0.6,
+      "inventory_trips_including_warmup": 2839,
+      "reference_route_hits": 0
+    },
+    {
+      "run_id": "8da191a2f8ae4bb5a6f635d4d6f88865",
+      "period": "pm",
+      "seed": 29,
+      "demand_scale": 1.0,
+      "inventory_trips_including_warmup": 4727,
+      "reference_route_hits": 0
+    },
+    {
+      "run_id": "a59a2a1d2ddb4445a4c8e0a3fbdb1830",
+      "period": "am",
+      "seed": 29,
+      "demand_scale": 0.6,
+      "inventory_trips_including_warmup": 2961,
+      "reference_route_hits": 0
+    },
+    {
+      "run_id": "be69757019804bde9b0dd27f716a4ea5",
+      "period": "am",
+      "seed": 11,
+      "demand_scale": 1.0,
+      "inventory_trips_including_warmup": 4924,
+      "reference_route_hits": 0
+    },
+    {
+      "run_id": "fa5e68e0ca744e7b8324563e8b87ea7c",
+      "period": "am",
+      "seed": 11,
+      "demand_scale": 1.4,
+      "inventory_trips_including_warmup": 6627,
+      "reference_route_hits": 0
+    }
+  ]
+}

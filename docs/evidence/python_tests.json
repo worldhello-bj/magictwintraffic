@@ -1,0 +1,8 @@
+{
+  "command": ".venv/bin/python -m pytest -q",
+  "passed": 63,
+  "failed": 0,
+  "elapsed_seconds": 24.99,
+  "warnings": ["StarletteDeprecationWarning: Using httpx with starlette.testclient is deprecated; install httpx2 instead."],
+  "scope": "Software tests only; no field-calibration or client-GPU performance claim."
+}

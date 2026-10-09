@@ -1,0 +1,345 @@
+{
+  "S1": {
+    "conditions": [
+      {
+        "period": "am",
+        "demand_scale": 0.6,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": -0.14231882431806064
+      },
+      {
+        "period": "am",
+        "demand_scale": 1.0,
+        "completion_difference_pp": -0.20220175241518756,
+        "external_wait_difference": 1.5,
+        "finite_window_time_difference_pct": 1.3702850787285725
+      },
+      {
+        "period": "am",
+        "demand_scale": 1.4,
+        "completion_difference_pp": 0.7797423480633392,
+        "external_wait_difference": 14.5,
+        "finite_window_time_difference_pct": -0.30294834031983076
+      },
+      {
+        "period": "pm",
+        "demand_scale": 0.6,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": -0.8987858778042424
+      },
+      {
+        "period": "pm",
+        "demand_scale": 1.0,
+        "completion_difference_pp": 0.16301999602528205,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": -1.465893595071649
+      },
+      {
+        "period": "pm",
+        "demand_scale": 1.4,
+        "completion_difference_pp": 1.179456028249537,
+        "external_wait_difference": -8.5,
+        "finite_window_time_difference_pct": -4.525764339760097
+      }
+    ],
+    "worst_completion_difference_pp": -0.20220175241518756,
+    "worst_external_wait_difference": 14.5,
+    "mean_finite_window_difference_pct": -0.9942376497575512
+  },
+  "S2": {
+    "conditions": [
+      {
+        "period": "am",
+        "demand_scale": 0.6,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": 12.209560567216894
+      },
+      {
+        "period": "am",
+        "demand_scale": 1.0,
+        "completion_difference_pp": -29.239506545478,
+        "external_wait_difference": 367,
+        "finite_window_time_difference_pct": 124.46793339142218
+      },
+      {
+        "period": "am",
+        "demand_scale": 1.4,
+        "completion_difference_pp": -21.770714872767194,
+        "external_wait_difference": 470.5,
+        "finite_window_time_difference_pct": 35.506847257972694
+      },
+      {
+        "period": "pm",
+        "demand_scale": 0.6,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": 0.41848525686822846
+      },
+      {
+        "period": "pm",
+        "demand_scale": 1.0,
+        "completion_difference_pp": -5.171979746682709,
+        "external_wait_difference": 72.5,
+        "finite_window_time_difference_pct": 28.505380941328973
+      },
+      {
+        "period": "pm",
+        "demand_scale": 1.4,
+        "completion_difference_pp": -17.676751583431425,
+        "external_wait_difference": 407.5,
+        "finite_window_time_difference_pct": 50.83016816590117
+      }
+    ],
+    "worst_completion_difference_pp": -29.239506545478,
+    "worst_external_wait_difference": 470.5,
+    "mean_finite_window_difference_pct": 41.98972926345169
+  },
+  "S3": {
+    "conditions": [
+      {
+        "period": "am",
+        "demand_scale": 0.6,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": -1.0035327830785035
+      },
+      {
+        "period": "am",
+        "demand_scale": 1.0,
+        "completion_difference_pp": -3.66586634233414,
+        "external_wait_difference": 29.5,
+        "finite_window_time_difference_pct": 19.73151258182598
+      },
+      {
+        "period": "am",
+        "demand_scale": 1.4,
+        "completion_difference_pp": -4.213165621093057,
+        "external_wait_difference": 42,
+        "finite_window_time_difference_pct": -3.0050105724796996
+      },
+      {
+        "period": "pm",
+        "demand_scale": 0.6,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": -2.537592306217679
+      },
+      {
+        "period": "pm",
+        "demand_scale": 1.0,
+        "completion_difference_pp": 0.38411922734322146,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": -29.736628619862074
+      },
+      {
+        "period": "pm",
+        "demand_scale": 1.4,
+        "completion_difference_pp": 3.554530295387026,
+        "external_wait_difference": -0.5,
+        "finite_window_time_difference_pct": -3.0832629053243745
+      }
+    ],
+    "worst_completion_difference_pp": -4.213165621093057,
+    "worst_external_wait_difference": 42,
+    "mean_finite_window_difference_pct": -3.2724191008560584
+  },
+  "S4": {
+    "conditions": [
+      {
+        "period": "am",
+        "demand_scale": 0.6,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": 0.0
+      },
+      {
+        "period": "am",
+        "demand_scale": 1.0,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": 0.0
+      },
+      {
+        "period": "am",
+        "demand_scale": 1.4,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": 0.0
+      },
+      {
+        "period": "pm",
+        "demand_scale": 0.6,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": 0.0
+      },
+      {
+        "period": "pm",
+        "demand_scale": 1.0,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": 0.0
+      },
+      {
+        "period": "pm",
+        "demand_scale": 1.4,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": 0.0
+      }
+    ],
+    "worst_completion_difference_pp": 0.0,
+    "worst_external_wait_difference": 0,
+    "mean_finite_window_difference_pct": 0.0
+  },
+  "S5": {
+    "conditions": [
+      {
+        "period": "am",
+        "demand_scale": 0.6,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": -1.2280826717762705
+      },
+      {
+        "period": "am",
+        "demand_scale": 1.0,
+        "completion_difference_pp": -0.39217467504618075,
+        "external_wait_difference": 11,
+        "finite_window_time_difference_pct": 7.568261918441166
+      },
+      {
+        "period": "am",
+        "demand_scale": 1.4,
+        "completion_difference_pp": 1.4240364331322364,
+        "external_wait_difference": 17.5,
+        "finite_window_time_difference_pct": -1.6001989865501445
+      },
+      {
+        "period": "pm",
+        "demand_scale": 0.6,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": 1.744352374217789
+      },
+      {
+        "period": "pm",
+        "demand_scale": 1.0,
+        "completion_difference_pp": 0.002439838030243724,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": 5.898860858733168
+      },
+      {
+        "period": "pm",
+        "demand_scale": 1.4,
+        "completion_difference_pp": 5.141397623451599,
+        "external_wait_difference": -19.5,
+        "finite_window_time_difference_pct": -6.434064768516112
+      }
+    ],
+    "worst_completion_difference_pp": -0.39217467504618075,
+    "worst_external_wait_difference": 17.5,
+    "mean_finite_window_difference_pct": 0.9915214540915994
+  },
+  "S6": {
+    "conditions": [
+      {
+        "period": "am",
+        "demand_scale": 0.6,
+        "completion_difference_pp": -0.44809559372666063,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": 33.47611371705687
+      },
+      {
+        "period": "am",
+        "demand_scale": 1.0,
+        "completion_difference_pp": -1.7260119752543768,
+        "external_wait_difference": 18.5,
+        "finite_window_time_difference_pct": 7.0726080574479155
+      },
+      {
+        "period": "am",
+        "demand_scale": 1.4,
+        "completion_difference_pp": -7.193421591177107,
+        "external_wait_difference": 72.5,
+        "finite_window_time_difference_pct": 0.5195205004184356
+      },
+      {
+        "period": "pm",
+        "demand_scale": 0.6,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": 8.055379706991918
+      },
+      {
+        "period": "pm",
+        "demand_scale": 1.0,
+        "completion_difference_pp": 0.889376412888021,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": -27.725162025869725
+      },
+      {
+        "period": "pm",
+        "demand_scale": 1.4,
+        "completion_difference_pp": 9.212356370158625,
+        "external_wait_difference": -31,
+        "finite_window_time_difference_pct": -32.37773088135248
+      }
+    ],
+    "worst_completion_difference_pp": -7.193421591177107,
+    "worst_external_wait_difference": 72.5,
+    "mean_finite_window_difference_pct": -1.8298784875511773
+  },
+  "S7": {
+    "conditions": [
+      {
+        "period": "am",
+        "demand_scale": 0.6,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": 4.124460094464466
+      },
+      {
+        "period": "am",
+        "demand_scale": 1.0,
+        "completion_difference_pp": -3.799083921142471,
+        "external_wait_difference": 47,
+        "finite_window_time_difference_pct": 19.82956341618456
+      },
+      {
+        "period": "am",
+        "demand_scale": 1.4,
+        "completion_difference_pp": -6.816259572927691,
+        "external_wait_difference": 102,
+        "finite_window_time_difference_pct": 8.295443983683482
+      },
+      {
+        "period": "pm",
+        "demand_scale": 0.6,
+        "completion_difference_pp": 0.0,
+        "external_wait_difference": 0,
+        "finite_window_time_difference_pct": -3.3825581327627754
+      },
+      {
+        "period": "pm",
+        "demand_scale": 1.0,
+        "completion_difference_pp": -2.694085788253997,
+        "external_wait_difference": 15.5,
+        "finite_window_time_difference_pct": -9.082116986390819
+      },
+      {
+        "period": "pm",
+        "demand_scale": 1.4,
+        "completion_difference_pp": -6.314853427498457,
+        "external_wait_difference": 224,
+        "finite_window_time_difference_pct": 10.340118212007487
+      }
+    ],
+    "worst_completion_difference_pp": -6.816259572927691,
+    "worst_external_wait_difference": 224,
+    "mean_finite_window_difference_pct": 5.020818431197734
+  }
+}

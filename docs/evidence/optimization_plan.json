@@ -1,0 +1,842 @@
+{
+  "schema_version": "1.0",
+  "experiment_config": {
+    "duration_seconds": 9900,
+    "warmup_seconds": 900,
+    "demand_end_seconds": 8100,
+    "rate_per_gate": 120,
+    "step_seconds": 0.5
+  },
+  "frozen_families": [
+    "S1",
+    "S5"
+  ],
+  "exploration_seeds": [
+    11,
+    29
+  ],
+  "optimization_seeds": [
+    41,
+    43
+  ],
+  "verification_seeds": [
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110
+  ],
+  "exploration": [],
+  "verification": [],
+  "optimization": [
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v00",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 8.0
+      },
+      "period": "am",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v00",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 8.0
+      },
+      "period": "am",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v00",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 8.0
+      },
+      "period": "pm",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v00",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 8.0
+      },
+      "period": "pm",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v01",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 2.0
+      },
+      "period": "am",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v01",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 2.0
+      },
+      "period": "am",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v01",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 2.0
+      },
+      "period": "pm",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v01",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 2.0
+      },
+      "period": "pm",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v02",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 4.0
+      },
+      "period": "am",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v02",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 4.0
+      },
+      "period": "am",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v02",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 4.0
+      },
+      "period": "pm",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v02",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 4.0
+      },
+      "period": "pm",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v03",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 12.0
+      },
+      "period": "am",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v03",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 12.0
+      },
+      "period": "am",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v03",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 12.0
+      },
+      "period": "pm",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v03",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 12.0
+      },
+      "period": "pm",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v04",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 15.0
+      },
+      "period": "am",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v04",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 15.0
+      },
+      "period": "am",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v04",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 15.0
+      },
+      "period": "pm",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S1_v04",
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 15.0
+      },
+      "period": "pm",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v00",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 8.0
+      },
+      "period": "am",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v00",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 8.0
+      },
+      "period": "am",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v00",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 8.0
+      },
+      "period": "pm",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v00",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 8.0
+      },
+      "period": "pm",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v01",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 4.0
+      },
+      "period": "am",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v01",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 4.0
+      },
+      "period": "am",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v01",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 4.0
+      },
+      "period": "pm",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v01",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 4.0
+      },
+      "period": "pm",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v02",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 12.0
+      },
+      "period": "am",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v02",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 12.0
+      },
+      "period": "am",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v02",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 12.0
+      },
+      "period": "pm",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v02",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 12.0
+      },
+      "period": "pm",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v03",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 20.0
+      },
+      "period": "am",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v03",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 20.0
+      },
+      "period": "am",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v03",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 20.0
+      },
+      "period": "pm",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v03",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 20.0
+      },
+      "period": "pm",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v04",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 28.0
+      },
+      "period": "am",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v04",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 28.0
+      },
+      "period": "am",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v04",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 28.0
+      },
+      "period": "pm",
+      "seed": 41,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    },
+    {
+      "phase": "optimization",
+      "variant_id": "S5_v04",
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 28.0
+      },
+      "period": "pm",
+      "seed": 43,
+      "demand_level": "medium",
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5
+    }
+  ],
+  "configurations": [
+    {
+      "policy": "S1",
+      "variant_id": "S1_v00",
+      "policy_parameters": {
+        "green_extension_seconds": 8.0
+      },
+      "default_reference": true
+    },
+    {
+      "policy": "S1",
+      "variant_id": "S1_v01",
+      "policy_parameters": {
+        "green_extension_seconds": 2.0
+      },
+      "default_reference": false
+    },
+    {
+      "policy": "S1",
+      "variant_id": "S1_v02",
+      "policy_parameters": {
+        "green_extension_seconds": 4.0
+      },
+      "default_reference": false
+    },
+    {
+      "policy": "S1",
+      "variant_id": "S1_v03",
+      "policy_parameters": {
+        "green_extension_seconds": 12.0
+      },
+      "default_reference": false
+    },
+    {
+      "policy": "S1",
+      "variant_id": "S1_v04",
+      "policy_parameters": {
+        "green_extension_seconds": 15.0
+      },
+      "default_reference": false
+    },
+    {
+      "policy": "S5",
+      "variant_id": "S5_v00",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 8.0
+      },
+      "default_reference": true
+    },
+    {
+      "policy": "S5",
+      "variant_id": "S5_v01",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 4.0
+      },
+      "default_reference": false
+    },
+    {
+      "policy": "S5",
+      "variant_id": "S5_v02",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 12.0
+      },
+      "default_reference": false
+    },
+    {
+      "policy": "S5",
+      "variant_id": "S5_v03",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 20.0
+      },
+      "default_reference": false
+    },
+    {
+      "policy": "S5",
+      "variant_id": "S5_v04",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 28.0
+      },
+      "default_reference": false
+    }
+  ],
+  "selection_rule": "A variant is eligible only if each of its four paired tuning runs has no lower completion, no higher external waiting, and no higher finite-window TSTT than its family default. Among eligible variants minimize mean paired normalized finite-window TSTT; default wins ties. If none eligible retain default. This is an exploratory heuristic, not proof of optimality.",
+  "scope": "40 full-duration evaluations. Medium AM/PM only; independent verification must cover low/medium/high demand. No verification seed may inform tuning."
+}

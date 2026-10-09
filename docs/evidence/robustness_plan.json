@@ -1,0 +1,705 @@
+{
+  "schema_version": "1.0",
+  "stage_name": "bounded_downstream_robustness",
+  "scope": "24 exploratory robustness runs, separate from the 180-run independent verification. Medium demand only; no field-effectiveness claim.",
+  "storage_phase": "verification",
+  "storage_phase_note": "The unchanged run_study.py runner accepts three phase names. Its verification slot is used only as an execution adapter; these results are reported as exploratory robustness, never pooled into original verification.",
+  "source_plan": "docs/evidence/verification_plan.json",
+  "source_plan_sha256": "56a17bbefcbb063d5be717f8b5e6494da8a0bab4a5ee4f87fb43b0bce35107ad",
+  "experiment_config": {
+    "duration_seconds": 9900,
+    "warmup_seconds": 900,
+    "demand_end_seconds": 8100,
+    "rate_per_gate": 120,
+    "step_seconds": 0.5,
+    "demand_scale": 1.0,
+    "trajectory": false
+  },
+  "frozen_candidates": [
+    "S1",
+    "S5"
+  ],
+  "frozen_candidate_parameters": {
+    "S1": {
+      "green_extension_seconds": 8.0
+    },
+    "S5": {
+      "managed_curb_stop_seconds": 8.0
+    }
+  },
+  "prior_stage_seeds": [
+    11,
+    29,
+    41,
+    43,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110
+  ],
+  "robustness_seeds": [
+    211,
+    223
+  ],
+  "exploration_seeds": [
+    11,
+    29
+  ],
+  "optimization_seeds": [
+    41,
+    43
+  ],
+  "verification_seeds": [
+    211,
+    223
+  ],
+  "conditions": [
+    {
+      "id": "nominal",
+      "downstream_block": null,
+      "description": "Existing unrestricted terminal-lane receiving speeds."
+    },
+    {
+      "id": "exit_constraint",
+      "downstream_block": {
+        "gate_id": "W_exit_441574379",
+        "start_seconds": 3600.0,
+        "end_seconds": 4500.0,
+        "speed_m_s": 0.1
+      },
+      "description": "Hypothetical 15-minute terminal-edge speed restriction, 0.1 m/s from t=3600 to 4500 s; this is not an impermeable closure or measured service rate."
+    }
+  ],
+  "gate_selection": {
+    "rule": "Most scheduled peak trips in the four pre-existing medium-demand exploration inventories (AM/PM, seeds 11/29); tie-break lexical gate ID. No simulation performance or new robustness outcomes used.",
+    "selected_gate": {
+      "id": "W_exit_441574379",
+      "edge_id": "441574379",
+      "direction": "exit",
+      "side": "W",
+      "position": [
+        -1397.025,
+        32.794
+      ],
+      "status": "derived_outer_terminal"
+    },
+    "scheduled_peak_trips": 2227,
+    "destination_totals": {
+      "E_exit_221951480": 73,
+      "E_exit_458883922#3": 974,
+      "E_exit_458891623#20": 1010,
+      "E_exit_785085440": 993,
+      "E_exit_844894037#0": 956,
+      "E_exit_896111031#1": 981,
+      "N_exit_136005112#0": 1037,
+      "N_exit_1505070688#3": 1026,
+      "N_exit_181190803#0": 930,
+      "N_exit_459143638#0": 887,
+      "N_exit_564190177": 963,
+      "S_exit_136004881#4": 992,
+      "S_exit_1442743827#3": 1126,
+      "S_exit_267232477": 1037,
+      "W_exit_266163676#0": 1114,
+      "W_exit_441574379": 2227,
+      "W_exit_441579299#28": 1088
+    },
+    "source_inventories": [
+      {
+        "period": "am",
+        "seed": 11,
+        "demand_hash": "9a8e641ff2f6950a672f5de3e1f00b3bdec6f52658a4514bce1914b2d10d5fe1",
+        "scheduled_peak_destination_counts": {
+          "E_exit_221951480": 15,
+          "E_exit_458883922#3": 213,
+          "E_exit_458891623#20": 258,
+          "E_exit_785085440": 256,
+          "E_exit_844894037#0": 262,
+          "E_exit_896111031#1": 252,
+          "N_exit_136005112#0": 242,
+          "N_exit_1505070688#3": 255,
+          "N_exit_181190803#0": 214,
+          "N_exit_459143638#0": 199,
+          "N_exit_564190177": 245,
+          "S_exit_136004881#4": 258,
+          "S_exit_1442743827#3": 343,
+          "S_exit_267232477": 265,
+          "W_exit_266163676#0": 298,
+          "W_exit_441574379": 606,
+          "W_exit_441579299#28": 288
+        }
+      },
+      {
+        "period": "am",
+        "seed": 29,
+        "demand_hash": "081c5a9a705dec579e9ef9b60447d8f9c0c49703a611729fda03cd012632efc9",
+        "scheduled_peak_destination_counts": {
+          "E_exit_221951480": 22,
+          "E_exit_458883922#3": 255,
+          "E_exit_458891623#20": 281,
+          "E_exit_785085440": 234,
+          "E_exit_844894037#0": 244,
+          "E_exit_896111031#1": 216,
+          "N_exit_136005112#0": 258,
+          "N_exit_1505070688#3": 245,
+          "N_exit_181190803#0": 225,
+          "N_exit_459143638#0": 225,
+          "N_exit_564190177": 218,
+          "S_exit_136004881#4": 254,
+          "S_exit_1442743827#3": 270,
+          "S_exit_267232477": 298,
+          "W_exit_266163676#0": 300,
+          "W_exit_441574379": 609,
+          "W_exit_441579299#28": 297
+        }
+      },
+      {
+        "period": "pm",
+        "seed": 11,
+        "demand_hash": "05ff67f4c7de7f77369175ac2f17c5740f0db900675b572e61eaa5b1252299de",
+        "scheduled_peak_destination_counts": {
+          "E_exit_221951480": 17,
+          "E_exit_458883922#3": 253,
+          "E_exit_458891623#20": 236,
+          "E_exit_785085440": 255,
+          "E_exit_844894037#0": 226,
+          "E_exit_896111031#1": 271,
+          "N_exit_136005112#0": 269,
+          "N_exit_1505070688#3": 259,
+          "N_exit_181190803#0": 251,
+          "N_exit_459143638#0": 229,
+          "N_exit_564190177": 243,
+          "S_exit_136004881#4": 232,
+          "S_exit_1442743827#3": 253,
+          "S_exit_267232477": 217,
+          "W_exit_266163676#0": 256,
+          "W_exit_441574379": 495,
+          "W_exit_441579299#28": 230
+        }
+      },
+      {
+        "period": "pm",
+        "seed": 29,
+        "demand_hash": "6b25bbf680863e0edc726ca965f246e2028a05d353154a3f066f960d922960eb",
+        "scheduled_peak_destination_counts": {
+          "E_exit_221951480": 19,
+          "E_exit_458883922#3": 253,
+          "E_exit_458891623#20": 235,
+          "E_exit_785085440": 248,
+          "E_exit_844894037#0": 224,
+          "E_exit_896111031#1": 242,
+          "N_exit_136005112#0": 268,
+          "N_exit_1505070688#3": 267,
+          "N_exit_181190803#0": 240,
+          "N_exit_459143638#0": 234,
+          "N_exit_564190177": 257,
+          "S_exit_136004881#4": 248,
+          "S_exit_1442743827#3": 260,
+          "S_exit_267232477": 257,
+          "W_exit_266163676#0": 260,
+          "W_exit_441574379": 517,
+          "W_exit_441579299#28": 273
+        }
+      }
+    ]
+  },
+  "stopping_rule": "Run exactly this 24-cell matrix once. Retain anomalies and failures; do not retune, enlarge the sample or change conditions based on outcomes.",
+  "analysis_rule": "Compare each candidate to S0 within the same condition, period and seed. Report all seed-level differences, descriptive mean/range and marginal paired t intervals (n=2, df=1). Also report restriction-minus-nominal differences and policy-by-restriction interactions. No confirmatory significance or overall-winner claim; censored exposure is not eventual trip time.",
+  "not_tested": [
+    "Internal E1 activity",
+    "Expanded boundary with reconstructed demand",
+    "Independent curb-event intensity changes",
+    "Navigation-response sensitivity",
+    "Matched fixed-integrator step-size sensitivity",
+    "Field calibration"
+  ],
+  "exploration": [],
+  "optimization": [],
+  "verification": [
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "nominal",
+      "demand_level": "medium",
+      "period": "am",
+      "seed": 211,
+      "policy": "S0"
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "nominal",
+      "demand_level": "medium",
+      "period": "am",
+      "seed": 211,
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 8.0
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "nominal",
+      "demand_level": "medium",
+      "period": "am",
+      "seed": 211,
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 8.0
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "nominal",
+      "demand_level": "medium",
+      "period": "am",
+      "seed": 223,
+      "policy": "S0"
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "nominal",
+      "demand_level": "medium",
+      "period": "am",
+      "seed": 223,
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 8.0
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "nominal",
+      "demand_level": "medium",
+      "period": "am",
+      "seed": 223,
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 8.0
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "nominal",
+      "demand_level": "medium",
+      "period": "pm",
+      "seed": 211,
+      "policy": "S0"
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "nominal",
+      "demand_level": "medium",
+      "period": "pm",
+      "seed": 211,
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 8.0
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "nominal",
+      "demand_level": "medium",
+      "period": "pm",
+      "seed": 211,
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 8.0
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "nominal",
+      "demand_level": "medium",
+      "period": "pm",
+      "seed": 223,
+      "policy": "S0"
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "nominal",
+      "demand_level": "medium",
+      "period": "pm",
+      "seed": 223,
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 8.0
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "nominal",
+      "demand_level": "medium",
+      "period": "pm",
+      "seed": 223,
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 8.0
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "exit_constraint",
+      "demand_level": "medium",
+      "period": "am",
+      "seed": 211,
+      "policy": "S0",
+      "downstream_block": {
+        "gate_id": "W_exit_441574379",
+        "start_seconds": 3600.0,
+        "end_seconds": 4500.0,
+        "speed_m_s": 0.1
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "exit_constraint",
+      "demand_level": "medium",
+      "period": "am",
+      "seed": 211,
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 8.0
+      },
+      "downstream_block": {
+        "gate_id": "W_exit_441574379",
+        "start_seconds": 3600.0,
+        "end_seconds": 4500.0,
+        "speed_m_s": 0.1
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "exit_constraint",
+      "demand_level": "medium",
+      "period": "am",
+      "seed": 211,
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 8.0
+      },
+      "downstream_block": {
+        "gate_id": "W_exit_441574379",
+        "start_seconds": 3600.0,
+        "end_seconds": 4500.0,
+        "speed_m_s": 0.1
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "exit_constraint",
+      "demand_level": "medium",
+      "period": "am",
+      "seed": 223,
+      "policy": "S0",
+      "downstream_block": {
+        "gate_id": "W_exit_441574379",
+        "start_seconds": 3600.0,
+        "end_seconds": 4500.0,
+        "speed_m_s": 0.1
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "exit_constraint",
+      "demand_level": "medium",
+      "period": "am",
+      "seed": 223,
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 8.0
+      },
+      "downstream_block": {
+        "gate_id": "W_exit_441574379",
+        "start_seconds": 3600.0,
+        "end_seconds": 4500.0,
+        "speed_m_s": 0.1
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "exit_constraint",
+      "demand_level": "medium",
+      "period": "am",
+      "seed": 223,
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 8.0
+      },
+      "downstream_block": {
+        "gate_id": "W_exit_441574379",
+        "start_seconds": 3600.0,
+        "end_seconds": 4500.0,
+        "speed_m_s": 0.1
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "exit_constraint",
+      "demand_level": "medium",
+      "period": "pm",
+      "seed": 211,
+      "policy": "S0",
+      "downstream_block": {
+        "gate_id": "W_exit_441574379",
+        "start_seconds": 3600.0,
+        "end_seconds": 4500.0,
+        "speed_m_s": 0.1
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "exit_constraint",
+      "demand_level": "medium",
+      "period": "pm",
+      "seed": 211,
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 8.0
+      },
+      "downstream_block": {
+        "gate_id": "W_exit_441574379",
+        "start_seconds": 3600.0,
+        "end_seconds": 4500.0,
+        "speed_m_s": 0.1
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "exit_constraint",
+      "demand_level": "medium",
+      "period": "pm",
+      "seed": 211,
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 8.0
+      },
+      "downstream_block": {
+        "gate_id": "W_exit_441574379",
+        "start_seconds": 3600.0,
+        "end_seconds": 4500.0,
+        "speed_m_s": 0.1
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "exit_constraint",
+      "demand_level": "medium",
+      "period": "pm",
+      "seed": 223,
+      "policy": "S0",
+      "downstream_block": {
+        "gate_id": "W_exit_441574379",
+        "start_seconds": 3600.0,
+        "end_seconds": 4500.0,
+        "speed_m_s": 0.1
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "exit_constraint",
+      "demand_level": "medium",
+      "period": "pm",
+      "seed": 223,
+      "policy": "S1",
+      "policy_parameters": {
+        "green_extension_seconds": 8.0
+      },
+      "downstream_block": {
+        "gate_id": "W_exit_441574379",
+        "start_seconds": 3600.0,
+        "end_seconds": 4500.0,
+        "speed_m_s": 0.1
+      }
+    },
+    {
+      "duration_seconds": 9900,
+      "warmup_seconds": 900,
+      "demand_end_seconds": 8100,
+      "rate_per_gate": 120,
+      "step_seconds": 0.5,
+      "demand_scale": 1.0,
+      "trajectory": false,
+      "phase": "verification",
+      "variant_id": "exit_constraint",
+      "demand_level": "medium",
+      "period": "pm",
+      "seed": 223,
+      "policy": "S5",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 8.0
+      },
+      "downstream_block": {
+        "gate_id": "W_exit_441574379",
+        "start_seconds": 3600.0,
+        "end_seconds": 4500.0,
+        "speed_m_s": 0.1
+      }
+    }
+  ]
+}

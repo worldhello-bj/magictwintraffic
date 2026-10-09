@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1497" viewBox="0 0 1200 1497">
+<rect width="100%" height="100%" fill="#f7fafc"/>
+<g font-family="Arial,sans-serif" fill="#16324f">
+<text x="28" y="30" font-size="20">Paired scenario evidence: candidate minus baseline</text>
+<text x="28" y="53" font-size="13">Marginal 95% fixed-sample intervals. Censored system time is finite-window exposure, not final travel time.</text>
+<text x="28" y="75" font-size="13">Actual artifacts: 180/180; complete. No overall leaderboard.</text>
+<text x="28" y="100" font-size="16">Finite-window system time difference (vehicle-seconds)</text>
+<line x1="653.38" x2="653.38" y1="115" y2="514" stroke="#b3c2ce" stroke-dasharray="4,4"/>
+<text x="28" y="136" font-size="12">verification: S1, am, demand 0.6</text>
+<line x1="652.51" x2="654.27" y1="132" y2="132" stroke="#237a91" stroke-width="3"/>
+<circle cx="653.39" cy="132" r="4" fill="#16324f"/>
+<text x="1060" y="136" font-size="12">n=10</text>
+<text x="28" y="168" font-size="12">verification: S1, am, demand 1.0</text>
+<line x1="559.67" x2="741.27" y1="164" y2="164" stroke="#237a91" stroke-width="3"/>
+<circle cx="650.47" cy="164" r="4" fill="#16324f"/>
+<text x="1060" y="168" font-size="12">n=10</text>
+<text x="28" y="200" font-size="12">verification: S1, am, demand 1.4</text>
+<line x1="410.00" x2="830.36" y1="196" y2="196" stroke="#237a91" stroke-width="3"/>
+<circle cx="620.18" cy="196" r="4" fill="#16324f"/>
+<text x="1060" y="200" font-size="12">n=10</text>
+<text x="28" y="232" font-size="12">verification: S1, pm, demand 0.6</text>
+<line x1="651.93" x2="655.06" y1="228" y2="228" stroke="#237a91" stroke-width="3"/>
+<circle cx="653.49" cy="228" r="4" fill="#16324f"/>
+<text x="1060" y="232" font-size="12">n=10</text>
+<text x="28" y="264" font-size="12">verification: S1, pm, demand 1.0</text>
+<line x1="628.56" x2="697.59" y1="260" y2="260" stroke="#237a91" stroke-width="3"/>
+<circle cx="663.08" cy="260" r="4" fill="#16324f"/>
+<text x="1060" y="264" font-size="12">n=10</text>
+<text x="28" y="296" font-size="12">verification: S1, pm, demand 1.4</text>
+<line x1="567.78" x2="829.69" y1="292" y2="292" stroke="#237a91" stroke-width="3"/>
+<circle cx="698.74" cy="292" r="4" fill="#16324f"/>
+<text x="1060" y="296" font-size="12">n=10</text>
+<text x="28" y="328" font-size="12">verification: S5, am, demand 0.6</text>
+<line x1="649.00" x2="657.16" y1="324" y2="324" stroke="#237a91" stroke-width="3"/>
+<circle cx="653.08" cy="324" r="4" fill="#16324f"/>
+<text x="1060" y="328" font-size="12">n=10</text>
+<text x="28" y="360" font-size="12">verification: S5, am, demand 1.0</text>
+<line x1="657.27" x2="760.00" y1="356" y2="356" stroke="#237a91" stroke-width="3"/>
+<circle cx="708.63" cy="356" r="4" fill="#16324f"/>
+<text x="1060" y="360" font-size="12">n=10</text>
+<text x="28" y="392" font-size="12">verification: S5, am, demand 1.4</text>
+<line x1="599.75" x2="1010.00" y1="388" y2="388" stroke="#237a91" stroke-width="3"/>
+<circle cx="804.87" cy="388" r="4" fill="#16324f"/>
+<text x="1060" y="392" font-size="12">n=10</text>
+<text x="28" y="424" font-size="12">verification: S5, pm, demand 0.6</text>
+<line x1="646.93" x2="652.82" y1="420" y2="420" stroke="#237a91" stroke-width="3"/>
+<circle cx="649.87" cy="420" r="4" fill="#16324f"/>
+<text x="1060" y="424" font-size="12">n=10</text>
+<text x="28" y="456" font-size="12">verification: S5, pm, demand 1.0</text>
+<line x1="631.90" x2="696.35" y1="452" y2="452" stroke="#237a91" stroke-width="3"/>
+<circle cx="664.13" cy="452" r="4" fill="#16324f"/>
+<text x="1060" y="456" font-size="12">n=10</text>
+<text x="28" y="488" font-size="12">verification: S5, pm, demand 1.4</text>
+<line x1="467.74" x2="767.53" y1="484" y2="484" stroke="#237a91" stroke-width="3"/>
+<circle cx="617.64" cy="484" r="4" fill="#16324f"/>
+<text x="1060" y="488" font-size="12">n=10</text>
+<text x="380" y="542" font-size="11">-7.435e+05</text>
+<text x="1000" y="542" font-size="11">1.051e+06</text>
+<text x="28" y="569" font-size="16">Completion-rate difference (fraction)</text>
+<line x1="750.70" x2="750.70" y1="584" y2="983" stroke="#b3c2ce" stroke-dasharray="4,4"/>
+<text x="28" y="605" font-size="12">verification: S1, am, demand 0.6</text>
+<line x1="750.70" x2="750.70" y1="601" y2="601" stroke="#237a91" stroke-width="3"/>
+<circle cx="750.70" cy="601" r="4" fill="#16324f"/>
+<text x="1060" y="605" font-size="12">n=10</text>
+<text x="28" y="637" font-size="12">verification: S1, am, demand 1.0</text>
+<line x1="709.21" x2="778.13" y1="633" y2="633" stroke="#237a91" stroke-width="3"/>
+<circle cx="743.67" cy="633" r="4" fill="#16324f"/>
+<text x="1060" y="637" font-size="12">n=10</text>
+<text x="28" y="669" font-size="12">verification: S1, am, demand 1.4</text>
+<line x1="576.22" x2="956.20" y1="665" y2="665" stroke="#237a91" stroke-width="3"/>
+<circle cx="766.21" cy="665" r="4" fill="#16324f"/>
+<text x="1060" y="669" font-size="12">n=10</text>
+<text x="28" y="701" font-size="12">verification: S1, pm, demand 0.6</text>
+<line x1="750.70" x2="750.70" y1="697" y2="697" stroke="#237a91" stroke-width="3"/>
+<circle cx="750.70" cy="697" r="4" fill="#16324f"/>
+<text x="1060" y="701" font-size="12">n=10</text>
+<text x="28" y="733" font-size="12">verification: S1, pm, demand 1.0</text>
+<line x1="741.77" x2="759.30" y1="729" y2="729" stroke="#237a91" stroke-width="3"/>
+<circle cx="750.54" cy="729" r="4" fill="#16324f"/>
+<text x="1060" y="733" font-size="12">n=10</text>
+<text x="28" y="765" font-size="12">verification: S1, pm, demand 1.4</text>
+<line x1="466.79" x2="992.11" y1="761" y2="761" stroke="#237a91" stroke-width="3"/>
+<circle cx="729.45" cy="761" r="4" fill="#16324f"/>
+<text x="1060" y="765" font-size="12">n=10</text>
+<text x="28" y="797" font-size="12">verification: S5, am, demand 0.6</text>
+<line x1="750.70" x2="750.70" y1="793" y2="793" stroke="#237a91" stroke-width="3"/>
+<circle cx="750.70" cy="793" r="4" fill="#16324f"/>
+<text x="1060" y="797" font-size="12">n=10</text>
+<text x="28" y="829" font-size="12">verification: S5, am, demand 1.0</text>
+<line x1="715.33" x2="772.59" y1="825" y2="825" stroke="#237a91" stroke-width="3"/>
+<circle cx="743.96" cy="825" r="4" fill="#16324f"/>
+<text x="1060" y="829" font-size="12">n=10</text>
+<text x="28" y="861" font-size="12">verification: S5, am, demand 1.4</text>
+<line x1="410.00" x2="776.81" y1="857" y2="857" stroke="#237a91" stroke-width="3"/>
+<circle cx="593.41" cy="857" r="4" fill="#16324f"/>
+<text x="1060" y="861" font-size="12">n=10</text>
+<text x="28" y="893" font-size="12">verification: S5, pm, demand 0.6</text>
+<line x1="750.70" x2="750.70" y1="889" y2="889" stroke="#237a91" stroke-width="3"/>
+<circle cx="750.70" cy="889" r="4" fill="#16324f"/>
+<text x="1060" y="893" font-size="12">n=10</text>
+<text x="28" y="925" font-size="12">verification: S5, pm, demand 1.0</text>
+<line x1="747.41" x2="760.53" y1="921" y2="921" stroke="#237a91" stroke-width="3"/>
+<circle cx="753.97" cy="921" r="4" fill="#16324f"/>
+<text x="1060" y="925" font-size="12">n=10</text>
+<text x="28" y="957" font-size="12">verification: S5, pm, demand 1.4</text>
+<line x1="609.51" x2="1010.00" y1="953" y2="953" stroke="#237a91" stroke-width="3"/>
+<circle cx="809.76" cy="953" r="4" fill="#16324f"/>
+<text x="1060" y="957" font-size="12">n=10</text>
+<text x="380" y="1011" font-size="11">-0.07389</text>
+<text x="1000" y="1011" font-size="11">0.05767</text>
+<text x="28" y="1038" font-size="16">Terminal-backlog difference (vehicles)</text>
+<line x1="664.03" x2="664.03" y1="1053" y2="1452" stroke="#b3c2ce" stroke-dasharray="4,4"/>
+<text x="28" y="1074" font-size="12">verification: S1, am, demand 0.6</text>
+<line x1="664.03" x2="664.03" y1="1070" y2="1070" stroke="#237a91" stroke-width="3"/>
+<circle cx="664.03" cy="1070" r="4" fill="#16324f"/>
+<text x="1060" y="1074" font-size="12">n=10</text>
+<text x="28" y="1106" font-size="12">verification: S1, am, demand 1.0</text>
+<line x1="643.95" x2="694.40" y1="1102" y2="1102" stroke="#237a91" stroke-width="3"/>
+<circle cx="669.17" cy="1102" r="4" fill="#16324f"/>
+<text x="1060" y="1106" font-size="12">n=10</text>
+<text x="28" y="1138" font-size="12">verification: S1, am, demand 1.4</text>
+<line x1="452.75" x2="841.29" y1="1134" y2="1134" stroke="#237a91" stroke-width="3"/>
+<circle cx="647.02" cy="1134" r="4" fill="#16324f"/>
+<text x="1060" y="1138" font-size="12">n=10</text>
+<text x="28" y="1170" font-size="12">verification: S1, pm, demand 0.6</text>
+<line x1="664.03" x2="664.03" y1="1166" y2="1166" stroke="#237a91" stroke-width="3"/>
+<circle cx="664.03" cy="1166" r="4" fill="#16324f"/>
+<text x="1060" y="1170" font-size="12">n=10</text>
+<text x="28" y="1202" font-size="12">verification: S1, pm, demand 1.0</text>
+<line x1="657.92" x2="670.49" y1="1198" y2="1198" stroke="#237a91" stroke-width="3"/>
+<circle cx="664.20" cy="1198" r="4" fill="#16324f"/>
+<text x="1060" y="1202" font-size="12">n=10</text>
+<text x="28" y="1234" font-size="12">verification: S1, pm, demand 1.4</text>
+<line x1="427.34" x2="942.00" y1="1230" y2="1230" stroke="#237a91" stroke-width="3"/>
+<circle cx="684.67" cy="1230" r="4" fill="#16324f"/>
+<text x="1060" y="1234" font-size="12">n=10</text>
+<text x="28" y="1266" font-size="12">verification: S5, am, demand 0.6</text>
+<line x1="664.03" x2="664.03" y1="1262" y2="1262" stroke="#237a91" stroke-width="3"/>
+<circle cx="664.03" cy="1262" r="4" fill="#16324f"/>
+<text x="1060" y="1266" font-size="12">n=10</text>
+<text x="28" y="1298" font-size="12">verification: S5, am, demand 1.0</text>
+<line x1="647.49" x2="690.18" y1="1294" y2="1294" stroke="#237a91" stroke-width="3"/>
+<circle cx="668.84" cy="1294" r="4" fill="#16324f"/>
+<text x="1060" y="1298" font-size="12">n=10</text>
+<text x="28" y="1330" font-size="12">verification: S5, am, demand 1.4</text>
+<line x1="638.97" x2="1010.00" y1="1326" y2="1326" stroke="#237a91" stroke-width="3"/>
+<circle cx="824.48" cy="1326" r="4" fill="#16324f"/>
+<text x="1060" y="1330" font-size="12">n=10</text>
+<text x="28" y="1362" font-size="12">verification: S5, pm, demand 0.6</text>
+<line x1="664.03" x2="664.03" y1="1358" y2="1358" stroke="#237a91" stroke-width="3"/>
+<circle cx="664.03" cy="1358" r="4" fill="#16324f"/>
+<text x="1060" y="1362" font-size="12">n=10</text>
+<text x="28" y="1394" font-size="12">verification: S5, pm, demand 1.0</text>
+<line x1="656.94" x2="666.41" y1="1390" y2="1390" stroke="#237a91" stroke-width="3"/>
+<circle cx="661.68" cy="1390" r="4" fill="#16324f"/>
+<text x="1060" y="1394" font-size="12">n=10</text>
+<text x="28" y="1426" font-size="12">verification: S5, pm, demand 1.4</text>
+<line x1="410.00" x2="800.83" y1="1422" y2="1422" stroke="#237a91" stroke-width="3"/>
+<circle cx="605.41" cy="1422" r="4" fill="#16324f"/>
+<text x="1060" y="1426" font-size="12">n=10</text>
+<text x="380" y="1480" font-size="11">-337.2</text>
+<text x="1000" y="1480" font-size="11">446.4</text>
+</g>
+</svg>

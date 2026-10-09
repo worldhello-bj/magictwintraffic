@@ -1,0 +1,115 @@
+{
+  "available_runs": 2,
+  "expected_runs": 2,
+  "status": "benchmark_only_not_formal_study",
+  "comparisons": [
+    {
+      "phase": "benchmark",
+      "run_pairs": [
+        {
+          "baseline": "benchmark_S0_am_42_d1",
+          "candidate": "benchmark_S3_am_42_d1",
+          "seed": 42
+        }
+      ],
+      "paired_differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 1,
+          "mean_difference": 272484.9999999972,
+          "confidence": 0.95,
+          "ci_low": null,
+          "ci_high": null,
+          "method": "paired Student t, fixed sample"
+        },
+        "completion_rate": {
+          "n_pairs": 1,
+          "mean_difference": -0.036685082872928154,
+          "confidence": 0.95,
+          "ci_low": null,
+          "ci_high": null,
+          "method": "paired Student t, fixed sample"
+        },
+        "terminal_backlog": {
+          "n_pairs": 1,
+          "mean_difference": 166.0,
+          "confidence": 0.95,
+          "ci_low": null,
+          "ci_high": null,
+          "method": "paired Student t, fixed sample"
+        },
+        "external_waiting": {
+          "n_pairs": 1,
+          "mean_difference": 0.0,
+          "confidence": 0.95,
+          "ci_low": null,
+          "ci_high": null,
+          "method": "paired Student t, fixed sample"
+        }
+      },
+      "all_target_trips_complete": false,
+      "observed_completion_backlog_dominance": false,
+      "conclusion": "exploratory_only",
+      "travel_time_ranking_allowed": false,
+      "caveats": [
+        "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+        "Completed-only travel time is descriptive and never used to rank censored runs.",
+        "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+      ],
+      "policy": "S3",
+      "period": "am",
+      "demand_scale": 1,
+      "complete": true
+    }
+  ],
+  "baseline_metrics": {
+    "generated": 4525,
+    "due": 4525,
+    "completed": 4518,
+    "inside": 7,
+    "external_waiting": 0,
+    "explicit_failure": 0,
+    "completion_rate": 0.9984530386740331,
+    "tstt_vehicle_seconds": 2876247.468999998,
+    "mean_travel_time_seconds": 633.2892253209385,
+    "p95_travel_time_seconds": 2706.6442999999995,
+    "median_travel_time_seconds": 318.1434999999999,
+    "external_wait_vehicle_seconds": 393703.46900000004,
+    "core_vehicle_seconds": 1037932.5,
+    "periphery_vehicle_seconds": 1444615.0,
+    "max_queue_vehicles": 301,
+    "teleports": 0,
+    "collisions": 0,
+    "duration_seconds": 9900.0,
+    "cohort": "peak",
+    "interpretation": "Finite-window cumulative time including due but uninserted target trips. Incomplete trips are right-censored; completed-only mean is secondary.",
+    "all_cohort_generated": 4947,
+    "all_cohort_completed": 4940,
+    "all_cohort_inserted": 4947
+  },
+  "candidate_metrics": {
+    "generated": 4525,
+    "due": 4525,
+    "completed": 4352,
+    "inside": 173,
+    "external_waiting": 0,
+    "explicit_failure": 0,
+    "completion_rate": 0.961767955801105,
+    "tstt_vehicle_seconds": 3148732.4689999954,
+    "mean_travel_time_seconds": 561.7053685661765,
+    "p95_travel_time_seconds": 2173.652499999998,
+    "median_travel_time_seconds": 315.37750000000005,
+    "external_wait_vehicle_seconds": 192247.469,
+    "core_vehicle_seconds": 1389218.0,
+    "periphery_vehicle_seconds": 1567353.5,
+    "max_queue_vehicles": 340,
+    "teleports": 0,
+    "collisions": 0,
+    "duration_seconds": 9900.0,
+    "cohort": "peak",
+    "interpretation": "Finite-window cumulative time including due but uninserted target trips. Incomplete trips are right-censored; completed-only mean is secondary.",
+    "all_cohort_generated": 4947,
+    "all_cohort_completed": 4774,
+    "all_cohort_inserted": 4947
+  },
+  "scope": "9900s pre-study benchmark, seed42 excluded from exploration/verification; one pair, right-censored, no policy ranking or confidence interval."
+}

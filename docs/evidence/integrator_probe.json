@@ -1,0 +1,17 @@
+{
+  "source": "https://sumo.dlr.de/docs/Simulation/Basic_Definition.html",
+  "purpose": "Check automatic integration-method change before interpreting .25 sensitivity; no formal experiment inputs changed.",
+  "finding": "At .25 with actionStepLength .5 SUMO warns that it enables ballistic integration. Raw getOption value alone does not expose this internal switch. The .5 primary experiments stay internally consistent; unqualified pure step-size validation remains pending.",
+  "samples": [
+    {
+      "step_seconds": 0.5,
+      "stdout": "{\"reported_raw_option\": \"false\", \"car_action_step\": 0.5}\n",
+      "stderr": ""
+    },
+    {
+      "step_seconds": 0.25,
+      "stdout": "{\"reported_raw_option\": \"false\", \"car_action_step\": 0.5}\n",
+      "stderr": "Warning: Action step length '0.50' is used for vehicle type 'car' but step-method.ballistic was not set. Setting it now to avoid collisions.\n"
+    }
+  ]
+}

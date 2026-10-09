@@ -1,0 +1,509 @@
+{
+  "scope": "Peak-cohort car and bus vehicle metrics; no passenger weighting or door-to-door claim.",
+  "runs": [
+    {
+      "run_id": "3fee4da55580437096dc3e24770c1af3",
+      "policy": "S0",
+      "period": "am",
+      "demand_scale": 1.0,
+      "seed": 211,
+      "groups": {
+        "car": {
+          "due": 4282,
+          "completed": 4103,
+          "external_waiting": 78,
+          "finite_window_tstt_vehicle_seconds": 4226478.604
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 22866.0
+        }
+      }
+    },
+    {
+      "run_id": "958dcfef9375416fb57a1f7ceb65f9cc",
+      "policy": "S1",
+      "period": "am",
+      "demand_scale": 1.0,
+      "seed": 211,
+      "groups": {
+        "car": {
+          "due": 4282,
+          "completed": 4156,
+          "external_waiting": 90,
+          "finite_window_tstt_vehicle_seconds": 3691114.604
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 20776.5
+        }
+      }
+    },
+    {
+      "run_id": "c0ccfacf90f0423ebdff7444d78410b0",
+      "policy": "S5",
+      "period": "am",
+      "demand_scale": 1.0,
+      "seed": 211,
+      "groups": {
+        "car": {
+          "due": 4282,
+          "completed": 4116,
+          "external_waiting": 81,
+          "finite_window_tstt_vehicle_seconds": 4030001.104
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 19899.5
+        }
+      }
+    },
+    {
+      "run_id": "6a2fe9eac93343f79b73c5da1b9700a0",
+      "policy": "S0",
+      "period": "am",
+      "demand_scale": 1.0,
+      "seed": 223,
+      "groups": {
+        "car": {
+          "due": 4180,
+          "completed": 4100,
+          "external_waiting": 40,
+          "finite_window_tstt_vehicle_seconds": 3120953.351
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 19912.0
+        }
+      }
+    },
+    {
+      "run_id": "225801bd0f2d410eb8193749276641ec",
+      "policy": "S1",
+      "period": "am",
+      "demand_scale": 1.0,
+      "seed": 223,
+      "groups": {
+        "car": {
+          "due": 4180,
+          "completed": 4105,
+          "external_waiting": 38,
+          "finite_window_tstt_vehicle_seconds": 3339873.851
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 20764.0
+        }
+      }
+    },
+    {
+      "run_id": "17692d6181af4bc9a1f38a6c3a568ea0",
+      "policy": "S5",
+      "period": "am",
+      "demand_scale": 1.0,
+      "seed": 223,
+      "groups": {
+        "car": {
+          "due": 4180,
+          "completed": 4112,
+          "external_waiting": 17,
+          "finite_window_tstt_vehicle_seconds": 3100035.351
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 19749.5
+        }
+      }
+    },
+    {
+      "run_id": "bd3e9786eec84fbf98173b1560218a5c",
+      "policy": "S0",
+      "period": "pm",
+      "demand_scale": 1.0,
+      "seed": 211,
+      "groups": {
+        "car": {
+          "due": 4153,
+          "completed": 4077,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 3129185.931
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 19770.0
+        }
+      }
+    },
+    {
+      "run_id": "3e5f824667e44defb47bbb7e18b0c4d1",
+      "policy": "S1",
+      "period": "pm",
+      "demand_scale": 1.0,
+      "seed": 211,
+      "groups": {
+        "car": {
+          "due": 4153,
+          "completed": 4073,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 3318963.431
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 20148.0
+        }
+      }
+    },
+    {
+      "run_id": "d0e9391ad900439eb6dea14bcfa32553",
+      "policy": "S5",
+      "period": "pm",
+      "demand_scale": 1.0,
+      "seed": 211,
+      "groups": {
+        "car": {
+          "due": 4153,
+          "completed": 4073,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 3305808.431
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 20590.0
+        }
+      }
+    },
+    {
+      "run_id": "ee4e3c93d1ec4a139db1f77b69d2eeb7",
+      "policy": "S0",
+      "period": "pm",
+      "demand_scale": 1.0,
+      "seed": 223,
+      "groups": {
+        "car": {
+          "due": 4141,
+          "completed": 4010,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 3256237.904
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 19892.5
+        }
+      }
+    },
+    {
+      "run_id": "ff77a7eeeec04e92af33fee5475febf5",
+      "policy": "S1",
+      "period": "pm",
+      "demand_scale": 1.0,
+      "seed": 223,
+      "groups": {
+        "car": {
+          "due": 4141,
+          "completed": 4006,
+          "external_waiting": 16,
+          "finite_window_tstt_vehicle_seconds": 3429560.904
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 19645.5
+        }
+      }
+    },
+    {
+      "run_id": "23872285ee764ba982df0f9d4cc9355b",
+      "policy": "S5",
+      "period": "pm",
+      "demand_scale": 1.0,
+      "seed": 223,
+      "groups": {
+        "car": {
+          "due": 4141,
+          "completed": 4022,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 3120591.904
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 19771.5
+        }
+      }
+    },
+    {
+      "run_id": "26252f5c5f42443c898496e4a49eb60e",
+      "policy": "S0",
+      "period": "am",
+      "demand_scale": 1.0,
+      "seed": 211,
+      "groups": {
+        "car": {
+          "due": 4282,
+          "completed": 4096,
+          "external_waiting": 86,
+          "finite_window_tstt_vehicle_seconds": 4136976.104
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 21896.0
+        }
+      }
+    },
+    {
+      "run_id": "b19a6a0a96cd4060b8097e06bc510c38",
+      "policy": "S1",
+      "period": "am",
+      "demand_scale": 1.0,
+      "seed": 211,
+      "groups": {
+        "car": {
+          "due": 4282,
+          "completed": 4188,
+          "external_waiting": 37,
+          "finite_window_tstt_vehicle_seconds": 3491416.604
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 21464.0
+        }
+      }
+    },
+    {
+      "run_id": "e4f3f70840f7403e8c7ab4f5db2b8aa5",
+      "policy": "S5",
+      "period": "am",
+      "demand_scale": 1.0,
+      "seed": 211,
+      "groups": {
+        "car": {
+          "due": 4282,
+          "completed": 4115,
+          "external_waiting": 90,
+          "finite_window_tstt_vehicle_seconds": 4129775.604
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 21458.0
+        }
+      }
+    },
+    {
+      "run_id": "f276cbd782d04369a0bc4b8702007ff5",
+      "policy": "S0",
+      "period": "am",
+      "demand_scale": 1.0,
+      "seed": 223,
+      "groups": {
+        "car": {
+          "due": 4180,
+          "completed": 4089,
+          "external_waiting": 45,
+          "finite_window_tstt_vehicle_seconds": 3265968.351
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 21476.0
+        }
+      }
+    },
+    {
+      "run_id": "7f449c56c95e4598a34ee108d202db85",
+      "policy": "S1",
+      "period": "am",
+      "demand_scale": 1.0,
+      "seed": 223,
+      "groups": {
+        "car": {
+          "due": 4180,
+          "completed": 4143,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 2903630.351
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 21151.0
+        }
+      }
+    },
+    {
+      "run_id": "b66d9660a79341ee8304df9a00612224",
+      "policy": "S5",
+      "period": "am",
+      "demand_scale": 1.0,
+      "seed": 223,
+      "groups": {
+        "car": {
+          "due": 4180,
+          "completed": 4131,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 3183577.851
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 21647.5
+        }
+      }
+    },
+    {
+      "run_id": "f1368ad0620a42dcac05744a537b6262",
+      "policy": "S0",
+      "period": "pm",
+      "demand_scale": 1.0,
+      "seed": 211,
+      "groups": {
+        "car": {
+          "due": 4153,
+          "completed": 4059,
+          "external_waiting": 14,
+          "finite_window_tstt_vehicle_seconds": 3759193.931
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 23564.0
+        }
+      }
+    },
+    {
+      "run_id": "cf445a775fe043ab8aab48b2434136b1",
+      "policy": "S1",
+      "period": "pm",
+      "demand_scale": 1.0,
+      "seed": 211,
+      "groups": {
+        "car": {
+          "due": 4153,
+          "completed": 4070,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 3567477.431
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 22948.0
+        }
+      }
+    },
+    {
+      "run_id": "9a29c4dde0e5449aa8359f04dd8f0579",
+      "policy": "S5",
+      "period": "pm",
+      "demand_scale": 1.0,
+      "seed": 211,
+      "groups": {
+        "car": {
+          "due": 4153,
+          "completed": 4081,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 3235019.431
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 21225.5
+        }
+      }
+    },
+    {
+      "run_id": "3d39d55c087a433aaf7f4798fcb50cd6",
+      "policy": "S0",
+      "period": "pm",
+      "demand_scale": 1.0,
+      "seed": 223,
+      "groups": {
+        "car": {
+          "due": 4141,
+          "completed": 3999,
+          "external_waiting": 3,
+          "finite_window_tstt_vehicle_seconds": 3278170.904
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 21114.0
+        }
+      }
+    },
+    {
+      "run_id": "d48b4995311a4f1fa9a8fa389731a04e",
+      "policy": "S1",
+      "period": "pm",
+      "demand_scale": 1.0,
+      "seed": 223,
+      "groups": {
+        "car": {
+          "due": 4141,
+          "completed": 4011,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 3408329.404
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 21169.0
+        }
+      }
+    },
+    {
+      "run_id": "3eb0a424e7a845e5bb1bd119ddace7e7",
+      "policy": "S5",
+      "period": "pm",
+      "demand_scale": 1.0,
+      "seed": 223,
+      "groups": {
+        "car": {
+          "due": 4141,
+          "completed": 4005,
+          "external_waiting": 30,
+          "finite_window_tstt_vehicle_seconds": 3550674.404
+        },
+        "bus": {
+          "due": 96,
+          "completed": 96,
+          "external_waiting": 0,
+          "finite_window_tstt_vehicle_seconds": 21001.5
+        }
+      }
+    }
+  ]
+}

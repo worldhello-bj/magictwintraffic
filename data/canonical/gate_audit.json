@@ -1,0 +1,711 @@
+[
+  {
+    "id": "N_entry_115625972#1",
+    "edge_id": "115625972#1",
+    "direction": "entry",
+    "side": "N",
+    "position": [
+      390.555,
+      1411.784
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "4794975945",
+    "raw_highway_neighbor_count": 4,
+    "raw_neighbor_ids": [
+      "1445484327",
+      "1492408883",
+      "314622964",
+      "314623138"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "S_exit_136004881#4",
+    "edge_id": "136004881#4",
+    "direction": "exit",
+    "side": "S",
+    "position": [
+      434.345,
+      -1176.176
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "7618649237",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "13238336865",
+      "1493146459",
+      "2367361540"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "N_exit_136005112#0",
+    "edge_id": "136005112#0",
+    "direction": "exit",
+    "side": "N",
+    "position": [
+      418.615,
+      1014.904
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "11699319252",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "1492405916",
+      "4601260484",
+      "5436607843"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "S_entry_136069028#0",
+    "edge_id": "136069028#0",
+    "direction": "entry",
+    "side": "S",
+    "position": [
+      448.255,
+      -1316.016
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "1493146458",
+    "raw_highway_neighbor_count": 2,
+    "raw_neighbor_ids": [
+      "11697037936",
+      "5619295506"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "S_exit_1442743827#3",
+    "edge_id": "1442743827#3",
+    "direction": "exit",
+    "side": "S",
+    "position": [
+      420.805,
+      -1068.416
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "4701464385",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "13238336866",
+      "2367361540",
+      "4701464386"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "S_entry_1448610360#9",
+    "edge_id": "1448610360#9",
+    "direction": "entry",
+    "side": "S",
+    "position": [
+      454.895,
+      -1053.096
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "6257575017",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "1493146466",
+      "6257575018",
+      "6257575025"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "N_exit_1505070688#3",
+    "edge_id": "1505070688#3",
+    "direction": "exit",
+    "side": "N",
+    "position": [
+      -812.395,
+      1019.944
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "5514165381",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "314622914",
+      "5514165382",
+      "5628750477"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "N_exit_181190803#0",
+    "edge_id": "181190803#0",
+    "direction": "exit",
+    "side": "N",
+    "position": [
+      -145.115,
+      1096.074
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "1916386495",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "1916386461",
+      "5478294498",
+      "5530492093"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "E_exit_221951480",
+    "edge_id": "221951480",
+    "direction": "exit",
+    "side": "E",
+    "position": [
+      1218.005,
+      -489.816
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "4548141015",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "2329115969",
+      "2329115975",
+      "4992013241"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "W_exit_266163676#0",
+    "edge_id": "266163676#0",
+    "direction": "exit",
+    "side": "W",
+    "position": [
+      -1013.985,
+      -805.086
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "2727022877",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "2727022879",
+      "3266784227",
+      "432452881"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "S_entry_267226974#2",
+    "edge_id": "267226974#2",
+    "direction": "entry",
+    "side": "S",
+    "position": [
+      -484.015,
+      -1088.196
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "2717452481",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "13985142888",
+      "432452884",
+      "432452891"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "W_entry_267232475#0",
+    "edge_id": "267232475#0",
+    "direction": "entry",
+    "side": "W",
+    "position": [
+      -1027.385,
+      -829.126
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "3266784227",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "2727022877",
+      "3266784226",
+      "3496551179"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "S_exit_267232477",
+    "edge_id": "267232477",
+    "direction": "exit",
+    "side": "S",
+    "position": [
+      -771.365,
+      -1046.976
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "432452886",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "2727024777",
+      "432452887",
+      "432452888"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "S_entry_267232478",
+    "edge_id": "267232478",
+    "direction": "entry",
+    "side": "S",
+    "position": [
+      -759.535,
+      -1033.296
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "432452888",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "13985142888",
+      "432452886",
+      "432452889"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "W_exit_441574379",
+    "edge_id": "441574379",
+    "direction": "exit",
+    "side": "W",
+    "position": [
+      -1397.025,
+      32.794
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "8329831281",
+    "raw_highway_neighbor_count": 1,
+    "raw_neighbor_ids": [
+      "4218012552"
+    ],
+    "continuation_evidence": {
+      "source_url": "https://www.openstreetmap.org/api/0.6/node/8329831281/ways",
+      "retrieved_at": "2026-10-09",
+      "file": "data/raw/boundary_node_8329831281_ways.osm",
+      "sha256": "ef6608b2ee6ee84330d83a63dbf8d5000d113efa0c8091a314a2e484de3d6587",
+      "connected_highway_way_ids": [
+        "441574379",
+        "570975763"
+      ],
+      "status": "raw_extract_edge_continuation_verified"
+    }
+  },
+  {
+    "id": "E_entry_441574380",
+    "edge_id": "441574380",
+    "direction": "entry",
+    "side": "E",
+    "position": [
+      1227.115,
+      -469.476
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "4548141029",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "2333187911",
+      "2334060843",
+      "4992013240"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "W_exit_441579299#28",
+    "edge_id": "441579299#28",
+    "direction": "exit",
+    "side": "W",
+    "position": [
+      -1215.875,
+      -88.586
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "4548211609",
+    "raw_highway_neighbor_count": 6,
+    "raw_neighbor_ids": [
+      "2729395902",
+      "4548211261",
+      "4548211420",
+      "4548211674",
+      "5488945463",
+      "5789411072"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "E_entry_441579299#8",
+    "edge_id": "441579299#8",
+    "direction": "entry",
+    "side": "E",
+    "position": [
+      1159.275,
+      -459.556
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "4548142591",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "11062710398",
+      "4548141033",
+      "6262777660"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "E_entry_458883907",
+    "edge_id": "458883907",
+    "direction": "entry",
+    "side": "E",
+    "position": [
+      1227.115,
+      -469.476
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "4548141029",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "2333187911",
+      "2334060843",
+      "4992013240"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "E_exit_458883922#3",
+    "edge_id": "458883922#3",
+    "direction": "exit",
+    "side": "E",
+    "position": [
+      1218.005,
+      -489.816
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "4548141015",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "2329115969",
+      "2329115975",
+      "4992013241"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "W_entry_458891623#2",
+    "edge_id": "458891623#2",
+    "direction": "entry",
+    "side": "W",
+    "position": [
+      -1204.335,
+      -116.906
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "5789411072",
+    "raw_highway_neighbor_count": 4,
+    "raw_neighbor_ids": [
+      "4548211261",
+      "4548211609",
+      "5488619232",
+      "5789411070"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "E_exit_458891623#20",
+    "edge_id": "458891623#20",
+    "direction": "exit",
+    "side": "E",
+    "position": [
+      1021.895,
+      -497.166
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "2333187912",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "4701400722",
+      "5488650286",
+      "8632032096"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "N_entry_459143617#4",
+    "edge_id": "459143617#4",
+    "direction": "entry",
+    "side": "N",
+    "position": [
+      385.265,
+      1023.764
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "5436607846",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "1492410933",
+      "5436607839",
+      "5436607848"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "N_exit_459143638#0",
+    "edge_id": "459143638#0",
+    "direction": "exit",
+    "side": "N",
+    "position": [
+      400.085,
+      1411.944
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "1445484327",
+    "raw_highway_neighbor_count": 4,
+    "raw_neighbor_ids": [
+      "1159174895",
+      "3943038369",
+      "4794975945",
+      "5436607837"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "N_entry_538608173#0",
+    "edge_id": "538608173#0",
+    "direction": "entry",
+    "side": "N",
+    "position": [
+      -962.405,
+      1091.354
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "5628750476",
+    "raw_highway_neighbor_count": 4,
+    "raw_neighbor_ids": [
+      "5213238478",
+      "5213238592",
+      "5628750475",
+      "5628750477"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "E_entry_538608185#5",
+    "edge_id": "538608185#5",
+    "direction": "entry",
+    "side": "E",
+    "position": [
+      1008.175,
+      1004.094
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "5213238518",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "5213238476",
+      "7334966845",
+      "8279155681"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "N_exit_564190177",
+    "edge_id": "564190177",
+    "direction": "exit",
+    "side": "N",
+    "position": [
+      418.615,
+      1014.904
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "11699319252",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "1492405916",
+      "4601260484",
+      "5436607843"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "N_entry_564190179",
+    "edge_id": "564190179",
+    "direction": "entry",
+    "side": "N",
+    "position": [
+      385.265,
+      1023.764
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "5436607846",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "1492410933",
+      "5436607839",
+      "5436607848"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "E_exit_785085440",
+    "edge_id": "785085440",
+    "direction": "exit",
+    "side": "E",
+    "position": [
+      1223.375,
+      991.084
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "7334966736",
+    "raw_highway_neighbor_count": 2,
+    "raw_neighbor_ids": [
+      "7334966735",
+      "7334966737"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "E_entry_785085443",
+    "edge_id": "785085443",
+    "direction": "entry",
+    "side": "E",
+    "position": [
+      1223.645,
+      996.344
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "7334966723",
+    "raw_highway_neighbor_count": 2,
+    "raw_neighbor_ids": [
+      "12154766094",
+      "7334966722"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "W_entry_824625838",
+    "edge_id": "824625838",
+    "direction": "entry",
+    "side": "W",
+    "position": [
+      -1400.015,
+      -12.266
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "8329831280",
+    "raw_highway_neighbor_count": 1,
+    "raw_neighbor_ids": [
+      "4393223481"
+    ],
+    "continuation_evidence": {
+      "source_url": "https://www.openstreetmap.org/api/0.6/node/8329831280/ways",
+      "retrieved_at": "2026-10-09",
+      "file": "data/raw/boundary_node_8329831280_ways.osm",
+      "sha256": "dc40ec4f3e09601d1ec18ad041e94fecdee5e73822b9b475f701c47298605096",
+      "connected_highway_way_ids": [
+        "824625838",
+        "896111036"
+      ],
+      "status": "raw_extract_edge_continuation_verified"
+    }
+  },
+  {
+    "id": "E_exit_844894037#0",
+    "edge_id": "844894037#0",
+    "direction": "exit",
+    "side": "E",
+    "position": [
+      1047.725,
+      981.524
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "1159173786",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "337539952",
+      "4693609813",
+      "4693610126"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  },
+  {
+    "id": "E_exit_896111031#1",
+    "edge_id": "896111031#1",
+    "direction": "exit",
+    "side": "E",
+    "position": [
+      1021.895,
+      -497.166
+    ],
+    "status": "derived_outer_terminal",
+    "osm_terminal_node": "2333187912",
+    "raw_highway_neighbor_count": 3,
+    "raw_neighbor_ids": [
+      "4701400722",
+      "5488650286",
+      "8632032096"
+    ],
+    "continuation_evidence": {
+      "status": "multiple_adjacent_highway_segments_in_raw_osm"
+    }
+  }
+]

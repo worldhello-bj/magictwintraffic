@@ -1,0 +1,169 @@
+{
+  "checked_runs": 40,
+  "method": "math.fsum of arrival-or-horizon minus desired departure for every due peak trip, independently of evaluator time-series accumulation.",
+  "maximum_absolute_error_vehicle_seconds": 3.725290298461914e-09,
+  "identical_exogenous_hashes_across_policies": true,
+  "shared_implementation_hash": "fef3a24c1ab33af8305109664da74af7d5a417bf902283fe5ba6a25e85c39046",
+  "runs": [
+    {
+      "run_id": "bdf5ac6a025d4e75b003f0c6559648f7",
+      "absolute_error_vehicle_seconds": 3.725290298461914e-09
+    },
+    {
+      "run_id": "824565bed31f4bb3bcb4955ad2219673",
+      "absolute_error_vehicle_seconds": 4.656612873077393e-10
+    },
+    {
+      "run_id": "6e9b14d7149f4b8f9af2ad83fe442fa1",
+      "absolute_error_vehicle_seconds": 1.862645149230957e-09
+    },
+    {
+      "run_id": "e6428320b5334cbcae67151e547d26c4",
+      "absolute_error_vehicle_seconds": 4.656612873077393e-10
+    },
+    {
+      "run_id": "52b186e67f5147038fd283e224ec48fc",
+      "absolute_error_vehicle_seconds": 9.313225746154785e-10
+    },
+    {
+      "run_id": "31662f9e11cd44d8aa220bc51295ae14",
+      "absolute_error_vehicle_seconds": 6.984919309616089e-10
+    },
+    {
+      "run_id": "d60338bf71da4f05bfd79bc1edd2ee2d",
+      "absolute_error_vehicle_seconds": 1.862645149230957e-09
+    },
+    {
+      "run_id": "459ad03769e5469d9b3f1452bec5f44b",
+      "absolute_error_vehicle_seconds": 1.3969838619232178e-09
+    },
+    {
+      "run_id": "44a721dce27a428f8ff0b6ab93094fa9",
+      "absolute_error_vehicle_seconds": 1.862645149230957e-09
+    },
+    {
+      "run_id": "671b1f8f20b84e308fdbc233be393c2d",
+      "absolute_error_vehicle_seconds": 4.656612873077393e-10
+    },
+    {
+      "run_id": "ea7f047a60be47be86d689f709ecafd4",
+      "absolute_error_vehicle_seconds": 1.862645149230957e-09
+    },
+    {
+      "run_id": "5413e09ada8e41bcb4745a019bea2cd1",
+      "absolute_error_vehicle_seconds": 4.656612873077393e-10
+    },
+    {
+      "run_id": "6db9df30f5b84fe995d7d75b94e6a2bd",
+      "absolute_error_vehicle_seconds": 3.725290298461914e-09
+    },
+    {
+      "run_id": "1907589c70b447f2a5a28bd604860f45",
+      "absolute_error_vehicle_seconds": 6.984919309616089e-10
+    },
+    {
+      "run_id": "e11e0c77cd67470b8156e285211e8c53",
+      "absolute_error_vehicle_seconds": 1.862645149230957e-09
+    },
+    {
+      "run_id": "e356f976eb874c89a613c9e484384e01",
+      "absolute_error_vehicle_seconds": 4.656612873077393e-10
+    },
+    {
+      "run_id": "ee716001a4184a60a30c3b303c8e3269",
+      "absolute_error_vehicle_seconds": 1.862645149230957e-09
+    },
+    {
+      "run_id": "7f092fae0b8b42d2972b08f914ce3b05",
+      "absolute_error_vehicle_seconds": 2.3283064365386963e-10
+    },
+    {
+      "run_id": "9a4b1be00e914183b263b52c78086ab8",
+      "absolute_error_vehicle_seconds": 1.862645149230957e-09
+    },
+    {
+      "run_id": "aa3a57bfd31f47ab867ca02a2f190f9e",
+      "absolute_error_vehicle_seconds": 4.656612873077393e-10
+    },
+    {
+      "run_id": "19f3b797f2514602b08ae54f98558a9d",
+      "absolute_error_vehicle_seconds": 9.313225746154785e-10
+    },
+    {
+      "run_id": "1dfe61172cd547db88f55119604469e9",
+      "absolute_error_vehicle_seconds": 4.656612873077393e-10
+    },
+    {
+      "run_id": "fc0a51594f0f458699311b5c5bf411ba",
+      "absolute_error_vehicle_seconds": 9.313225746154785e-10
+    },
+    {
+      "run_id": "0a8b962f8f424c5f921d7c750f1c233e",
+      "absolute_error_vehicle_seconds": 0.0
+    },
+    {
+      "run_id": "259f2afe19c14c7090d3b13fb6d1e22f",
+      "absolute_error_vehicle_seconds": 1.862645149230957e-09
+    },
+    {
+      "run_id": "39834116b05647b29f74bb024a037e0f",
+      "absolute_error_vehicle_seconds": 9.313225746154785e-10
+    },
+    {
+      "run_id": "87c2ce11dae84a0f9522202a27dd15f1",
+      "absolute_error_vehicle_seconds": 2.3283064365386963e-09
+    },
+    {
+      "run_id": "7148134de9ba47e4bc8f969c8c76ee7d",
+      "absolute_error_vehicle_seconds": 0.0
+    },
+    {
+      "run_id": "c73b802b197f42a8a024c98e84efce7a",
+      "absolute_error_vehicle_seconds": 0.0
+    },
+    {
+      "run_id": "cc71672d3bff440f9e7e6af5dda1e5fe",
+      "absolute_error_vehicle_seconds": 6.984919309616089e-10
+    },
+    {
+      "run_id": "e78a24a62b9946a8b2050f3469204c6a",
+      "absolute_error_vehicle_seconds": 1.862645149230957e-09
+    },
+    {
+      "run_id": "a5f0e87219544dc9af70ff9971431457",
+      "absolute_error_vehicle_seconds": 4.656612873077393e-10
+    },
+    {
+      "run_id": "76fe124ab7704dfab0926b97a8501e99",
+      "absolute_error_vehicle_seconds": 1.862645149230957e-09
+    },
+    {
+      "run_id": "9c16ea63c8bf4f0cacdcf00ee4294481",
+      "absolute_error_vehicle_seconds": 4.656612873077393e-10
+    },
+    {
+      "run_id": "bda1d1ab6a01433f855961b701a27e24",
+      "absolute_error_vehicle_seconds": 1.862645149230957e-09
+    },
+    {
+      "run_id": "5bfbf21181d444a08f80698295c4e3f2",
+      "absolute_error_vehicle_seconds": 0.0
+    },
+    {
+      "run_id": "3a6b4ef0e2fc4b9ca95b11663198986c",
+      "absolute_error_vehicle_seconds": 2.7939677238464355e-09
+    },
+    {
+      "run_id": "0941cda4fb194ab490fc21879842dca8",
+      "absolute_error_vehicle_seconds": 2.3283064365386963e-10
+    },
+    {
+      "run_id": "b46821dfc9194c4a82083eab3c497d06",
+      "absolute_error_vehicle_seconds": 1.862645149230957e-09
+    },
+    {
+      "run_id": "d5f13f494563448992de2f7f5986f8ad",
+      "absolute_error_vehicle_seconds": 4.656612873077393e-10
+    }
+  ]
+}
