@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "tests_passed": 11,
+  "tests": [
+    "Unmodified completed run passes independent audit",
+    "Changed frozen run specification is rejected",
+    "Changed artifact bytes are rejected by checksum",
+    "Self-consistent checksum cannot hide invalid population",
+    "Self-consistent checksum cannot hide exposure drift",
+    "Missing saved time row is rejected",
+    "Invalid insertion ordering is rejected",
+    "Modified exogenous trip identity is rejected",
+    "Unexpected constraint event is rejected in nominal run",
+    "Incomplete matrix is rejected",
+    "Duplicate matrix cell is rejected"
+  ],
+  "scope": "Focused report integrity guard tests; this is not a replacement for the full project test suite.",
+  "source_run_id": "3fee4da55580437096dc3e24770c1af3",
+  "original_evidence_unchanged": true
+}

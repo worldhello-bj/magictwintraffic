@@ -1,0 +1,173 @@
+{
+  "scope": "Paired percent changes of finite-window exposure. Censored conditions are not final-trip-time effects; marginal unadjusted intervals only.",
+  "conditions": [
+    {
+      "policy": "S1",
+      "period": "am",
+      "demand_scale": 0.6,
+      "censored": false,
+      "finite_window_difference_percent": {
+        "n_pairs": 10,
+        "mean_difference": 0.014818795234969873,
+        "confidence": 0.95,
+        "ci_low": -0.2696239066667066,
+        "ci_high": 0.29926149713664635,
+        "method": "paired Student t, fixed sample"
+      }
+    },
+    {
+      "policy": "S1",
+      "period": "am",
+      "demand_scale": 1.0,
+      "censored": true,
+      "finite_window_difference_percent": {
+        "n_pairs": 10,
+        "mean_difference": 0.9216965429683563,
+        "confidence": 0.95,
+        "ci_low": -6.54450351443982,
+        "ci_high": 8.387896600376532,
+        "method": "paired Student t, fixed sample"
+      }
+    },
+    {
+      "policy": "S1",
+      "period": "am",
+      "demand_scale": 1.4,
+      "censored": true,
+      "finite_window_difference_percent": {
+        "n_pairs": 10,
+        "mean_difference": -0.45927369686356584,
+        "confidence": 0.95,
+        "ci_low": -6.8781632329533045,
+        "ci_high": 5.959615839226173,
+        "method": "paired Student t, fixed sample"
+      }
+    },
+    {
+      "policy": "S1",
+      "period": "pm",
+      "demand_scale": 0.6,
+      "censored": false,
+      "finite_window_difference_percent": {
+        "n_pairs": 10,
+        "mean_difference": 0.058219168093704976,
+        "confidence": 0.95,
+        "ci_low": -0.42479020947924023,
+        "ci_high": 0.5412285456666501,
+        "method": "paired Student t, fixed sample"
+      }
+    },
+    {
+      "policy": "S1",
+      "period": "pm",
+      "demand_scale": 1.0,
+      "censored": true,
+      "finite_window_difference_percent": {
+        "n_pairs": 10,
+        "mean_difference": 1.007094911782108,
+        "confidence": 0.95,
+        "ci_low": -2.5209833922305416,
+        "ci_high": 4.5351732157947575,
+        "method": "paired Student t, fixed sample"
+      }
+    },
+    {
+      "policy": "S1",
+      "period": "pm",
+      "demand_scale": 1.4,
+      "censored": true,
+      "finite_window_difference_percent": {
+        "n_pairs": 10,
+        "mean_difference": 1.8083989290925029,
+        "confidence": 0.95,
+        "ci_low": -2.8797408675834104,
+        "ci_high": 6.496538725768416,
+        "method": "paired Student t, fixed sample"
+      }
+    },
+    {
+      "policy": "S5",
+      "period": "am",
+      "demand_scale": 0.6,
+      "censored": false,
+      "finite_window_difference_percent": {
+        "n_pairs": 10,
+        "mean_difference": -0.1942370106906599,
+        "confidence": 0.95,
+        "ci_low": -1.3033610771831463,
+        "ci_high": 0.9148870558018265,
+        "method": "paired Student t, fixed sample"
+      }
+    },
+    {
+      "policy": "S5",
+      "period": "am",
+      "demand_scale": 1.0,
+      "censored": true,
+      "finite_window_difference_percent": {
+        "n_pairs": 10,
+        "mean_difference": 5.357302346666931,
+        "confidence": 0.95,
+        "ci_low": -0.007630934163691094,
+        "ci_high": 10.722235627497554,
+        "method": "paired Student t, fixed sample"
+      }
+    },
+    {
+      "policy": "S5",
+      "period": "am",
+      "demand_scale": 1.4,
+      "censored": true,
+      "finite_window_difference_percent": {
+        "n_pairs": 10,
+        "mean_difference": 4.872525925988398,
+        "confidence": 0.95,
+        "ci_low": -1.6769005382632374,
+        "ci_high": 11.421952390240033,
+        "method": "paired Student t, fixed sample"
+      }
+    },
+    {
+      "policy": "S5",
+      "period": "pm",
+      "demand_scale": 0.6,
+      "censored": false,
+      "finite_window_difference_percent": {
+        "n_pairs": 10,
+        "mean_difference": -1.072651726043412,
+        "confidence": 0.95,
+        "ci_low": -1.949233742759803,
+        "ci_high": -0.19606970932702128,
+        "method": "paired Student t, fixed sample"
+      }
+    },
+    {
+      "policy": "S5",
+      "period": "pm",
+      "demand_scale": 1.0,
+      "censored": true,
+      "finite_window_difference_percent": {
+        "n_pairs": 10,
+        "mean_difference": 0.9522846005169195,
+        "confidence": 0.95,
+        "ci_low": -2.1366864726228285,
+        "ci_high": 4.041255673656668,
+        "method": "paired Student t, fixed sample"
+      }
+    },
+    {
+      "policy": "S5",
+      "period": "pm",
+      "demand_scale": 1.4,
+      "censored": true,
+      "finite_window_difference_percent": {
+        "n_pairs": 10,
+        "mean_difference": -0.8278349641887895,
+        "confidence": 0.95,
+        "ci_low": -6.191013701375262,
+        "ci_high": 4.535343772997683,
+        "method": "paired Student t, fixed sample"
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "scope": "S6 exploration across12 actual runs; synthetic bus schedules and stop locations.",
+  "actual_bus_stop_started_events": 648,
+  "actual_green_extensions_with_bus_present": 815,
+  "interpretation": "Mechanism activity only, not proof of beneficial passenger outcomes or field-valid priority."
+}

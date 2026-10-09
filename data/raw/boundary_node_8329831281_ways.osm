@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="openstreetmap-cgimap 2.1.0 (3964063 spike-06.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <way id="441574379" visible="true" version="14" changeset="107869692" timestamp="2021-07-13T03:22:21Z" user="mwenkai" uid="13741888">
+  <nd ref="4393217190"/>
+  <nd ref="2309311972"/>
+  <nd ref="5488945464"/>
+  <nd ref="4393217191"/>
+  <nd ref="8915242442"/>
+  <nd ref="2309311933"/>
+  <nd ref="8915242443"/>
+  <nd ref="5488619228"/>
+  <nd ref="8915242444"/>
+  <nd ref="4393239471"/>
+  <nd ref="4217844070"/>
+  <nd ref="4218012552"/>
+  <nd ref="8329831281"/>
+  <tag k="bicycle" v="no"/>
+  <tag k="bridge" v="yes"/>
+  <tag k="foot" v="no"/>
+  <tag k="highway" v="trunk"/>
+  <tag k="horse" v="no"/>
+  <tag k="layer" v="1"/>
+  <tag k="maxspeed" v="80"/>
+  <tag k="name" v="二环高架路"/>
+  <tag k="oneway" v="yes"/>
+  <tag k="surface" v="asphalt"/>
+ </way>
+ <way id="570975763" visible="true" version="5" changeset="97630991" timestamp="2021-01-17T09:59:59Z" user="user_7130456" uid="7130456">
+  <nd ref="8329831281"/>
+  <nd ref="8329831283"/>
+  <tag k="bicycle" v="no"/>
+  <tag k="bridge" v="yes"/>
+  <tag k="foot" v="no"/>
+  <tag k="highway" v="trunk"/>
+  <tag k="horse" v="no"/>
+  <tag k="layer" v="2"/>
+  <tag k="maxspeed" v="80"/>
+  <tag k="name" v="二环高架路"/>
+  <tag k="oneway" v="yes"/>
+  <tag k="surface" v="asphalt"/>
+ </way>
+</osm>

@@ -1,0 +1,9 @@
+{
+  "platform": "Linux x86_64",
+  "visible_cpu_count": 9,
+  "memory_gib": 9.7,
+  "workspace_disk_free_gib_initial": 29,
+  "headless_test": "Direct Chromium launch unavailable: socket() Operation not permitted",
+  "managed_cloud_browser": "Available; application screenshot verification pending",
+  "client_gpu_benchmark": "Not performed; this cloud environment does not establish client performance"
+}

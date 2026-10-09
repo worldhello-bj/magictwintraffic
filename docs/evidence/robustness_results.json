@@ -1,0 +1,2372 @@
+{
+  "status": "complete",
+  "stage": "bounded_downstream_robustness",
+  "completed_runs": 24,
+  "scope": "24 exploratory robustness runs, separate from the 180-run independent verification. Medium demand only; no field-effectiveness claim.",
+  "seeds": [
+    211,
+    223
+  ],
+  "elapsed_seconds": 328.0873329639435,
+  "workers": 4,
+  "comparisons": [
+    {
+      "phase": "robustness",
+      "run_pairs": [
+        {
+          "baseline": "3fee4da55580437096dc3e24770c1af3",
+          "candidate": "958dcfef9375416fb57a1f7ceb65f9cc",
+          "seed": 211
+        },
+        {
+          "baseline": "6a2fe9eac93343f79b73c5da1b9700a0",
+          "candidate": "225801bd0f2d410eb8193749276641ec",
+          "seed": 223
+        }
+      ],
+      "paired_differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": -158840.50000000116,
+          "confidence": 0.95,
+          "ci_low": -4969574.793711166,
+          "ci_high": 4651893.793711164,
+          "method": "paired Student t, fixed sample"
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": 0.006637650793298033,
+          "confidence": 0.95,
+          "ci_low": -0.06284411643960505,
+          "ci_high": 0.07611941802620112,
+          "method": "paired Student t, fixed sample"
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": -29.0,
+          "confidence": 0.95,
+          "ci_low": -333.948913664,
+          "ci_high": 275.948913664,
+          "method": "paired Student t, fixed sample"
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": 5.0,
+          "confidence": 0.95,
+          "ci_low": -83.943433152,
+          "ci_high": 93.943433152,
+          "method": "paired Student t, fixed sample"
+        }
+      },
+      "all_target_trips_complete": false,
+      "observed_completion_backlog_dominance": false,
+      "conclusion": "exploratory_only",
+      "travel_time_ranking_allowed": false,
+      "caveats": [
+        "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+        "Completed-only travel time is descriptive and never used to rank censored runs.",
+        "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+      ],
+      "condition": "nominal",
+      "period": "am",
+      "policy": "S1",
+      "seed_level_differences": [
+        {
+          "condition": "nominal",
+          "period": "am",
+          "seed": 211,
+          "policy": "S1",
+          "baseline_run_id": "3fee4da55580437096dc3e24770c1af3",
+          "candidate_run_id": "958dcfef9375416fb57a1f7ceb65f9cc",
+          "delta_tstt_vehicle_seconds": -537453.5000000009,
+          "delta_completion_rate": 0.01210598446779354,
+          "delta_external_waiting": 12,
+          "delta_completed": 53,
+          "delta_terminal_backlog": -53
+        },
+        {
+          "condition": "nominal",
+          "period": "am",
+          "seed": 223,
+          "policy": "S1",
+          "baseline_run_id": "6a2fe9eac93343f79b73c5da1b9700a0",
+          "candidate_run_id": "225801bd0f2d410eb8193749276641ec",
+          "delta_tstt_vehicle_seconds": 219772.4999999986,
+          "delta_completion_rate": 0.0011693171188025264,
+          "delta_external_waiting": -2,
+          "delta_completed": 5,
+          "delta_terminal_backlog": -5
+        }
+      ]
+    },
+    {
+      "phase": "robustness",
+      "run_pairs": [
+        {
+          "baseline": "3fee4da55580437096dc3e24770c1af3",
+          "candidate": "c0ccfacf90f0423ebdff7444d78410b0",
+          "seed": 211
+        },
+        {
+          "baseline": "6a2fe9eac93343f79b73c5da1b9700a0",
+          "candidate": "17692d6181af4bc9a1f38a6c3a568ea0",
+          "seed": 223
+        }
+      ],
+      "paired_differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": -110262.2500000014,
+          "confidence": 0.95,
+          "ci_low": -1243423.8242147516,
+          "ci_high": 1022899.3242147488,
+          "method": "paired Student t, fixed sample"
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": 0.0028878767508774272,
+          "confidence": 0.95,
+          "ci_low": 0.0018521220126512302,
+          "ci_high": 0.003923631489103624,
+          "method": "paired Student t, fixed sample"
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": -12.5,
+          "confidence": 0.95,
+          "ci_low": -18.853102368000002,
+          "ci_high": -6.146897632,
+          "method": "paired Student t, fixed sample"
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": -10.0,
+          "confidence": 0.95,
+          "ci_low": -175.18066156799998,
+          "ci_high": 155.18066156799998,
+          "method": "paired Student t, fixed sample"
+        }
+      },
+      "all_target_trips_complete": false,
+      "observed_completion_backlog_dominance": false,
+      "conclusion": "exploratory_only",
+      "travel_time_ranking_allowed": false,
+      "caveats": [
+        "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+        "Completed-only travel time is descriptive and never used to rank censored runs.",
+        "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+      ],
+      "condition": "nominal",
+      "period": "am",
+      "policy": "S5",
+      "seed_level_differences": [
+        {
+          "condition": "nominal",
+          "period": "am",
+          "seed": 211,
+          "policy": "S5",
+          "baseline_run_id": "3fee4da55580437096dc3e24770c1af3",
+          "candidate_run_id": "c0ccfacf90f0423ebdff7444d78410b0",
+          "delta_tstt_vehicle_seconds": -199444.0,
+          "delta_completion_rate": 0.0029693924166286356,
+          "delta_external_waiting": 3,
+          "delta_completed": 13,
+          "delta_terminal_backlog": -13
+        },
+        {
+          "condition": "nominal",
+          "period": "am",
+          "seed": 223,
+          "policy": "S5",
+          "baseline_run_id": "6a2fe9eac93343f79b73c5da1b9700a0",
+          "candidate_run_id": "17692d6181af4bc9a1f38a6c3a568ea0",
+          "delta_tstt_vehicle_seconds": -21080.500000002794,
+          "delta_completion_rate": 0.002806361085126219,
+          "delta_external_waiting": -23,
+          "delta_completed": 12,
+          "delta_terminal_backlog": -12
+        }
+      ]
+    },
+    {
+      "phase": "robustness",
+      "run_pairs": [
+        {
+          "baseline": "bd3e9786eec84fbf98173b1560218a5c",
+          "candidate": "3e5f824667e44defb47bbb7e18b0c4d1",
+          "seed": 211
+        },
+        {
+          "baseline": "ee4e3c93d1ec4a139db1f77b69d2eeb7",
+          "candidate": "ff77a7eeeec04e92af33fee5475febf5",
+          "seed": 223
+        }
+      ],
+      "paired_differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": 181615.74999999977,
+          "confidence": 0.95,
+          "ci_low": 73107.93810575266,
+          "ci_high": 290123.56189424684,
+          "method": "paired Student t, fixed sample"
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": -0.000942731086179871,
+          "confidence": 0.95,
+          "ci_low": -0.0009596698571327303,
+          "ci_high": -0.0009257923152270117,
+          "method": "paired Student t, fixed sample"
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": 4.0,
+          "confidence": 0.95,
+          "ci_low": 4.0,
+          "ci_high": 4.0,
+          "method": "paired Student t, fixed sample"
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": 8.0,
+          "confidence": 0.95,
+          "ci_low": -93.649637888,
+          "ci_high": 109.649637888,
+          "method": "paired Student t, fixed sample"
+        }
+      },
+      "all_target_trips_complete": false,
+      "observed_completion_backlog_dominance": false,
+      "conclusion": "exploratory_only",
+      "travel_time_ranking_allowed": false,
+      "caveats": [
+        "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+        "Completed-only travel time is descriptive and never used to rank censored runs.",
+        "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+      ],
+      "condition": "nominal",
+      "period": "pm",
+      "policy": "S1",
+      "seed_level_differences": [
+        {
+          "condition": "nominal",
+          "period": "pm",
+          "seed": 211,
+          "policy": "S1",
+          "baseline_run_id": "bd3e9786eec84fbf98173b1560218a5c",
+          "candidate_run_id": "3e5f824667e44defb47bbb7e18b0c4d1",
+          "delta_tstt_vehicle_seconds": 190155.49999999907,
+          "delta_completion_rate": -0.0009413979759943514,
+          "delta_external_waiting": 0,
+          "delta_completed": -4,
+          "delta_terminal_backlog": 4
+        },
+        {
+          "condition": "nominal",
+          "period": "pm",
+          "seed": 223,
+          "policy": "S1",
+          "baseline_run_id": "ee4e3c93d1ec4a139db1f77b69d2eeb7",
+          "candidate_run_id": "ff77a7eeeec04e92af33fee5475febf5",
+          "delta_tstt_vehicle_seconds": 173076.00000000047,
+          "delta_completion_rate": -0.0009440641963653906,
+          "delta_external_waiting": 16,
+          "delta_completed": -4,
+          "delta_terminal_backlog": 4
+        }
+      ]
+    },
+    {
+      "phase": "robustness",
+      "run_pairs": [
+        {
+          "baseline": "bd3e9786eec84fbf98173b1560218a5c",
+          "candidate": "d0e9391ad900439eb6dea14bcfa32553",
+          "seed": 211
+        },
+        {
+          "baseline": "ee4e3c93d1ec4a139db1f77b69d2eeb7",
+          "candidate": "23872285ee764ba982df0f9d4cc9355b",
+          "seed": 223
+        }
+      ],
+      "paired_differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": 20837.74999999907,
+          "confidence": 0.95,
+          "ci_low": -1969014.2661300967,
+          "ci_high": 2010689.7661300949,
+          "method": "paired Student t, fixed sample"
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": 0.0009453973065508547,
+          "confidence": 0.95,
+          "ci_low": -0.023028609848387498,
+          "ci_high": 0.024919404461489207,
+          "method": "paired Student t, fixed sample"
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": -4.0,
+          "confidence": 0.95,
+          "ci_low": -105.649637888,
+          "ci_high": 97.649637888,
+          "method": "paired Student t, fixed sample"
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": 0.0,
+          "confidence": 0.95,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "method": "paired Student t, fixed sample"
+        }
+      },
+      "all_target_trips_complete": false,
+      "observed_completion_backlog_dominance": false,
+      "conclusion": "exploratory_only",
+      "travel_time_ranking_allowed": false,
+      "caveats": [
+        "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+        "Completed-only travel time is descriptive and never used to rank censored runs.",
+        "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+      ],
+      "condition": "nominal",
+      "period": "pm",
+      "policy": "S5",
+      "seed_level_differences": [
+        {
+          "condition": "nominal",
+          "period": "pm",
+          "seed": 211,
+          "policy": "S5",
+          "baseline_run_id": "bd3e9786eec84fbf98173b1560218a5c",
+          "candidate_run_id": "d0e9391ad900439eb6dea14bcfa32553",
+          "delta_tstt_vehicle_seconds": 177442.49999999907,
+          "delta_completion_rate": -0.0009413979759943514,
+          "delta_external_waiting": 0,
+          "delta_completed": -4,
+          "delta_terminal_backlog": 4
+        },
+        {
+          "condition": "nominal",
+          "period": "pm",
+          "seed": 223,
+          "policy": "S5",
+          "baseline_run_id": "ee4e3c93d1ec4a139db1f77b69d2eeb7",
+          "candidate_run_id": "23872285ee764ba982df0f9d4cc9355b",
+          "delta_tstt_vehicle_seconds": -135767.00000000093,
+          "delta_completion_rate": 0.002832192589096061,
+          "delta_external_waiting": 0,
+          "delta_completed": 12,
+          "delta_terminal_backlog": -12
+        }
+      ]
+    },
+    {
+      "phase": "robustness",
+      "run_pairs": [
+        {
+          "baseline": "26252f5c5f42443c898496e4a49eb60e",
+          "candidate": "b19a6a0a96cd4060b8097e06bc510c38",
+          "seed": 211
+        },
+        {
+          "baseline": "f276cbd782d04369a0bc4b8702007ff5",
+          "candidate": "7f449c56c95e4598a34ee108d202db85",
+          "seed": 223
+        }
+      ],
+      "paired_differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": -504327.2500000042,
+          "confidence": 0.95,
+          "ci_low": -2304342.214271851,
+          "ci_high": 1295687.7142718423,
+          "method": "paired Student t, fixed sample"
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": 0.0168213933003738,
+          "confidence": 0.95,
+          "ci_low": -0.03645278062054503,
+          "ci_high": 0.07009556722129262,
+          "method": "paired Student t, fixed sample"
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": -73.0,
+          "confidence": 0.95,
+          "ci_low": -314.417889984,
+          "ci_high": 168.41788998399997,
+          "method": "paired Student t, fixed sample"
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": -47.0,
+          "confidence": 0.95,
+          "ci_low": -72.41240947200001,
+          "ci_high": -21.587590528,
+          "method": "paired Student t, fixed sample"
+        }
+      },
+      "all_target_trips_complete": false,
+      "observed_completion_backlog_dominance": true,
+      "conclusion": "exploratory_only",
+      "travel_time_ranking_allowed": false,
+      "caveats": [
+        "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+        "Completed-only travel time is descriptive and never used to rank censored runs.",
+        "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+      ],
+      "condition": "exit_constraint",
+      "period": "am",
+      "policy": "S1",
+      "seed_level_differences": [
+        {
+          "condition": "exit_constraint",
+          "period": "am",
+          "seed": 211,
+          "policy": "S1",
+          "baseline_run_id": "26252f5c5f42443c898496e4a49eb60e",
+          "candidate_run_id": "b19a6a0a96cd4060b8097e06bc510c38",
+          "delta_tstt_vehicle_seconds": -645991.5000000009,
+          "delta_completion_rate": 0.021014161717679336,
+          "delta_external_waiting": -49,
+          "delta_completed": 92,
+          "delta_terminal_backlog": -92
+        },
+        {
+          "condition": "exit_constraint",
+          "period": "am",
+          "seed": 223,
+          "policy": "S1",
+          "baseline_run_id": "f276cbd782d04369a0bc4b8702007ff5",
+          "candidate_run_id": "7f449c56c95e4598a34ee108d202db85",
+          "delta_tstt_vehicle_seconds": -362663.00000000745,
+          "delta_completion_rate": 0.012628624883068262,
+          "delta_external_waiting": -45,
+          "delta_completed": 54,
+          "delta_terminal_backlog": -54
+        }
+      ]
+    },
+    {
+      "phase": "robustness",
+      "run_pairs": [
+        {
+          "baseline": "26252f5c5f42443c898496e4a49eb60e",
+          "candidate": "e4f3f70840f7403e8c7ab4f5db2b8aa5",
+          "seed": 211
+        },
+        {
+          "baseline": "f276cbd782d04369a0bc4b8702007ff5",
+          "candidate": "b66d9660a79341ee8304df9a00612224",
+          "seed": 223
+        }
+      ],
+      "paired_differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": -44928.74999999977,
+          "confidence": 0.95,
+          "ci_low": -518746.30115662084,
+          "ci_high": 428888.8011566213,
+          "method": "paired Student t, fixed sample"
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": 0.007081072511122721,
+          "confidence": 0.95,
+          "ci_low": -0.027749065199742885,
+          "ci_high": 0.04191121022198833,
+          "method": "paired Student t, fixed sample"
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": -30.5,
+          "confidence": 0.95,
+          "ci_low": -176.62135446399998,
+          "ci_high": 115.62135446399998,
+          "method": "paired Student t, fixed sample"
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": -20.5,
+          "confidence": 0.95,
+          "ci_low": -331.802016032,
+          "ci_high": 290.802016032,
+          "method": "paired Student t, fixed sample"
+        }
+      },
+      "all_target_trips_complete": false,
+      "observed_completion_backlog_dominance": false,
+      "conclusion": "exploratory_only",
+      "travel_time_ranking_allowed": false,
+      "caveats": [
+        "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+        "Completed-only travel time is descriptive and never used to rank censored runs.",
+        "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+      ],
+      "condition": "exit_constraint",
+      "period": "am",
+      "policy": "S5",
+      "seed_level_differences": [
+        {
+          "condition": "exit_constraint",
+          "period": "am",
+          "seed": 211,
+          "policy": "S5",
+          "baseline_run_id": "26252f5c5f42443c898496e4a49eb60e",
+          "candidate_run_id": "e4f3f70840f7403e8c7ab4f5db2b8aa5",
+          "delta_tstt_vehicle_seconds": -7638.5,
+          "delta_completion_rate": 0.004339881224303399,
+          "delta_external_waiting": 4,
+          "delta_completed": 19,
+          "delta_terminal_backlog": -19
+        },
+        {
+          "condition": "exit_constraint",
+          "period": "am",
+          "seed": 223,
+          "policy": "S5",
+          "baseline_run_id": "f276cbd782d04369a0bc4b8702007ff5",
+          "candidate_run_id": "b66d9660a79341ee8304df9a00612224",
+          "delta_tstt_vehicle_seconds": -82218.99999999953,
+          "delta_completion_rate": 0.009822263797942044,
+          "delta_external_waiting": -45,
+          "delta_completed": 42,
+          "delta_terminal_backlog": -42
+        }
+      ]
+    },
+    {
+      "phase": "robustness",
+      "run_pairs": [
+        {
+          "baseline": "f1368ad0620a42dcac05744a537b6262",
+          "candidate": "cf445a775fe043ab8aab48b2434136b1",
+          "seed": 211
+        },
+        {
+          "baseline": "3d39d55c087a433aaf7f4798fcb50cd6",
+          "candidate": "d48b4995311a4f1fa9a8fa389731a04e",
+          "seed": 223
+        }
+      ],
+      "paired_differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": -31059.499999998603,
+          "confidence": 0.95,
+          "ci_low": -2080227.256388944,
+          "ci_high": 2018108.256388947,
+          "method": "paired Student t, fixed sample"
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": 0.002710518511540305,
+          "confidence": 0.95,
+          "ci_low": 0.0011645027710529313,
+          "ci_high": 0.004256534252027679,
+          "method": "paired Student t, fixed sample"
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": -11.5,
+          "confidence": 0.95,
+          "ci_low": -17.853102368000002,
+          "ci_high": -5.146897632,
+          "method": "paired Student t, fixed sample"
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": -8.5,
+          "confidence": 0.95,
+          "ci_low": -78.384126048,
+          "ci_high": 61.384126048,
+          "method": "paired Student t, fixed sample"
+        }
+      },
+      "all_target_trips_complete": false,
+      "observed_completion_backlog_dominance": true,
+      "conclusion": "exploratory_only",
+      "travel_time_ranking_allowed": false,
+      "caveats": [
+        "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+        "Completed-only travel time is descriptive and never used to rank censored runs.",
+        "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+      ],
+      "condition": "exit_constraint",
+      "period": "pm",
+      "policy": "S1",
+      "seed_level_differences": [
+        {
+          "condition": "exit_constraint",
+          "period": "pm",
+          "seed": 211,
+          "policy": "S1",
+          "baseline_run_id": "f1368ad0620a42dcac05744a537b6262",
+          "candidate_run_id": "cf445a775fe043ab8aab48b2434136b1",
+          "delta_tstt_vehicle_seconds": -192332.5,
+          "delta_completion_rate": 0.0025888444339845496,
+          "delta_external_waiting": -14,
+          "delta_completed": 11,
+          "delta_terminal_backlog": -11
+        },
+        {
+          "condition": "exit_constraint",
+          "period": "pm",
+          "seed": 223,
+          "policy": "S1",
+          "baseline_run_id": "3d39d55c087a433aaf7f4798fcb50cd6",
+          "candidate_run_id": "d48b4995311a4f1fa9a8fa389731a04e",
+          "delta_tstt_vehicle_seconds": 130213.5000000028,
+          "delta_completion_rate": 0.002832192589096061,
+          "delta_external_waiting": -3,
+          "delta_completed": 12,
+          "delta_terminal_backlog": -12
+        }
+      ]
+    },
+    {
+      "phase": "robustness",
+      "run_pairs": [
+        {
+          "baseline": "f1368ad0620a42dcac05744a537b6262",
+          "candidate": "9a29c4dde0e5449aa8359f04dd8f0579",
+          "seed": 211
+        },
+        {
+          "baseline": "3d39d55c087a433aaf7f4798fcb50cd6",
+          "candidate": "3eb0a424e7a845e5bb1bd119ddace7e7",
+          "seed": 223
+        }
+      ],
+      "paired_differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": -127060.99999999884,
+          "confidence": 0.95,
+          "ci_low": -5202579.894204692,
+          "ci_high": 4948457.894204694,
+          "method": "paired Student t, fixed sample"
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": 0.003296892581258537,
+          "confidence": 0.95,
+          "ci_low": -0.02060089010439301,
+          "ci_high": 0.027194675266910082,
+          "method": "paired Student t, fixed sample"
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": -14.0,
+          "confidence": 0.95,
+          "ci_low": -115.649637888,
+          "ci_high": 87.649637888,
+          "method": "paired Student t, fixed sample"
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": 6.5,
+          "confidence": 0.95,
+          "ci_low": -253.97719708800003,
+          "ci_high": 266.977197088,
+          "method": "paired Student t, fixed sample"
+        }
+      },
+      "all_target_trips_complete": false,
+      "observed_completion_backlog_dominance": false,
+      "conclusion": "exploratory_only",
+      "travel_time_ranking_allowed": false,
+      "caveats": [
+        "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+        "Completed-only travel time is descriptive and never used to rank censored runs.",
+        "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+      ],
+      "condition": "exit_constraint",
+      "period": "pm",
+      "policy": "S5",
+      "seed_level_differences": [
+        {
+          "condition": "exit_constraint",
+          "period": "pm",
+          "seed": 211,
+          "policy": "S5",
+          "baseline_run_id": "f1368ad0620a42dcac05744a537b6262",
+          "candidate_run_id": "9a29c4dde0e5449aa8359f04dd8f0579",
+          "delta_tstt_vehicle_seconds": -526513.0000000005,
+          "delta_completion_rate": 0.005177688867968988,
+          "delta_external_waiting": -14,
+          "delta_completed": 22,
+          "delta_terminal_backlog": -22
+        },
+        {
+          "condition": "exit_constraint",
+          "period": "pm",
+          "seed": 223,
+          "policy": "S5",
+          "baseline_run_id": "3d39d55c087a433aaf7f4798fcb50cd6",
+          "candidate_run_id": "3eb0a424e7a845e5bb1bd119ddace7e7",
+          "delta_tstt_vehicle_seconds": 272391.0000000028,
+          "delta_completion_rate": 0.001416096294548086,
+          "delta_external_waiting": 27,
+          "delta_completed": 6,
+          "delta_terminal_backlog": -6
+        }
+      ]
+    }
+  ],
+  "external_condition_effects": [
+    {
+      "period": "am",
+      "policy": "S0",
+      "seeds": [
+        211,
+        223
+      ],
+      "direction": "exit_constraint minus nominal",
+      "differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": 28053.250000001397,
+          "confidence": 0.95,
+          "ci_low": -1477959.1959879743,
+          "ci_high": 1534065.695987977,
+          "method": "paired Student t, fixed sample",
+          "minimum": -90472.50000000047,
+          "maximum": 146579.00000000326,
+          "values_in_seed_order": [
+            -90472.50000000047,
+            146579.00000000326
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": -0.0020857006351598373,
+          "confidence": 0.95,
+          "ci_low": -0.008271043315008787,
+          "ci_high": 0.004099642044689112,
+          "method": "paired Student t, fixed sample",
+          "minimum": -0.0025724976613658024,
+          "maximum": -0.0015989036089538722,
+          "values_in_seed_order": [
+            -0.0015989036089538722,
+            -0.0025724976613658024
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": 6.5,
+          "confidence": 0.95,
+          "ci_low": -12.559307103999998,
+          "ci_high": 25.559307104,
+          "method": "paired Student t, fixed sample",
+          "minimum": 5,
+          "maximum": 8,
+          "values_in_seed_order": [
+            8,
+            5
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completed": {
+          "n_pairs": 2,
+          "mean_difference": -9.0,
+          "confidence": 0.95,
+          "ci_low": -34.412409472,
+          "ci_high": 16.412409472,
+          "method": "paired Student t, fixed sample",
+          "minimum": -11,
+          "maximum": -7,
+          "values_in_seed_order": [
+            -7,
+            -11
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": 9.0,
+          "confidence": 0.95,
+          "ci_low": -16.412409472,
+          "ci_high": 34.412409472,
+          "method": "paired Student t, fixed sample",
+          "minimum": 7,
+          "maximum": 11,
+          "values_in_seed_order": [
+            7,
+            11
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        }
+      }
+    },
+    {
+      "period": "am",
+      "policy": "S1",
+      "seeds": [
+        211,
+        223
+      ],
+      "direction": "exit_constraint minus nominal",
+      "differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": -317433.50000000163,
+          "confidence": 0.95,
+          "ci_low": -1822140.3834513442,
+          "ci_high": 1187273.383451341,
+          "method": "paired Student t, fixed sample",
+          "minimum": -435856.5000000028,
+          "maximum": -199010.50000000047,
+          "values_in_seed_order": [
+            -199010.50000000047,
+            -435856.5000000028
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": 0.008098041871915929,
+          "confidence": 0.95,
+          "ci_low": -0.0019242087602193772,
+          "ci_high": 0.018120292504051234,
+          "method": "paired Student t, fixed sample",
+          "minimum": 0.007309273640931924,
+          "maximum": 0.008886810102899934,
+          "values_in_seed_order": [
+            0.007309273640931924,
+            0.008886810102899934
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": -45.5,
+          "confidence": 0.95,
+          "ci_low": -140.79653552000002,
+          "ci_high": 49.796535520000006,
+          "method": "paired Student t, fixed sample",
+          "minimum": -53,
+          "maximum": -38,
+          "values_in_seed_order": [
+            -53,
+            -38
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completed": {
+          "n_pairs": 2,
+          "mean_difference": 35.0,
+          "confidence": 0.95,
+          "ci_low": -3.118614207999997,
+          "ci_high": 73.118614208,
+          "method": "paired Student t, fixed sample",
+          "minimum": 32,
+          "maximum": 38,
+          "values_in_seed_order": [
+            32,
+            38
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": -35.0,
+          "confidence": 0.95,
+          "ci_low": -73.118614208,
+          "ci_high": 3.118614207999997,
+          "method": "paired Student t, fixed sample",
+          "minimum": -38,
+          "maximum": -32,
+          "values_in_seed_order": [
+            -32,
+            -38
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        }
+      }
+    },
+    {
+      "period": "am",
+      "policy": "S5",
+      "seeds": [
+        211,
+        223
+      ],
+      "direction": "exit_constraint minus nominal",
+      "differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": 93386.75000000303,
+          "confidence": 0.95,
+          "ci_low": -7579.929383392591,
+          "ci_high": 194353.42938339864,
+          "method": "paired Student t, fixed sample",
+          "minimum": 85440.50000000652,
+          "maximum": 101332.99999999953,
+          "values_in_seed_order": [
+            101332.99999999953,
+            85440.50000000652
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": 0.0021074951250854568,
+          "confidence": 0.95,
+          "ci_low": -0.0275730546441574,
+          "ci_high": 0.031788044894328314,
+          "method": "paired Student t, fixed sample",
+          "minimum": -0.00022841480127910874,
+          "maximum": 0.004443405051450022,
+          "values_in_seed_order": [
+            -0.00022841480127910874,
+            0.004443405051450022
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": -4.0,
+          "confidence": 0.95,
+          "ci_low": -169.18066156799998,
+          "ci_high": 161.18066156799998,
+          "method": "paired Student t, fixed sample",
+          "minimum": -17,
+          "maximum": 9,
+          "values_in_seed_order": [
+            9,
+            -17
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completed": {
+          "n_pairs": 2,
+          "mean_difference": 9.0,
+          "confidence": 0.95,
+          "ci_low": -118.06204736000001,
+          "ci_high": 136.06204736,
+          "method": "paired Student t, fixed sample",
+          "minimum": -1,
+          "maximum": 19,
+          "values_in_seed_order": [
+            -1,
+            19
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": -9.0,
+          "confidence": 0.95,
+          "ci_low": -136.06204736,
+          "ci_high": 118.06204736000001,
+          "method": "paired Student t, fixed sample",
+          "minimum": -19,
+          "maximum": 1,
+          "values_in_seed_order": [
+            1,
+            -19
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        }
+      }
+    },
+    {
+      "period": "pm",
+      "policy": "S0",
+      "seeds": [
+        211,
+        223
+      ],
+      "direction": "exit_constraint minus nominal",
+      "differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": 328478.2499999986,
+          "confidence": 0.95,
+          "ci_low": -3551027.828263281,
+          "ci_high": 4207984.328263278,
+          "method": "paired Student t, fixed sample",
+          "minimum": 23154.499999998603,
+          "maximum": 633801.9999999986,
+          "values_in_seed_order": [
+            633801.9999999986,
+            23154.499999998603
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": -0.0034162337159897027,
+          "confidence": 0.95,
+          "ci_low": -0.013836048089280255,
+          "ci_high": 0.00700358065730085,
+          "method": "paired Student t, fixed sample",
+          "minimum": -0.004236290891974637,
+          "maximum": -0.0025961765400047687,
+          "values_in_seed_order": [
+            -0.004236290891974637,
+            -0.0025961765400047687
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": 8.5,
+          "confidence": 0.95,
+          "ci_low": -61.384126048,
+          "ci_high": 78.384126048,
+          "method": "paired Student t, fixed sample",
+          "minimum": 3,
+          "maximum": 14,
+          "values_in_seed_order": [
+            14,
+            3
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completed": {
+          "n_pairs": 2,
+          "mean_difference": -14.5,
+          "confidence": 0.95,
+          "ci_low": -58.971716576,
+          "ci_high": 29.971716576,
+          "method": "paired Student t, fixed sample",
+          "minimum": -18,
+          "maximum": -11,
+          "values_in_seed_order": [
+            -18,
+            -11
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": 14.5,
+          "confidence": 0.95,
+          "ci_low": -29.971716576,
+          "ci_high": 58.971716576,
+          "method": "paired Student t, fixed sample",
+          "minimum": 11,
+          "maximum": 18,
+          "values_in_seed_order": [
+            18,
+            11
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        }
+      }
+    },
+    {
+      "period": "pm",
+      "policy": "S1",
+      "seeds": [
+        211,
+        223
+      ],
+      "direction": "exit_constraint minus nominal",
+      "differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": 115803.00000000023,
+          "confidence": 0.95,
+          "ci_low": -1606027.509980087,
+          "ci_high": 1837633.5099800874,
+          "method": "paired Student t, fixed sample",
+          "minimum": -19707.99999999907,
+          "maximum": 251313.99999999953,
+          "values_in_seed_order": [
+            251313.99999999953,
+            -19707.99999999907
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": 0.0002370158817304735,
+          "confidence": 0.95,
+          "ci_low": -0.011745753003000313,
+          "ci_high": 0.01221978476646126,
+          "method": "paired Student t, fixed sample",
+          "minimum": -0.0007060484819957358,
+          "maximum": 0.0011800802454566828,
+          "values_in_seed_order": [
+            -0.0007060484819957358,
+            0.0011800802454566828
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": -8.0,
+          "confidence": 0.95,
+          "ci_low": -109.649637888,
+          "ci_high": 93.649637888,
+          "method": "paired Student t, fixed sample",
+          "minimum": -16,
+          "maximum": 0,
+          "values_in_seed_order": [
+            0,
+            -16
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completed": {
+          "n_pairs": 2,
+          "mean_difference": 1.0,
+          "confidence": 0.95,
+          "ci_low": -49.824818944,
+          "ci_high": 51.824818944,
+          "method": "paired Student t, fixed sample",
+          "minimum": -3,
+          "maximum": 5,
+          "values_in_seed_order": [
+            -3,
+            5
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": -1.0,
+          "confidence": 0.95,
+          "ci_low": -51.824818944,
+          "ci_high": 49.824818944,
+          "method": "paired Student t, fixed sample",
+          "minimum": -5,
+          "maximum": 3,
+          "values_in_seed_order": [
+            3,
+            -5
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        }
+      }
+    },
+    {
+      "period": "pm",
+      "policy": "S5",
+      "seeds": [
+        211,
+        223
+      ],
+      "direction": "exit_constraint minus nominal",
+      "differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": 180579.5000000007,
+          "confidence": 0.95,
+          "ci_low": -3005285.3320715083,
+          "ci_high": 3366444.332071509,
+          "method": "paired Student t, fixed sample",
+          "minimum": -70153.50000000093,
+          "maximum": 431312.5000000023,
+          "values_in_seed_order": [
+            -70153.50000000093,
+            431312.5000000023
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": -0.0010647384412820204,
+          "confidence": 0.95,
+          "ci_low": -0.03851671390858137,
+          "ci_high": 0.03638723702601733,
+          "method": "paired Student t, fixed sample",
+          "minimum": -0.004012272834552744,
+          "maximum": 0.0018827959519887028,
+          "values_in_seed_order": [
+            0.0018827959519887028,
+            -0.004012272834552744
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": 15.0,
+          "confidence": 0.95,
+          "ci_low": -175.59307104,
+          "ci_high": 205.59307104,
+          "method": "paired Student t, fixed sample",
+          "minimum": 0,
+          "maximum": 30,
+          "values_in_seed_order": [
+            0,
+            30
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completed": {
+          "n_pairs": 2,
+          "mean_difference": -4.5,
+          "confidence": 0.95,
+          "ci_low": -163.3275592,
+          "ci_high": 154.3275592,
+          "method": "paired Student t, fixed sample",
+          "minimum": -17,
+          "maximum": 8,
+          "values_in_seed_order": [
+            8,
+            -17
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": 4.5,
+          "confidence": 0.95,
+          "ci_low": -154.3275592,
+          "ci_high": 163.3275592,
+          "method": "paired Student t, fixed sample",
+          "minimum": -8,
+          "maximum": 17,
+          "values_in_seed_order": [
+            -8,
+            17
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        }
+      }
+    }
+  ],
+  "policy_by_condition_interactions": [
+    {
+      "period": "am",
+      "policy": "S1",
+      "seeds": [
+        211,
+        223
+      ],
+      "direction": "(candidate minus S0 under constraint) minus (candidate minus S0 under nominal)",
+      "differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": -345486.750000003,
+          "confidence": 0.95,
+          "ci_low": -3356206.0794393215,
+          "ci_high": 2665232.579439316,
+          "method": "paired Student t, fixed sample",
+          "minimum": -582435.500000006,
+          "maximum": -108538.0,
+          "values_in_seed_order": [
+            -108538.0,
+            -582435.500000006
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": 0.010183742507075766,
+          "confidence": 0.95,
+          "ci_low": -0.006023850804908488,
+          "ci_high": 0.02639133581906002,
+          "method": "paired Student t, fixed sample",
+          "minimum": 0.008908177249885796,
+          "maximum": 0.011459307764265736,
+          "values_in_seed_order": [
+            0.008908177249885796,
+            0.011459307764265736
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": -52.0,
+          "confidence": 0.95,
+          "ci_low": -166.355842624,
+          "ci_high": 62.35584262399999,
+          "method": "paired Student t, fixed sample",
+          "minimum": -61,
+          "maximum": -43,
+          "values_in_seed_order": [
+            -61,
+            -43
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completed": {
+          "n_pairs": 2,
+          "mean_difference": 44.0,
+          "confidence": 0.95,
+          "ci_low": -19.531023680000004,
+          "ci_high": 107.53102368,
+          "method": "paired Student t, fixed sample",
+          "minimum": 39,
+          "maximum": 49,
+          "values_in_seed_order": [
+            39,
+            49
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": -44.0,
+          "confidence": 0.95,
+          "ci_low": -107.53102368,
+          "ci_high": 19.531023680000004,
+          "method": "paired Student t, fixed sample",
+          "minimum": -49,
+          "maximum": -39,
+          "values_in_seed_order": [
+            -39,
+            -49
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        }
+      }
+    },
+    {
+      "period": "am",
+      "policy": "S5",
+      "seeds": [
+        211,
+        223
+      ],
+      "direction": "(candidate minus S0 under constraint) minus (candidate minus S0 under nominal)",
+      "differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": 65333.50000000163,
+          "confidence": 0.95,
+          "ci_low": -1541645.6253713698,
+          "ci_high": 1672312.625371373,
+          "method": "paired Student t, fixed sample",
+          "minimum": -61138.49999999674,
+          "maximum": 191805.5,
+          "values_in_seed_order": [
+            191805.5,
+            -61138.49999999674
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": 0.004193195760245294,
+          "confidence": 0.95,
+          "ci_low": -0.03167269668884651,
+          "ci_high": 0.040059088209337096,
+          "method": "paired Student t, fixed sample",
+          "minimum": 0.0013704888076747634,
+          "maximum": 0.007015902712815825,
+          "values_in_seed_order": [
+            0.0013704888076747634,
+            0.007015902712815825
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": -10.5,
+          "confidence": 0.95,
+          "ci_low": -156.62135446399998,
+          "ci_high": 135.62135446399998,
+          "method": "paired Student t, fixed sample",
+          "minimum": -22,
+          "maximum": 1,
+          "values_in_seed_order": [
+            1,
+            -22
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completed": {
+          "n_pairs": 2,
+          "mean_difference": 18.0,
+          "confidence": 0.95,
+          "ci_low": -134.474456832,
+          "ci_high": 170.474456832,
+          "method": "paired Student t, fixed sample",
+          "minimum": 6,
+          "maximum": 30,
+          "values_in_seed_order": [
+            6,
+            30
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": -18.0,
+          "confidence": 0.95,
+          "ci_low": -170.474456832,
+          "ci_high": 134.474456832,
+          "method": "paired Student t, fixed sample",
+          "minimum": -30,
+          "maximum": -6,
+          "values_in_seed_order": [
+            -6,
+            -30
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        }
+      }
+    },
+    {
+      "period": "pm",
+      "policy": "S1",
+      "seeds": [
+        211,
+        223
+      ],
+      "direction": "(candidate minus S0 under constraint) minus (candidate minus S0 under nominal)",
+      "differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": -212675.24999999837,
+          "confidence": 0.95,
+          "ci_low": -2370350.818283191,
+          "ci_high": 1945000.3182831944,
+          "method": "paired Student t, fixed sample",
+          "minimum": -382487.99999999907,
+          "maximum": -42862.49999999767,
+          "values_in_seed_order": [
+            -382487.99999999907,
+            -42862.49999999767
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": 0.003653249597720176,
+          "confidence": 0.95,
+          "ci_low": 0.002090295086279943,
+          "ci_high": 0.005216204109160409,
+          "method": "paired Student t, fixed sample",
+          "minimum": 0.003530242409978901,
+          "maximum": 0.0037762567854614515,
+          "values_in_seed_order": [
+            0.003530242409978901,
+            0.0037762567854614515
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": -16.5,
+          "confidence": 0.95,
+          "ci_low": -48.26551184,
+          "ci_high": 15.265511840000002,
+          "method": "paired Student t, fixed sample",
+          "minimum": -19,
+          "maximum": -14,
+          "values_in_seed_order": [
+            -14,
+            -19
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completed": {
+          "n_pairs": 2,
+          "mean_difference": 15.5,
+          "confidence": 0.95,
+          "ci_low": 9.146897632,
+          "ci_high": 21.853102368000002,
+          "method": "paired Student t, fixed sample",
+          "minimum": 15,
+          "maximum": 16,
+          "values_in_seed_order": [
+            15,
+            16
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": -15.5,
+          "confidence": 0.95,
+          "ci_low": -21.853102368000002,
+          "ci_high": -9.146897632,
+          "method": "paired Student t, fixed sample",
+          "minimum": -16,
+          "maximum": -15,
+          "values_in_seed_order": [
+            -15,
+            -16
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        }
+      }
+    },
+    {
+      "period": "pm",
+      "policy": "S5",
+      "seeds": [
+        211,
+        223
+      ],
+      "direction": "(candidate minus S0 under constraint) minus (candidate minus S0 under nominal)",
+      "differences": {
+        "tstt_vehicle_seconds": {
+          "n_pairs": 2,
+          "mean_difference": -147898.7499999979,
+          "confidence": 0.95,
+          "ci_low": -7213269.660334786,
+          "ci_high": 6917472.16033479,
+          "method": "paired Student t, fixed sample",
+          "minimum": -703955.4999999995,
+          "maximum": 408158.0000000037,
+          "values_in_seed_order": [
+            -703955.4999999995,
+            408158.0000000037
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completion_rate": {
+          "n_pairs": 2,
+          "mean_difference": 0.0023514952747076823,
+          "confidence": 0.95,
+          "ci_low": -0.04552029456588221,
+          "ci_high": 0.050223285115297576,
+          "method": "paired Student t, fixed sample",
+          "minimum": -0.001416096294547975,
+          "maximum": 0.0061190868439633395,
+          "values_in_seed_order": [
+            0.0061190868439633395,
+            -0.001416096294547975
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "external_waiting": {
+          "n_pairs": 2,
+          "mean_difference": 6.5,
+          "confidence": 0.95,
+          "ci_low": -253.97719708800003,
+          "ci_high": 266.977197088,
+          "method": "paired Student t, fixed sample",
+          "minimum": -14,
+          "maximum": 27,
+          "values_in_seed_order": [
+            -14,
+            27
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "completed": {
+          "n_pairs": 2,
+          "mean_difference": 10.0,
+          "confidence": 0.95,
+          "ci_low": -193.299275776,
+          "ci_high": 213.299275776,
+          "method": "paired Student t, fixed sample",
+          "minimum": -6,
+          "maximum": 26,
+          "values_in_seed_order": [
+            26,
+            -6
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        },
+        "terminal_backlog": {
+          "n_pairs": 2,
+          "mean_difference": -10.0,
+          "confidence": 0.95,
+          "ci_low": -213.299275776,
+          "ci_high": 193.299275776,
+          "method": "paired Student t, fixed sample",
+          "minimum": -26,
+          "maximum": 6,
+          "values_in_seed_order": [
+            -26,
+            6
+          ],
+          "interpretation": "Exploratory n=2 summary; t interval assumes approximately normal independent seed differences, cannot assess that assumption and is not multiplicity-adjusted."
+        }
+      }
+    }
+  ],
+  "audit": {
+    "checked_runs": 24,
+    "checksum_verified": true,
+    "identical_exogenous_hashes_across_policies_and_conditions": true,
+    "all_cohort_and_peak_conservation_passed": true,
+    "maximum_final_exposure_error_vehicle_seconds": 6.984919309616089e-09,
+    "maximum_time_series_exposure_error_vehicle_seconds": 3.306195139884949e-08,
+    "maximum_external_wait_time_error_vehicle_seconds": 0.0,
+    "reconstructed_time_series_rows": 47520,
+    "runs": [
+      {
+        "run_id": "3fee4da55580437096dc3e24770c1af3",
+        "condition": "nominal",
+        "period": "am",
+        "seed": 211,
+        "policy": "S0",
+        "peak_trip_count": 4378,
+        "all_trip_count": 4789,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "3e7c0e7e6a441f9bf85cba3084605b4106325289c3ebb8664631d10802c57ec7",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 2.7241185307502747e-08,
+        "final_exposure_error_vehicle_seconds": 2.7939677238464355e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [],
+        "terminal_counts": {
+          "completed": 4199,
+          "inside": 101,
+          "external_waiting": 78
+        }
+      },
+      {
+        "run_id": "958dcfef9375416fb57a1f7ceb65f9cc",
+        "condition": "nominal",
+        "period": "am",
+        "seed": 211,
+        "policy": "S1",
+        "peak_trip_count": 4378,
+        "all_trip_count": 4789,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "3e7c0e7e6a441f9bf85cba3084605b4106325289c3ebb8664631d10802c57ec7",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 2.7241185307502747e-08,
+        "final_exposure_error_vehicle_seconds": 3.259629011154175e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [],
+        "terminal_counts": {
+          "completed": 4252,
+          "inside": 36,
+          "external_waiting": 90
+        }
+      },
+      {
+        "run_id": "c0ccfacf90f0423ebdff7444d78410b0",
+        "condition": "nominal",
+        "period": "am",
+        "seed": 211,
+        "policy": "S5",
+        "peak_trip_count": 4378,
+        "all_trip_count": 4789,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "3e7c0e7e6a441f9bf85cba3084605b4106325289c3ebb8664631d10802c57ec7",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 2.7008354663848877e-08,
+        "final_exposure_error_vehicle_seconds": 2.3283064365386963e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [],
+        "terminal_counts": {
+          "completed": 4212,
+          "inside": 85,
+          "external_waiting": 81
+        }
+      },
+      {
+        "run_id": "6a2fe9eac93343f79b73c5da1b9700a0",
+        "condition": "nominal",
+        "period": "am",
+        "seed": 223,
+        "policy": "S0",
+        "peak_trip_count": 4276,
+        "all_trip_count": 4687,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "4e2c3fb13c87a7e16a041e6c0526f6536fe5421c14fa13c309b2ef62d18894b0",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 3.003515303134918e-08,
+        "final_exposure_error_vehicle_seconds": 2.7939677238464355e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [],
+        "terminal_counts": {
+          "completed": 4196,
+          "inside": 40,
+          "external_waiting": 40
+        }
+      },
+      {
+        "run_id": "225801bd0f2d410eb8193749276641ec",
+        "condition": "nominal",
+        "period": "am",
+        "seed": 223,
+        "policy": "S1",
+        "peak_trip_count": 4276,
+        "all_trip_count": 4687,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "4e2c3fb13c87a7e16a041e6c0526f6536fe5421c14fa13c309b2ef62d18894b0",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 3.073364496231079e-08,
+        "final_exposure_error_vehicle_seconds": 4.190951585769653e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [],
+        "terminal_counts": {
+          "completed": 4201,
+          "inside": 37,
+          "external_waiting": 38
+        }
+      },
+      {
+        "run_id": "17692d6181af4bc9a1f38a6c3a568ea0",
+        "condition": "nominal",
+        "period": "am",
+        "seed": 223,
+        "policy": "S5",
+        "peak_trip_count": 4276,
+        "all_trip_count": 4687,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "4e2c3fb13c87a7e16a041e6c0526f6536fe5421c14fa13c309b2ef62d18894b0",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 3.003515303134918e-08,
+        "final_exposure_error_vehicle_seconds": 5.587935447692871e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [],
+        "terminal_counts": {
+          "completed": 4208,
+          "inside": 51,
+          "external_waiting": 17
+        }
+      },
+      {
+        "run_id": "bd3e9786eec84fbf98173b1560218a5c",
+        "condition": "nominal",
+        "period": "pm",
+        "seed": 211,
+        "policy": "S0",
+        "peak_trip_count": 4249,
+        "all_trip_count": 4632,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "d8c158d4957bea5e75feee5199ac603252e5ab240db47c4bed0ed32ac582b3e3",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 3.213062882423401e-08,
+        "final_exposure_error_vehicle_seconds": 4.656612873077393e-10,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [],
+        "terminal_counts": {
+          "completed": 4173,
+          "inside": 76,
+          "external_waiting": 0
+        }
+      },
+      {
+        "run_id": "3e5f824667e44defb47bbb7e18b0c4d1",
+        "condition": "nominal",
+        "period": "pm",
+        "seed": 211,
+        "policy": "S1",
+        "peak_trip_count": 4249,
+        "all_trip_count": 4632,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "d8c158d4957bea5e75feee5199ac603252e5ab240db47c4bed0ed32ac582b3e3",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 3.213062882423401e-08,
+        "final_exposure_error_vehicle_seconds": 1.3969838619232178e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [],
+        "terminal_counts": {
+          "completed": 4169,
+          "inside": 80,
+          "external_waiting": 0
+        }
+      },
+      {
+        "run_id": "d0e9391ad900439eb6dea14bcfa32553",
+        "condition": "nominal",
+        "period": "pm",
+        "seed": 211,
+        "policy": "S5",
+        "peak_trip_count": 4249,
+        "all_trip_count": 4632,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "d8c158d4957bea5e75feee5199ac603252e5ab240db47c4bed0ed32ac582b3e3",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 3.213062882423401e-08,
+        "final_exposure_error_vehicle_seconds": 1.3969838619232178e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [],
+        "terminal_counts": {
+          "completed": 4169,
+          "inside": 80,
+          "external_waiting": 0
+        }
+      },
+      {
+        "run_id": "ee4e3c93d1ec4a139db1f77b69d2eeb7",
+        "condition": "nominal",
+        "period": "pm",
+        "seed": 223,
+        "policy": "S0",
+        "peak_trip_count": 4237,
+        "all_trip_count": 4579,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "e68bc86645a022dedc027cad5fa1e7bc6b23ca437b850fa36c7f3b1e889dcc88",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 2.2817403078079224e-08,
+        "final_exposure_error_vehicle_seconds": 5.122274160385132e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [],
+        "terminal_counts": {
+          "completed": 4106,
+          "inside": 131,
+          "external_waiting": 0
+        }
+      },
+      {
+        "run_id": "ff77a7eeeec04e92af33fee5475febf5",
+        "condition": "nominal",
+        "period": "pm",
+        "seed": 223,
+        "policy": "S1",
+        "peak_trip_count": 4237,
+        "all_trip_count": 4579,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "e68bc86645a022dedc027cad5fa1e7bc6b23ca437b850fa36c7f3b1e889dcc88",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 2.3283064365386963e-08,
+        "final_exposure_error_vehicle_seconds": 5.587935447692871e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [],
+        "terminal_counts": {
+          "completed": 4102,
+          "inside": 119,
+          "external_waiting": 16
+        }
+      },
+      {
+        "run_id": "23872285ee764ba982df0f9d4cc9355b",
+        "condition": "nominal",
+        "period": "pm",
+        "seed": 223,
+        "policy": "S5",
+        "peak_trip_count": 4237,
+        "all_trip_count": 4579,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "e68bc86645a022dedc027cad5fa1e7bc6b23ca437b850fa36c7f3b1e889dcc88",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 2.1886080503463745e-08,
+        "final_exposure_error_vehicle_seconds": 4.190951585769653e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [],
+        "terminal_counts": {
+          "completed": 4118,
+          "inside": 119,
+          "external_waiting": 0
+        }
+      },
+      {
+        "run_id": "26252f5c5f42443c898496e4a49eb60e",
+        "condition": "exit_constraint",
+        "period": "am",
+        "seed": 211,
+        "policy": "S0",
+        "peak_trip_count": 4378,
+        "all_trip_count": 4789,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "3e7c0e7e6a441f9bf85cba3084605b4106325289c3ebb8664631d10802c57ec7",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 2.7241185307502747e-08,
+        "final_exposure_error_vehicle_seconds": 2.7939677238464355e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [
+          {
+            "time": 3600.0,
+            "type": "downstream_constraint_start",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          },
+          {
+            "time": 4500.0,
+            "type": "downstream_constraint_end",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          }
+        ],
+        "terminal_counts": {
+          "completed": 4192,
+          "inside": 100,
+          "external_waiting": 86
+        }
+      },
+      {
+        "run_id": "b19a6a0a96cd4060b8097e06bc510c38",
+        "condition": "exit_constraint",
+        "period": "am",
+        "seed": 211,
+        "policy": "S1",
+        "peak_trip_count": 4378,
+        "all_trip_count": 4789,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "3e7c0e7e6a441f9bf85cba3084605b4106325289c3ebb8664631d10802c57ec7",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 2.6775524020195007e-08,
+        "final_exposure_error_vehicle_seconds": 3.725290298461914e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [
+          {
+            "time": 3600.0,
+            "type": "downstream_constraint_start",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          },
+          {
+            "time": 4500.0,
+            "type": "downstream_constraint_end",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          }
+        ],
+        "terminal_counts": {
+          "completed": 4284,
+          "inside": 57,
+          "external_waiting": 37
+        }
+      },
+      {
+        "run_id": "e4f3f70840f7403e8c7ab4f5db2b8aa5",
+        "condition": "exit_constraint",
+        "period": "am",
+        "seed": 211,
+        "policy": "S5",
+        "peak_trip_count": 4378,
+        "all_trip_count": 4789,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "3e7c0e7e6a441f9bf85cba3084605b4106325289c3ebb8664631d10802c57ec7",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 2.6775524020195007e-08,
+        "final_exposure_error_vehicle_seconds": 2.7939677238464355e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [
+          {
+            "time": 3600.0,
+            "type": "downstream_constraint_start",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          },
+          {
+            "time": 4500.0,
+            "type": "downstream_constraint_end",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          }
+        ],
+        "terminal_counts": {
+          "completed": 4211,
+          "inside": 77,
+          "external_waiting": 90
+        }
+      },
+      {
+        "run_id": "f276cbd782d04369a0bc4b8702007ff5",
+        "condition": "exit_constraint",
+        "period": "am",
+        "seed": 223,
+        "policy": "S0",
+        "peak_trip_count": 4276,
+        "all_trip_count": 4687,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "4e2c3fb13c87a7e16a041e6c0526f6536fe5421c14fa13c309b2ef62d18894b0",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 3.213062882423401e-08,
+        "final_exposure_error_vehicle_seconds": 4.656612873077393e-10,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [
+          {
+            "time": 3600.0,
+            "type": "downstream_constraint_start",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          },
+          {
+            "time": 4500.0,
+            "type": "downstream_constraint_end",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          }
+        ],
+        "terminal_counts": {
+          "completed": 4185,
+          "inside": 46,
+          "external_waiting": 45
+        }
+      },
+      {
+        "run_id": "7f449c56c95e4598a34ee108d202db85",
+        "condition": "exit_constraint",
+        "period": "am",
+        "seed": 223,
+        "policy": "S1",
+        "peak_trip_count": 4276,
+        "all_trip_count": 4687,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "4e2c3fb13c87a7e16a041e6c0526f6536fe5421c14fa13c309b2ef62d18894b0",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 3.026798367500305e-08,
+        "final_exposure_error_vehicle_seconds": 6.984919309616089e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [
+          {
+            "time": 3600.0,
+            "type": "downstream_constraint_start",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          },
+          {
+            "time": 4500.0,
+            "type": "downstream_constraint_end",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          }
+        ],
+        "terminal_counts": {
+          "completed": 4239,
+          "inside": 37,
+          "external_waiting": 0
+        }
+      },
+      {
+        "run_id": "b66d9660a79341ee8304df9a00612224",
+        "condition": "exit_constraint",
+        "period": "am",
+        "seed": 223,
+        "policy": "S5",
+        "peak_trip_count": 4276,
+        "all_trip_count": 4687,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "4e2c3fb13c87a7e16a041e6c0526f6536fe5421c14fa13c309b2ef62d18894b0",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 3.259629011154175e-08,
+        "final_exposure_error_vehicle_seconds": 9.313225746154785e-10,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [
+          {
+            "time": 3600.0,
+            "type": "downstream_constraint_start",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          },
+          {
+            "time": 4500.0,
+            "type": "downstream_constraint_end",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          }
+        ],
+        "terminal_counts": {
+          "completed": 4227,
+          "inside": 49,
+          "external_waiting": 0
+        }
+      },
+      {
+        "run_id": "f1368ad0620a42dcac05744a537b6262",
+        "condition": "exit_constraint",
+        "period": "pm",
+        "seed": 211,
+        "policy": "S0",
+        "peak_trip_count": 4249,
+        "all_trip_count": 4632,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "d8c158d4957bea5e75feee5199ac603252e5ab240db47c4bed0ed32ac582b3e3",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 3.259629011154175e-08,
+        "final_exposure_error_vehicle_seconds": 1.862645149230957e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [
+          {
+            "time": 3600.0,
+            "type": "downstream_constraint_start",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          },
+          {
+            "time": 4500.0,
+            "type": "downstream_constraint_end",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          }
+        ],
+        "terminal_counts": {
+          "completed": 4155,
+          "inside": 80,
+          "external_waiting": 14
+        }
+      },
+      {
+        "run_id": "cf445a775fe043ab8aab48b2434136b1",
+        "condition": "exit_constraint",
+        "period": "pm",
+        "seed": 211,
+        "policy": "S1",
+        "peak_trip_count": 4249,
+        "all_trip_count": 4632,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "d8c158d4957bea5e75feee5199ac603252e5ab240db47c4bed0ed32ac582b3e3",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 3.259629011154175e-08,
+        "final_exposure_error_vehicle_seconds": 1.862645149230957e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [
+          {
+            "time": 3600.0,
+            "type": "downstream_constraint_start",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          },
+          {
+            "time": 4500.0,
+            "type": "downstream_constraint_end",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          }
+        ],
+        "terminal_counts": {
+          "completed": 4166,
+          "inside": 83,
+          "external_waiting": 0
+        }
+      },
+      {
+        "run_id": "9a29c4dde0e5449aa8359f04dd8f0579",
+        "condition": "exit_constraint",
+        "period": "pm",
+        "seed": 211,
+        "policy": "S5",
+        "peak_trip_count": 4249,
+        "all_trip_count": 4632,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "d8c158d4957bea5e75feee5199ac603252e5ab240db47c4bed0ed32ac582b3e3",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 3.306195139884949e-08,
+        "final_exposure_error_vehicle_seconds": 2.3283064365386963e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [
+          {
+            "time": 3600.0,
+            "type": "downstream_constraint_start",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          },
+          {
+            "time": 4500.0,
+            "type": "downstream_constraint_end",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          }
+        ],
+        "terminal_counts": {
+          "completed": 4177,
+          "inside": 72,
+          "external_waiting": 0
+        }
+      },
+      {
+        "run_id": "3d39d55c087a433aaf7f4798fcb50cd6",
+        "condition": "exit_constraint",
+        "period": "pm",
+        "seed": 223,
+        "policy": "S0",
+        "peak_trip_count": 4237,
+        "all_trip_count": 4579,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "e68bc86645a022dedc027cad5fa1e7bc6b23ca437b850fa36c7f3b1e889dcc88",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 2.1420419216156006e-08,
+        "final_exposure_error_vehicle_seconds": 3.725290298461914e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [
+          {
+            "time": 3600.0,
+            "type": "downstream_constraint_start",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          },
+          {
+            "time": 4500.0,
+            "type": "downstream_constraint_end",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          }
+        ],
+        "terminal_counts": {
+          "completed": 4095,
+          "inside": 139,
+          "external_waiting": 3
+        }
+      },
+      {
+        "run_id": "d48b4995311a4f1fa9a8fa389731a04e",
+        "condition": "exit_constraint",
+        "period": "pm",
+        "seed": 223,
+        "policy": "S1",
+        "peak_trip_count": 4237,
+        "all_trip_count": 4579,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "e68bc86645a022dedc027cad5fa1e7bc6b23ca437b850fa36c7f3b1e889dcc88",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 2.421438694000244e-08,
+        "final_exposure_error_vehicle_seconds": 6.51925802230835e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [
+          {
+            "time": 3600.0,
+            "type": "downstream_constraint_start",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          },
+          {
+            "time": 4500.0,
+            "type": "downstream_constraint_end",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          }
+        ],
+        "terminal_counts": {
+          "completed": 4107,
+          "inside": 130,
+          "external_waiting": 0
+        }
+      },
+      {
+        "run_id": "3eb0a424e7a845e5bb1bd119ddace7e7",
+        "condition": "exit_constraint",
+        "period": "pm",
+        "seed": 223,
+        "policy": "S5",
+        "peak_trip_count": 4237,
+        "all_trip_count": 4579,
+        "all_cohort_counts_passed": true,
+        "unique_trip_ids": true,
+        "exogenous_demand_hash_reconstructed": "e68bc86645a022dedc027cad5fa1e7bc6b23ca437b850fa36c7f3b1e889dcc88",
+        "conservation_max_residual": 0,
+        "reconstructed_time_series_rows": 1980,
+        "maximum_time_series_exposure_error_vehicle_seconds": 2.421438694000244e-08,
+        "final_exposure_error_vehicle_seconds": 6.51925802230835e-09,
+        "external_wait_time_error_vehicle_seconds": 0.0,
+        "constraint_events": [
+          {
+            "time": 3600.0,
+            "type": "downstream_constraint_start",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          },
+          {
+            "time": 4500.0,
+            "type": "downstream_constraint_end",
+            "gate_id": "W_exit_441574379",
+            "speed_m_s": 0.1,
+            "source": "explicit_hypothetical_receiving_constraint"
+          }
+        ],
+        "terminal_counts": {
+          "completed": 4101,
+          "inside": 106,
+          "external_waiting": 30
+        }
+      }
+    ]
+  },
+  "hardware": {
+    "maximum_worker_peak_rss_kib": 329512,
+    "worker_wall_time_seconds": [
+      63.888875510001526,
+      51.93561760100056,
+      57.18307247999837,
+      42.96244535200094,
+      47.70904379900094,
+      48.400599633998354,
+      47.8953722490005,
+      51.46719746000235,
+      48.69093357100064,
+      49.82517774500229,
+      49.34700104699732,
+      46.185470067001006,
+      61.18165057999795,
+      49.77304486199864,
+      58.43729035999786,
+      44.70777337999971,
+      54.766492340000696,
+      61.64617574699878,
+      68.54023312200297,
+      65.73422065100021,
+      47.19781897800203,
+      46.23550945600073,
+      46.44413519099908,
+      45.63735695900323
+    ]
+  },
+  "not_tested": [
+    "Internal E1 activity",
+    "Expanded boundary with reconstructed demand",
+    "Independent curb-event intensity changes",
+    "Navigation-response sensitivity",
+    "Matched fixed-integrator step-size sensitivity",
+    "Field calibration"
+  ],
+  "plan_sha256": "a7366e38025abacf3ae0c49f2bcabe769723eafed9620e67daaf05d9d17e80f3"
+}

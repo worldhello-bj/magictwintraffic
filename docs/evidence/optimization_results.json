@@ -1,0 +1,1299 @@
+{
+  "status": "complete",
+  "planned_evaluations": 40,
+  "available_evaluations": 40,
+  "selection_rule": "A variant is eligible only if each of its four paired tuning runs has no lower completion, no higher external waiting, and no higher finite-window TSTT than its family default. Among eligible variants minimize mean paired normalized finite-window TSTT; default wins ties. If none eligible retain default. This is an exploratory heuristic, not proof of optimality.",
+  "scope": "40 full-duration evaluations. Medium AM/PM only; independent verification must cover low/medium/high demand. No verification seed may inform tuning.",
+  "errors": [],
+  "variants": [
+    {
+      "policy": "S1",
+      "variant_id": "S1_v00",
+      "policy_parameters": {
+        "green_extension_seconds": 8.0
+      },
+      "default_reference": true,
+      "eligible": true,
+      "mean_normalized_finite_window_tstt": 1.0,
+      "comparisons": [
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "bdf5ac6a025d4e75b003f0c6559648f7",
+              "candidate": "bdf5ac6a025d4e75b003f0c6559648f7",
+              "seed": 41
+            },
+            {
+              "baseline": "824565bed31f4bb3bcb4955ad2219673",
+              "candidate": "824565bed31f4bb3bcb4955ad2219673",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": false,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        },
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "6e9b14d7149f4b8f9af2ad83fe442fa1",
+              "candidate": "6e9b14d7149f4b8f9af2ad83fe442fa1",
+              "seed": 41
+            },
+            {
+              "baseline": "e6428320b5334cbcae67151e547d26c4",
+              "candidate": "e6428320b5334cbcae67151e547d26c4",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": false,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        }
+      ]
+    },
+    {
+      "policy": "S1",
+      "variant_id": "S1_v01",
+      "policy_parameters": {
+        "green_extension_seconds": 2.0
+      },
+      "default_reference": false,
+      "eligible": false,
+      "mean_normalized_finite_window_tstt": 0.9450941423914431,
+      "comparisons": [
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "bdf5ac6a025d4e75b003f0c6559648f7",
+              "candidate": "52b186e67f5147038fd283e224ec48fc",
+              "seed": 41
+            },
+            {
+              "baseline": "824565bed31f4bb3bcb4955ad2219673",
+              "candidate": "31662f9e11cd44d8aa220bc51295ae14",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": -302086.0000000015,
+              "confidence": 0.95,
+              "ci_low": -4184676.5094629615,
+              "ci_high": 3580504.5094629587,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": 0.0070802427511800214,
+              "confidence": 0.95,
+              "ci_low": -0.08288277122589323,
+              "ci_high": 0.09704325672825327,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": -31.5,
+              "confidence": 0.95,
+              "ci_low": -431.74544918399994,
+              "ci_high": 368.74544918399994,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": -25.0,
+              "confidence": 0.95,
+              "ci_low": -342.6551184,
+              "ci_high": 292.6551184,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": true,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        },
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "6e9b14d7149f4b8f9af2ad83fe442fa1",
+              "candidate": "d60338bf71da4f05bfd79bc1edd2ee2d",
+              "seed": 41
+            },
+            {
+              "baseline": "e6428320b5334cbcae67151e547d26c4",
+              "candidate": "459ad03769e5469d9b3f1452bec5f44b",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": -112147.49999999907,
+              "confidence": 0.95,
+              "ci_low": -1196183.7101541953,
+              "ci_high": 971888.7101541972,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": 0.0007185628742514827,
+              "confidence": 0.95,
+              "ci_low": -0.008411644121676477,
+              "ci_high": 0.009848769870179443,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": -3.0,
+              "confidence": 0.95,
+              "ci_low": -41.118614208,
+              "ci_high": 35.118614208,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": true,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        }
+      ]
+    },
+    {
+      "policy": "S1",
+      "variant_id": "S1_v02",
+      "policy_parameters": {
+        "green_extension_seconds": 4.0
+      },
+      "default_reference": false,
+      "eligible": false,
+      "mean_normalized_finite_window_tstt": 0.9632663689728692,
+      "comparisons": [
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "bdf5ac6a025d4e75b003f0c6559648f7",
+              "candidate": "44a721dce27a428f8ff0b6ab93094fa9",
+              "seed": 41
+            },
+            {
+              "baseline": "824565bed31f4bb3bcb4955ad2219673",
+              "candidate": "671b1f8f20b84e308fdbc233be393c2d",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": -116167.75000000081,
+              "confidence": 0.95,
+              "ci_low": -5010543.812937086,
+              "ci_high": 4778208.312937085,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": 0.005169701056417175,
+              "confidence": 0.95,
+              "ci_low": -0.06051757899033494,
+              "ci_high": 0.07085698110316929,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": -23.0,
+              "confidence": 0.95,
+              "ci_low": -315.24270892799996,
+              "ci_high": 269.24270892799996,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": -12.0,
+              "confidence": 0.95,
+              "ci_low": -164.474456832,
+              "ci_high": 140.474456832,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": true,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        },
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "6e9b14d7149f4b8f9af2ad83fe442fa1",
+              "candidate": "ea7f047a60be47be86d689f709ecafd4",
+              "seed": 41
+            },
+            {
+              "baseline": "e6428320b5334cbcae67151e547d26c4",
+              "candidate": "5413e09ada8e41bcb4745a019bea2cd1",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": -207818.74999999988,
+              "confidence": 0.95,
+              "ci_low": -3443895.3266369747,
+              "ci_high": 3028257.8266369747,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": -0.0032335329341317554,
+              "confidence": 0.95,
+              "ci_low": -0.04431946441580863,
+              "ci_high": 0.03785239854754512,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": 13.5,
+              "confidence": 0.95,
+              "ci_low": -158.03376393599999,
+              "ci_high": 185.03376393599999,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": false,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        }
+      ]
+    },
+    {
+      "policy": "S1",
+      "variant_id": "S1_v03",
+      "policy_parameters": {
+        "green_extension_seconds": 12.0
+      },
+      "default_reference": false,
+      "eligible": false,
+      "mean_normalized_finite_window_tstt": 0.9776284733564806,
+      "comparisons": [
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "bdf5ac6a025d4e75b003f0c6559648f7",
+              "candidate": "6db9df30f5b84fe995d7d75b94e6a2bd",
+              "seed": 41
+            },
+            {
+              "baseline": "824565bed31f4bb3bcb4955ad2219673",
+              "candidate": "1907589c70b447f2a5a28bd604860f45",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": -27671.500000000116,
+              "confidence": 0.95,
+              "ci_low": -935021.5801977586,
+              "ci_high": 879678.5801977584,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": 0.0019105416947628462,
+              "confidence": 0.95,
+              "ci_low": -0.022365192235558298,
+              "ci_high": 0.02618627562508399,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": -8.5,
+              "confidence": 0.95,
+              "ci_low": -116.502740256,
+              "ci_high": 99.502740256,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": -1.5,
+              "confidence": 0.95,
+              "ci_low": -20.559307104,
+              "ci_high": 17.559307104,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": true,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        },
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "6e9b14d7149f4b8f9af2ad83fe442fa1",
+              "candidate": "e11e0c77cd67470b8156e285211e8c53",
+              "seed": 41
+            },
+            {
+              "baseline": "e6428320b5334cbcae67151e547d26c4",
+              "candidate": "e356f976eb874c89a613c9e484384e01",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": -103223.99999999953,
+              "confidence": 0.95,
+              "ci_low": -2812828.513054361,
+              "ci_high": 2606380.513054362,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": -0.0013173652694610793,
+              "confidence": 0.95,
+              "ci_low": -0.018056078095329362,
+              "ci_high": 0.015421347556407203,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": 5.5,
+              "confidence": 0.95,
+              "ci_low": -64.384126048,
+              "ci_high": 75.384126048,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": false,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        }
+      ]
+    },
+    {
+      "policy": "S1",
+      "variant_id": "S1_v04",
+      "policy_parameters": {
+        "green_extension_seconds": 15.0
+      },
+      "default_reference": false,
+      "eligible": false,
+      "mean_normalized_finite_window_tstt": 0.9796269702049027,
+      "comparisons": [
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "bdf5ac6a025d4e75b003f0c6559648f7",
+              "candidate": "ee716001a4184a60a30c3b303c8e3269",
+              "seed": 41
+            },
+            {
+              "baseline": "824565bed31f4bb3bcb4955ad2219673",
+              "candidate": "7f092fae0b8b42d2972b08f914ce3b05",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": -154829.00000000081,
+              "confidence": 0.95,
+              "ci_low": -2330163.016315054,
+              "ci_high": 2020505.0163150523,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": 0.003933468195099987,
+              "confidence": 0.95,
+              "ci_low": -0.04604598401438484,
+              "ci_high": 0.05391292040458481,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": -17.5,
+              "confidence": 0.95,
+              "ci_low": -239.85858287999997,
+              "ci_high": 204.85858287999997,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": -19.0,
+              "confidence": 0.95,
+              "ci_low": -260.417889984,
+              "ci_high": 222.41788998399997,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": true,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        },
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "6e9b14d7149f4b8f9af2ad83fe442fa1",
+              "candidate": "9a4b1be00e914183b263b52c78086ab8",
+              "seed": 41
+            },
+            {
+              "baseline": "e6428320b5334cbcae67151e547d26c4",
+              "candidate": "aa3a57bfd31f47ab867ca02a2f190f9e",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": -14561.749999999534,
+              "confidence": 0.95,
+              "ci_low": -1736998.9812562335,
+              "ci_high": 1707875.4812562345,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": -0.002035928143712562,
+              "confidence": 0.95,
+              "ci_low": -0.02790484796550881,
+              "ci_high": 0.023832991678083684,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": 8.5,
+              "confidence": 0.95,
+              "ci_low": -99.502740256,
+              "ci_high": 116.502740256,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": false,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        }
+      ]
+    },
+    {
+      "policy": "S5",
+      "variant_id": "S5_v00",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 8.0
+      },
+      "default_reference": true,
+      "eligible": true,
+      "mean_normalized_finite_window_tstt": 1.0,
+      "comparisons": [
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "19f3b797f2514602b08ae54f98558a9d",
+              "candidate": "19f3b797f2514602b08ae54f98558a9d",
+              "seed": 41
+            },
+            {
+              "baseline": "1dfe61172cd547db88f55119604469e9",
+              "candidate": "1dfe61172cd547db88f55119604469e9",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": false,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        },
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "fc0a51594f0f458699311b5c5bf411ba",
+              "candidate": "fc0a51594f0f458699311b5c5bf411ba",
+              "seed": 41
+            },
+            {
+              "baseline": "0a8b962f8f424c5f921d7c750f1c233e",
+              "candidate": "0a8b962f8f424c5f921d7c750f1c233e",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": false,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        }
+      ]
+    },
+    {
+      "policy": "S5",
+      "variant_id": "S5_v01",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 4.0
+      },
+      "default_reference": false,
+      "eligible": false,
+      "mean_normalized_finite_window_tstt": 1.2215814979771251,
+      "comparisons": [
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "19f3b797f2514602b08ae54f98558a9d",
+              "candidate": "259f2afe19c14c7090d3b13fb6d1e22f",
+              "seed": 41
+            },
+            {
+              "baseline": "1dfe61172cd547db88f55119604469e9",
+              "candidate": "39834116b05647b29f74bb024a037e0f",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": 922915.5000000022,
+              "confidence": 0.95,
+              "ci_low": -6845022.76535359,
+              "ci_high": 8690853.765353594,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": -0.07859563609430786,
+              "confidence": 0.95,
+              "ci_low": -1.0058486622226135,
+              "ci_high": 0.8486573900339978,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": 335.5,
+              "confidence": 0.95,
+              "ci_low": -3609.7765705280003,
+              "ci_high": 4280.776570528,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": 88.0,
+              "confidence": 0.95,
+              "ci_low": -521.897827328,
+              "ci_high": 697.897827328,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": false,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        },
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "fc0a51594f0f458699311b5c5bf411ba",
+              "candidate": "87c2ce11dae84a0f9522202a27dd15f1",
+              "seed": 41
+            },
+            {
+              "baseline": "0a8b962f8f424c5f921d7c750f1c233e",
+              "candidate": "7148134de9ba47e4bc8f969c8c76ee7d",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": 55281.7499999993,
+              "confidence": 0.95,
+              "ci_low": -642965.4954085837,
+              "ci_high": 753528.9954085823,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": 0.0003592814371257691,
+              "confidence": 0.95,
+              "ci_low": -0.004205822060838564,
+              "ci_high": 0.004924384935090102,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": -1.5,
+              "confidence": 0.95,
+              "ci_low": -20.559307104,
+              "ci_high": 17.559307104,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": true,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        }
+      ]
+    },
+    {
+      "policy": "S5",
+      "variant_id": "S5_v02",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 12.0
+      },
+      "default_reference": false,
+      "eligible": false,
+      "mean_normalized_finite_window_tstt": 1.0340380980483572,
+      "comparisons": [
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "19f3b797f2514602b08ae54f98558a9d",
+              "candidate": "c73b802b197f42a8a024c98e84efce7a",
+              "seed": 41
+            },
+            {
+              "baseline": "1dfe61172cd547db88f55119604469e9",
+              "candidate": "cc71672d3bff440f9e7e6af5dda1e5fe",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": 45291.75000000035,
+              "confidence": 0.95,
+              "ci_low": -373145.8078147751,
+              "ci_high": 463729.3078147758,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": 0.0005619240278714743,
+              "confidence": 0.95,
+              "ci_low": -0.006577997716341249,
+              "ci_high": 0.0077018457720841975,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": -2.5,
+              "confidence": 0.95,
+              "ci_low": -34.26551184,
+              "ci_high": 29.265511840000002,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": -2.5,
+              "confidence": 0.95,
+              "ci_low": -34.26551184,
+              "ci_high": 29.265511840000002,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": true,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        },
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "fc0a51594f0f458699311b5c5bf411ba",
+              "candidate": "e78a24a62b9946a8b2050f3469204c6a",
+              "seed": 41
+            },
+            {
+              "baseline": "0a8b962f8f424c5f921d7c750f1c233e",
+              "candidate": "a5f0e87219544dc9af70ff9971431457",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": 143541.99999999977,
+              "confidence": 0.95,
+              "ci_low": -798470.6067175593,
+              "ci_high": 1085554.6067175588,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": -0.0026347305389221587,
+              "confidence": 0.95,
+              "ci_low": -0.036112156190658724,
+              "ci_high": 0.030842695112814407,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": 11.0,
+              "confidence": 0.95,
+              "ci_low": -128.768252096,
+              "ci_high": 150.768252096,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": false,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        }
+      ]
+    },
+    {
+      "policy": "S5",
+      "variant_id": "S5_v03",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 20.0
+      },
+      "default_reference": false,
+      "eligible": false,
+      "mean_normalized_finite_window_tstt": 1.058849316316843,
+      "comparisons": [
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "19f3b797f2514602b08ae54f98558a9d",
+              "candidate": "76fe124ab7704dfab0926b97a8501e99",
+              "seed": 41
+            },
+            {
+              "baseline": "1dfe61172cd547db88f55119604469e9",
+              "candidate": "9c16ea63c8bf4f0cacdcf00ee4294481",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": 143472.2500000014,
+              "confidence": 0.95,
+              "ci_low": -1290978.8509148161,
+              "ci_high": 1577923.350914819,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": -0.0008990784445942479,
+              "confidence": 0.95,
+              "ci_low": -0.012322953235333195,
+              "ci_high": 0.0105247963461447,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": 4.0,
+              "confidence": 0.95,
+              "ci_low": -46.824818944,
+              "ci_high": 54.824818944,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": 6.5,
+              "confidence": 0.95,
+              "ci_low": -76.09033078399999,
+              "ci_high": 89.09033078399999,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": false,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        },
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "fc0a51594f0f458699311b5c5bf411ba",
+              "candidate": "bda1d1ab6a01433f855961b701a27e24",
+              "seed": 41
+            },
+            {
+              "baseline": "0a8b962f8f424c5f921d7c750f1c233e",
+              "candidate": "5bfbf21181d444a08f80698295c4e3f2",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": 199107.49999999953,
+              "confidence": 0.95,
+              "ci_low": -43517.47943391453,
+              "ci_high": 441732.4794339136,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": -0.0011976047904191378,
+              "confidence": 0.95,
+              "ci_low": -0.016414616450299072,
+              "ci_high": 0.014019406869460797,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": 5.0,
+              "confidence": 0.95,
+              "ci_low": -58.531023680000004,
+              "ci_high": 68.53102368,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": false,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        }
+      ]
+    },
+    {
+      "policy": "S5",
+      "variant_id": "S5_v04",
+      "policy_parameters": {
+        "managed_curb_stop_seconds": 28.0
+      },
+      "default_reference": false,
+      "eligible": false,
+      "mean_normalized_finite_window_tstt": 1.0655658098486556,
+      "comparisons": [
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "19f3b797f2514602b08ae54f98558a9d",
+              "candidate": "3a6b4ef0e2fc4b9ca95b11663198986c",
+              "seed": 41
+            },
+            {
+              "baseline": "1dfe61172cd547db88f55119604469e9",
+              "candidate": "0941cda4fb194ab490fc21879842dca8",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": 350876.000000002,
+              "confidence": 0.95,
+              "ci_low": -3809561.0884250756,
+              "ci_high": 4511313.088425079,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": -0.0014610024724657222,
+              "confidence": 0.95,
+              "ci_low": -0.020024799007417392,
+              "ci_high": 0.017102794062485948,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": 6.5,
+              "confidence": 0.95,
+              "ci_low": -76.09033078399999,
+              "ci_high": 89.09033078399999,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": 17.5,
+              "confidence": 0.95,
+              "ci_low": -204.85858287999997,
+              "ci_high": 239.85858287999997,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": false,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        },
+        {
+          "phase": "optimization",
+          "run_pairs": [
+            {
+              "baseline": "fc0a51594f0f458699311b5c5bf411ba",
+              "candidate": "b46821dfc9194c4a82083eab3c497d06",
+              "seed": 41
+            },
+            {
+              "baseline": "0a8b962f8f424c5f921d7c750f1c233e",
+              "candidate": "d5f13f494563448992de2f7f5986f8ad",
+              "seed": 43
+            }
+          ],
+          "paired_differences": {
+            "tstt_vehicle_seconds": {
+              "n_pairs": 2,
+              "mean_difference": 105330.9999999993,
+              "confidence": 0.95,
+              "ci_low": -1306423.6427051176,
+              "ci_high": 1517085.6427051162,
+              "method": "paired Student t, fixed sample"
+            },
+            "completion_rate": {
+              "n_pairs": 2,
+              "mean_difference": -0.0014371257485029654,
+              "confidence": 0.95,
+              "ci_low": -0.019697539740358885,
+              "ci_high": 0.016823288243352955,
+              "method": "paired Student t, fixed sample"
+            },
+            "terminal_backlog": {
+              "n_pairs": 2,
+              "mean_difference": 6.0,
+              "confidence": 0.95,
+              "ci_low": -70.237228416,
+              "ci_high": 82.237228416,
+              "method": "paired Student t, fixed sample"
+            },
+            "external_waiting": {
+              "n_pairs": 2,
+              "mean_difference": 0.0,
+              "confidence": 0.95,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "method": "paired Student t, fixed sample"
+            }
+          },
+          "all_target_trips_complete": false,
+          "observed_completion_backlog_dominance": false,
+          "conclusion": "exploratory_only",
+          "travel_time_ranking_allowed": false,
+          "caveats": [
+            "95% intervals are marginal fixed-sample intervals, not simultaneous or sequential guarantees.",
+            "Completed-only travel time is descriptive and never used to rank censored runs.",
+            "Random seeds quantify simulation noise, not field validity or parameter uncertainty."
+          ]
+        }
+      ]
+    }
+  ],
+  "selected_parameters": {
+    "S1": {
+      "green_extension_seconds": 8.0
+    },
+    "S5": {
+      "managed_curb_stop_seconds": 8.0
+    }
+  },
+  "interpretation": "Selected for independent testing only; this bounded exploratory search does not establish an optimum or final benefit."
+}

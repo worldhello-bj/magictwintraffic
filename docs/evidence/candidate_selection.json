@@ -1,0 +1,46 @@
+{
+  "stage": "family_selection_before_tuning_and_verification",
+  "exploration_runs": 96,
+  "exploration_seeds": [
+    11,
+    29
+  ],
+  "selected_families": [
+    "S1",
+    "S5"
+  ],
+  "selection_criterion": "Conservative shortlist: among families with a demonstrated nonzero effect on E0 demand, choose the two smallest worst-condition mean completion losses across the six demand/period conditions. Secondary boundary-wait and finite-window time tradeoffs remain explicit. This is exploratory selection, not a winner declaration.",
+  "excluded_null_family": {
+    "policy": "S4",
+    "reason": "All12 paired runs identical to baseline; zero reference-route exposure to restricted edge across57214 baseline inventory trips including warmup.",
+    "evidence": "s4_route_exposure.json"
+  },
+  "worst_condition_completion_difference_pp": {
+    "S1": -0.20220175241518756,
+    "S2": -29.239506545478,
+    "S3": -4.213165621093057,
+    "S4": 0.0,
+    "S5": -0.39217467504618075,
+    "S6": -7.193421591177107,
+    "S7": -6.816259572927691
+  },
+  "tuning_seeds": [
+    41,
+    43
+  ],
+  "reserved_verification_seeds": [
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110
+  ],
+  "verification_results_seen": false,
+  "optimization_plan": "optimization_plan.json",
+  "warning": "S1 and S5 each have adverse conditions and boundary queue tradeoffs. Independent verification may reject either or both."
+}

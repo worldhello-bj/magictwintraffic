@@ -1,0 +1,13 @@
+Success.
+
+Warning: Ambiguity in turnarounds computation at junction '432452884'.
+Warning: Ambiguity in turnarounds computation at junction '8013476765'.
+Warning: Ambiguity in turnarounds computation at junction 'cluster_12447430702_4972899566'.
+Warning: Ambiguity in turnarounds computation at junction 'cluster_13985142892_5478294823'.
+Warning: Ambiguity in turnarounds computation at junction 'cluster_13985142893_5478294827'.
+Warning: Found sharp turn with radius 6.03 at the start of edge '1270651026#1'.
+Warning: Shape for junction '2333187912' has distance 51.78 to its given position.
+Warning: Shape for junction '4548141015' has distance 63.48 to its given position.
+Warning: Shape for junction '4548141029' has distance 53.50 to its given position.
+Warning: Shape for junction '4548211642' has distance 20.94 to its given position.
+Warning: 9 total messages of type: Ambiguity in turnarounds computation at junction '%'.

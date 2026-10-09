@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "runs": [
+    {
+      "run_id": "preview_S0_am_42_d1",
+      "label": "S0 · 600s 机制演示 / 2Hz回放",
+      "policy": "S0",
+      "manifest": "runs/preview_S0_am_42_d1/manifest.json",
+      "metrics": "runs/preview_S0_am_42_d1/metrics.json",
+      "duration_seconds": 600.0,
+      "trajectory_step_seconds": 0.5
+    },
+    {
+      "run_id": "preview_S7_am_42_d1",
+      "label": "S7 · 600s 机制演示 / 2Hz回放",
+      "policy": "S7",
+      "manifest": "runs/preview_S7_am_42_d1/manifest.json",
+      "metrics": "runs/preview_S7_am_42_d1/metrics.json",
+      "duration_seconds": 600.0,
+      "trajectory_step_seconds": 0.5
+    }
+  ]
+}

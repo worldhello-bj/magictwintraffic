@@ -1,0 +1,252 @@
+{
+  "format": "gzip-split-v1",
+  "assets": [
+    {
+      "path": "data/canonical/network.json",
+      "size": 7565649,
+      "sha256": "7824ff6bbb34c312e2eed7c4d370b556f976221a361ae5f0cfae3e3bb479d90a",
+      "parts": [
+        "assets/packed/7824ff6bbb34c312.000.part",
+        "assets/packed/7824ff6bbb34c312.001.part",
+        "assets/packed/7824ff6bbb34c312.002.part",
+        "assets/packed/7824ff6bbb34c312.003.part",
+        "assets/packed/7824ff6bbb34c312.004.part",
+        "assets/packed/7824ff6bbb34c312.005.part",
+        "assets/packed/7824ff6bbb34c312.006.part",
+        "assets/packed/7824ff6bbb34c312.007.part",
+        "assets/packed/7824ff6bbb34c312.008.part",
+        "assets/packed/7824ff6bbb34c312.009.part",
+        "assets/packed/7824ff6bbb34c312.010.part",
+        "assets/packed/7824ff6bbb34c312.011.part",
+        "assets/packed/7824ff6bbb34c312.012.part",
+        "assets/packed/7824ff6bbb34c312.013.part",
+        "assets/packed/7824ff6bbb34c312.014.part",
+        "assets/packed/7824ff6bbb34c312.015.part",
+        "assets/packed/7824ff6bbb34c312.016.part",
+        "assets/packed/7824ff6bbb34c312.017.part",
+        "assets/packed/7824ff6bbb34c312.018.part",
+        "assets/packed/7824ff6bbb34c312.019.part",
+        "assets/packed/7824ff6bbb34c312.020.part",
+        "assets/packed/7824ff6bbb34c312.021.part",
+        "assets/packed/7824ff6bbb34c312.022.part"
+      ]
+    },
+    {
+      "path": "data/canonical/road_mapping.json",
+      "size": 345672,
+      "sha256": "7f4c920d7e6a7bba8cb43e308463a19d3d1cb2712eeb35b1a809ddbef8fd3cf4",
+      "parts": [
+        "assets/packed/7f4c920d7e6a7bba.000.part"
+      ]
+    },
+    {
+      "path": "data/raw/yulin.osm",
+      "size": 7026944,
+      "sha256": "7a178fc3b6d5aa4b55e0e3199e53aa1335b374e26e1930d1867c4087a3d32058",
+      "parts": [
+        "assets/packed/7a178fc3b6d5aa4b.000.part",
+        "assets/packed/7a178fc3b6d5aa4b.001.part",
+        "assets/packed/7a178fc3b6d5aa4b.002.part",
+        "assets/packed/7a178fc3b6d5aa4b.003.part",
+        "assets/packed/7a178fc3b6d5aa4b.004.part",
+        "assets/packed/7a178fc3b6d5aa4b.005.part",
+        "assets/packed/7a178fc3b6d5aa4b.006.part",
+        "assets/packed/7a178fc3b6d5aa4b.007.part",
+        "assets/packed/7a178fc3b6d5aa4b.008.part",
+        "assets/packed/7a178fc3b6d5aa4b.009.part",
+        "assets/packed/7a178fc3b6d5aa4b.010.part",
+        "assets/packed/7a178fc3b6d5aa4b.011.part",
+        "assets/packed/7a178fc3b6d5aa4b.012.part",
+        "assets/packed/7a178fc3b6d5aa4b.013.part",
+        "assets/packed/7a178fc3b6d5aa4b.014.part",
+        "assets/packed/7a178fc3b6d5aa4b.015.part",
+        "assets/packed/7a178fc3b6d5aa4b.016.part",
+        "assets/packed/7a178fc3b6d5aa4b.017.part",
+        "assets/packed/7a178fc3b6d5aa4b.018.part",
+        "assets/packed/7a178fc3b6d5aa4b.019.part",
+        "assets/packed/7a178fc3b6d5aa4b.020.part",
+        "assets/packed/7a178fc3b6d5aa4b.021.part",
+        "assets/packed/7a178fc3b6d5aa4b.022.part",
+        "assets/packed/7a178fc3b6d5aa4b.023.part"
+      ]
+    },
+    {
+      "path": "docs/evidence/exploration_runs.json",
+      "size": 601389,
+      "sha256": "d077dc06271573fa95081f34da29e02827fcbf7974061d1d76ae8128cbf9a2dd",
+      "parts": [
+        "assets/packed/d077dc06271573fa.000.part",
+        "assets/packed/d077dc06271573fa.001.part",
+        "assets/packed/d077dc06271573fa.002.part"
+      ]
+    },
+    {
+      "path": "docs/evidence/network-overview.png",
+      "size": 680569,
+      "sha256": "cdb7694964e34e1222e7b7e07ba922e95b47995a58c34572d902e9c368b9ef68",
+      "parts": [
+        "assets/packed/cdb7694964e34e12.000.part",
+        "assets/packed/cdb7694964e34e12.001.part",
+        "assets/packed/cdb7694964e34e12.002.part",
+        "assets/packed/cdb7694964e34e12.003.part",
+        "assets/packed/cdb7694964e34e12.004.part",
+        "assets/packed/cdb7694964e34e12.005.part",
+        "assets/packed/cdb7694964e34e12.006.part",
+        "assets/packed/cdb7694964e34e12.007.part",
+        "assets/packed/cdb7694964e34e12.008.part",
+        "assets/packed/cdb7694964e34e12.009.part",
+        "assets/packed/cdb7694964e34e12.010.part",
+        "assets/packed/cdb7694964e34e12.011.part",
+        "assets/packed/cdb7694964e34e12.012.part",
+        "assets/packed/cdb7694964e34e12.013.part",
+        "assets/packed/cdb7694964e34e12.014.part",
+        "assets/packed/cdb7694964e34e12.015.part",
+        "assets/packed/cdb7694964e34e12.016.part",
+        "assets/packed/cdb7694964e34e12.017.part",
+        "assets/packed/cdb7694964e34e12.018.part",
+        "assets/packed/cdb7694964e34e12.019.part",
+        "assets/packed/cdb7694964e34e12.020.part",
+        "assets/packed/cdb7694964e34e12.021.part",
+        "assets/packed/cdb7694964e34e12.022.part",
+        "assets/packed/cdb7694964e34e12.023.part",
+        "assets/packed/cdb7694964e34e12.024.part",
+        "assets/packed/cdb7694964e34e12.025.part",
+        "assets/packed/cdb7694964e34e12.026.part",
+        "assets/packed/cdb7694964e34e12.027.part"
+      ]
+    },
+    {
+      "path": "docs/evidence/optimization_runs.json",
+      "size": 268573,
+      "sha256": "b56ee134afe6c7ee966f972642c3efbee66fad219fb3751943f4cbf907abe8aa",
+      "parts": [
+        "assets/packed/b56ee134afe6c7ee.000.part"
+      ]
+    },
+    {
+      "path": "docs/evidence/robustness_runs.json",
+      "size": 164656,
+      "sha256": "1b1f07774d4a6550d0a30de87bb08ec7b88f65fd9c39da76ec428ab7b62314d6",
+      "parts": [
+        "assets/packed/1b1f07774d4a6550.000.part"
+      ]
+    },
+    {
+      "path": "docs/evidence/study.json",
+      "size": 126777,
+      "sha256": "5d1bf405838083a1d8a9febfd9167437d42cf09e7e0c0798456cdc128c4bd598",
+      "parts": [
+        "assets/packed/5d1bf405838083a1.000.part"
+      ]
+    },
+    {
+      "path": "docs/evidence/verification_overview.png",
+      "size": 155931,
+      "sha256": "292f3df4f4573a550aab9057954636bbf0802092ae9b36257c846c66d0773edc",
+      "parts": [
+        "assets/packed/292f3df4f4573a55.000.part",
+        "assets/packed/292f3df4f4573a55.001.part",
+        "assets/packed/292f3df4f4573a55.002.part",
+        "assets/packed/292f3df4f4573a55.003.part",
+        "assets/packed/292f3df4f4573a55.004.part",
+        "assets/packed/292f3df4f4573a55.005.part"
+      ]
+    },
+    {
+      "path": "docs/evidence/verification_runs.json",
+      "size": 1193037,
+      "sha256": "8228a54ea49ccd1a54cd3412de159b07f201893c51ccce0d5fce32492942081d",
+      "parts": [
+        "assets/packed/8228a54ea49ccd1a.000.part",
+        "assets/packed/8228a54ea49ccd1a.001.part",
+        "assets/packed/8228a54ea49ccd1a.002.part",
+        "assets/packed/8228a54ea49ccd1a.003.part",
+        "assets/packed/8228a54ea49ccd1a.004.part"
+      ]
+    },
+    {
+      "path": "networks/baseline/network.net.xml",
+      "size": 3641321,
+      "sha256": "c7d7ae80352aa191ac485fb7c909f575d2589511f8d0cd8ab1cdf520e79913b3",
+      "parts": [
+        "assets/packed/c7d7ae80352aa191.000.part",
+        "assets/packed/c7d7ae80352aa191.001.part",
+        "assets/packed/c7d7ae80352aa191.002.part",
+        "assets/packed/c7d7ae80352aa191.003.part",
+        "assets/packed/c7d7ae80352aa191.004.part",
+        "assets/packed/c7d7ae80352aa191.005.part",
+        "assets/packed/c7d7ae80352aa191.006.part",
+        "assets/packed/c7d7ae80352aa191.007.part",
+        "assets/packed/c7d7ae80352aa191.008.part",
+        "assets/packed/c7d7ae80352aa191.009.part",
+        "assets/packed/c7d7ae80352aa191.010.part",
+        "assets/packed/c7d7ae80352aa191.011.part",
+        "assets/packed/c7d7ae80352aa191.012.part",
+        "assets/packed/c7d7ae80352aa191.013.part",
+        "assets/packed/c7d7ae80352aa191.014.part",
+        "assets/packed/c7d7ae80352aa191.015.part",
+        "assets/packed/c7d7ae80352aa191.016.part",
+        "assets/packed/c7d7ae80352aa191.017.part"
+      ]
+    },
+    {
+      "path": "web/public/data/network.json",
+      "size": 3674866,
+      "sha256": "e617a0030f64bc4ad06a06d54c8cf5df752d974ee1af72e65aeb8a537c325d9b",
+      "parts": [
+        "assets/packed/e617a0030f64bc4a.000.part",
+        "assets/packed/e617a0030f64bc4a.001.part",
+        "assets/packed/e617a0030f64bc4a.002.part",
+        "assets/packed/e617a0030f64bc4a.003.part",
+        "assets/packed/e617a0030f64bc4a.004.part",
+        "assets/packed/e617a0030f64bc4a.005.part",
+        "assets/packed/e617a0030f64bc4a.006.part",
+        "assets/packed/e617a0030f64bc4a.007.part",
+        "assets/packed/e617a0030f64bc4a.008.part",
+        "assets/packed/e617a0030f64bc4a.009.part",
+        "assets/packed/e617a0030f64bc4a.010.part",
+        "assets/packed/e617a0030f64bc4a.011.part",
+        "assets/packed/e617a0030f64bc4a.012.part",
+        "assets/packed/e617a0030f64bc4a.013.part",
+        "assets/packed/e617a0030f64bc4a.014.part",
+        "assets/packed/e617a0030f64bc4a.015.part",
+        "assets/packed/e617a0030f64bc4a.016.part",
+        "assets/packed/e617a0030f64bc4a.017.part",
+        "assets/packed/e617a0030f64bc4a.018.part",
+        "assets/packed/e617a0030f64bc4a.019.part"
+      ]
+    },
+    {
+      "path": "web/public/data/runs/preview_S0_am_42_d1/manifest.json",
+      "size": 140953,
+      "sha256": "b2fc7355801ce418f96c0782af6056e30d79fb8d29d62ba3372e4f5bf9b67f85",
+      "parts": [
+        "assets/packed/b2fc7355801ce418.000.part"
+      ]
+    },
+    {
+      "path": "web/public/data/runs/preview_S0_am_42_d1/signals.json",
+      "size": 159520,
+      "sha256": "b00ad958c6fedec8efdeb67c703fa8356a8c6741bd21e6d85917d0cf711d8079",
+      "parts": [
+        "assets/packed/b00ad958c6fedec8.000.part"
+      ]
+    },
+    {
+      "path": "web/public/data/runs/preview_S7_am_42_d1/manifest.json",
+      "size": 140955,
+      "sha256": "b8588e2ae89ae12e3761cc51cc14fd1b64847ce59022991d822a09af664e3c68",
+      "parts": [
+        "assets/packed/b8588e2ae89ae12e.000.part"
+      ]
+    },
+    {
+      "path": "web/public/data/runs/preview_S7_am_42_d1/signals.json",
+      "size": 159573,
+      "sha256": "88bb3c6db753f42af80860afac76c0506f9103e42ec7ab7a18827db1c827e5f9",
+      "parts": [
+        "assets/packed/88bb3c6db753f42a.000.part"
+      ]
+    }
+  ]
+}

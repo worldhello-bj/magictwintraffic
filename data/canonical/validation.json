@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "network_hash": "c7d7ae80352aa191ac485fb7c909f575d2589511f8d0cd8ab1cdf520e79913b3",
+  "osm_sha256": "7a178fc3b6d5aa4b55e0e3199e53aa1335b374e26e1930d1867c4087a3d32058",
+  "core_projected_side_m": 1000,
+  "core_geodesic_side_m": [
+    1000.2999740143403,
+    1000.3010840448502,
+    1000.2999742012172,
+    1000.298860058453
+  ],
+  "max_projection_scale_difference_percent": 0.030108404485029716,
+  "network_envelope_m": [
+    -1400.795,
+    -1316.116,
+    1223.655,
+    1412.024
+  ],
+  "envelope_area_km2": 7.159867022999999,
+  "requested_area_km2": 4,
+  "actual_complete_edge_retention": true,
+  "counts": {
+    "edges": 1525,
+    "lanes": 5976,
+    "junctions": 689,
+    "traffic_lights": 44,
+    "gates": 33,
+    "buildings": 2198
+  },
+  "gate_continuation_audit": "data/canonical/gate_audit.json",
+  "software_validation": {
+    "rebuild_hash_identical": true,
+    "all_policy_smokes_zero_collision_teleport_loss": true,
+    "downstream_receiving_spillback_demonstrated": true
+  },
+  "field_validation": {
+    "observed_counts": false,
+    "observed_signals": false,
+    "observed_bus_routes": false,
+    "all_turn_restrictions_manually_verified": false,
+    "pedestrian_and_cycle_agents": false
+  },
+  "assumptions": {
+    "source": "OpenStreetMap contributors",
+    "url": "https://www.openstreetmap.org/api/0.6/map?bbox=104.047,30.610,104.078,30.640",
+    "license": "ODbL-1.0",
+    "license_url": "https://www.openstreetmap.org/copyright",
+    "downloaded_at": "2026-10-09",
+    "osm_sha256": "7a178fc3b6d5aa4b55e0e3199e53aa1335b374e26e1930d1867c4087a3d32058",
+    "assumed_default_speeds_m_s": {
+      "highway.primary": 13.88888888888889,
+      "highway.secondary": 11.11111111111111,
+      "highway.tertiary": 8.333333333333334,
+      "highway.residential": 8.333333333333334,
+      "highway.unclassified": 8.333333333333334,
+      "highway.primary_link": 8.333333333333334,
+      "highway.secondary_link": 8.333333333333334,
+      "highway.tertiary_link": 8.333333333333334,
+      "highway.trunk_link": 11.11111111111111,
+      "highway.service": 5.555555555555555
+    },
+    "ignored_restrictions": [
+      {
+        "id": "19781710",
+        "type": "no_left_turn",
+        "via_wgs84": [
+          104.0595409,
+          30.6386243
+        ],
+        "reason": "Via node north of requested simulation boundary; from edge truncated before via. Not a core-turn restriction."
+      }
+    ],
+    "traffic_attributes": "OSM tags where present, explicit assumed urban speeds 20/30/40/50 km/h by road class otherwise; other SUMO defaults not field verified",
+    "signals": "SUMO inferred experimental fixed-time control; not observed Chengdu timing",
+    "buildings": "OSM footprints; tagged/derived heights or 9 m illustrative fallback"
+  },
+  "warnings": {
+    "conversion.log": {
+      "total_warning_lines": 58,
+      "minor_green_high_speed": 0,
+      "path": "networks/baseline/conversion.log"
+    },
+    "signals.log": {
+      "total_warning_lines": 11,
+      "minor_green_high_speed": 0,
+      "path": "networks/baseline/signals.log"
+    }
+  },
+  "limitations": [
+    "Only OSM-derived source geometry, no field surveying",
+    "All 44 signal controls experimental/inferred, not claimed current Chengdu controls",
+    "OSM transport-stop extraction warnings are not used as observed bus schedules; buses use explicitly synthetic schedules/stops",
+    "No pedestrian/bicycle demand or person-time model; safety/door-to-door benefit not evaluated",
+    "Queues reported as low-speed vehicle counts, not contiguous physical queues",
+    "7.16km2-like outer bounding envelope includes empty margins and does not imply a fully populated rectangular area"
+  ]
+}

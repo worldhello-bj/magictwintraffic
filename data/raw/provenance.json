@@ -1,0 +1,91 @@
+{
+  "source": "OpenStreetMap contributors",
+  "url": "https://www.openstreetmap.org/api/0.6/map?bbox=104.047,30.610,104.078,30.640",
+  "license": "ODbL-1.0",
+  "license_url": "https://www.openstreetmap.org/copyright",
+  "downloaded_at": "2026-10-09",
+  "osm_sha256": "7a178fc3b6d5aa4b55e0e3199e53aa1335b374e26e1930d1867c4087a3d32058",
+  "assumed_default_speeds_m_s": {
+    "highway.primary": 13.88888888888889,
+    "highway.secondary": 11.11111111111111,
+    "highway.tertiary": 8.333333333333334,
+    "highway.residential": 8.333333333333334,
+    "highway.unclassified": 8.333333333333334,
+    "highway.primary_link": 8.333333333333334,
+    "highway.secondary_link": 8.333333333333334,
+    "highway.tertiary_link": 8.333333333333334,
+    "highway.trunk_link": 11.11111111111111,
+    "highway.service": 5.555555555555555
+  },
+  "ignored_restrictions": [
+    {
+      "id": "19781710",
+      "type": "no_left_turn",
+      "via_wgs84": [
+        104.0595409,
+        30.6386243
+      ],
+      "reason": "Via node north of requested simulation boundary; from edge truncated before via. Not a core-turn restriction."
+    }
+  ],
+  "traffic_attributes": "OSM tags where present, explicit assumed urban speeds 20/30/40/50 km/h by road class otherwise; other SUMO defaults not field verified",
+  "signals": "SUMO inferred experimental fixed-time control; not observed Chengdu timing",
+  "buildings": "OSM footprints; tagged/derived heights or 9 m illustrative fallback",
+  "conversion_command": [
+    "/workspace/scratch/0cc388d3824f/magictwintraffic/.venv/bin/netconvert",
+    "--type-files",
+    "/workspace/scratch/0cc388d3824f/magictwintraffic/data/canonical/urban_assumed_types.xml",
+    "--osm-files",
+    "/workspace/scratch/0cc388d3824f/magictwintraffic/data/raw/yulin.osm",
+    "--output-file",
+    "/workspace/scratch/0cc388d3824f/magictwintraffic/networks/baseline/network.net.xml",
+    "--proj",
+    "+proj=utm +zone=48 +datum=WGS84 +units=m +no_defs",
+    "--keep-edges.in-geo-boundary",
+    "104.04965505201983,30.617901658476505,104.07051936462906,30.61805243944931,104.07034688314774,30.63609754584908,104.0494787002034,30.63594665707055",
+    "--keep-edges.by-vclass",
+    "passenger,bus,bicycle,pedestrian",
+    "--geometry.remove",
+    "true",
+    "--ramps.guess",
+    "false",
+    "--junctions.join",
+    "true",
+    "--tls.guess",
+    "true",
+    "--tls.default-type",
+    "static",
+    "--tls.yellow.time",
+    "3",
+    "--tls.allred.time",
+    "1",
+    "--tls.green.time",
+    "30",
+    "--output.street-names",
+    "true",
+    "--output.original-names",
+    "true",
+    "--no-warnings",
+    "false"
+  ],
+  "sumo_version": "Eclipse SUMO netconvert 1.28.0",
+  "center_wgs84": [
+    104.06,
+    30.627
+  ],
+  "core_size_m": [
+    1000,
+    1000
+  ],
+  "requested_outer_size_m": [
+    2000,
+    2000
+  ],
+  "actual_bounds_m": [
+    -1400.795,
+    -1316.116,
+    1223.655,
+    1412.024
+  ],
+  "notes": "netconvert retains complete intersecting edges/junctions, so actual outer extent differs from exact 2 km square. No geometric additions or artificial grid. Critical OSM attributes and inferred connections require field/manual verification."
+}

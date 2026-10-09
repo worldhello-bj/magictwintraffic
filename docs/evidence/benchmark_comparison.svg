@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="441" viewBox="0 0 1200 441">
+<rect width="100%" height="100%" fill="#f7fafc"/>
+<g font-family="Arial,sans-serif" fill="#16324f">
+<text x="28" y="30" font-size="20">Paired scenario evidence: candidate minus baseline</text>
+<text x="28" y="53" font-size="13">Marginal 95% fixed-sample intervals. Censored system time is finite-window exposure, not final travel time.</text>
+<text x="28" y="75" font-size="13">Actual artifacts: 2/2; benchmark_only_not_formal_study. No overall leaderboard.</text>
+<text x="28" y="100" font-size="16">Finite-window system time difference (vehicle-seconds)</text>
+<line x1="410.00" x2="410.00" y1="115" y2="162" stroke="#b3c2ce" stroke-dasharray="4,4"/>
+<text x="28" y="136" font-size="12">benchmark: S3, am, demand 1</text>
+<circle cx="1010.00" cy="132" r="4" fill="#16324f"/>
+<text x="1060" y="136" font-size="12">n=1; no CI</text>
+<text x="380" y="190" font-size="11">-1.362e+04</text>
+<text x="1000" y="190" font-size="11">2.861e+05</text>
+<text x="28" y="217" font-size="16">Completion-rate difference (fraction)</text>
+<line x1="1010.00" x2="1010.00" y1="232" y2="279" stroke="#b3c2ce" stroke-dasharray="4,4"/>
+<text x="28" y="253" font-size="12">benchmark: S3, am, demand 1</text>
+<circle cx="410.00" cy="249" r="4" fill="#16324f"/>
+<text x="1060" y="253" font-size="12">n=1; no CI</text>
+<text x="380" y="307" font-size="11">-0.03852</text>
+<text x="1000" y="307" font-size="11">0.001834</text>
+<text x="28" y="334" font-size="16">Terminal-backlog difference (vehicles)</text>
+<line x1="410.00" x2="410.00" y1="349" y2="396" stroke="#b3c2ce" stroke-dasharray="4,4"/>
+<text x="28" y="370" font-size="12">benchmark: S3, am, demand 1</text>
+<circle cx="1010.00" cy="366" r="4" fill="#16324f"/>
+<text x="1060" y="370" font-size="12">n=1; no CI</text>
+<text x="380" y="424" font-size="11">-8.3</text>
+<text x="1000" y="424" font-size="11">174.3</text>
+</g>
+</svg>

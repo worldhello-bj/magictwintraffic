@@ -1,0 +1,60 @@
+Success.
+
+Warning: Discarding unknown compound 'cycleway.track' in type 'cycleway.track|highway.secondary' (first occurrence for edge '37127680').
+Warning: Discarding unusable type 'waterway.stream' (first occurrence for edge '116486198').
+Warning: Discarding unknown compound 'cycleway.track' in type 'cycleway.track|highway.tertiary' (first occurrence for edge '131319574').
+Warning: Discarding unknown compound 'cycleway.track' in type 'cycleway.track|highway.unclassified' (first occurrence for edge '181190799').
+Warning: Discarding unknown compound 'cycleway.lane' in type 'cycleway.lane|highway.tertiary' (first occurrence for edge '265592587').
+Warning: Discarding unknown compound 'cycleway.lane' in type 'cycleway.lane|highway.secondary' (first occurrence for edge '267226974').
+Warning: Skipping edge '780889268' because it has zero lanes.
+Warning: Removing pt stop '10771129676' on non existing edge '864932630#1'.
+Warning: Removing pt stop '10771129686' on non existing edge '864932630#1'.
+Warning: Removing pt stop '10771129703' on non existing edge '864932630#1'.
+Warning: Removing pt stop '10771129717' on non existing edge '864932630#1'.
+Warning: Removing pt stop '10771129733' on non existing edge '864932630#1'.
+Warning: from-edge '181190803' of restriction relation could not be determined
+Warning: Ignoring restriction relation '19781710'.
+Warning: Could not find corresponding edge or compatible lane for free-floating pt stop '337539311' (火车南站西路中站). Thus, it will be removed!
+Warning: Could not find corresponding edge or compatible lane for free-floating pt stop '337539990' (). Thus, it will be removed!
+Warning: Could not find corresponding edge or compatible lane for free-floating pt stop '337540025' (). Thus, it will be removed!
+Warning: Could not find corresponding edge or compatible lane for free-floating pt stop '337540039' (科华中路南). Thus, it will be removed!
+Warning: Could not find corresponding edge or compatible lane for free-floating pt stop '1301932974' (磨子桥站). Thus, it will be removed!
+Warning: Removed invalid stop '4451485767' from line '11890815'.
+Warning: Removed invalid stop '4451485751' from line '11890815'.
+Warning: Removed invalid stop '4451485766' from line '11890815'.
+Warning: Could not assign stop '8242842908' to pt line '12086371' (closest edge 'NULL', distance 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.00). Ignoring!
+Warning: Could not assign stop '8242842896' to pt line '12086371' (closest edge 'NULL', distance 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.00). Ignoring!
+Warning: Could not assign stop '8242842887' to pt line '12086371' (closest edge 'NULL', distance 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.00). Ignoring!
+Warning: Could not assign stop '8242842875' to pt line '12086371' (closest edge 'NULL', distance 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.00). Ignoring!
+Warning: Could not assign stop '8242842857' to pt line '12086371' (closest edge 'NULL', distance 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.00). Ignoring!
+Warning: Removed invalid stop '8242842908' from line '12086371'.
+Warning: Removed invalid stop '8242842896' from line '12086371'.
+Warning: Cannot revise pt stop localization for pt line '6517083', which has no route edges. Ignoring!
+Warning: Cannot revise pt stop localization for pt line '8297265', which has no route edges. Ignoring!
+Warning: Not joining junctions 10721098937,12731155189 (parallel incoming 136011688#0,458891623#10).
+Warning: Not joining junctions 1159174087,1159174531 (parallel incoming -476664218#2,266226313#1).
+Warning: Not joining junctions 1159174527,4693610174 (only 1 exit node).
+Warning: Not joining junctions 11699319252,13876804857,1445484323,1492405916,5436607837,5436607839,5436607843,5436607851 (7 incoming edges).
+Warning: Not joining junctions 13175089045,13175089046 (parallel incoming 458891623#7,896111032#1).
+Warning: Reducing junction cluster 1445484321,4550568575,4550568579,5436607841 (parallel incoming 115625956,476664219#0).
+Warning: Reducing junction cluster 1492416226,1492416227,1492586175,1493017589 (6 incoming edges).
+Warning: Ambiguity in turnarounds computation at junction '432452884'.
+Warning: Ambiguity in turnarounds computation at junction '8013476765'.
+Warning: Ambiguity in turnarounds computation at junction 'cluster_12447430702_4972899566'.
+Warning: Ambiguity in turnarounds computation at junction 'cluster_13985142892_5478294823'.
+Warning: Ambiguity in turnarounds computation at junction 'cluster_13985142893_5478294827'.
+Warning: Found sharp turn with radius 6.03 at the start of edge '1270651026#1'.
+Warning: Shape for junction '2333187912' has distance 51.78 to its given position.
+Warning: Shape for junction '4548141015' has distance 63.48 to its given position.
+Warning: Shape for junction '4548141029' has distance 53.50 to its given position.
+Warning: Shape for junction '4548211642' has distance 20.94 to its given position.
+Warning: Stop '4451485751' named '人南立交东站' from line '6651692' on edge '458883924#1' is not part of the route.
+Warning: Stop '4451485767' named '紫荆北路口站' from line '6651692' on edge '441574379' is not part of the route.
+Warning: Removed 191 pt stops because they could not be assigned to the network
+Warning: 9 total messages of type: Ambiguity in turnarounds computation at junction '%'.
+Warning: 202 total messages of type: Could not assign stop '%' to pt line '%' (closest edge '%', distance %). Ignoring!
+Warning: 37 total messages of type: Could not find corresponding edge or compatible lane for free-floating pt stop '%' (%). Thus, it will be removed!
+Warning: 10 total messages of type: Discarding unknown compound '%' in type '%' (first occurrence for edge '%').
+Warning: 15 total messages of type: Not joining junctions % (%).
+Warning: 242 total messages of type: Removed invalid stop '%' from line '%'.
+Warning: 387 total messages of type: Removing pt stop '%' on non existing edge '%'.
