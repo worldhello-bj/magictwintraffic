@@ -438,10 +438,10 @@ export class CitySceneCanvas {
     for (const s of foreground ? traffic.signals : []) {
       const [x, y] = this.point(s.position, offset);
       c.beginPath();
-      c.arc(x, y, 3.5, 0, Math.PI * 2);
+      c.arc(x, y, 1.75, 0, Math.PI * 2);
       c.fillStyle = s.color;
       c.fill();
-      c.lineWidth = 1.2;
+      c.lineWidth = 0.6;
       c.strokeStyle = "#243a34";
       c.stroke();
     }

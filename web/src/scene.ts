@@ -604,7 +604,7 @@ export class CityScene {
     }
     for (const s of data.signals) {
       const marker = new THREE.Mesh(
-        new THREE.SphereGeometry(5, 8, 6),
+        new THREE.SphereGeometry(2.5, 8, 6),
         new THREE.MeshBasicMaterial({ color: s.color, depthTest: false }),
       );
       marker.position.set(s.position[0], 8, -s.position[1]);
