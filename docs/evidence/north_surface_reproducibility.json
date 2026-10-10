@@ -1,0 +1,6 @@
+{
+  "expected_hash": "852d34522be4f77627849a30201cc92eb0d6d0208466302f26c9f9d90dc21b19",
+  "fresh_rebuild_hash": "852d34522be4f77627849a30201cc92eb0d6d0208466302f26c9f9d90dc21b19",
+  "passed": true,
+  "method": "Independent temporary-directory rebuild from source access_v2 XML/canonical + join configuration, not cache reuse."
+}

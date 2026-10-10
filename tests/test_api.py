@@ -200,3 +200,21 @@ def test_signals_require_completed_run(env):
     states = [{'time':0,'id':'test_signal','state':'Gr'}]
     (scheduler.path(rid) / 'signals.json').write_text(json.dumps(states))
     assert client.get(f'/api/runs/{rid}/signals').json() == states
+
+
+def test_internal_replay_artifact_routes_and_filename_allowlist(env):
+    _, scheduler, client = env
+    run_id=client.post('/api/runs',json={}).json()['run_id']
+    assert client.get(f'/api/runs/{run_id}/od_matrix').status_code==409
+    finish(scheduler,run_id)
+    output=scheduler.path(run_id)
+    path=output/'manifest.json';manifest=json.loads(path.read_text())
+    for artifact in ('signal_topology','queue_hotspots','stock_timeseries','internal_zones','od_matrix'):
+        manifest[artifact]=artifact+'.json';(output/manifest[artifact]).write_text('[]')
+    manifest['od_csv']='od_matrix.csv';(output/'od_matrix.csv').write_text('origin,destination,trip_count\na,b,2\n');path.write_text(json.dumps(manifest))
+    for artifact in ('signal_topology','queue_hotspots','stock_timeseries','internal_zones','od_matrix'):
+        assert client.get(f'/api/runs/{run_id}/{artifact}').json()==[]
+    csv=client.get(f'/api/runs/{run_id}/od_csv')
+    assert csv.status_code==200 and 'text/csv' in csv.headers['content-type'] and 'a,b,2' in csv.text
+    manifest['od_csv']='../../secret.csv';path.write_text(json.dumps(manifest))
+    assert client.get(f'/api/runs/{run_id}/od_csv').status_code==404

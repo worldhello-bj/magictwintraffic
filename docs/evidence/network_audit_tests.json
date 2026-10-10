@@ -1,0 +1,5 @@
+{
+  "command": "PYTHONPATH=src .venv/bin/pytest -q tests/test_access_network.py tests/test_north_surface_review.py tests/test_internal_network.py",
+  "output": ".......                                                                  [100%]\n7 passed in 10.62s\n",
+  "scope": "Focused tests only:permission corrections, source evidence, API/runtime acceptance, atomic cache/recovery, contracted passenger+bus movements,33grade-separated edges, prior Nijiaqiao preservation. Not the full project test suite."
+}

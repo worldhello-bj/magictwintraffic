@@ -1,10 +1,12 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
+import type { TrafficOverlay } from "./traffic-state";
 import type { Network, Point, Vehicle } from "./types";
 import { localToWorld } from "./protocol";
+import { paneCoordinates, polygonBounds } from "./view-geometry";
 export type Selection = {
-  kind: "lane" | "vehicle" | "gate" | "junction";
+  kind: "lane" | "vehicle" | "gate" | "junction" | "signal" | "zone";
   id: string;
   data: unknown;
   source?: "A" | "B";
@@ -15,6 +17,10 @@ export class CityScene {
   controls: OrbitControls;
   scene = new THREE.Scene();
   comparison = new THREE.Scene();
+  private traffic = new THREE.Group();
+  private otherTraffic = new THREE.Group();
+  private otherTrafficKey = "";
+  private trafficKey = "";
   private buildings = new THREE.Group();
   private vehicles: THREE.InstancedMesh;
   private otherVehicles: THREE.InstancedMesh;
@@ -23,9 +29,20 @@ export class CityScene {
   private picker: THREE.Object3D[] = [];
   private raycaster = new THREE.Raycaster();
   private selected = new THREE.Group();
-  private diff = new THREE.Group();
   private roads = new THREE.Group();
   private split = false;
+  private viewMode: "core" | "full" | "top" = "core";
+  private pivotMarkers: HTMLElement[] = [];
+  private pivotVisible = false;
+  private preventMiddle = (e: MouseEvent) => {
+    if (e.button === 1) e.preventDefault();
+  };
+  private pivotHandler = (e: PointerEvent) => {
+    if (e.button !== 1) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    this.setPivot(e);
+  };
   private dummy = new THREE.Object3D();
   private observer: ResizeObserver;
   private pointerDown = [0, 0];
@@ -52,18 +69,33 @@ export class CityScene {
     host.append(this.renderer.domElement);
     this.renderer.domElement.setAttribute(
       "aria-label",
-      "真实路网三维视图，可拖动旋转、滚轮缩放并点击道路车辆",
+      "真实路网三维视图，可拖动旋转、滚轮缩放，中键设置旋转中心并点击道路车辆",
     );
-    this.camera = new THREE.PerspectiveCamera(38, 1, 1, 14000);
+    // Capture middle clicks before OrbitControls starts its default middle-drag dolly.
+    this.renderer.domElement.addEventListener(
+      "pointerdown",
+      this.pivotHandler,
+      true,
+    );
+    this.renderer.domElement.addEventListener("auxclick", this.preventMiddle);
+    for (let i = 0; i < 2; i++) {
+      const marker = document.createElement("span");
+      marker.className = "orbit-pivot";
+      marker.setAttribute("aria-hidden", "true");
+      marker.hidden = true;
+      host.append(marker);
+      this.pivotMarkers.push(marker);
+    }
+    this.camera = new THREE.PerspectiveCamera(38, 1, 1, 50000);
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableDamping = true;
     this.controls.maxPolarAngle = Math.PI * 0.48;
     this.controls.minDistance = 60;
-    this.controls.maxDistance = 6500;
+    this.controls.maxDistance = 22000;
     this.controls.target.set(0, 0, 0);
     this.camera.position.set(900, 1200, 1000);
     this.scene.background = new THREE.Color(0xe8ede9);
-    this.scene.fog = new THREE.Fog(0xe8ede9, 3500, 9000);
+    this.scene.fog = new THREE.Fog(0xe8ede9, 18000, 40000);
     this.scene.add(new THREE.HemisphereLight(0xffffff, 0xb1bcad, 2.7));
     const sun = new THREE.DirectionalLight(0xffffff, 2.4);
     sun.position.set(-1000, 1800, 700);
@@ -76,7 +108,7 @@ export class CityScene {
     plane.position.y = -0.12;
     this.scene.add(plane);
     this.buildCity();
-    this.scene.add(this.selected, this.diff);
+    this.scene.add(this.selected);
     this.createRoadLabels();
     const carGeo = new THREE.BoxGeometry(1.85, 1.5, 4.7);
     carGeo.translate(0, 0.95, 0);
@@ -105,10 +137,12 @@ export class CityScene {
     this.observer = new ResizeObserver(() => this.resize());
     this.observer.observe(host);
     this.resize();
+    this.setView("core");
     this.downHandler = (e) => {
       this.pointerDown = [e.clientX, e.clientY];
     };
     this.clickHandler = (e) => {
+      if (e.button !== 0) return;
       if (
         Math.hypot(
           e.clientX - this.pointerDown[0],
@@ -177,15 +211,22 @@ export class CityScene {
   }
   private boundary(points: Point[], color: number, dashed = false) {
     const verts = [...points, points[0]].map(
-      ([x, y]) => new THREE.Vector3(x, 1.5, -y),
+      ([x, y]) => new THREE.Vector3(x, 2, -y),
     );
     const g = new THREE.BufferGeometry().setFromPoints(verts);
     const line = new THREE.Line(
       g,
       dashed
-        ? new THREE.LineDashedMaterial({ color, dashSize: 12, gapSize: 8 })
-        : new THREE.LineBasicMaterial({ color }),
+        ? new THREE.LineDashedMaterial({
+            color,
+            dashSize: 18,
+            gapSize: 10,
+            depthTest: false,
+          })
+        : new THREE.LineBasicMaterial({ color, depthTest: false }),
     );
+    line.renderOrder = 20;
+    line.userData.kind = dashed ? "core-boundary" : "secondary-boundary";
     line.computeLineDistances();
     this.scene.add(line);
   }
@@ -319,9 +360,9 @@ export class CityScene {
     this.buildings.name = "buildings";
     this.scene.add(this.buildings);
     if (this.network.core_polygon?.length)
-      this.boundary(this.network.core_polygon, 0x378d87, true);
+      this.boundary(this.network.core_polygon, 0x187e78, true);
     if (this.network.simulation_polygon?.length)
-      this.boundary(this.network.simulation_polygon, 0x99aaa0);
+      this.boundary(this.network.simulation_polygon, 0xb17b36);
     for (const gate of this.network.gates ?? []) {
       const mesh = new THREE.Mesh(
         new THREE.CylinderGeometry(6, 6, 2, 16),
@@ -369,8 +410,15 @@ export class CityScene {
     this.camera.updateProjectionMatrix();
   }
   setComparison(split: boolean) {
+    if (split === this.split) return;
+    const previous = this.fitDistance();
     this.split = split;
     this.resize();
+    const offset = this.camera.position.clone().sub(this.controls.target);
+    this.camera.position
+      .copy(this.controls.target)
+      .add(offset.multiplyScalar(this.fitDistance() / previous));
+    this.controls.update();
   }
   setBuildings(visible: boolean) {
     this.buildings.visible = visible;
@@ -407,7 +455,7 @@ export class CityScene {
     };
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0xe8ede9);
-    this.scene.fog = new THREE.Fog(0xe8ede9, 3500, 9000);
+    this.scene.fog = new THREE.Fog(0xe8ede9, 18000, 40000);
     this.scene.add(new THREE.HemisphereLight(0xffffff, 0xb1bcad, 2.7));
     const sun = new THREE.DirectionalLight(0xffffff, 2.4);
     sun.position.set(-1000, 1800, 700);
@@ -437,15 +485,164 @@ export class CityScene {
     this.picker = saved.picker;
     this.otherBuildings.visible = this.buildings.visible;
   }
-  setView(mode: "core" | "full" | "top") {
-    const d = mode === "full" ? 2400 : 1150;
-    this.controls.target.set(0, 0, 0);
-    this.camera.position.set(
-      mode === "top" ? 0 : d * 0.8,
-      mode === "top" ? 1900 : d,
-      mode === "top" ? 0.01 : d * 0.85,
+  private fitDistance() {
+    const bounds = polygonBounds(
+      this.viewMode === "full"
+        ? this.network.simulation_polygon
+        : this.network.core_polygon,
     );
+    const radius = Math.hypot(bounds.width, bounds.height) / 2;
+    const halfFov = Math.atan(
+      Math.tan(THREE.MathUtils.degToRad(this.camera.fov / 2)) *
+        Math.min(1, this.camera.aspect),
+    );
+    return (radius / Math.sin(halfFov)) * 1.16;
+  }
+  setView(mode: "core" | "full" | "top") {
+    this.viewMode = mode;
+    const bounds = polygonBounds(
+      mode === "full"
+        ? this.network.simulation_polygon
+        : this.network.core_polygon,
+    );
+    this.controls.target.set(bounds.center[0], 0, -bounds.center[1]);
+    const direction =
+      mode === "top"
+        ? new THREE.Vector3(0, 1, 0.00001)
+        : new THREE.Vector3(0.8, 1, 0.85);
+    this.camera.position
+      .copy(this.controls.target)
+      .add(direction.normalize().multiplyScalar(this.fitDistance()));
+    this.pivotVisible = false;
     this.controls.update();
+  }
+  private setPivot(e: PointerEvent) {
+    const pane = paneCoordinates(
+      e.clientX,
+      e.clientY,
+      this.renderer.domElement.getBoundingClientRect(),
+      this.split,
+    );
+    this.camera.updateMatrixWorld();
+    this.raycaster.setFromCamera(
+      new THREE.Vector2(pane.ndcX, pane.ndcY),
+      this.camera,
+    );
+    const point = this.raycaster.ray.intersectPlane(
+      new THREE.Plane(new THREE.Vector3(0, 1, 0), 0),
+      new THREE.Vector3(),
+    );
+    if (!point || ![point.x, point.y, point.z].every(Number.isFinite)) return;
+    // Preserve viewing angle and distance while centering the picked ground point.
+    const delta = point.clone().sub(this.controls.target);
+    this.camera.position.add(delta);
+    this.controls.target.copy(point);
+    this.pivotVisible = true;
+    this.controls.update();
+  }
+  setTraffic(data: TrafficOverlay, other = false) {
+    const key = JSON.stringify(data);
+    const previous = other ? this.otherTraffic : this.traffic,
+      target = other ? this.comparison : this.scene;
+    if (
+      key === (other ? this.otherTrafficKey : this.trafficKey) &&
+      previous.parent === target
+    )
+      return;
+    if (other) this.otherTrafficKey = key;
+    else this.trafficKey = key;
+    previous.removeFromParent();
+    previous.traverse((o) => {
+      const m = o as THREE.Mesh;
+      m.geometry?.dispose();
+      if (m.material) (m.material as THREE.Material).dispose();
+    });
+    if (!other) this.picker = this.picker.filter((o) => o.parent !== previous);
+    const group = new THREE.Group();
+    if (other) this.otherTraffic = group;
+    else this.traffic = group;
+    // One vertex-coloured mesh, not a draw call/material per road segment.
+    const heatGeometries = (data.heatmap ?? []).map((h) => {
+      const geometry = this.ribbon(h.shape, h.width, h.elevation + 0.28);
+      const color = new THREE.Color(h.color);
+      const values = new Float32Array(
+        geometry.getAttribute("position").count * 3,
+      );
+      for (let i = 0; i < values.length; i += 3) {
+        values[i] = color.r;
+        values[i + 1] = color.g;
+        values[i + 2] = color.b;
+      }
+      geometry.setAttribute("color", new THREE.BufferAttribute(values, 3));
+      return geometry;
+    });
+    if (heatGeometries.length) {
+      const geometry = mergeGeometries(heatGeometries);
+      if (geometry)
+        group.add(
+          new THREE.Mesh(
+            geometry,
+            new THREE.MeshBasicMaterial({
+              vertexColors: true,
+              side: THREE.DoubleSide,
+              depthWrite: false,
+            }),
+          ),
+        );
+      for (const geometry of heatGeometries) geometry.dispose();
+    }
+    for (const h of data.hotspots) {
+      const points = h.shape.map((p) => new THREE.Vector3(p[0], 2.5, -p[1]));
+      const line = new THREE.Line(
+        new THREE.BufferGeometry().setFromPoints(points),
+        new THREE.LineBasicMaterial({
+          color: "#e66a4f",
+          transparent: true,
+          opacity: 0.8,
+        }),
+      );
+      group.add(line);
+      if (points.length) {
+        const halo = new THREE.Mesh(
+          new THREE.CircleGeometry(
+            Math.min(22, 5 + Math.sqrt(h.stopped_vehicles) * 2),
+            20,
+          ),
+          new THREE.MeshBasicMaterial({
+            color: "#e66a4f",
+            transparent: true,
+            opacity: 0.35,
+            depthWrite: false,
+          }),
+        );
+        halo.rotation.x = -Math.PI / 2;
+        halo.position.copy(points[Math.floor(points.length / 2)]);
+        group.add(halo);
+      }
+    }
+    for (const z of data.zones) {
+      const marker = new THREE.Mesh(
+        new THREE.BoxGeometry(12, 8, 12),
+        new THREE.MeshBasicMaterial({ color: "#8064ae", depthTest: false }),
+      );
+      marker.position.set(z.position[0], 18, -z.position[1]);
+      marker.renderOrder = 10;
+      marker.userData = { kind: "zone", id: z.id, data: z };
+      group.add(marker);
+      if (!other) this.picker.push(marker);
+    }
+    for (const s of data.signals) {
+      const marker = new THREE.Mesh(
+        new THREE.SphereGeometry(2.5, 8, 6),
+        new THREE.MeshBasicMaterial({ color: s.color, depthTest: false }),
+      );
+      marker.position.set(s.position[0], 8, -s.position[1]);
+      marker.renderOrder = 11;
+      marker.userData = { kind: "signal", id: s.id, data: s };
+      group.add(marker);
+      if (!other) this.picker.push(marker);
+    }
+    target.add(group);
   }
   setVehicles(data: Vehicle[], other = false) {
     if (data.length > this.capacity)
@@ -481,57 +678,28 @@ export class CityScene {
     mesh.boundingSphere = null;
     if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
   }
-  setDifference(enabled: boolean, a: Vehicle[] = [], b: Vehicle[] = []) {
-    while (this.diff.children.length) {
-      const obj = this.diff.children.pop() as THREE.Mesh;
-      obj.geometry.dispose();
-      (obj.material as THREE.Material).dispose();
-    }
-    if (!enabled) return;
-    const avg = (vs: Vehicle[]) => {
-      const map = new Map<number, number[]>();
-      for (const v of vs) {
-        const arr = map.get(v.lane) ?? [];
-        arr.push(v.speed);
-        map.set(v.lane, arr);
-      }
-      return new Map(
-        [...map].map(([k, v]) => [k, v.reduce((a, b) => a + b, 0) / v.length]),
-      );
-    };
-    const aa = avg(a),
-      bb = avg(b);
-    for (const [i, v] of aa) {
-      if (!bb.has(i) || !this.network.lanes[i]) continue;
-      const delta = bb.get(i)! - v;
-      const lane = this.network.lanes[i];
-      const mesh = new THREE.Mesh(
-        this.ribbon(
-          lane.shape,
-          lane.width + 1,
-          (lane.display_elevation ?? 0) + 0.24,
-        ),
-        new THREE.MeshBasicMaterial({
-          color: delta > 1 ? 0x159783 : delta < -1 ? 0xcf7358 : 0xb9bdad,
-          side: THREE.DoubleSide,
-          transparent: true,
-          opacity: 0.78,
-        }),
-      );
-      this.diff.add(mesh);
-    }
-  }
   private pick(e: PointerEvent) {
-    const rect = this.renderer.domElement.getBoundingClientRect(),
-      right = this.split && e.clientX - rect.left > rect.width / 2,
-      w = this.split ? rect.width / 2 : rect.width,
-      x = ((e.clientX - rect.left - (right ? w : 0)) / w) * 2 - 1,
-      y = (-(e.clientY - rect.top) / rect.height) * 2 + 1;
-    this.raycaster.setFromCamera(new THREE.Vector2(x, y), this.camera);
+    const { right, ndcX, ndcY } = paneCoordinates(
+      e.clientX,
+      e.clientY,
+      this.renderer.domElement.getBoundingClientRect(),
+      this.split,
+    );
+    this.raycaster.setFromCamera(new THREE.Vector2(ndcX, ndcY), this.camera);
     const hits = this.raycaster.intersectObjects(
       [
         right ? this.otherVehicles : this.vehicles,
-        ...(right ? (this.otherPicker ?? this.picker) : this.picker),
+        ...(right
+          ? this.otherTraffic.children.filter(
+              (o) => o.userData.kind === "signal" || o.userData.kind === "zone",
+            )
+          : []),
+        ...(right
+          ? (this.otherPicker ??
+            this.picker.filter(
+              (o) => o.userData.kind !== "signal" && o.userData.kind !== "zone",
+            ))
+          : this.picker),
       ],
       false,
     );
@@ -593,6 +761,18 @@ export class CityScene {
       this.renderer.setViewport(0, 0, w, h);
       this.renderer.render(this.scene, this.camera);
     }
+    const pivot = this.controls.target.clone().project(this.camera);
+    const paneWidth = w / (this.split ? 2 : 1);
+    this.pivotMarkers.forEach((marker, i) => {
+      marker.hidden =
+        !this.pivotVisible ||
+        (i === 1 && !this.split) ||
+        pivot.z > 1 ||
+        Math.abs(pivot.x) > 1 ||
+        Math.abs(pivot.y) > 1;
+      marker.style.left = `${i * paneWidth + ((pivot.x + 1) * paneWidth) / 2}px`;
+      marker.style.top = `${((1 - pivot.y) * h) / 2}px`;
+    });
     for (const label of this.roadLabels) {
       const p = label.position.clone().project(this.camera);
       label.element.style.display =
@@ -641,10 +821,26 @@ export class CityScene {
       for (const o of this.otherPicker ?? [])
         (o as THREE.Mesh).geometry.dispose();
     }
+    if (!this.separateComparison)
+      this.otherTraffic.traverse((o) => {
+        const mesh = o as THREE.Mesh;
+        mesh.geometry?.dispose();
+        if (mesh.material) (mesh.material as THREE.Material).dispose();
+      });
     this.renderer.setAnimationLoop(null);
     for (const label of this.roadLabels) label.element.remove();
     this.observer.disconnect();
     this.controls.dispose();
+    this.renderer.domElement.removeEventListener(
+      "pointerdown",
+      this.pivotHandler,
+      true,
+    );
+    this.renderer.domElement.removeEventListener(
+      "auxclick",
+      this.preventMiddle,
+    );
+    for (const marker of this.pivotMarkers) marker.remove();
     this.scene.traverse((o) => {
       const m = o as THREE.Mesh;
       if (m.geometry) m.geometry.dispose();

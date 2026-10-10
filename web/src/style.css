@@ -1286,14 +1286,8 @@ dialog input {
     gap: 9px;
     font-size: 7px;
   }
-  .boundary-key {
-    display: none !important;
-  }
   .map-scale {
     right: 20px;
-  }
-  .playback-meta {
-    display: none;
   }
   .timeline {
     padding: 17px 20px;
@@ -1878,3 +1872,288 @@ dl {
     font-size: 10px;
   }
 }
+
+/* Source study polygons and shared navigation origin. */
+.map-legend {
+  flex-wrap: wrap;
+  max-width: calc(100% - 145px);
+}
+.map-legend .boundary-key {
+  display: flex;
+  color: #187e78;
+}
+.map-legend .boundary-key.secondary {
+  color: #a16b26;
+  border-left: 0;
+  padding-left: 0;
+}
+.boundary-swatch {
+  display: inline-block;
+  width: 20px;
+  border-top: 2px solid #b17b36;
+}
+.boundary-swatch.core {
+  border-top: 2px dashed #187e78;
+}
+.navigation-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 28px;
+  font-size: 10px;
+  color: #526c60;
+  pointer-events: none;
+  background: #f6f9f0cf;
+  padding: 3px 6px;
+  border-radius: 3px;
+}
+.canvas-hint,
+.canvas-fallback .webgl-hint {
+  display: none;
+}
+.canvas-fallback .canvas-hint {
+  display: inline;
+}
+.split-labels {
+  inset: 0;
+  align-items: flex-start;
+  padding-top: 200px;
+}
+.split-labels:after {
+  top: 0;
+  bottom: 0;
+  height: auto;
+  z-index: 0;
+  border-left: 1px solid #6c897b;
+  box-shadow: 1px 0 0 #ffffffb3;
+}
+.orbit-pivot {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #295f63;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.orbit-pivot::before,
+.orbit-pivot::after {
+  content: "";
+  position: absolute;
+  background: #295f63;
+}
+.orbit-pivot::before {
+  width: 22px;
+  height: 1px;
+  left: -5px;
+  top: 5px;
+}
+.orbit-pivot::after {
+  width: 1px;
+  height: 22px;
+  top: -5px;
+  left: 5px;
+}
+@media (max-width: 600px) {
+  .navigation-hint {
+    left: 12px;
+    font-size: 9px;
+  }
+  .map-legend {
+    max-width: calc(100% - 36px);
+    gap: 6px;
+  }
+}
+
+/* Essential study boundaries and current occupancy stay visible on laptops. */
+.timeline-top {
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+.playback-meta {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  line-height: 1.5;
+  color: #60785f;
+}
+#sample-status {
+  color: #395e50;
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 1180px) {
+  .map-toolbar .view-controls {
+    top: 112px;
+  }
+  .map-top-left {
+    top: 157px;
+  }
+  .map-top-right {
+    top: 151px;
+  }
+  .renderer-note {
+    top: 210px;
+  }
+  .map-legend {
+    max-width: calc(100% - 40px);
+  }
+}
+@media (max-width: 600px) {
+  .map-top-right {
+    top: 112px;
+  }
+  .renderer-note {
+    top: 198px;
+  }
+}
+
+/* Recorded traffic layers live in the inspector, leaving the map unobstructed. */
+.traffic-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  font-size: 11px;
+  margin-bottom: 12px;
+}
+.traffic-toggles label {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.traffic-toggles input {
+  accent-color: #287a68;
+}
+.stock-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+  font-size: 11px;
+  color: #6c7d70;
+}
+.stock-summary strong {
+  display: block;
+  font-size: 20px;
+  color: #354f40;
+  font-variant-numeric: tabular-nums;
+}
+.stock-summary small {
+  grid-column: 1/-1;
+  line-height: 1.6;
+}
+.traffic-observatory details {
+  margin-top: 14px;
+  font-size: 12px;
+}
+.hotspot-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 10px 0;
+}
+.hotspot-row span {
+  overflow-wrap: anywhere;
+}
+.signal-link-list {
+  max-height: 190px;
+  overflow: auto;
+  margin: 8px 0;
+}
+.signal-link-list button {
+  width: 100%;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  text-align: left;
+  padding: 6px;
+  border: 0;
+  background: #f1f3ed;
+  margin-bottom: 2px;
+  color: #4e6055;
+}
+.signal-link-list i {
+  flex: 0 0 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.signal-link-list b {
+  white-space: nowrap;
+  font-size: 11px;
+}
+.signal-link-list span {
+  font-size: 9px;
+  overflow-wrap: anywhere;
+}
+#recorded-od-dialog {
+  width: min(1000px, calc(100vw - 30px));
+  max-width: 1000px;
+}
+#od-assumptions {
+  max-height: 100px;
+  overflow: auto;
+  overflow-wrap: anywhere;
+}
+.recorded-od-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 18px 0;
+}
+.recorded-od-tools input {
+  padding: 10px;
+  border: 1px solid #cad2c5;
+  border-radius: 4px;
+  max-width: 100%;
+}
+.recorded-table-scroll {
+  max-height: 50vh;
+  overflow: auto;
+  border: 1px solid #dce1d6;
+}
+.recorded-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.recorded-table th,
+.recorded-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #dce1d6;
+}
+.recorded-table th {
+  position: sticky;
+  top: 0;
+  background: #eef2e8;
+  z-index: 1;
+  white-space: nowrap;
+}
+.recorded-table td {
+  overflow-wrap: anywhere;
+  min-width: 90px;
+}
+.recorded-table tr:nth-child(even) {
+  background: #f7f8f3;
+}
+#od-page {
+  font-size: 11px;
+}
+
+/* Quantitative road-only map overlays; common fixed scale across both panes. */
+.heat-controls { margin-top: 14px; display: grid; gap: 6px; }
+.heat-controls > label { font-size: 10px; color: #596b67; font-weight: 700; }
+.heat-controls select { width: 100%; }
+.heat-controls .small-note { margin: 4px 0; }
+.heat-definition { font-size: 10px; line-height: 1.65; }
+.heat-controls details { font-size: 11px; padding-top: 6px; }
+.heat-rank-row { display:flex; justify-content:space-between; gap:8px; padding:5px 0; border-bottom:1px solid #e4e9e5; }
+.heat-rank-row span { overflow-wrap:anywhere; }
+.heat-rank-row strong { white-space:nowrap; }
+.map-legend { flex-wrap:wrap; max-width:calc(100% - 130px); gap:9px; }
+.heat-scale { display:flex!important; flex-direction:column; width:130px; gap:3px!important; }
+.heat-scale > i { display:block; width:100%; height:7px; border-radius:3px; }
+.heat-scale > span { display:flex; justify-content:space-between; width:100%; font-size:9px; }
+.heat-scale b { font-weight:400; }
+.heat-rank-row small { display:block; color:#65756e; font-size:9px; }

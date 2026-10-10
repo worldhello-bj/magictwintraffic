@@ -94,3 +94,22 @@ def test_control_polling_stays_half_second_at_both_integrator_steps(tmp_path,mon
   assert manifest['control_interval_seconds']==manifest['action_step_seconds']==.5
   sequences.append(list(calls))
  assert sequences[0]==sequences[1]==[i*.5 for i in range(20)]
+
+
+def test_visible_occupancy_includes_warmup_without_changing_peak_cohort():
+ trips=[dict(persistent_trip_id='warm',desired_departure=0,cohort_id='warmup',vehicle_type='car'),dict(persistent_trip_id='peak',desired_departure=1,cohort_id='peak',vehicle_type='car'),dict(persistent_trip_id='wait',desired_departure=2,cohort_id='warmup',vehicle_type='car')]
+ e=Evaluator(trips)
+ e.step(5,5,['warm','peak'],['warm','peak'],[],{'warm':(0,0),'peak':(800,0)},1)
+ row=e.series[-1]
+ assert row['inside']==1 and row['core_vehicles']==0 and row['periphery_vehicles']==1
+ assert row['all_cohort_inside']==2 and row['all_cohort_core_vehicles']==1 and row['all_cohort_periphery_vehicles']==1
+ assert row['external_waiting']==0 and row['all_cohort_external_waiting']==1
+ assert row['all_cohort_due']==row['all_cohort_inside']+row['all_cohort_external_waiting']+row['all_cohort_completed']
+
+
+def test_dense_demo_is_separate_and_warmed_up():
+ config=json.loads((ROOT/'scenarios/dense_demo.json').read_text())
+ validate_config(config)
+ assert config['demo_scenario']=='synthetic_busy_boundary_v1'
+ assert 0 < config['warmup_seconds'] < config['demand_end_seconds'] < config['duration_seconds']
+ assert config['rate_per_gate']==360 and config['step_seconds']==.5

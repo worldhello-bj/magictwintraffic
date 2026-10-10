@@ -1,0 +1,378 @@
+[
+  {
+    "run_id": "internal_demo_S0_am_42_v1",
+    "all_generated": 3481,
+    "all_completed": 1315,
+    "all_completion_fraction": 0.377765010054582,
+    "peak_cohort_completion_fraction": 0.311913357400722,
+    "snapshots": [
+      {
+        "time": 300.0,
+        "road_vehicles": 546,
+        "core_vehicles": 288,
+        "moving_vehicles": 328,
+        "stopped_vehicles": 218,
+        "boundary_insertion_waiting": 14,
+        "internal_insertion_waiting": 0,
+        "parked": 958,
+        "completed": 151
+      },
+      {
+        "time": 600.0,
+        "road_vehicles": 993,
+        "core_vehicles": 529,
+        "moving_vehicles": 368,
+        "stopped_vehicles": 625,
+        "boundary_insertion_waiting": 55,
+        "internal_insertion_waiting": 15,
+        "parked": 825,
+        "completed": 441
+      },
+      {
+        "time": 900.0,
+        "road_vehicles": 1403,
+        "core_vehicles": 750,
+        "moving_vehicles": 480,
+        "stopped_vehicles": 923,
+        "boundary_insertion_waiting": 144,
+        "internal_insertion_waiting": 52,
+        "parked": 718,
+        "completed": 723
+      },
+      {
+        "time": 1200.0,
+        "road_vehicles": 1616,
+        "core_vehicles": 936,
+        "moving_vehicles": 310,
+        "stopped_vehicles": 1306,
+        "boundary_insertion_waiting": 240,
+        "internal_insertion_waiting": 81,
+        "parked": 655,
+        "completed": 1052
+      },
+      {
+        "time": 1500.0,
+        "road_vehicles": 1853,
+        "core_vehicles": 1036,
+        "moving_vehicles": 166,
+        "stopped_vehicles": 1687,
+        "boundary_insertion_waiting": 289,
+        "internal_insertion_waiting": 100,
+        "parked": 643,
+        "completed": 1239
+      },
+      {
+        "time": 1800.0,
+        "road_vehicles": 1791,
+        "core_vehicles": 993,
+        "moving_vehicles": 1,
+        "stopped_vehicles": 1790,
+        "boundary_insertion_waiting": 275,
+        "internal_insertion_waiting": 100,
+        "parked": 643,
+        "completed": 1315
+      }
+    ],
+    "strict_core_top_roads": [
+      {
+        "road": "人民南路四段",
+        "stopped_vehicles": 428,
+        "time": 1459.0
+      },
+      {
+        "road": "倪家桥路",
+        "stopped_vehicles": 116,
+        "time": 881.0
+      },
+      {
+        "road": "玉林南路",
+        "stopped_vehicles": 109,
+        "time": 1148.0
+      }
+    ],
+    "strict_core_peak_stopped": 1003,
+    "method": "Exact sampled SUMO vehicle x/y inside [-500,500]^2; speed <0.1m/s. Road names aggregate named external lanes; junction internal lanes are included in core total but not attributed to a named road. No parked stock included."
+  },
+  {
+    "run_id": "internal_demo_S7_am_42_v1",
+    "all_generated": 3481,
+    "all_completed": 1077,
+    "all_completion_fraction": 0.30939385234128125,
+    "peak_cohort_completion_fraction": 0.23862815884476535,
+    "snapshots": [
+      {
+        "time": 300.0,
+        "road_vehicles": 549,
+        "core_vehicles": 295,
+        "moving_vehicles": 344,
+        "stopped_vehicles": 205,
+        "boundary_insertion_waiting": 13,
+        "internal_insertion_waiting": 0,
+        "parked": 958,
+        "completed": 149
+      },
+      {
+        "time": 600.0,
+        "road_vehicles": 1007,
+        "core_vehicles": 541,
+        "moving_vehicles": 411,
+        "stopped_vehicles": 596,
+        "boundary_insertion_waiting": 55,
+        "internal_insertion_waiting": 13,
+        "parked": 821,
+        "completed": 429
+      },
+      {
+        "time": 900.0,
+        "road_vehicles": 1433,
+        "core_vehicles": 746,
+        "moving_vehicles": 373,
+        "stopped_vehicles": 1060,
+        "boundary_insertion_waiting": 154,
+        "internal_insertion_waiting": 50,
+        "parked": 697,
+        "completed": 685
+      },
+      {
+        "time": 1200.0,
+        "road_vehicles": 1729,
+        "core_vehicles": 890,
+        "moving_vehicles": 224,
+        "stopped_vehicles": 1505,
+        "boundary_insertion_waiting": 256,
+        "internal_insertion_waiting": 85,
+        "parked": 639,
+        "completed": 919
+      },
+      {
+        "time": 1500.0,
+        "road_vehicles": 1985,
+        "core_vehicles": 953,
+        "moving_vehicles": 122,
+        "stopped_vehicles": 1863,
+        "boundary_insertion_waiting": 366,
+        "internal_insertion_waiting": 108,
+        "parked": 627,
+        "completed": 1022
+      },
+      {
+        "time": 1800.0,
+        "road_vehicles": 1931,
+        "core_vehicles": 945,
+        "moving_vehicles": 0,
+        "stopped_vehicles": 1931,
+        "boundary_insertion_waiting": 365,
+        "internal_insertion_waiting": 108,
+        "parked": 627,
+        "completed": 1077
+      }
+    ],
+    "strict_core_top_roads": [
+      {
+        "road": "人民南路四段",
+        "stopped_vehicles": 351,
+        "time": 1619.0
+      },
+      {
+        "road": "倪家桥路",
+        "stopped_vehicles": 115,
+        "time": 794.0
+      },
+      {
+        "road": "玉林南路",
+        "stopped_vehicles": 115,
+        "time": 942.0
+      }
+    ],
+    "strict_core_peak_stopped": 945,
+    "method": "Exact sampled SUMO vehicle x/y inside [-500,500]^2; speed <0.1m/s. Road names aggregate named external lanes; junction internal lanes are included in core total but not attributed to a named road. No parked stock included."
+  },
+  {
+    "run_id": "internal_demo_S0_pm_42_v1",
+    "all_generated": 3134,
+    "all_completed": 1033,
+    "all_completion_fraction": 0.3296107211231653,
+    "peak_cohort_completion_fraction": 0.2593625498007968,
+    "snapshots": [
+      {
+        "time": 300.0,
+        "road_vehicles": 494,
+        "core_vehicles": 238,
+        "moving_vehicles": 305,
+        "stopped_vehicles": 189,
+        "boundary_insertion_waiting": 3,
+        "internal_insertion_waiting": 0,
+        "parked": 1037,
+        "completed": 127
+      },
+      {
+        "time": 600.0,
+        "road_vehicles": 884,
+        "core_vehicles": 431,
+        "moving_vehicles": 395,
+        "stopped_vehicles": 489,
+        "boundary_insertion_waiting": 3,
+        "internal_insertion_waiting": 1,
+        "parked": 1069,
+        "completed": 387
+      },
+      {
+        "time": 900.0,
+        "road_vehicles": 1246,
+        "core_vehicles": 573,
+        "moving_vehicles": 364,
+        "stopped_vehicles": 882,
+        "boundary_insertion_waiting": 33,
+        "internal_insertion_waiting": 2,
+        "parked": 1086,
+        "completed": 684
+      },
+      {
+        "time": 1200.0,
+        "road_vehicles": 1587,
+        "core_vehicles": 727,
+        "moving_vehicles": 228,
+        "stopped_vehicles": 1359,
+        "boundary_insertion_waiting": 154,
+        "internal_insertion_waiting": 11,
+        "parked": 1065,
+        "completed": 880
+      },
+      {
+        "time": 1500.0,
+        "road_vehicles": 1813,
+        "core_vehicles": 797,
+        "moving_vehicles": 91,
+        "stopped_vehicles": 1722,
+        "boundary_insertion_waiting": 302,
+        "internal_insertion_waiting": 19,
+        "parked": 1058,
+        "completed": 1000
+      },
+      {
+        "time": 1800.0,
+        "road_vehicles": 1780,
+        "core_vehicles": 800,
+        "moving_vehicles": 0,
+        "stopped_vehicles": 1780,
+        "boundary_insertion_waiting": 302,
+        "internal_insertion_waiting": 19,
+        "parked": 1063,
+        "completed": 1033
+      }
+    ],
+    "strict_core_top_roads": [
+      {
+        "road": "人民南路四段",
+        "stopped_vehicles": 401,
+        "time": 1566.0
+      },
+      {
+        "road": "倪家桥路",
+        "stopped_vehicles": 116,
+        "time": 1023.0
+      },
+      {
+        "road": "玉林南路",
+        "stopped_vehicles": 74,
+        "time": 1113.0
+      }
+    ],
+    "strict_core_peak_stopped": 800,
+    "method": "Exact sampled SUMO vehicle x/y inside [-500,500]^2; speed <0.1m/s. Road names aggregate named external lanes; junction internal lanes are included in core total but not attributed to a named road. No parked stock included."
+  },
+  {
+    "run_id": "internal_demo_S7_pm_42_v1",
+    "all_generated": 3134,
+    "all_completed": 1045,
+    "all_completion_fraction": 0.3334396936821953,
+    "peak_cohort_completion_fraction": 0.2645418326693227,
+    "snapshots": [
+      {
+        "time": 300.0,
+        "road_vehicles": 489,
+        "core_vehicles": 239,
+        "moving_vehicles": 317,
+        "stopped_vehicles": 172,
+        "boundary_insertion_waiting": 3,
+        "internal_insertion_waiting": 0,
+        "parked": 1039,
+        "completed": 132
+      },
+      {
+        "time": 600.0,
+        "road_vehicles": 894,
+        "core_vehicles": 429,
+        "moving_vehicles": 390,
+        "stopped_vehicles": 504,
+        "boundary_insertion_waiting": 2,
+        "internal_insertion_waiting": 0,
+        "parked": 1069,
+        "completed": 379
+      },
+      {
+        "time": 900.0,
+        "road_vehicles": 1244,
+        "core_vehicles": 572,
+        "moving_vehicles": 315,
+        "stopped_vehicles": 929,
+        "boundary_insertion_waiting": 28,
+        "internal_insertion_waiting": 2,
+        "parked": 1091,
+        "completed": 691
+      },
+      {
+        "time": 1200.0,
+        "road_vehicles": 1571,
+        "core_vehicles": 746,
+        "moving_vehicles": 235,
+        "stopped_vehicles": 1336,
+        "boundary_insertion_waiting": 153,
+        "internal_insertion_waiting": 11,
+        "parked": 1071,
+        "completed": 897
+      },
+      {
+        "time": 1500.0,
+        "road_vehicles": 1801,
+        "core_vehicles": 795,
+        "moving_vehicles": 122,
+        "stopped_vehicles": 1679,
+        "boundary_insertion_waiting": 302,
+        "internal_insertion_waiting": 19,
+        "parked": 1069,
+        "completed": 1012
+      },
+      {
+        "time": 1800.0,
+        "road_vehicles": 1778,
+        "core_vehicles": 798,
+        "moving_vehicles": 0,
+        "stopped_vehicles": 1778,
+        "boundary_insertion_waiting": 292,
+        "internal_insertion_waiting": 19,
+        "parked": 1072,
+        "completed": 1045
+      }
+    ],
+    "strict_core_top_roads": [
+      {
+        "road": "人民南路四段",
+        "stopped_vehicles": 402,
+        "time": 1558.0
+      },
+      {
+        "road": "倪家桥路",
+        "stopped_vehicles": 115,
+        "time": 1023.0
+      },
+      {
+        "road": "玉林南路",
+        "stopped_vehicles": 80,
+        "time": 1124.0
+      }
+    ],
+    "strict_core_peak_stopped": 798,
+    "method": "Exact sampled SUMO vehicle x/y inside [-500,500]^2; speed <0.1m/s. Road names aggregate named external lanes; junction internal lanes are included in core total but not attributed to a named road. No parked stock included."
+  }
+]

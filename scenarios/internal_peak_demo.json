@@ -1,0 +1,16 @@
+{
+  "demo_scenario": "synthetic_building_od_peak_v1",
+  "seed": 42,
+  "demand_scale": 1.0,
+  "rate_per_gate": 360,
+  "duration_seconds": 1800,
+  "warmup_seconds": 300,
+  "demand_end_seconds": 1500,
+  "step_seconds": 0.5,
+  "trajectory": true,
+  "internal_demand": {
+    "cars_per_building": 3,
+    "initial_departure_fraction": 0.15,
+    "internal_to_internal_fraction": 0.3
+  }
+}

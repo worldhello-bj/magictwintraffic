@@ -168,6 +168,25 @@ def create_app(root: Path = ROOT, state: Path | None = None, start_scheduler=Tru
         completed(run_id)
         return read_json(scheduler.path(run_id) / "signals.json")
 
+    def add_internal_artifact_route(artifact):
+        def read_artifact(run_id: str):
+            completed(run_id)
+            output = scheduler.path(run_id)
+            manifest = read_json(output / "manifest.json")
+            filename = manifest.get(artifact)
+            expected = artifact + (".csv" if artifact == "od_csv" else ".json")
+            if artifact == "od_csv": expected = "od_matrix.csv"
+            if filename != expected: raise HTTPException(404, "Artifact unavailable for this run")
+            path = output / expected
+            if artifact == "od_csv":
+                if not path.is_file(): raise HTTPException(404, "OD table unavailable")
+                return FileResponse(path, media_type="text/csv", filename=run_id + "-od.csv")
+            return read_json(path)
+        app.add_api_route("/api/runs/{run_id}/" + artifact, read_artifact, methods=["GET"])
+
+    for artifact in ("signal_topology", "queue_hotspots", "stock_timeseries", "internal_zones", "od_matrix", "od_csv"):
+        add_internal_artifact_route(artifact)
+
     @app.get("/api/runs/{run_id}/events")
     def events(run_id: str):
         completed(run_id)

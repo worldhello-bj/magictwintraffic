@@ -29,12 +29,23 @@ class DownstreamBlock(BaseModel):
     end_seconds: float = Field(gt=0, le=14400)
     speed_m_s: float = Field(default=0.1, ge=0.1, le=2)
 
+class InternalDemand(BaseModel):
+    model_config = ConfigDict(extra="forbid", allow_inf_nan=False, strict=True)
+    cars_per_building: int = Field(default=3, ge=1, le=20)
+    local_access_only: bool = False
+    departure_fraction: float | None = Field(default=None, ge=0, le=1)
+    boundary_to_internal_fraction: float | None = Field(default=None, ge=0, le=1)
+    initial_departure_fraction: float = Field(default=.1, ge=0, le=1)
+    internal_to_internal_fraction: float = Field(default=.25, ge=0, le=1)
+
 class Scenario(BaseModel):
     model_config = ConfigDict(extra="forbid", allow_inf_nan=False, strict=True)
     network_id: Literal["baseline"] = "baseline"
+    network_variant: Literal["baseline", "joined_nijiaqiao_v1", "joined_nijiaqiao_access_v2", "joined_north_surface_v3"] = "baseline"
     policy: Literal["S0", "S1", "S2", "S3", "S4", "S5", "S6", "S7"] = "S0"
     policy_parameters: PolicyParameters | None = None
     downstream_block: DownstreamBlock | None = None
+    internal_demand: InternalDemand | None = None
     seed: int = Field(default=42, ge=0, le=2147483647)
     demand_scale: float = Field(default=1, gt=0, le=5)
     duration_seconds: float = Field(default=600, ge=10, le=14400)

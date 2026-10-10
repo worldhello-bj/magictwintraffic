@@ -7,9 +7,9 @@ NAMES={'S0':'实验基准','S1':'局部信号疏导','S2':'既有车道空间再
 def policy_catalog():
  return [dict(id=k,policy_id=k,name=v,available=True,supported=True,reason='Existing OSM-tagged multilane space reassigned to buses/bicycles; hypothetical legal implementation, no widening.' if k=='S2' else None,parameters={},status='implemented_experimental') for k,v in NAMES.items()]
 
-def compile_policy(network,policy,output,parameters=None):
+def compile_policy(network,policy,output,parameters=None,network_source=None):
  if policy not in NAMES:raise ValueError('Unknown policy')
- source=ROOT/'networks/baseline/network.net.xml';patch=dict(parameters or {});scene=copy.deepcopy(network);path=source
+ source=Path(network_source) if network_source is not None else ROOT/'networks/baseline/network.net.xml';patch=dict(parameters or {});scene=copy.deepcopy(network);path=source
  if policy in ('S2','S4'):
   if policy=='S4':
    choices=[e for e in network['edges'] if 'residential' in e['type'] and e['allows_passenger'] and e['length']>65 and e['shape'] and all(abs(p[0])<420 and abs(p[1])<420 for p in e['shape'])]

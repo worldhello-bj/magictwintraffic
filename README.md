@@ -19,9 +19,13 @@ Run `python scripts/restore_assets.py` once before Python commands. It reconstru
 - [实际运行证据](docs/evidence/)：包括有 run ID 的基准对照、独立 TSTT 核查与阶段报告。文件名包含 `partial` 的报告是阶段快照，不能作为完整研究结论。
 - [API 与任务服务](docs/api_service.md)、[前端与浏览器验证说明](web/README.md)。
 
-仓库直接附带一对完整的真实记录回放：S0 与 S7 的 **600 秒机制演示**，均为 2 Hz，克隆后构建即可比较。其余六个政策演示及 S0 的 **9,900 秒完整参考回放**可按下方命令复算生成，不把缺失轨迹登记进默认目录。全部 316 场正式实验的配置、逐次指标、审计与统计证据仍保存在 `docs/evidence/`；大型原始运行目录不纳入 Git。
+默认回放目录仅发布最终 `joined_north_surface_v3` 路网的 **4 个高压 S0/S7 同需求配对回放**：早峰、晚峰各一组，固定 seed 42，每条 4,200 秒。默认从 t=1,200 秒查看已形成的拥堵，也可从头回放。前端首次开发、测试或构建只生成缺失的这四条记录；以后校验哈希后复用，不再自动生成旧 dense / internal / preview 演示。
 
-600 秒演示不代替正式高峰评价。完整参考的物理积分步长为 0.5 秒；导出时每秒选一个已有原始记录帧，抽帧不改变仿真或指标。
+每条回放同时提供从真实轨迹计算的逐路段热力统计：60 秒窗口和 300–4,200 秒全观察窗，支持观察速度、停止车辆和相对车道限速的速度损失。没有车辆样本的路段保持无数据；热力图不补造车辆、流量或延误。定义与限制见[高压实验和热力图说明](docs/high_pressure_demo.md)。
+
+旧代表性回放不再出现在主目录，生产构建也会移除未发布的旧回放副本。旧 `runs/` 原始轨迹、仿真源码、历史研究和诊断证据仍保留，不改写既有结论。最终三种子政策实验共 12 次，主目录的四条 seed-42 回放不代表全部统计证据；大型轨迹由固定场景复算，不纳入 Git。
+
+物理积分步长为 0.5 秒；发布时每秒选一个已有原始记录帧，抽帧不改变仿真或指标。本组 S7 不预设优于 S0，实际政策差异见[最终 v3 结果摘要](docs/high_pressure_demo.md#最终v3结果摘要12次运行已冻结)。
 
 ## 快速启动
 
@@ -107,22 +111,20 @@ bash scripts/start_backend.sh
 
 默认使用仓库内原始快照；重复重建已验证产生相同网络哈希。`--download` 会重新获取官方 OSM 数据，可能改变网络与所有实验身份；不要在冻结批次中执行。
 
-### 生成完整九个回放（可选）
+### 复算最终默认回放
 
 ```sh
-# 八个 600 秒演示；全部保留实际轨迹
-.venv/bin/python scripts/run_experiments.py --prefix preview \
-  --duration 600 --warmup 0 --demand-end 420 --workers 2 --trajectory
+# 校验已有导出；只在缺少有效记录时计算最终 v3 的四条 seed-42 回放。
+.venv/bin/python scripts/ensure_high_pressure_demo.py
 
-# 一个 9900 秒完整基准：900 秒预热 + 7200 秒需求 + 1800 秒消散上限
-.venv/bin/python scripts/run_experiments.py --prefix replay --policies S0 --trajectory
-
-# 去重静态网络；完整基准只抽取已有记录中的 1 Hz 帧，原始 2 Hz 留在 runs/
-.venv/bin/python scripts/package_replays.py
+# 单独重建热力统计：只读已有真实轨迹，不运行 SUMO。
+.venv/bin/python scripts/export_heatmaps.py
 cd web && npm run build
 ```
 
-`--policies`、`--seeds`、`--periods`、`--scales`、`--rate` 可控制批次；不需要回放的研究运行不要加 `--trajectory`。所有方案必须复用相同外生需求与评价窗口才能配对。直接 CLI 计算不受 API 队列的全部资源限制约束，应控制并发与磁盘。
+需要完整三种子证据时，运行 `scripts/run_high_pressure_demo.py --seeds 42,43,44`；网页仍只发布四条 seed-42 配对。缺少主目录或热力统计时，已验证的回放可直接复用；不会为修复目录重新计算物理。已有但配置或路网不匹配的完成运行拒绝覆盖。仅四条回放的复算不会覆盖更完整的十二次研究报告，而会另存阶段证据。
+
+历史 preview、dense 和 internal 场景的脚本和配置继续保留，显式执行时可复核旧结果；下一次前端生命周期会恢复最终四条主目录，不把旧版网络和不同观察窗混作政策对照。`--policies`、`--seeds`、`--periods`、`--scales`、`--rate` 是通用 `run_experiments.py` 批次参数；不需要回放的研究运行不要加 `--trajectory`。所有政策配对须使用相同外生需求、路网和评价窗口。直接 CLI 不受 API 队列的全部资源限制约束，应控制并发与磁盘。
 
 ### 正式研究与报告
 
@@ -164,8 +166,12 @@ cd web && npm test && npm run build
 
 交通测试覆盖真实网络八政策运行、OD 与队列守恒、真实下游阻塞、gzip/哈希、0.25/0.5 秒积分且保持 0.5 秒行为间隔，以及隔离小测试网络上的单车红灯停车。测试用小网络从不替代交付路网。API 测试覆盖排队、缓存、取消、失败、身份检查与实际 worker；前端包含实际发布文件与界面交互测试。
 
-以下不能由代码测试替代：全部关键转向和信号的现场核查、同日观测校准、独立现场验证、行人/骑行者行为与人员门到门收益、E1 内部活动、动态导航、完整客户端 GPU/FPS 验收，以及另一台干净机器/容器运行验证。WebGL 不可用时可退回相同数据的 Canvas；这不等于已完成 WebGL 性能测试。MOSS、UNsim、强化学习及 RTX 5090 加速未作为已交付能力宣称。
+以下不能由代码测试替代：全部关键转向和信号的现场核查、同日观测校准、独立现场验证、行人/骑行者行为与人员门到门收益、现场校准的内部活动/停车容量、动态导航、完整客户端 GPU/FPS 验收，以及另一台干净机器/容器运行验证。WebGL 不可用时可退回相同数据的 Canvas；这不等于已完成 WebGL 性能测试。MOSS、UNsim、强化学习及 RTX 5090 加速未作为已交付能力宣称。
 
 ## 许可
 
 代码沿用 [Apache-2.0](LICENSE)。地图及派生数据库 © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright)，按 **ODbL 1.0** 使用；代码许可不替代地图许可。原始快照与派生数据应保留署名、来源和适用的数据库许可义务。SUMO、Three.js 及其依赖遵循各自许可。
+
+## 建筑 OD、初始停车与高峰信号演示
+
+最终高压回放包含建筑片区初始库存、内部产生/吸引、可下载 OD 表、真实 SUMO 信号与逐路段统计。所有库存和需求参数明确标记为未校准假设，边界流量不会复制，两层守恒逐步检查。[建筑 OD 说明](docs/internal_building_od.md)保留早期方法和诊断；旧演示不再由前端启动自动生成。

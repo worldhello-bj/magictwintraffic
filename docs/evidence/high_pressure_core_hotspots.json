@@ -1,0 +1,1094 @@
+[
+  {
+    "run_id": "high_pressure_S0_am_42_v3",
+    "all_generated": 4042,
+    "all_completed": 3984,
+    "all_completion_fraction": 0.9856506679861454,
+    "peak_cohort_completion_fraction": 0.9835227272727273,
+    "snapshots": [
+      {
+        "time": 300.0,
+        "road_vehicles": 428,
+        "core_vehicles": 171,
+        "moving_vehicles": 303,
+        "stopped_vehicles": 125,
+        "boundary_insertion_waiting": 2,
+        "internal_insertion_waiting": 0,
+        "parked": 1110,
+        "completed": 92
+      },
+      {
+        "time": 600.0,
+        "road_vehicles": 849,
+        "core_vehicles": 347,
+        "moving_vehicles": 585,
+        "stopped_vehicles": 264,
+        "boundary_insertion_waiting": 15,
+        "internal_insertion_waiting": 2,
+        "parked": 992,
+        "completed": 468
+      },
+      {
+        "time": 900.0,
+        "road_vehicles": 1094,
+        "core_vehicles": 445,
+        "moving_vehicles": 671,
+        "stopped_vehicles": 423,
+        "boundary_insertion_waiting": 53,
+        "internal_insertion_waiting": 2,
+        "parked": 922,
+        "completed": 1012
+      },
+      {
+        "time": 1200.0,
+        "road_vehicles": 1229,
+        "core_vehicles": 493,
+        "moving_vehicles": 775,
+        "stopped_vehicles": 454,
+        "boundary_insertion_waiting": 122,
+        "internal_insertion_waiting": 0,
+        "parked": 894,
+        "completed": 1603
+      },
+      {
+        "time": 1500.0,
+        "road_vehicles": 1268,
+        "core_vehicles": 497,
+        "moving_vehicles": 653,
+        "stopped_vehicles": 615,
+        "boundary_insertion_waiting": 179,
+        "internal_insertion_waiting": 1,
+        "parked": 920,
+        "completed": 2141
+      },
+      {
+        "time": 1800.0,
+        "road_vehicles": 1209,
+        "core_vehicles": 470,
+        "moving_vehicles": 530,
+        "stopped_vehicles": 679,
+        "boundary_insertion_waiting": 225,
+        "internal_insertion_waiting": 0,
+        "parked": 998,
+        "completed": 2608
+      },
+      {
+        "time": 2100.0,
+        "road_vehicles": 833,
+        "core_vehicles": 379,
+        "moving_vehicles": 404,
+        "stopped_vehicles": 429,
+        "boundary_insertion_waiting": 199,
+        "internal_insertion_waiting": 0,
+        "parked": 1093,
+        "completed": 3010
+      },
+      {
+        "time": 2400.0,
+        "road_vehicles": 589,
+        "core_vehicles": 270,
+        "moving_vehicles": 243,
+        "stopped_vehicles": 346,
+        "boundary_insertion_waiting": 143,
+        "internal_insertion_waiting": 0,
+        "parked": 1131,
+        "completed": 3310
+      },
+      {
+        "time": 2700.0,
+        "road_vehicles": 395,
+        "core_vehicles": 221,
+        "moving_vehicles": 206,
+        "stopped_vehicles": 189,
+        "boundary_insertion_waiting": 133,
+        "internal_insertion_waiting": 0,
+        "parked": 1160,
+        "completed": 3514
+      },
+      {
+        "time": 3000.0,
+        "road_vehicles": 325,
+        "core_vehicles": 201,
+        "moving_vehicles": 178,
+        "stopped_vehicles": 147,
+        "boundary_insertion_waiting": 70,
+        "internal_insertion_waiting": 0,
+        "parked": 1194,
+        "completed": 3647
+      },
+      {
+        "time": 3300.0,
+        "road_vehicles": 266,
+        "core_vehicles": 171,
+        "moving_vehicles": 130,
+        "stopped_vehicles": 136,
+        "boundary_insertion_waiting": 18,
+        "internal_insertion_waiting": 0,
+        "parked": 1221,
+        "completed": 3758
+      },
+      {
+        "time": 3600.0,
+        "road_vehicles": 187,
+        "core_vehicles": 128,
+        "moving_vehicles": 89,
+        "stopped_vehicles": 98,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 1243,
+        "completed": 3855
+      },
+      {
+        "time": 3900.0,
+        "road_vehicles": 122,
+        "core_vehicles": 101,
+        "moving_vehicles": 49,
+        "stopped_vehicles": 73,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 1263,
+        "completed": 3920
+      },
+      {
+        "time": 4200.0,
+        "road_vehicles": 58,
+        "core_vehicles": 58,
+        "moving_vehicles": 21,
+        "stopped_vehicles": 37,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 1303,
+        "completed": 3984
+      }
+    ],
+    "strict_core_top_roads": [
+      {
+        "road": "人民南路四段",
+        "stopped_vehicles": 262,
+        "time": 1957.0
+      },
+      {
+        "road": "倪家桥路",
+        "stopped_vehicles": 89,
+        "time": 1564.0
+      },
+      {
+        "road": "玉林南路",
+        "stopped_vehicles": 78,
+        "time": 1686.0
+      }
+    ],
+    "strict_core_peak_stopped": 379,
+    "method": "Exact sampled SUMO vehicle x/y inside [-500,500]^2; speed <0.1m/s. Road names aggregate named external lanes; junction internal lanes are included in core total but not attributed to a named road. No parked stock included."
+  },
+  {
+    "run_id": "high_pressure_S7_am_42_v3",
+    "all_generated": 4042,
+    "all_completed": 3180,
+    "all_completion_fraction": 0.7867392380009897,
+    "peak_cohort_completion_fraction": 0.7559659090909091,
+    "snapshots": [
+      {
+        "time": 300.0,
+        "road_vehicles": 422,
+        "core_vehicles": 178,
+        "moving_vehicles": 344,
+        "stopped_vehicles": 78,
+        "boundary_insertion_waiting": 8,
+        "internal_insertion_waiting": 0,
+        "parked": 1109,
+        "completed": 92
+      },
+      {
+        "time": 600.0,
+        "road_vehicles": 863,
+        "core_vehicles": 370,
+        "moving_vehicles": 582,
+        "stopped_vehicles": 281,
+        "boundary_insertion_waiting": 11,
+        "internal_insertion_waiting": 2,
+        "parked": 993,
+        "completed": 458
+      },
+      {
+        "time": 900.0,
+        "road_vehicles": 1094,
+        "core_vehicles": 441,
+        "moving_vehicles": 653,
+        "stopped_vehicles": 441,
+        "boundary_insertion_waiting": 58,
+        "internal_insertion_waiting": 2,
+        "parked": 917,
+        "completed": 1007
+      },
+      {
+        "time": 1200.0,
+        "road_vehicles": 1241,
+        "core_vehicles": 512,
+        "moving_vehicles": 667,
+        "stopped_vehicles": 574,
+        "boundary_insertion_waiting": 127,
+        "internal_insertion_waiting": 0,
+        "parked": 900,
+        "completed": 1586
+      },
+      {
+        "time": 1500.0,
+        "road_vehicles": 1297,
+        "core_vehicles": 544,
+        "moving_vehicles": 586,
+        "stopped_vehicles": 711,
+        "boundary_insertion_waiting": 193,
+        "internal_insertion_waiting": 1,
+        "parked": 897,
+        "completed": 2098
+      },
+      {
+        "time": 1800.0,
+        "road_vehicles": 1249,
+        "core_vehicles": 555,
+        "moving_vehicles": 491,
+        "stopped_vehicles": 758,
+        "boundary_insertion_waiting": 252,
+        "internal_insertion_waiting": 0,
+        "parked": 930,
+        "completed": 2541
+      },
+      {
+        "time": 2100.0,
+        "road_vehicles": 961,
+        "core_vehicles": 488,
+        "moving_vehicles": 215,
+        "stopped_vehicles": 746,
+        "boundary_insertion_waiting": 198,
+        "internal_insertion_waiting": 0,
+        "parked": 965,
+        "completed": 2883
+      },
+      {
+        "time": 2400.0,
+        "road_vehicles": 819,
+        "core_vehicles": 468,
+        "moving_vehicles": 98,
+        "stopped_vehicles": 721,
+        "boundary_insertion_waiting": 154,
+        "internal_insertion_waiting": 0,
+        "parked": 982,
+        "completed": 3069
+      },
+      {
+        "time": 2700.0,
+        "road_vehicles": 780,
+        "core_vehicles": 474,
+        "moving_vehicles": 41,
+        "stopped_vehicles": 739,
+        "boundary_insertion_waiting": 133,
+        "internal_insertion_waiting": 0,
+        "parked": 991,
+        "completed": 3129
+      },
+      {
+        "time": 3000.0,
+        "road_vehicles": 799,
+        "core_vehicles": 480,
+        "moving_vehicles": 46,
+        "stopped_vehicles": 753,
+        "boundary_insertion_waiting": 81,
+        "internal_insertion_waiting": 0,
+        "parked": 995,
+        "completed": 3162
+      },
+      {
+        "time": 3300.0,
+        "road_vehicles": 809,
+        "core_vehicles": 485,
+        "moving_vehicles": 1,
+        "stopped_vehicles": 808,
+        "boundary_insertion_waiting": 53,
+        "internal_insertion_waiting": 0,
+        "parked": 998,
+        "completed": 3180
+      },
+      {
+        "time": 3600.0,
+        "road_vehicles": 809,
+        "core_vehicles": 485,
+        "moving_vehicles": 0,
+        "stopped_vehicles": 809,
+        "boundary_insertion_waiting": 53,
+        "internal_insertion_waiting": 0,
+        "parked": 998,
+        "completed": 3180
+      },
+      {
+        "time": 3900.0,
+        "road_vehicles": 809,
+        "core_vehicles": 485,
+        "moving_vehicles": 0,
+        "stopped_vehicles": 809,
+        "boundary_insertion_waiting": 53,
+        "internal_insertion_waiting": 0,
+        "parked": 998,
+        "completed": 3180
+      },
+      {
+        "time": 4200.0,
+        "road_vehicles": 809,
+        "core_vehicles": 485,
+        "moving_vehicles": 0,
+        "stopped_vehicles": 809,
+        "boundary_insertion_waiting": 53,
+        "internal_insertion_waiting": 0,
+        "parked": 998,
+        "completed": 3180
+      }
+    ],
+    "strict_core_top_roads": [
+      {
+        "road": "人民南路四段",
+        "stopped_vehicles": 205,
+        "time": 1575.0
+      },
+      {
+        "road": "玉林南路",
+        "stopped_vehicles": 106,
+        "time": 1752.0
+      },
+      {
+        "road": "倪家桥路",
+        "stopped_vehicles": 100,
+        "time": 2167.5
+      }
+    ],
+    "strict_core_peak_stopped": 485,
+    "method": "Exact sampled SUMO vehicle x/y inside [-500,500]^2; speed <0.1m/s. Road names aggregate named external lanes; junction internal lanes are included in core total but not attributed to a named road. No parked stock included."
+  },
+  {
+    "run_id": "high_pressure_S0_pm_42_v3",
+    "all_generated": 4015,
+    "all_completed": 3826,
+    "all_completion_fraction": 0.9529265255292653,
+    "peak_cohort_completion_fraction": 0.9489133502681344,
+    "snapshots": [
+      {
+        "time": 300.0,
+        "road_vehicles": 391,
+        "core_vehicles": 141,
+        "moving_vehicles": 267,
+        "stopped_vehicles": 124,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 1155,
+        "completed": 81
+      },
+      {
+        "time": 600.0,
+        "road_vehicles": 773,
+        "core_vehicles": 313,
+        "moving_vehicles": 424,
+        "stopped_vehicles": 349,
+        "boundary_insertion_waiting": 7,
+        "internal_insertion_waiting": 0,
+        "parked": 1187,
+        "completed": 392
+      },
+      {
+        "time": 900.0,
+        "road_vehicles": 1094,
+        "core_vehicles": 429,
+        "moving_vehicles": 615,
+        "stopped_vehicles": 479,
+        "boundary_insertion_waiting": 18,
+        "internal_insertion_waiting": 0,
+        "parked": 1200,
+        "completed": 841
+      },
+      {
+        "time": 1200.0,
+        "road_vehicles": 1360,
+        "core_vehicles": 566,
+        "moving_vehicles": 757,
+        "stopped_vehicles": 603,
+        "boundary_insertion_waiting": 87,
+        "internal_insertion_waiting": 0,
+        "parked": 1190,
+        "completed": 1353
+      },
+      {
+        "time": 1500.0,
+        "road_vehicles": 1461,
+        "core_vehicles": 634,
+        "moving_vehicles": 636,
+        "stopped_vehicles": 825,
+        "boundary_insertion_waiting": 184,
+        "internal_insertion_waiting": 1,
+        "parked": 1231,
+        "completed": 1904
+      },
+      {
+        "time": 1800.0,
+        "road_vehicles": 1346,
+        "core_vehicles": 558,
+        "moving_vehicles": 505,
+        "stopped_vehicles": 841,
+        "boundary_insertion_waiting": 248,
+        "internal_insertion_waiting": 0,
+        "parked": 1376,
+        "completed": 2421
+      },
+      {
+        "time": 2100.0,
+        "road_vehicles": 1029,
+        "core_vehicles": 440,
+        "moving_vehicles": 329,
+        "stopped_vehicles": 700,
+        "boundary_insertion_waiting": 195,
+        "internal_insertion_waiting": 0,
+        "parked": 1546,
+        "completed": 2791
+      },
+      {
+        "time": 2400.0,
+        "road_vehicles": 864,
+        "core_vehicles": 371,
+        "moving_vehicles": 232,
+        "stopped_vehicles": 632,
+        "boundary_insertion_waiting": 133,
+        "internal_insertion_waiting": 0,
+        "parked": 1655,
+        "completed": 3018
+      },
+      {
+        "time": 2700.0,
+        "road_vehicles": 719,
+        "core_vehicles": 309,
+        "moving_vehicles": 240,
+        "stopped_vehicles": 479,
+        "boundary_insertion_waiting": 81,
+        "internal_insertion_waiting": 0,
+        "parked": 1759,
+        "completed": 3215
+      },
+      {
+        "time": 3000.0,
+        "road_vehicles": 613,
+        "core_vehicles": 241,
+        "moving_vehicles": 229,
+        "stopped_vehicles": 384,
+        "boundary_insertion_waiting": 33,
+        "internal_insertion_waiting": 0,
+        "parked": 1837,
+        "completed": 3369
+      },
+      {
+        "time": 3300.0,
+        "road_vehicles": 487,
+        "core_vehicles": 243,
+        "moving_vehicles": 214,
+        "stopped_vehicles": 273,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 1920,
+        "completed": 3528
+      },
+      {
+        "time": 3600.0,
+        "road_vehicles": 380,
+        "core_vehicles": 181,
+        "moving_vehicles": 128,
+        "stopped_vehicles": 252,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 1999,
+        "completed": 3635
+      },
+      {
+        "time": 3900.0,
+        "road_vehicles": 290,
+        "core_vehicles": 174,
+        "moving_vehicles": 149,
+        "stopped_vehicles": 141,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 2063,
+        "completed": 3725
+      },
+      {
+        "time": 4200.0,
+        "road_vehicles": 189,
+        "core_vehicles": 128,
+        "moving_vehicles": 104,
+        "stopped_vehicles": 85,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 2133,
+        "completed": 3826
+      }
+    ],
+    "strict_core_top_roads": [
+      {
+        "road": "人民南路四段",
+        "stopped_vehicles": 280,
+        "time": 1632.0
+      },
+      {
+        "road": "玉林南路",
+        "stopped_vehicles": 75,
+        "time": 1424.5
+      },
+      {
+        "road": "倪家桥路",
+        "stopped_vehicles": 69,
+        "time": 1359.5
+      }
+    ],
+    "strict_core_peak_stopped": 467,
+    "method": "Exact sampled SUMO vehicle x/y inside [-500,500]^2; speed <0.1m/s. Road names aggregate named external lanes; junction internal lanes are included in core total but not attributed to a named road. No parked stock included."
+  },
+  {
+    "run_id": "high_pressure_S7_pm_42_v3",
+    "all_generated": 4015,
+    "all_completed": 3822,
+    "all_completion_fraction": 0.9519302615193026,
+    "peak_cohort_completion_fraction": 0.9466553767993227,
+    "snapshots": [
+      {
+        "time": 300.0,
+        "road_vehicles": 391,
+        "core_vehicles": 145,
+        "moving_vehicles": 299,
+        "stopped_vehicles": 92,
+        "boundary_insertion_waiting": 1,
+        "internal_insertion_waiting": 0,
+        "parked": 1154,
+        "completed": 80
+      },
+      {
+        "time": 600.0,
+        "road_vehicles": 782,
+        "core_vehicles": 311,
+        "moving_vehicles": 527,
+        "stopped_vehicles": 255,
+        "boundary_insertion_waiting": 6,
+        "internal_insertion_waiting": 0,
+        "parked": 1186,
+        "completed": 384
+      },
+      {
+        "time": 900.0,
+        "road_vehicles": 1076,
+        "core_vehicles": 406,
+        "moving_vehicles": 604,
+        "stopped_vehicles": 472,
+        "boundary_insertion_waiting": 30,
+        "internal_insertion_waiting": 1,
+        "parked": 1195,
+        "completed": 846
+      },
+      {
+        "time": 1200.0,
+        "road_vehicles": 1364,
+        "core_vehicles": 527,
+        "moving_vehicles": 594,
+        "stopped_vehicles": 770,
+        "boundary_insertion_waiting": 100,
+        "internal_insertion_waiting": 1,
+        "parked": 1188,
+        "completed": 1335
+      },
+      {
+        "time": 1500.0,
+        "road_vehicles": 1508,
+        "core_vehicles": 592,
+        "moving_vehicles": 558,
+        "stopped_vehicles": 950,
+        "boundary_insertion_waiting": 211,
+        "internal_insertion_waiting": 0,
+        "parked": 1213,
+        "completed": 1831
+      },
+      {
+        "time": 1800.0,
+        "road_vehicles": 1294,
+        "core_vehicles": 515,
+        "moving_vehicles": 417,
+        "stopped_vehicles": 877,
+        "boundary_insertion_waiting": 307,
+        "internal_insertion_waiting": 0,
+        "parked": 1376,
+        "completed": 2414
+      },
+      {
+        "time": 2100.0,
+        "road_vehicles": 1009,
+        "core_vehicles": 411,
+        "moving_vehicles": 229,
+        "stopped_vehicles": 780,
+        "boundary_insertion_waiting": 224,
+        "internal_insertion_waiting": 0,
+        "parked": 1523,
+        "completed": 2782
+      },
+      {
+        "time": 2400.0,
+        "road_vehicles": 864,
+        "core_vehicles": 336,
+        "moving_vehicles": 257,
+        "stopped_vehicles": 607,
+        "boundary_insertion_waiting": 175,
+        "internal_insertion_waiting": 0,
+        "parked": 1619,
+        "completed": 2976
+      },
+      {
+        "time": 2700.0,
+        "road_vehicles": 761,
+        "core_vehicles": 279,
+        "moving_vehicles": 274,
+        "stopped_vehicles": 487,
+        "boundary_insertion_waiting": 123,
+        "internal_insertion_waiting": 0,
+        "parked": 1714,
+        "completed": 3131
+      },
+      {
+        "time": 3000.0,
+        "road_vehicles": 593,
+        "core_vehicles": 252,
+        "moving_vehicles": 152,
+        "stopped_vehicles": 441,
+        "boundary_insertion_waiting": 89,
+        "internal_insertion_waiting": 0,
+        "parked": 1813,
+        "completed": 3333
+      },
+      {
+        "time": 3300.0,
+        "road_vehicles": 484,
+        "core_vehicles": 207,
+        "moving_vehicles": 236,
+        "stopped_vehicles": 248,
+        "boundary_insertion_waiting": 67,
+        "internal_insertion_waiting": 0,
+        "parked": 1892,
+        "completed": 3464
+      },
+      {
+        "time": 3600.0,
+        "road_vehicles": 436,
+        "core_vehicles": 220,
+        "moving_vehicles": 223,
+        "stopped_vehicles": 213,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 1972,
+        "completed": 3579
+      },
+      {
+        "time": 3900.0,
+        "road_vehicles": 306,
+        "core_vehicles": 179,
+        "moving_vehicles": 165,
+        "stopped_vehicles": 141,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 2065,
+        "completed": 3709
+      },
+      {
+        "time": 4200.0,
+        "road_vehicles": 193,
+        "core_vehicles": 143,
+        "moving_vehicles": 121,
+        "stopped_vehicles": 72,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 2146,
+        "completed": 3822
+      }
+    ],
+    "strict_core_top_roads": [
+      {
+        "road": "人民南路四段",
+        "stopped_vehicles": 255,
+        "time": 1779.0
+      },
+      {
+        "road": "玉林南路",
+        "stopped_vehicles": 81,
+        "time": 1819.5
+      },
+      {
+        "road": "倪家桥路",
+        "stopped_vehicles": 72,
+        "time": 1692.0
+      }
+    ],
+    "strict_core_peak_stopped": 441,
+    "method": "Exact sampled SUMO vehicle x/y inside [-500,500]^2; speed <0.1m/s. Road names aggregate named external lanes; junction internal lanes are included in core total but not attributed to a named road. No parked stock included."
+  },
+  {
+    "run_id": "moderate_matched_S0_am_42_v3",
+    "all_generated": 1827,
+    "all_completed": 1827,
+    "all_completion_fraction": 1.0,
+    "peak_cohort_completion_fraction": 1.0,
+    "snapshots": [
+      {
+        "time": 300.0,
+        "road_vehicles": 181,
+        "core_vehicles": 80,
+        "moving_vehicles": 122,
+        "stopped_vehicles": 59,
+        "boundary_insertion_waiting": 1,
+        "internal_insertion_waiting": 0,
+        "parked": 782,
+        "completed": 67
+      },
+      {
+        "time": 600.0,
+        "road_vehicles": 289,
+        "core_vehicles": 118,
+        "moving_vehicles": 198,
+        "stopped_vehicles": 91,
+        "boundary_insertion_waiting": 5,
+        "internal_insertion_waiting": 2,
+        "parked": 748,
+        "completed": 278
+      },
+      {
+        "time": 900.0,
+        "road_vehicles": 379,
+        "core_vehicles": 152,
+        "moving_vehicles": 295,
+        "stopped_vehicles": 84,
+        "boundary_insertion_waiting": 1,
+        "internal_insertion_waiting": 1,
+        "parked": 722,
+        "completed": 570
+      },
+      {
+        "time": 1200.0,
+        "road_vehicles": 410,
+        "core_vehicles": 187,
+        "moving_vehicles": 314,
+        "stopped_vehicles": 96,
+        "boundary_insertion_waiting": 10,
+        "internal_insertion_waiting": 1,
+        "parked": 717,
+        "completed": 898
+      },
+      {
+        "time": 1500.0,
+        "road_vehicles": 351,
+        "core_vehicles": 132,
+        "moving_vehicles": 275,
+        "stopped_vehicles": 76,
+        "boundary_insertion_waiting": 3,
+        "internal_insertion_waiting": 0,
+        "parked": 745,
+        "completed": 1256
+      },
+      {
+        "time": 1800.0,
+        "road_vehicles": 293,
+        "core_vehicles": 105,
+        "moving_vehicles": 209,
+        "stopped_vehicles": 84,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 782,
+        "completed": 1534
+      },
+      {
+        "time": 2100.0,
+        "road_vehicles": 84,
+        "core_vehicles": 46,
+        "moving_vehicles": 52,
+        "stopped_vehicles": 32,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 826,
+        "completed": 1743
+      },
+      {
+        "time": 2400.0,
+        "road_vehicles": 7,
+        "core_vehicles": 7,
+        "moving_vehicles": 7,
+        "stopped_vehicles": 0,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 858,
+        "completed": 1820
+      },
+      {
+        "time": 2700.0,
+        "road_vehicles": 0,
+        "core_vehicles": 0,
+        "moving_vehicles": 0,
+        "stopped_vehicles": 0,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 865,
+        "completed": 1827
+      },
+      {
+        "time": 3000.0,
+        "road_vehicles": 0,
+        "core_vehicles": 0,
+        "moving_vehicles": 0,
+        "stopped_vehicles": 0,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 865,
+        "completed": 1827
+      },
+      {
+        "time": 3300.0,
+        "road_vehicles": 0,
+        "core_vehicles": 0,
+        "moving_vehicles": 0,
+        "stopped_vehicles": 0,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 865,
+        "completed": 1827
+      },
+      {
+        "time": 3600.0,
+        "road_vehicles": 0,
+        "core_vehicles": 0,
+        "moving_vehicles": 0,
+        "stopped_vehicles": 0,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 865,
+        "completed": 1827
+      },
+      {
+        "time": 3900.0,
+        "road_vehicles": 0,
+        "core_vehicles": 0,
+        "moving_vehicles": 0,
+        "stopped_vehicles": 0,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 865,
+        "completed": 1827
+      },
+      {
+        "time": 4200.0,
+        "road_vehicles": 0,
+        "core_vehicles": 0,
+        "moving_vehicles": 0,
+        "stopped_vehicles": 0,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 865,
+        "completed": 1827
+      }
+    ],
+    "strict_core_top_roads": [
+      {
+        "road": "人民南路四段",
+        "stopped_vehicles": 56,
+        "time": 1630.0
+      },
+      {
+        "road": "玉林中路",
+        "stopped_vehicles": 20,
+        "time": 1156.0
+      },
+      {
+        "road": "倪家桥路",
+        "stopped_vehicles": 18,
+        "time": 746.5
+      }
+    ],
+    "strict_core_peak_stopped": 112,
+    "method": "Exact sampled SUMO vehicle x/y inside [-500,500]^2; speed <0.1m/s. Road names aggregate named external lanes; junction internal lanes are included in core total but not attributed to a named road. No parked stock included."
+  },
+  {
+    "run_id": "recovery_pressure_S0_am_42_v3",
+    "all_generated": 3516,
+    "all_completed": 3516,
+    "all_completion_fraction": 1.0,
+    "peak_cohort_completion_fraction": 1.0,
+    "snapshots": [
+      {
+        "time": 300.0,
+        "road_vehicles": 384,
+        "core_vehicles": 156,
+        "moving_vehicles": 269,
+        "stopped_vehicles": 115,
+        "boundary_insertion_waiting": 2,
+        "internal_insertion_waiting": 0,
+        "parked": 1097,
+        "completed": 76
+      },
+      {
+        "time": 600.0,
+        "road_vehicles": 682,
+        "core_vehicles": 294,
+        "moving_vehicles": 462,
+        "stopped_vehicles": 220,
+        "boundary_insertion_waiting": 6,
+        "internal_insertion_waiting": 1,
+        "parked": 991,
+        "completed": 436
+      },
+      {
+        "time": 900.0,
+        "road_vehicles": 913,
+        "core_vehicles": 401,
+        "moving_vehicles": 599,
+        "stopped_vehicles": 314,
+        "boundary_insertion_waiting": 25,
+        "internal_insertion_waiting": 2,
+        "parked": 892,
+        "completed": 924
+      },
+      {
+        "time": 1200.0,
+        "road_vehicles": 957,
+        "core_vehicles": 422,
+        "moving_vehicles": 635,
+        "stopped_vehicles": 322,
+        "boundary_insertion_waiting": 65,
+        "internal_insertion_waiting": 1,
+        "parked": 879,
+        "completed": 1514
+      },
+      {
+        "time": 1500.0,
+        "road_vehicles": 979,
+        "core_vehicles": 417,
+        "moving_vehicles": 583,
+        "stopped_vehicles": 396,
+        "boundary_insertion_waiting": 113,
+        "internal_insertion_waiting": 1,
+        "parked": 902,
+        "completed": 2021
+      },
+      {
+        "time": 1800.0,
+        "road_vehicles": 907,
+        "core_vehicles": 364,
+        "moving_vehicles": 482,
+        "stopped_vehicles": 425,
+        "boundary_insertion_waiting": 132,
+        "internal_insertion_waiting": 0,
+        "parked": 981,
+        "completed": 2477
+      },
+      {
+        "time": 2100.0,
+        "road_vehicles": 512,
+        "core_vehicles": 297,
+        "moving_vehicles": 261,
+        "stopped_vehicles": 251,
+        "boundary_insertion_waiting": 114,
+        "internal_insertion_waiting": 0,
+        "parked": 1050,
+        "completed": 2890
+      },
+      {
+        "time": 2400.0,
+        "road_vehicles": 357,
+        "core_vehicles": 199,
+        "moving_vehicles": 177,
+        "stopped_vehicles": 180,
+        "boundary_insertion_waiting": 72,
+        "internal_insertion_waiting": 0,
+        "parked": 1088,
+        "completed": 3087
+      },
+      {
+        "time": 2700.0,
+        "road_vehicles": 255,
+        "core_vehicles": 153,
+        "moving_vehicles": 148,
+        "stopped_vehicles": 107,
+        "boundary_insertion_waiting": 22,
+        "internal_insertion_waiting": 0,
+        "parked": 1119,
+        "completed": 3239
+      },
+      {
+        "time": 3000.0,
+        "road_vehicles": 175,
+        "core_vehicles": 99,
+        "moving_vehicles": 100,
+        "stopped_vehicles": 75,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 1141,
+        "completed": 3341
+      },
+      {
+        "time": 3300.0,
+        "road_vehicles": 92,
+        "core_vehicles": 82,
+        "moving_vehicles": 40,
+        "stopped_vehicles": 52,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 1168,
+        "completed": 3424
+      },
+      {
+        "time": 3600.0,
+        "road_vehicles": 49,
+        "core_vehicles": 46,
+        "moving_vehicles": 38,
+        "stopped_vehicles": 11,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 1195,
+        "completed": 3467
+      },
+      {
+        "time": 3900.0,
+        "road_vehicles": 9,
+        "core_vehicles": 9,
+        "moving_vehicles": 8,
+        "stopped_vehicles": 1,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 1233,
+        "completed": 3507
+      },
+      {
+        "time": 4200.0,
+        "road_vehicles": 0,
+        "core_vehicles": 0,
+        "moving_vehicles": 0,
+        "stopped_vehicles": 0,
+        "boundary_insertion_waiting": 0,
+        "internal_insertion_waiting": 0,
+        "parked": 1242,
+        "completed": 3516
+      }
+    ],
+    "strict_core_top_roads": [
+      {
+        "road": "人民南路四段",
+        "stopped_vehicles": 162,
+        "time": 1530.0
+      },
+      {
+        "road": "玉林南路",
+        "stopped_vehicles": 85,
+        "time": 1614.0
+      },
+      {
+        "road": "倪家桥路",
+        "stopped_vehicles": 71,
+        "time": 1359.5
+      }
+    ],
+    "strict_core_peak_stopped": 306,
+    "method": "Exact sampled SUMO vehicle x/y inside [-500,500]^2; speed <0.1m/s. Road names aggregate named external lanes; junction internal lanes are included in core total but not attributed to a named road. No parked stock included."
+  }
+]

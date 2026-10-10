@@ -1,0 +1,12 @@
+{
+  "demo_scenario": "synthetic_busy_boundary_v1",
+  "seed": 42,
+  "period": "am",
+  "demand_scale": 1.0,
+  "rate_per_gate": 360,
+  "duration_seconds": 1800,
+  "warmup_seconds": 600,
+  "demand_end_seconds": 1500,
+  "step_seconds": 0.5,
+  "trajectory": true
+}

@@ -33,7 +33,8 @@ class Evaluator:
         core=sum(1 for v in target_active if v in positions and abs(positions[v][0])<=500 and abs(positions[v][1])<=500)
         self.core+=core*dt;self.periphery+=(len(target_active)-core)*dt;self.max_queue=max(self.max_queue,queues)
         if abs(time/5-round(time/5))<1e-6:
-            self.series.append(dict(time=time,due=self.target_due,inside=len(target_active),external_waiting=self.target_pending,completed=self.target_arrived,core_vehicles=core,periphery_vehicles=len(target_active)-core,queue_vehicles=queues,tstt_vehicle_seconds=self.tstt))
+            all_core=sum(1 for v in active if v in positions and abs(positions[v][0])<=500 and abs(positions[v][1])<=500)
+            self.series.append(dict(all_cohort_inside=len(active),all_cohort_core_vehicles=all_core,all_cohort_periphery_vehicles=len(active)-all_core,all_cohort_external_waiting=len(self.pending),all_cohort_due=self.due_index,all_cohort_completed=len(self.arrived),time=time,due=self.target_due,inside=len(target_active),external_waiting=self.target_pending,completed=self.target_arrived,core_vehicles=core,periphery_vehicles=len(target_active)-core,queue_vehicles=queues,tstt_vehicle_seconds=self.tstt))
     def finish(self,time,teleports=0,collisions=0):
         summaries=[]
         for trip in self.trips:

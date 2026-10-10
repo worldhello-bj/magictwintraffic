@@ -31,7 +31,7 @@ def main():
     manifest["implementation_hash"] = config["implementation_hash"]
     manifest.setdefault("hardware", {}).update(peak_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss, peak_rss_source="getrusage(RUSAGE_SELF).ru_maxrss; Linux KiB")
     from traffic_twin.scheduler import file_hash
-    manifest["artifact_hashes"] = {name: file_hash(args.output / name) for name in ("metrics.json", "audit.json", "network.json", "demand.json", "trips.json", "timeseries.json", "events.json", "signals.json") if (args.output / name).is_file()}
+    manifest["artifact_hashes"] = {name: file_hash(args.output / name) for name in ("metrics.json", "audit.json", "network.json", "demand.json", "trips.json", "timeseries.json", "events.json", "signals.json", "signal_topology.json", "queue_hotspots.json", "stock_timeseries.json", "internal_zones.json", "od_matrix.json", "od_matrix.csv") if (args.output / name).is_file()}
     for chunk in manifest.get("chunks", []):
         chunk.update(run_id=config["run_id"], network_hash=manifest["network_hash"], schema_version=manifest["schema_version"], dictionary_version=manifest["network_hash"])
         chunk.setdefault("compression", "none")

@@ -1,0 +1,46 @@
+{
+  "location": "倪家桥路与人民南路四段交叉口",
+  "osm_nodes": [
+    {
+      "id": "1492416227",
+      "lon": 104.0641898,
+      "lat": 30.6274079,
+      "tags": {}
+    },
+    {
+      "id": "1492416226",
+      "lon": 104.0643128,
+      "lat": 30.6274096,
+      "tags": {}
+    },
+    {
+      "id": "1493017589",
+      "lon": 104.0644208,
+      "lat": 30.6274113,
+      "tags": {}
+    }
+  ],
+  "adjacent_raw_osm_node_center_distances_m": [
+    11.793955158961435,
+    10.356060542250223
+  ],
+  "sumo_junction_to_cluster_center_distance_m": 16.97057747986205,
+  "sumo_trimmed_connector_length_m": 0.2,
+  "interpretation": "Map represents parallel one-way carriageways crossed by Nijiaqiao road. The 0.2 m value is a clipped external lane residual, not surveyed junction separation. Raw OSM nodes have no traffic_signals tags; current TLS are experimental inferred controls. Joined variant is a bounded topology hypothesis, not a reconstruction of observed signals.",
+  "current_reality_caveat": "2026-06-17 reporting describes recent metro construction fence removal and restored roads. Stored node/way edits date from2024–April2026, so some mapping can predate restoration.",
+  "news_source": "https://news.chengdu.cn/2026/0617/6a324642cfd50212c36de349.shtml",
+  "technical_source": "https://sumo.dlr.de/docs/Networks/PlainXML.html#reasons_for_joining_node_clusters",
+  "aerial_review": {
+    "source_caption": "倪家桥站退围后",
+    "image_url": "https://smartml.cdmgiml.com/mediaresourcelib-file-manager/auth/share?key=tx%2Fprod%2Fothers%2F196%2F1781669663-compressed-IMG_6467-1781669694282.JPG",
+    "viewed": true,
+    "observations": "Divided arterial with parallel carriageways, landscaped separators, approach lane arrows, stop lines and broad pedestrian crossings. Static oblique aerial does not establish signal phases/timing or exact current widths.",
+    "sha256": "4fa70794a2ee5002d6bb0d5800ce8bd69b93c435f2e78837730077d131e5fb94"
+  },
+  "unknowns": [
+    "Current lane counts and lane-use restrictions",
+    "Exact stop-line and frontage-road control boundaries",
+    "Actual phase groups, offsets, timings and current roadworks",
+    "Measured arrival demand and observed duration/frequency of real queuing"
+  ]
+}
