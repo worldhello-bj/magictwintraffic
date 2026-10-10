@@ -29,7 +29,6 @@ export class CityScene {
   private picker: THREE.Object3D[] = [];
   private raycaster = new THREE.Raycaster();
   private selected = new THREE.Group();
-  private diff = new THREE.Group();
   private roads = new THREE.Group();
   private split = false;
   private viewMode: "core" | "full" | "top" = "core";
@@ -109,7 +108,7 @@ export class CityScene {
     plane.position.y = -0.12;
     this.scene.add(plane);
     this.buildCity();
-    this.scene.add(this.selected, this.diff);
+    this.scene.add(this.selected);
     this.createRoadLabels();
     const carGeo = new THREE.BoxGeometry(1.85, 1.5, 4.7);
     carGeo.translate(0, 0.95, 0);
@@ -562,6 +561,36 @@ export class CityScene {
     const group = new THREE.Group();
     if (other) this.otherTraffic = group;
     else this.traffic = group;
+    // One vertex-coloured mesh, not a draw call/material per road segment.
+    const heatGeometries = (data.heatmap ?? []).map((h) => {
+      const geometry = this.ribbon(h.shape, h.width, h.elevation + 0.28);
+      const color = new THREE.Color(h.color);
+      const values = new Float32Array(
+        geometry.getAttribute("position").count * 3,
+      );
+      for (let i = 0; i < values.length; i += 3) {
+        values[i] = color.r;
+        values[i + 1] = color.g;
+        values[i + 2] = color.b;
+      }
+      geometry.setAttribute("color", new THREE.BufferAttribute(values, 3));
+      return geometry;
+    });
+    if (heatGeometries.length) {
+      const geometry = mergeGeometries(heatGeometries);
+      if (geometry)
+        group.add(
+          new THREE.Mesh(
+            geometry,
+            new THREE.MeshBasicMaterial({
+              vertexColors: true,
+              side: THREE.DoubleSide,
+              depthWrite: false,
+            }),
+          ),
+        );
+      for (const geometry of heatGeometries) geometry.dispose();
+    }
     for (const h of data.hotspots) {
       const points = h.shape.map((p) => new THREE.Vector3(p[0], 2.5, -p[1]));
       const line = new THREE.Line(
@@ -648,46 +677,6 @@ export class CityScene {
     mesh.instanceMatrix.needsUpdate = true;
     mesh.boundingSphere = null;
     if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
-  }
-  setDifference(enabled: boolean, a: Vehicle[] = [], b: Vehicle[] = []) {
-    while (this.diff.children.length) {
-      const obj = this.diff.children.pop() as THREE.Mesh;
-      obj.geometry.dispose();
-      (obj.material as THREE.Material).dispose();
-    }
-    if (!enabled) return;
-    const avg = (vs: Vehicle[]) => {
-      const map = new Map<number, number[]>();
-      for (const v of vs) {
-        const arr = map.get(v.lane) ?? [];
-        arr.push(v.speed);
-        map.set(v.lane, arr);
-      }
-      return new Map(
-        [...map].map(([k, v]) => [k, v.reduce((a, b) => a + b, 0) / v.length]),
-      );
-    };
-    const aa = avg(a),
-      bb = avg(b);
-    for (const [i, v] of aa) {
-      if (!bb.has(i) || !this.network.lanes[i]) continue;
-      const delta = bb.get(i)! - v;
-      const lane = this.network.lanes[i];
-      const mesh = new THREE.Mesh(
-        this.ribbon(
-          lane.shape,
-          lane.width + 1,
-          (lane.display_elevation ?? 0) + 0.24,
-        ),
-        new THREE.MeshBasicMaterial({
-          color: delta > 1 ? 0x159783 : delta < -1 ? 0xcf7358 : 0xb9bdad,
-          side: THREE.DoubleSide,
-          transparent: true,
-          opacity: 0.78,
-        }),
-      );
-      this.diff.add(mesh);
-    }
   }
   private pick(e: PointerEvent) {
     const { right, ndcX, ndcY } = paneCoordinates(

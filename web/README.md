@@ -10,7 +10,11 @@ npm run dev -- --host 127.0.0.1
 # Python API normally listens at 127.0.0.1:8000; Vite proxies /api.
 ```
 
-The checkout includes a complete genuine S0/S7 600-second paired replay and network. Run `npm run build` to create its static offline package. The root README provides commands to regenerate all eight policy previews and the full 9900-second S0 reference. Serve `dist/` over localhost HTTP (not file://); the Worker and SHA-256 checks require a normal secure browser context, including localhost. With no API, playback stays available while submission is disabled. `npm run build` and `npm test` are independent of a running API.
+The published catalog contains exactly four final-v3 high-pressure replays: S0/S7 × AM/PM, seed 42, 4,200 seconds each. The npm dev/test/build lifecycle restores bundled base assets and verifies these runs, generating only missing final-v3 physics. Retired dense/internal/preview demos are not generated. Existing verified runs are reused when the catalog or derived heatmap needs rebuilding.
+
+Each run includes a SHA-256-bound road heatmap summary derived from its verified recorded chunks, with 60-second windows and the complete post-warmup (300, 4200] window. It preserves missing data and includes empty recorded instants in the frame denominator; it does not manufacture observed traffic or trip delay. See [definitions and limitations](../docs/high_pressure_demo.md).
+
+`npm run build` creates the static offline package and removes unpublished replay/network copies from `dist/` only. Raw `runs/`, archived source exports and research evidence remain intact. Serve `dist/` over localhost HTTP (not file://); the Worker and SHA-256 checks require a normal secure browser context, including localhost. With no API, playback stays available while submission is disabled. `npm run build` and `npm test` are independent of a running API; the first missing replay generation requires the locked Python/SUMO dependencies.
 
 ## Implemented behavior
 

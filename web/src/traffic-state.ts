@@ -73,6 +73,7 @@ export interface SignalMarker {
   source: string;
 }
 export interface TrafficOverlay {
+  heatmap?: import("./heatmap").HeatSegment[];
   signals: SignalMarker[];
   hotspots: { edge_id: string; shape: Point[]; stopped_vehicles: number }[];
   zones: (InternalZone & { parked: number | null })[];

@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import {
   signalColor,
   signalMarkers,
@@ -109,15 +110,17 @@ test("hotspots map measured stopped vehicle counts to real edges, never queue le
   assert.equal(result.hotspots[0].stopped_vehicles, 20);
   assert.deepEqual(result.hotspots[0].shape, network.lanes[0].shape);
 });
-test("packaged building OD run provides resolvable recorded signal and stock overlays", () => {
-  const path = "public/data/runs/internal_demo_S0_am_42_v1/";
+test("final-v3 packaged run provides resolvable recorded signal and stock overlays", () => {
+  const path = "public/data/runs/high_pressure_S0_am_42_v3/";
   const read = (p: string) => JSON.parse(readFileSync(p, "utf8"));
-  const n = read("public/data/network.json"),
-    topology = read(path + "signal_topology.json"),
-    events = read(path + "signals.json"),
-    queue = read(path + "queue_hotspots.json"),
-    stock = read(path + "stock_timeseries.json"),
-    zones = read(path + "internal_zones.json");
+  const manifest = read(resolve(path, "manifest.json"));
+  const n = read(resolve(path, manifest.network)),
+    topology = read(resolve(path, manifest.signal_topology)),
+    events = read(resolve(path, manifest.signals)),
+    queue = read(resolve(path, manifest.queue_hotspots)),
+    stock = read(resolve(path, manifest.stock_timeseries)),
+    zones = read(resolve(path, manifest.internal_zones));
+  assert.equal(n.network_hash, manifest.network_hash);
   const overlay = trafficOverlay(
     n,
     topology,
@@ -128,7 +131,8 @@ test("packaged building OD run provides resolvable recorded signal and stock ove
     300,
   );
   assert.ok(overlay.signals.length > 0);
-  assert.equal(overlay.zones.length, 16);
+  assert.ok(zones.zones.length > 0);
+  assert.equal(overlay.zones.length, zones.zones.length);
   assert.ok(overlay.hotspots.length > 0);
   assert.ok(
     overlay.signals.every(

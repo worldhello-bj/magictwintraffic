@@ -1,5 +1,18 @@
 import "./style.css";
 import {
+  aggregateFrame,
+  heatSegments,
+  heatWindow,
+  heatLabels,
+  heatUnits,
+  validateHeatData,
+  type HeatData,
+  type HeatMetric,
+  type HeatScope,
+  type HeatSegment,
+  type HeatWindow,
+} from "./heatmap";
+import {
   emptyTraffic,
   sampleAt,
   trafficOverlay,
@@ -39,14 +52,20 @@ const policies = [
 ];
 const app = document.querySelector<HTMLDivElement>("#app")!;
 app.innerHTML = `<header class="topbar"><a class="brand" href="./" aria-label="MagicTwin 首页"><span class="brand-mark">${icon("logo")}</span><span>MAGIC<span class="brand-thin">TWIN</span><small>TRAFFIC POLICY LAB</small></span></a><div class="project-heading"><span class="project-dot"></span>成都 · 玉林片区 <span class="header-divider"></span><span class="header-sub">街区交通政策实验室</span></div><div class="top-actions"><span id="backend-status" class="status-pill">离线回放</span><button id="evidence-button" class="quiet-button">数据与方法 <span>↗</span></button></div></header>
-<div class="workspace"><aside class="sidebar"><div class="sidebar-title"><span class="eyebrow">EXPERIMENT WORKSPACE</span><h1>每一次改变，<br>都值得对照。</h1><p>在同一份需求下，观察交通的变化。</p></div><div class="section-heading"><span>01 / 实验情景</span><span class="tiny-label">边界 / 建筑 OD</span></div><label class="field-label" for="run-select">代表性运行</label><select id="run-select"><option value="">正在读取运行清单…</option></select><div class="segmented period-switch"><button class="active" data-period="am">早高峰</button><button data-period="pm">晚高峰</button></div><div class="input-row"><label>需求倍率 <input id="demand-scale" type="number" value="1" min="0.1" max="5" step="0.1"></label><label>随机种子 <input id="seed" type="number" value="42" min="0" max="2147483647"></label></div><button class="text-button" id="od-button">边界 OD 与输入设置 <span>↗</span></button><div class="section-heading policy-heading"><span>02 / 政策方案</span><span class="tiny-label">8 个方案族</span></div><div class="policy-list">${policies.map(([id, label, desc, num], i) => `<button class="policy-card ${i === 0 ? "selected" : ""}" data-policy="${id}" aria-pressed="${i === 0}"><span class="policy-number">${num}</span><span class="policy-copy"><strong>${label}</strong><small>${desc}</small></span><span class="policy-indicator">${i === 0 ? "●" : "○"}</span></button>`).join("")}</div><div class="policy-detail" id="policy-detail">基准方案 · 配时为实验假设，尚未经现场校准。</div><div id="policy-parameters"></div><button id="run-button" class="primary-button" disabled>提交新实验 <span>↗</span></button><div id="job-status" class="subtle-note">预计算结果可离线回放；修改参数后需后端重新计算。</div><button id="cancel-button" class="text-button hidden">取消当前任务</button><div class="sidebar-footer"><span class="dot-light"></span> SUMO 微观仿真 <span>WebGL 2</span></div></aside>
+<div class="workspace"><aside class="sidebar"><div class="sidebar-title"><span class="eyebrow">EXPERIMENT WORKSPACE</span><h1>每一次改变，<br>都值得对照。</h1><p>在同一份需求下，观察交通的变化。</p></div><div class="section-heading"><span>01 / 实验情景</span><span class="tiny-label">边界 / 建筑 OD</span></div><label class="field-label" for="run-select">分析运行</label><select id="run-select"><option value="">正在读取运行清单…</option></select><div class="segmented period-switch"><button class="active" data-period="am">早高峰</button><button data-period="pm">晚高峰</button></div><div class="input-row"><label>需求倍率 <input id="demand-scale" type="number" value="1" min="0.1" max="5" step="0.1"></label><label>随机种子 <input id="seed" type="number" value="42" min="0" max="2147483647"></label></div><button class="text-button" id="od-button">边界 OD 与输入设置 <span>↗</span></button><div class="section-heading policy-heading"><span>02 / 政策方案</span><span class="tiny-label">8 个方案族</span></div><div class="policy-list">${policies.map(([id, label, desc, num], i) => `<button class="policy-card ${i === 0 ? "selected" : ""}" data-policy="${id}" aria-pressed="${i === 0}"><span class="policy-number">${num}</span><span class="policy-copy"><strong>${label}</strong><small>${desc}</small></span><span class="policy-indicator">${i === 0 ? "●" : "○"}</span></button>`).join("")}</div><div class="policy-detail" id="policy-detail">基准方案 · 配时为实验假设，尚未经现场校准。</div><div id="policy-parameters"></div><button id="run-button" class="primary-button" disabled>提交新实验 <span>↗</span></button><div id="job-status" class="subtle-note">预计算结果可离线回放；修改参数后需后端重新计算。</div><button id="cancel-button" class="text-button hidden">取消当前任务</button><div class="sidebar-footer"><span class="dot-light"></span> SUMO 微观仿真 <span>WebGL 2</span></div></aside>
 <main class="main"><div class="map-toolbar"><div><span class="eyebrow">URBAN DIGITAL TWIN</span><h2>真实街区，透明实验。<span class="location-tag">YULIN / CHENGDU</span></h2></div><div class="view-controls segmented"><button id="core-view" class="active" title="核心区斜俯视">核心区</button><button id="full-view">全路网</button><button id="top-view">俯视</button></div></div><div class="view-stage"><div id="canvas-host"></div><div class="map-top-left"><span class="data-badge"><i></i><span id="data-status">正在加载真实道路资产</span></span><div class="map-caption">1 km² 核心治理区 <span>/</span> 外围完整交通传播</div></div><div class="map-top-right"><button id="buildings-button" class="map-button active" title="显示或隐藏建筑" aria-pressed="true">▥ 建筑</button><button id="reset-view" class="map-button" title="复位镜头">↺</button></div><div id="split-labels" class="split-labels hidden"><span>A · 基准运行</span><span>B · 对照运行</span></div><div class="map-legend"><span class="legend-label" id="legend-title">车辆速度</span><span><i class="legend-dot slow"></i>停等</span><span><i class="legend-dot mid"></i>低速</span><span><i class="legend-dot fast"></i>畅行</span><span class="boundary-key"><i class="boundary-swatch core"></i>核心区边界</span><span class="boundary-key secondary"><i class="boundary-swatch"></i>次区外边界</span></div><div class="map-scale"><div class="north"><span id="north-arrow">↑</span><b>N</b></div><div id="scale-line"></div><span>100 m · 视平面近似</span></div><div class="navigation-hint"><span class="webgl-hint">左键旋转 · 右键平移 · 中键设置旋转中心</span><span class="canvas-hint">左键旋转 · 右键平移 · 中键设置旋转中心（2D）</span> · 滚轮缩放</div><div class="map-attribution">© OpenStreetMap contributors · 建筑高度为示意</div><div id="scene-error" class="scene-error hidden" role="alert"></div><div class="performance"><span id="performance">渲染初始化</span></div></div><section class="timeline"><div class="timeline-top"><div class="play-controls"><button id="play-button" class="play-button" disabled aria-label="播放">▶</button><button id="rewind-button" class="small-icon" aria-label="回到开始">↺</button><span id="clock" class="clock">00:00</span><span id="duration" class="duration">/ --:--</span><select id="speed" aria-label="回放速度"><option value="1">1×</option><option value="2">2×</option><option value="5">5×</option><option value="10">10×</option></select></div><div class="playback-meta"><span id="sample-status">等待轨迹</span><span class="mini-dot"></span>仅显示已记录状态</div></div><input id="timeline-range" aria-label="仿真时间" type="range" min="0" max="1" step="0.5" value="0" disabled><div class="timeline-labels"><span>起始</span><span id="time-mid">仿真时间（分 : 秒）</span><span id="time-end">结束</span></div><div class="sparkline-row"><span>在网车辆</span><svg id="sparkline" viewBox="0 0 600 28" preserveAspectRatio="none" aria-label="真实在网车辆时序"><path d=""/></svg><span id="series-note">无时序</span></div></section></main>
-<aside class="inspector"><div class="inspector-heading"><span class="eyebrow">SYSTEM OBSERVATORY</span><h2>让结果说话<span class="info-dot">i</span></h2><p>完整路网 · 统一需求口径</p></div><div class="run-label"><span id="active-policy">S0</span><strong id="active-run">尚未选择运行</strong></div><div class="metric-primary"><span>累计系统时间 <small>含待入等待</small></span><div><strong id="metric-tstt">—</strong><em>veh·h</em></div><span class="metric-foot">有限窗口累计量，非最终总旅行时间</span></div><div class="metric-grid"><div><span>完成比例</span><strong id="metric-completion">—</strong><small>已完成 / 已到期</small></div><div><span>末端待入</span><strong id="metric-external">—</strong><small>辆 · 全部来源待入</small></div><div><span>末端在网</span><strong id="metric-inside">—</strong><small>辆 · 尚未到达</small></div><div><span>异常失败</span><strong id="metric-failures">—</strong><small>单独审计</small></div></div><div class="audit-note" id="audit-note">等待已完成运行的指标与守恒检查。</div><div class="inspector-section"><div class="section-heading"><span>方案对照</span><span class="tiny-label">PAIRED</span></div><select id="compare-select" aria-label="选择对照运行"><option value="">选择同需求的运行</option></select><div class="segmented comparison-switch"><button data-mode="single" class="active">单图</button><button data-mode="split">同步双图</button><button data-mode="diff">速度差值</button></div><div id="comparison-note" class="small-note">同需求哈希才可对照；所有镜头与时刻同步。</div></div><div class="inspector-section selection-section"><div class="section-heading"><span>对象检查器</span><span class="tiny-label">INSPECT</span></div><div id="selection"><div class="empty-selection">⌖</div><strong>从街区中选一个对象</strong><p>点击道路、路口、入口或车辆，查看对应的仿真属性。</p></div></div><button class="provenance-link" id="provenance-button">查看本次运行的证据链 <span>↗</span></button><div class="truth-note"><span>情景实验 / 非实时交通</span><p>真实地图不等于现场复现。需求与控制假设、未完成出行和模型局限均单独披露。</p></div></aside></div><div id="toast" role="status"></div><dialog id="evidence-dialog"><div class="dialog-heading"><span class="eyebrow">PROVENANCE & METHODS</span><button data-close="evidence-dialog" aria-label="关闭">×</button></div><h2>每一帧，都有来源。</h2><p class="dialog-intro">这是使用真实道路几何的离线交通情景实验，不是玉林片区的实时交通或经现场验证的预测。</p><div class="provenance-grid"><article><span class="source-tag">MAP_TAG</span><h3>道路与建筑</h3><p>OpenStreetMap 原始矢量数据。道路和回放由同一份 SUMO 网络生成；建筑高度为示意。</p></article><article><span class="source-tag amber">ASSUMED</span><h3>需求与控制</h3><p>合成边界 OD、实验基准配时和行为参数。没有现场数据时，不称为现状或实际政策收益。</p></article><article><span class="source-tag">DERIVED</span><h3>轨迹与指标</h3><p>只显示 SUMO 实际输出。32 字节记录、20 秒分块、SHA-256 校验；屏幕帧不改变仿真。</p></article><article><span class="source-tag neutral">UNVALIDATED</span><h3>解释范围</h3><p>软件与守恒检查不替代现场校准。单个种子的结果不构成稳定的政策排名。</p></article></div><h3>当前运行身份</h3><dl id="identity"><dt>状态</dt><dd>尚未加载运行</dd></dl><div class="dialog-actions"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">地图许可与署名 ↗</a><button data-close="evidence-dialog" class="primary-button">了解</button></div></dialog><dialog id="od-dialog"><div class="dialog-heading"><span class="eyebrow">BOUNDARY DEMAND / E0</span><button data-close="od-dialog" aria-label="关闭">×</button></div><h2>需求从真实边界进入。</h2><p class="dialog-intro">入口流率是合成实验输入，单位 veh/h。正需求必须合法可达；无法进入的车辆保留外部等待。</p><div class="input-row light"><label>每入口流率（veh/h）<input id="gate-rate" type="number" value="120" min="1" max="1800"></label><label>仿真窗口（秒）<input id="run-duration" type="number" value="600" min="60" max="9900" step="60"></label></div><label class="field-label">入口位置 <select id="gate-select"><option>等待路网</option></select></label><div class="od-note">下方可检查单入口出口比例，也可启用自定义 OD 清单，逐条指定起终点、流率和 5 分钟时段。启用后仅使用清单中的需求。</div><div id="od-rows"></div><div id="od-validation" role="status"></div><div class="custom-od"><label><input id="custom-od-enabled" type="checkbox"> 启用自定义 OD 清单并随实验提交</label><p>时段必须按 300 秒对齐并位于仿真窗口内；无路可达会被服务端拒绝。</p><div id="custom-od-rows"></div><button id="add-od-row" class="text-button">＋ 添加 OD 时段</button></div><div class="dialog-actions"><button id="export-od" class="quiet-button">导出 OD 草案</button><button data-close="od-dialog" class="primary-button">保存本次设置</button></div></dialog>`;
+<aside class="inspector"><div class="inspector-heading"><span class="eyebrow">SYSTEM OBSERVATORY</span><h2>让结果说话<span class="info-dot">i</span></h2><p>完整路网 · 统一需求口径</p></div><div class="run-label"><span id="active-policy">S0</span><strong id="active-run">尚未选择运行</strong></div><div class="metric-primary"><span>累计系统时间 <small>含待入等待</small></span><div><strong id="metric-tstt">—</strong><em>veh·h</em></div><span class="metric-foot">有限窗口累计量，非最终总旅行时间</span></div><div class="metric-grid"><div><span>完成比例</span><strong id="metric-completion">—</strong><small>已完成 / 已到期</small></div><div><span>末端待入</span><strong id="metric-external">—</strong><small>辆 · 全部来源待入</small></div><div><span>末端在网</span><strong id="metric-inside">—</strong><small>辆 · 尚未到达</small></div><div><span>异常失败</span><strong id="metric-failures">—</strong><small>单独审计</small></div></div><div class="audit-note" id="audit-note">等待已完成运行的指标与守恒检查。</div><div class="inspector-section"><div class="section-heading"><span>方案对照</span><span class="tiny-label">PAIRED</span></div><select id="compare-select" aria-label="选择对照运行"><option value="">选择同需求的运行</option></select><div class="segmented comparison-switch"><button data-mode="single" class="active">单图</button><button data-mode="split">同步双图</button><button data-mode="diff">政策差值</button></div><div id="comparison-note" class="small-note">同需求哈希才可对照；所有镜头与时刻同步。</div></div><div class="inspector-section selection-section"><div class="section-heading"><span>对象检查器</span><span class="tiny-label">INSPECT</span></div><div id="selection"><div class="empty-selection">⌖</div><strong>从街区中选一个对象</strong><p>点击道路、路口、入口或车辆，查看对应的仿真属性。</p></div></div><button class="provenance-link" id="provenance-button">查看本次运行的证据链 <span>↗</span></button><div class="truth-note"><span>情景实验 / 非实时交通</span><p>真实地图不等于现场复现。需求与控制假设、未完成出行和模型局限均单独披露。</p></div></aside></div><div id="toast" role="status"></div><dialog id="evidence-dialog"><div class="dialog-heading"><span class="eyebrow">PROVENANCE & METHODS</span><button data-close="evidence-dialog" aria-label="关闭">×</button></div><h2>每一帧，都有来源。</h2><p class="dialog-intro">这是使用真实道路几何的离线交通情景实验，不是玉林片区的实时交通或经现场验证的预测。</p><div class="provenance-grid"><article><span class="source-tag">MAP_TAG</span><h3>道路与建筑</h3><p>OpenStreetMap 原始矢量数据。道路和回放由同一份 SUMO 网络生成；建筑高度为示意。</p></article><article><span class="source-tag amber">ASSUMED</span><h3>需求与控制</h3><p>合成边界 OD、实验基准配时和行为参数。没有现场数据时，不称为现状或实际政策收益。</p></article><article><span class="source-tag">DERIVED</span><h3>轨迹与指标</h3><p>只显示 SUMO 实际输出。32 字节记录、20 秒分块、SHA-256 校验；屏幕帧不改变仿真。</p></article><article><span class="source-tag neutral">UNVALIDATED</span><h3>解释范围</h3><p>软件与守恒检查不替代现场校准。单个种子的结果不构成稳定的政策排名。</p></article></div><h3>当前运行身份</h3><dl id="identity"><dt>状态</dt><dd>尚未加载运行</dd></dl><div class="dialog-actions"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">地图许可与署名 ↗</a><button data-close="evidence-dialog" class="primary-button">了解</button></div></dialog><dialog id="od-dialog"><div class="dialog-heading"><span class="eyebrow">BOUNDARY DEMAND / E0</span><button data-close="od-dialog" aria-label="关闭">×</button></div><h2>需求从真实边界进入。</h2><p class="dialog-intro">入口流率是合成实验输入，单位 veh/h。正需求必须合法可达；无法进入的车辆保留外部等待。</p><div class="input-row light"><label>每入口流率（veh/h）<input id="gate-rate" type="number" value="120" min="1" max="1800"></label><label>仿真窗口（秒）<input id="run-duration" type="number" value="600" min="60" max="9900" step="60"></label></div><label class="field-label">入口位置 <select id="gate-select"><option>等待路网</option></select></label><div class="od-note">下方可检查单入口出口比例，也可启用自定义 OD 清单，逐条指定起终点、流率和 5 分钟时段。启用后仅使用清单中的需求。</div><div id="od-rows"></div><div id="od-validation" role="status"></div><div class="custom-od"><label><input id="custom-od-enabled" type="checkbox"> 启用自定义 OD 清单并随实验提交</label><p>时段必须按 300 秒对齐并位于仿真窗口内；无路可达会被服务端拒绝。</p><div id="custom-od-rows"></div><button id="add-od-row" class="text-button">＋ 添加 OD 时段</button></div><div class="dialog-actions"><button id="export-od" class="quiet-button">导出 OD 草案</button><button data-close="od-dialog" class="primary-button">保存本次设置</button></div></dialog>`;
 document
   .querySelector(".selection-section")!
   .insertAdjacentHTML(
     "beforebegin",
-    `<section class="inspector-section traffic-observatory"><div class="section-heading"><span>建筑出行 · 信号 · 停等</span><span class="tiny-label">RECORDED</span></div><div class="traffic-toggles"><label><input id="show-signals" type="checkbox" checked>信号灯</label><label><input id="show-hotspots" type="checkbox" checked>停等热点</label><label><input id="show-stock" type="checkbox" checked>建筑存量</label></div><p class="small-note">红 / 黄 / 绿 = SUMO 转向连接状态；灰 = 其他状态。紫框数字 = 建筑分区停放量（假设）。热点按停等车辆数标示，非排队长度。双图分别显示 A / B 各自的已记录状态。</p><label class="field-label" for="traffic-source">检查数据来源</label><select id="traffic-source"><option value="A">A · 当前运行</option><option value="B" disabled>B · 对照运行（未选）</option></select><div id="traffic-status" class="small-note">此运行未提供扩展记录。</div><div id="stock-summary" class="stock-summary"></div><label class="field-label" for="signal-select">信号控制器 / 转向连接</label><select id="signal-select"><option value="">选择信号控制器</option></select><div id="signal-details"></div><details><summary>当前停等最多的道路</summary><div id="hotspot-list"></div></details><button id="recorded-od-button" class="text-button">查看本次运行 OD 表格 ↗</button></section>`,
+    `<section class="inspector-section traffic-observatory"><div class="section-heading"><span>建筑出行 · 信号 · 停等</span><span class="tiny-label">RECORDED</span></div><div class="traffic-toggles"><label><input id="show-signals" type="checkbox" checked>信号灯</label><label><input id="show-hotspots" type="checkbox">停等热点</label><label><input id="show-stock" type="checkbox" checked>建筑存量</label></div><p class="small-note">红 / 黄 / 绿 = SUMO 转向连接状态；灰 = 其他状态。紫框数字 = 建筑分区停放量（假设）。热点按停等车辆数标示，非排队长度。双图分别显示 A / B 各自的已记录状态。</p><label class="field-label" for="traffic-source">检查数据来源</label><select id="traffic-source"><option value="A">A · 当前运行</option><option value="B" disabled>B · 对照运行（未选）</option></select><div id="traffic-status" class="small-note">此运行未提供扩展记录。</div><div id="stock-summary" class="stock-summary"></div><label class="field-label" for="signal-select">信号控制器 / 转向连接</label><select id="signal-select"><option value="">选择信号控制器</option></select><div id="signal-details"></div><details><summary>当前停等最多的道路</summary><div id="hotspot-list"></div></details><button id="recorded-od-button" class="text-button">查看本次运行 OD 表格 ↗</button></section>`,
+  );
+document
+  .querySelector(".comparison-switch")!
+  .insertAdjacentHTML(
+    "afterend",
+    `<div class="heat-controls"><label for="heat-metric">路段热力图</label><select id="heat-metric"><option value="speed">均速 · km/h</option><option value="stopped">停等 · 辆</option><option value="loss">速度损失 · %（代理）</option><option value="off">关闭热力图</option></select><label for="heat-scope">统计范围</label><select id="heat-scope"><option value="frame">当前记录帧</option><option value="minute">当前 60 秒窗口</option><option value="total">完整分析窗口 · 300–4200 s</option></select><p id="heat-status" class="small-note">等待已记录状态</p><p class="small-note heat-definition">均速按车辆观测加权；停等速度 &lt;0.1 m/s，窗口值为每帧平均辆数。速度损失 = max(0, 1−速度/车道限速) 的观测均值，非真实旅行延误。无观测为灰色；仅一侧有样本为紫色。仅统计道路，不含路口内部连接。</p><details><summary>变化最大的道路 · B−A</summary><div id="heat-ranking" class="small-note">选择同需求对照与政策差值。</div></details></div>`,
   );
 document.body.insertAdjacentHTML(
   "beforeend",
@@ -101,6 +120,11 @@ let otherTrafficData: {
   csv?: string;
 } = { signals: [], topology: [], queues: [], stocks: [], od: [] };
 let displayedOtherTraffic: TrafficOverlay = emptyTraffic();
+let heatData: HeatData | undefined, otherHeatData: HeatData | undefined;
+let frameTime: number | undefined, otherFrameTime: number | undefined;
+let renderedHeatA: HeatSegment[] = [],
+  renderedHeatB: HeatSegment[] = [];
+let heatCacheKey = "";
 let mainODCsv: string | undefined;
 const inspectionIsB = () =>
   $<HTMLSelectElement>("traffic-source").value === "B";
@@ -131,6 +155,9 @@ function refreshTrafficSources() {
   else $("recorded-od-download").removeAttribute("href");
 }
 function resetOtherTraffic() {
+  otherHeatData = undefined;
+  otherFrameTime = undefined;
+  heatCacheKey = "";
   otherTrafficData = {
     signals: [],
     topology: [],
@@ -211,6 +238,28 @@ function selectObject(s: Selection) {
               ["方向", d.direction],
             ]
           : [["位置", JSON.stringify(d.position)]];
+  if (s.kind === "lane") {
+    const heat = (s.source === "B" ? renderedHeatB : renderedHeatA).find(
+      (h) => h.edge_id === d.edge_id,
+    );
+    const metric = $<HTMLSelectElement>("heat-metric").value as HeatMetric;
+    if (heat && metric !== ("off" as string))
+      fields.push(
+        [
+          mode === "diff" ? `${heatLabels[metric]} B−A` : heatLabels[metric],
+          heat.value === null
+            ? heat.status === "one-sided"
+              ? "仅一侧观测，不计算差值"
+              : "无观测，不推断畅通或拥堵"
+            : `${heat.value.toFixed(2)} ${mode === "diff" && metric === "loss" ? "百分点" : heatUnits[metric]}`,
+        ],
+        [`${s.source === "B" ? "B" : "A"} 车辆观测数`, heat.observations],
+      );
+  }
+  if (s.kind === "lane" && mode === "diff") {
+    const heat = renderedHeatA.find((h) => h.edge_id === d.edge_id);
+    if (heat) fields.push(["B 车辆观测数", heat.otherObservations ?? 0]);
+  }
   if (s.kind === "signal")
     fields.push(
       ["控制器", d.tls],
@@ -277,7 +326,11 @@ function populateRuns() {
   $("compare-select").innerHTML =
     '<option value="">选择同需求的运行</option>' +
     runs
-      .filter((r) => r.run_id !== active?.run_id)
+      .filter(
+        (r) =>
+          r.run_id !== active?.run_id &&
+          (!r.period || !active?.period || r.period === active.period),
+      )
       .map(
         (r) =>
           `<option value="${esc(r.run_id)}">${esc(r.label ?? r.run_id)}</option>`,
@@ -413,6 +466,11 @@ function clearMetrics() {
 }
 async function loadRun(run: RunEntry) {
   const token = ++epoch;
+  heatData = undefined;
+  frameTime = undefined;
+  heatCacheKey = "";
+  renderedHeatA = [];
+  renderedHeatB = [];
   comparisonEpoch++;
   pendingSeek = undefined;
   signalEvents = [];
@@ -442,7 +500,6 @@ async function loadRun(run: RunEntry) {
   resetOtherTraffic();
   city?.setVehicles([]);
   city?.setVehicles([], true);
-  city?.setDifference(false);
   mode = "single";
   setModeUI();
   city?.setComparison(false);
@@ -510,6 +567,16 @@ async function loadRun(run: RunEntry) {
       }
     }
     await loadSupplemental(m, url, token);
+    try {
+      const data = await loadHeatData(m, url);
+      if (token === epoch) {
+        heatData = data;
+        heatCacheKey = "";
+        updateTraffic();
+      }
+    } catch (e) {
+      if (token === epoch) toast(`热力图窗口未加载：${errorMessage(e)}`);
+    }
     if (city) $("scene-error").classList.add("hidden");
   } catch (e) {
     if (token !== epoch) return;
@@ -619,6 +686,126 @@ async function loadSupplemental(m: Manifest, url: string, token: number) {
     );
   }
 }
+async function loadHeatData(
+  m: Manifest,
+  url: string,
+): Promise<HeatData | undefined> {
+  if (typeof m.road_heatmap !== "string") return;
+  const response = await fetch(new URL(m.road_heatmap, url));
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  const bytes = await response.arrayBuffer();
+  if (typeof m.road_heatmap_sha256 !== "string" || !crypto.subtle)
+    throw new Error("缺少热力图 SHA-256 校验条件");
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  const hash = [...new Uint8Array(digest)]
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+  if (hash !== m.road_heatmap_sha256)
+    throw new Error("热力图 SHA-256 校验失败");
+  return validateHeatData(JSON.parse(new TextDecoder().decode(bytes)), m);
+}
+function renderHeatLegend() {
+  const metric = ($<HTMLSelectElement>("heat-metric")?.value ?? "speed") as
+    | HeatMetric
+    | "off";
+  const scope = $<HTMLSelectElement>("heat-scope")?.value ?? "frame";
+  const legend = document.querySelector(".map-legend")!;
+  if (metric === "off") {
+    legend.innerHTML =
+      '<span id="legend-title">车辆速度</span><span>橙 &lt;1 · 黄 &lt;5 · 青 ≥5 m/s</span>';
+    return;
+  }
+  const diff = mode === "diff";
+  const cap = diff
+    ? metric === "speed"
+      ? 20
+      : metric === "stopped"
+        ? 10
+        : 50
+    : metric === "speed"
+      ? 50
+      : metric === "stopped"
+        ? 20
+        : 100;
+  const unit = diff && metric === "loss" ? "百分点" : heatUnits[metric];
+  const reverse = metric === "speed";
+  legend.innerHTML = `<span class="legend-label" id="legend-title">${heatLabels[metric]}${diff ? " B−A" : ""} · ${unit}${metric === "stopped" && scope !== "frame" ? " / 帧均值" : ""}</span><span class="heat-scale"><i style="background:linear-gradient(90deg,${reverse ? "#c94137,#eae7d8,#11897d" : "#11897d,#eae7d8,#c94137"})"></i><span>${diff ? "≤−" + cap : "0"}<b>${diff ? "0" : cap / 2}</b>≥${cap}</span></span><span><i class="legend-dot" style="background:#a6adb1"></i>无观测</span>${diff ? '<span><i class="legend-dot" style="background:#937ab7"></i>单侧观测</span>' : ""}<span class="boundary-key"><i class="boundary-swatch core"></i>核心边界</span><span class="boundary-key secondary"><i class="boundary-swatch"></i>次区边界</span>`;
+}
+function updateHeatmap() {
+  const metric = $<HTMLSelectElement>("heat-metric").value as
+    | HeatMetric
+    | "off";
+  const scope = $<HTMLSelectElement>("heat-scope").value as HeatScope;
+  const n = city?.network ?? network;
+  if (!n) return;
+  const key = [
+    epoch,
+    comparisonEpoch,
+    scope === "frame" ? frameTime : "",
+    scope === "frame" ? otherFrameTime : "",
+    metric,
+    scope,
+    mode,
+    scope === "minute" ? Math.ceil(current / 60) : "",
+  ].join("|");
+  if (key === heatCacheKey) return;
+  heatCacheKey = key;
+  renderHeatLegend();
+  if (metric === "off") {
+    renderedHeatA = [];
+    renderedHeatB = [];
+    $("heat-status").textContent = "热力图已关闭；车辆仍来自实际记录。";
+    return;
+  }
+  const a: HeatWindow | undefined =
+    scope === "frame"
+      ? aggregateFrame(
+          n,
+          lastFrame,
+          frameTime ?? current,
+          frameTime !== undefined,
+        )
+      : heatWindow(heatData, scope, current);
+  const b: HeatWindow | undefined =
+    scope === "frame"
+      ? aggregateFrame(
+          otherTrafficData.network ?? n,
+          otherFrame,
+          otherFrameTime ?? current,
+          otherFrameTime !== undefined,
+        )
+      : heatWindow(otherHeatData, scope, current);
+  const diff = mode === "diff";
+  renderedHeatA = heatSegments(n, a, metric, b, diff);
+  renderedHeatB = heatSegments(otherTrafficData.network ?? n, b, metric);
+  const roads = [...new Map(renderedHeatA.map((h) => [h.edge_id, h])).values()];
+  const matched = roads.filter((h) => h.value !== null),
+    one = roads.filter((h) => h.status === "one-sided");
+  const windowLabel = a
+    ? scope === "frame"
+      ? `${a.start.toFixed(1)} s`
+      : `(${a.start}, ${a.end}] s · ${a.frames} 帧`
+    : "此范围无已校验汇总";
+  $("heat-status").textContent =
+    `${windowLabel} · ${diff ? "双侧共同" : "有"}观测 ${matched.length} / ${roads.length} 路段${diff ? ` · 单侧 ${one.length}` : ""}。${scope === "total" ? "覆盖高峰及恢复尾部，不等同于单独高峰。" : ""}`;
+  const ranking = matched
+    .sort((a, b) => Math.abs(b.value!) - Math.abs(a.value!))
+    .slice(0, 5);
+  $("heat-ranking").innerHTML = diff
+    ? ranking
+        .map(
+          (h) =>
+            `<div class="heat-rank-row"><span>${esc(n.lanes.find((l) => l.edge_id === h.edge_id)?.name || h.edge_id)}<small>A/B 观测 ${h.observations}/${h.otherObservations ?? 0}</small></span><strong style="color:${h.color}">${h.value! > 0 ? "+" : ""}${h.value!.toFixed(1)} ${metric === "loss" ? "百分点" : heatUnits[metric]}</strong></div>`,
+        )
+        .join("") || "没有双侧共同观测，不计算数值差。"
+    : "选择同需求对照与政策差值。";
+}
+for (const id of ["heat-metric", "heat-scope"])
+  $(id).addEventListener("change", () => {
+    heatCacheKey = "";
+    updateTraffic();
+    if (selectedObject?.kind === "lane") selectObject(selectedObject);
+  });
 function updateTraffic() {
   const primaryQueue = sampleAt(queueSamples, current),
     primaryStock = sampleAt(stockSamples, current);
@@ -653,8 +840,12 @@ function updateTraffic() {
       : [],
     zones: $<HTMLInputElement>("show-stock").checked ? overlay.zones : [],
   });
-  city?.setTraffic(shown(displayedTraffic));
-  city?.setTraffic(shown(displayedOtherTraffic), true);
+  updateHeatmap();
+  city?.setTraffic({ ...shown(displayedTraffic), heatmap: renderedHeatA });
+  city?.setTraffic(
+    { ...shown(displayedOtherTraffic), heatmap: renderedHeatB },
+    true,
+  );
   const inspected = inspectionOverlay(),
     topology = inspectionIsB() ? otherTrafficData.topology : signalTopology;
   $("traffic-status").textContent =
@@ -780,22 +971,26 @@ async function seek(time: number) {
     pendingSeek = time;
     return;
   }
-  const token = epoch;
+  const token = epoch,
+    comparisonToken = comparisonEpoch;
   loading = true;
   try {
     const [frame, second] = await Promise.all([
       playback.frame(time),
       otherPlayback?.frame(time),
     ]);
-    if (token !== epoch) return;
+    if (token !== epoch || comparisonToken !== comparisonEpoch) return;
     current = time;
+    frameTime = frame?.time;
+    otherFrameTime = second?.time;
     lastFrame = frame?.vehicles ?? [];
     otherFrame = second?.vehicles ?? [];
     city?.setVehicles(lastFrame);
     city?.setVehicles(otherFrame, true);
     updateTraffic();
-    if (selectedObject?.kind === "junction") selectObject(selectedObject);
-    if (mode === "diff") city?.setDifference(true, lastFrame, otherFrame);
+    if (selectedObject?.kind === "junction" || selectedObject?.kind === "lane")
+      selectObject(selectedObject);
+
     $("clock").textContent = fmt(current);
     $<HTMLInputElement>("timeline-range").value = String(current);
     const coreCount = lastFrame.filter((v) =>
@@ -826,36 +1021,19 @@ function setModeUI() {
       b.classList.toggle("active", (b as HTMLElement).dataset.mode === mode),
     );
   $("split-labels").classList.toggle("hidden", mode !== "split");
-  $("legend-title").textContent = mode === "diff" ? "车道均速 B−A" : "车辆速度";
-  document
-    .querySelector(".map-legend")
-    ?.classList.toggle("difference", mode === "diff");
-  const legend = document.querySelectorAll(".map-legend>span");
-  for (let i = 1; i < 4; i++) {
-    const dot = legend[i]?.querySelector("i");
-    if (dot) {
-      legend[i].replaceChildren(
-        dot,
-        document.createTextNode(
-          mode === "diff"
-            ? ["更慢", "接近", "更快"][i - 1]
-            : ["停等 <1 m/s", "低速 <5 m/s", "≥5 m/s"][i - 1],
-        ),
-      );
-    }
-  }
+  renderHeatLegend();
 }
 async function compareRun(id: string) {
   const token = ++comparisonEpoch;
   mode = "single";
   city?.setComparison(false);
-  city?.setDifference(false);
   setModeUI();
   otherPlayback?.dispose();
   otherPlayback = undefined;
   otherManifest = undefined;
   otherRun = undefined;
   resetOtherTraffic();
+  updateTraffic();
   if (!id) {
     mode = "single";
     city?.setComparison(false);
@@ -896,6 +1074,16 @@ async function compareRun(id: string) {
     otherPlayback = new Playback(m, url);
     otherManifest = m;
     otherRun = run;
+    try {
+      const data = await loadHeatData(m, url);
+      if (token !== comparisonEpoch) return;
+      otherHeatData = data;
+      heatCacheKey = "";
+    } catch (e) {
+      if (token === comparisonEpoch)
+        toast(`对照热力图窗口未加载：${errorMessage(e)}`);
+    }
+    if (token !== comparisonEpoch) return;
     const resource = (key: string) =>
       url.includes("/api/runs/")
         ? url.replace(/\/manifest$/, "/" + key)
@@ -1319,11 +1507,12 @@ document.querySelectorAll<HTMLElement>("[data-mode]").forEach((button) =>
     }
     mode = value;
     city?.setComparison(mode === "split");
-    city?.setDifference(mode === "diff", lastFrame, otherFrame);
+    heatCacheKey = "";
+    updateTraffic();
     setModeUI();
     if (mode === "diff")
       $("comparison-note").textContent =
-        "仅比较两边均有车辆采样的同一车道均速：绿色更快，红色更慢，灰色接近。样本构成可能不同。";
+        "B−A：仅比较同需求、同路网、同一记录时刻或时间窗。红色更差，青色更好，浅色接近零；灰色无观测，紫色只有一侧有观测。样本构成可能不同，不是同车因果效应。";
   }),
 );
 $("run-button").addEventListener("click", () => void submit());

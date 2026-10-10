@@ -462,6 +462,7 @@ test("building OD, signal phases, stock and hotspot records stay synchronized on
   try {
     const d = w.document,
       scene = (w as any).__scene;
+    (d.querySelector("#show-hotspots") as HTMLInputElement).click();
     assert.equal(scene.traffic.signals[0].state, "r");
     assert.equal(scene.traffic.zones[0].parked, 100);
     const select = d.querySelector("#signal-select") as HTMLSelectElement;
@@ -547,6 +548,42 @@ test("paired views carry independent A/B signals, stock and source-aware inspect
     (d.querySelector("[data-signal]") as HTMLButtonElement).click();
     assert.match(d.querySelector("#selection")!.textContent!, /视图来源A/);
     assert.match(d.querySelector("#selection")!.textContent!, /SUMO 状态G/);
+  } finally {
+    dom.window.close();
+  }
+});
+
+test("heatmap selectors show fixed units and no-data support; repeated comparison resets do not retain delta", async () => {
+  const { dom, w } = await mount();
+  try {
+    const d = w.document,
+      scene = (w as any).__scene;
+    assert.equal(scene.traffic.heatmap[0].value, null);
+    assert.match(d.querySelector("#heat-status")!.textContent!, /观测 0 \/ 1/);
+    const metric = d.querySelector("#heat-metric") as HTMLSelectElement;
+    metric.value = "loss";
+    metric.dispatchEvent(new w.Event("change"));
+    assert.match(d.querySelector("#legend-title")!.textContent!, /速度损失.*%/);
+    const scope = d.querySelector("#heat-scope") as HTMLSelectElement;
+    scope.value = "total";
+    scope.dispatchEvent(new w.Event("change"));
+    assert.match(d.querySelector("#heat-status")!.textContent!, /无已校验汇总/);
+    const compare = d.querySelector("#compare-select") as HTMLSelectElement;
+    compare.value = "b";
+    compare.dispatchEvent(new w.Event("change"));
+    for (let i = 0; i < 15; i++) await new Promise((r) => setTimeout(r, 0));
+    (d.querySelector('[data-mode="diff"]') as HTMLButtonElement).click();
+    assert.match(d.querySelector("#legend-title")!.textContent!, /B−A.*百分点/);
+    assert.match(
+      d.querySelector("#heat-status")!.textContent!,
+      /双侧共同观测 0/,
+    );
+    compare.value = "";
+    compare.dispatchEvent(new w.Event("change"));
+    assert.doesNotMatch(d.querySelector("#legend-title")!.textContent!, /B−A/);
+    metric.value = "off";
+    metric.dispatchEvent(new w.Event("change"));
+    assert.deepEqual(scene.traffic.heatmap.length, 0);
   } finally {
     dom.window.close();
   }

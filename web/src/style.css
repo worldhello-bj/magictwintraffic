@@ -2140,3 +2140,20 @@ dl {
 #od-page {
   font-size: 11px;
 }
+
+/* Quantitative road-only map overlays; common fixed scale across both panes. */
+.heat-controls { margin-top: 14px; display: grid; gap: 6px; }
+.heat-controls > label { font-size: 10px; color: #596b67; font-weight: 700; }
+.heat-controls select { width: 100%; }
+.heat-controls .small-note { margin: 4px 0; }
+.heat-definition { font-size: 10px; line-height: 1.65; }
+.heat-controls details { font-size: 11px; padding-top: 6px; }
+.heat-rank-row { display:flex; justify-content:space-between; gap:8px; padding:5px 0; border-bottom:1px solid #e4e9e5; }
+.heat-rank-row span { overflow-wrap:anywhere; }
+.heat-rank-row strong { white-space:nowrap; }
+.map-legend { flex-wrap:wrap; max-width:calc(100% - 130px); gap:9px; }
+.heat-scale { display:flex!important; flex-direction:column; width:130px; gap:3px!important; }
+.heat-scale > i { display:block; width:100%; height:7px; border-radius:3px; }
+.heat-scale > span { display:flex; justify-content:space-between; width:100%; font-size:9px; }
+.heat-scale b { font-weight:400; }
+.heat-rank-row small { display:block; color:#65756e; font-size:9px; }

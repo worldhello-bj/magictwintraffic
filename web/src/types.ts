@@ -74,6 +74,7 @@ export interface Frame {
   vehicles: Vehicle[];
 }
 export interface RunEntry {
+  period?: string;
   playback_start_seconds?: number;
   scenario_kind?: string;
   run_id: string;

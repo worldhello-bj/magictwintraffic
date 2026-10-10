@@ -24,7 +24,6 @@ export class CitySceneCanvas {
   private otherNetwork: Network;
   private vehicles: Vehicle[] = [];
   private otherVehicles: Vehicle[] = [];
-  private difference = false;
   private selected: Point[] = [];
   private disposed = false;
   private renderCount = 0;
@@ -335,30 +334,6 @@ export class CitySceneCanvas {
     const c = this.context;
     c.clearRect(0, 0, this.width, this.height);
     c.drawImage(this.cache, 0, 0, this.width, this.height);
-    if (this.difference) {
-      const mean = (vs: Vehicle[]) => {
-          const m = new Map<number, [number, number]>();
-          for (const v of vs) {
-            const a = m.get(v.lane) ?? [0, 0];
-            a[0] += v.speed;
-            a[1]++;
-            m.set(v.lane, a);
-          }
-          return m;
-        },
-        a = mean(this.vehicles),
-        b = mean(this.otherVehicles);
-      for (const [i, av] of a) {
-        const bv = b.get(i),
-          lane = this.network.lanes[i];
-        if (!bv || !lane) continue;
-        const d = bv[0] / bv[1] - av[0] / av[1];
-        this.path(c, lane.shape);
-        c.strokeStyle = d > 1 ? "#159783" : d < -1 ? "#cf7358" : "#b9bdad";
-        c.lineWidth = Math.max(2, (lane.width + 1) * this.scale);
-        c.stroke();
-      }
-    }
     this.drawTraffic(c);
     if (this.split) this.drawTraffic(c, false, true);
     this.vehiclePane(c, this.vehicles, 0);
@@ -414,6 +389,12 @@ export class CitySceneCanvas {
     c.beginPath();
     c.rect(offset, 0, this.paneWidth(), this.height);
     c.clip();
+    for (const h of foreground ? [] : (traffic.heatmap ?? [])) {
+      this.path(c, h.shape, offset);
+      c.strokeStyle = h.color;
+      c.lineWidth = Math.max(2, h.width * this.scale);
+      c.stroke();
+    }
     for (const h of foreground ? [] : traffic.hotspots) {
       this.path(c, h.shape, offset);
       c.strokeStyle = "#df664b80";
@@ -573,18 +554,6 @@ export class CitySceneCanvas {
     this.rotation = 0;
     this.scale = this.fitScale();
     this.redrawStatic();
-  }
-  setDifference(
-    value: boolean,
-    a: Vehicle[] = this.vehicles,
-    b: Vehicle[] = this.otherVehicles,
-  ) {
-    this.difference = value;
-    if (value) {
-      this.vehicles = a;
-      this.otherVehicles = b;
-    }
-    this.draw();
   }
   highlight(points: Point[]) {
     this.selected = points;
