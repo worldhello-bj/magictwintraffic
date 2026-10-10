@@ -1,11 +1,12 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
+import type { TrafficOverlay } from "./traffic-state";
 import type { Network, Point, Vehicle } from "./types";
 import { localToWorld } from "./protocol";
 import { paneCoordinates, polygonBounds } from "./view-geometry";
 export type Selection = {
-  kind: "lane" | "vehicle" | "gate" | "junction";
+  kind: "lane" | "vehicle" | "gate" | "junction" | "signal" | "zone";
   id: string;
   data: unknown;
   source?: "A" | "B";
@@ -16,6 +17,10 @@ export class CityScene {
   controls: OrbitControls;
   scene = new THREE.Scene();
   comparison = new THREE.Scene();
+  private traffic = new THREE.Group();
+  private otherTraffic = new THREE.Group();
+  private otherTrafficKey = "";
+  private trafficKey = "";
   private buildings = new THREE.Group();
   private vehicles: THREE.InstancedMesh;
   private otherVehicles: THREE.InstancedMesh;
@@ -536,6 +541,80 @@ export class CityScene {
     this.pivotVisible = true;
     this.controls.update();
   }
+  setTraffic(data: TrafficOverlay, other = false) {
+    const key = JSON.stringify(data);
+    const previous = other ? this.otherTraffic : this.traffic,
+      target = other ? this.comparison : this.scene;
+    if (
+      key === (other ? this.otherTrafficKey : this.trafficKey) &&
+      previous.parent === target
+    )
+      return;
+    if (other) this.otherTrafficKey = key;
+    else this.trafficKey = key;
+    previous.removeFromParent();
+    previous.traverse((o) => {
+      const m = o as THREE.Mesh;
+      m.geometry?.dispose();
+      if (m.material) (m.material as THREE.Material).dispose();
+    });
+    if (!other) this.picker = this.picker.filter((o) => o.parent !== previous);
+    const group = new THREE.Group();
+    if (other) this.otherTraffic = group;
+    else this.traffic = group;
+    for (const h of data.hotspots) {
+      const points = h.shape.map((p) => new THREE.Vector3(p[0], 2.5, -p[1]));
+      const line = new THREE.Line(
+        new THREE.BufferGeometry().setFromPoints(points),
+        new THREE.LineBasicMaterial({
+          color: "#e66a4f",
+          transparent: true,
+          opacity: 0.8,
+        }),
+      );
+      group.add(line);
+      if (points.length) {
+        const halo = new THREE.Mesh(
+          new THREE.CircleGeometry(
+            Math.min(22, 5 + Math.sqrt(h.stopped_vehicles) * 2),
+            20,
+          ),
+          new THREE.MeshBasicMaterial({
+            color: "#e66a4f",
+            transparent: true,
+            opacity: 0.35,
+            depthWrite: false,
+          }),
+        );
+        halo.rotation.x = -Math.PI / 2;
+        halo.position.copy(points[Math.floor(points.length / 2)]);
+        group.add(halo);
+      }
+    }
+    for (const z of data.zones) {
+      const marker = new THREE.Mesh(
+        new THREE.BoxGeometry(12, 8, 12),
+        new THREE.MeshBasicMaterial({ color: "#8064ae", depthTest: false }),
+      );
+      marker.position.set(z.position[0], 18, -z.position[1]);
+      marker.renderOrder = 10;
+      marker.userData = { kind: "zone", id: z.id, data: z };
+      group.add(marker);
+      if (!other) this.picker.push(marker);
+    }
+    for (const s of data.signals) {
+      const marker = new THREE.Mesh(
+        new THREE.SphereGeometry(5, 8, 6),
+        new THREE.MeshBasicMaterial({ color: s.color, depthTest: false }),
+      );
+      marker.position.set(s.position[0], 8, -s.position[1]);
+      marker.renderOrder = 11;
+      marker.userData = { kind: "signal", id: s.id, data: s };
+      group.add(marker);
+      if (!other) this.picker.push(marker);
+    }
+    target.add(group);
+  }
   setVehicles(data: Vehicle[], other = false) {
     if (data.length > this.capacity)
       throw new Error(
@@ -621,7 +700,17 @@ export class CityScene {
     const hits = this.raycaster.intersectObjects(
       [
         right ? this.otherVehicles : this.vehicles,
-        ...(right ? (this.otherPicker ?? this.picker) : this.picker),
+        ...(right
+          ? this.otherTraffic.children.filter(
+              (o) => o.userData.kind === "signal" || o.userData.kind === "zone",
+            )
+          : []),
+        ...(right
+          ? (this.otherPicker ??
+            this.picker.filter(
+              (o) => o.userData.kind !== "signal" && o.userData.kind !== "zone",
+            ))
+          : this.picker),
       ],
       false,
     );
@@ -743,6 +832,12 @@ export class CityScene {
       for (const o of this.otherPicker ?? [])
         (o as THREE.Mesh).geometry.dispose();
     }
+    if (!this.separateComparison)
+      this.otherTraffic.traverse((o) => {
+        const mesh = o as THREE.Mesh;
+        mesh.geometry?.dispose();
+        if (mesh.material) (mesh.material as THREE.Material).dispose();
+      });
     this.renderer.setAnimationLoop(null);
     for (const label of this.roadLabels) label.element.remove();
     this.observer.disconnect();

@@ -1,0 +1,472 @@
+{
+  "logical_trip_inventory_equal": true,
+  "logical_trip_inventory_hash": "de6450659bfbbf8664249d9e4bffdf2ef3f0add2d230da08cf3e40ff11c4862a",
+  "compared_fields": [
+    "persistent_trip_id",
+    "desired_departure",
+    "origin_gate",
+    "destination_gate",
+    "origin_kind",
+    "destination_kind",
+    "vehicle_type",
+    "cohort_id",
+    "demand_source",
+    "behavior_seed"
+  ],
+  "trip_count": 807,
+  "position_adjustments": [
+    {
+      "id": "internal_42_zone_3_1_0000",
+      "fields": {
+        "departure_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "t42_0000046",
+      "fields": {
+        "arrival_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "t42_0000058",
+      "fields": {
+        "arrival_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "t42_0000065",
+      "fields": {
+        "arrival_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "t42_0000212",
+      "fields": {
+        "arrival_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "t42_0000159",
+      "fields": {
+        "arrival_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "internal_42_zone_1_3_0011",
+      "fields": {
+        "arrival_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "t42_0000138",
+      "fields": {
+        "arrival_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "internal_42_zone_3_1_0002",
+      "fields": {
+        "departure_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "internal_42_zone_3_1_0005",
+      "fields": {
+        "departure_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "t42_0000200",
+      "fields": {
+        "arrival_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "internal_42_zone_3_1_0001",
+      "fields": {
+        "departure_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "t42_0000232",
+      "fields": {
+        "arrival_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "t42_0000352",
+      "fields": {
+        "arrival_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "t42_0000337",
+      "fields": {
+        "arrival_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "internal_42_zone_3_1_0004",
+      "fields": {
+        "departure_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "t42_0000290",
+      "fields": {
+        "arrival_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "internal_42_zone_3_1_0003",
+      "fields": {
+        "departure_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "t42_0000465",
+      "fields": {
+        "arrival_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "internal_42_zone_3_1_0006",
+      "fields": {
+        "departure_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    },
+    {
+      "id": "internal_42_zone_3_1_0007",
+      "fields": {
+        "departure_position_m": [
+          142.732,
+          142.451
+        ]
+      }
+    }
+  ],
+  "disclosure": "Topology merge trims/reanchors adjacent roads; 21 trip access positions shift 0.281m. Full demand hashes differ; logical trip IDs, times, origin and destination zones/gates, and all behavior seeds are identical. This is a topology diagnosis, not a calibrated traffic policy comparison.",
+  "baseline": {
+    "manifest": {
+      "network_hash": "c7d7ae80352aa191ac485fb7c909f575d2589511f8d0cd8ab1cdf520e79913b3",
+      "demand_hash": "c8d50befcf7e0d03b9f02144b504498175998b0de0c9d707e355930fcf9fa2eb",
+      "config": {
+        "demo_scenario": "synthetic_building_od_peak_v1",
+        "seed": 42,
+        "demand_scale": 1.0,
+        "rate_per_gate": 90,
+        "duration_seconds": 1800,
+        "warmup_seconds": 300,
+        "demand_end_seconds": 1500,
+        "step_seconds": 0.5,
+        "trajectory": false,
+        "internal_demand": {
+          "cars_per_building": 1,
+          "initial_departure_fraction": 0.05,
+          "internal_to_internal_fraction": 0.3,
+          "departure_fraction": 0.4
+        },
+        "policy": "S0",
+        "period": "am"
+      }
+    },
+    "metrics": {
+      "generated": 657,
+      "due": 657,
+      "completed": 385,
+      "inside": 272,
+      "external_waiting": 0,
+      "explicit_failure": 0,
+      "completion_rate": 0.5859969558599696,
+      "tstt_vehicle_seconds": 352000.9440000002,
+      "mean_travel_time_seconds": 265.76473506493505,
+      "p95_travel_time_seconds": 546.3570000000001,
+      "median_travel_time_seconds": 224.55899999999997,
+      "external_wait_vehicle_seconds": 680.9440000000011,
+      "core_vehicle_seconds": 232460.0,
+      "periphery_vehicle_seconds": 118996.0,
+      "max_queue_vehicles": 293,
+      "teleports": 0,
+      "collisions": 0,
+      "duration_seconds": 1800.0,
+      "cohort": "peak",
+      "interpretation": "Finite-window cumulative time including due but uninserted target trips. Incomplete trips are right-censored; completed-only mean is secondary.",
+      "all_cohort_generated": 807,
+      "all_cohort_completed": 513,
+      "all_cohort_inserted": 807,
+      "spatial_time_method": "End-of-step rectangular integration; peak core/periphery may differ by <= step boundary terms from exact trip elapsed time.",
+      "queue_population": "All cohorts; stopped-speed threshold <0.1 m/s is a count proxy, not contiguous physical queue length.",
+      "observed_stop_starts": 42,
+      "signal_extensions": 0,
+      "bus_completed": 17,
+      "insertion_wait_population": "Legacy external_waiting fields include all due uninserted trips; split boundary/internal waiting is in stock_timeseries.",
+      "boundary_insertion_wait_vehicle_seconds": 571.9330000000008,
+      "internal_insertion_wait_vehicle_seconds": 109.01100000000031,
+      "initial_parked_total": 442,
+      "internal_departures_generated": 177,
+      "boundary_arrivals_reassigned": 142,
+      "parked_final": 383
+    },
+    "audit": {
+      "conservation_passed": true,
+      "conservation_max_residual": 0,
+      "teleports": 0,
+      "collisions": 0,
+      "explicit_failures": 0,
+      "unexplained_losses": 0,
+      "steps": 3600,
+      "field_calibrated": false,
+      "critical_unknowns": [
+        "Actual signals/turn permissions/driver behavior require field verification",
+        "Synthetic boundary OD and bus/curb events",
+        "No pedestrian demand or nonmotorized agents yet; lane geometry only",
+        "OSM footprints are geographic evidence, not measured population or parking capacity.",
+        "Access positions are connected road proxies, not surveyed entrances or modeled private driveways.",
+        "Parked stock is off-network accounting; cars enter only valid SUMO lanes, with insertion delay retained.",
+        "Boundary arrivals are reassigned to internal destinations, never copied; no new boundary inflow is added.",
+        "Initial stock departures and boundary arrivals are distinct vehicles; arrivals park and do not generate a second journey."
+      ],
+      "status": "passed_software_checks",
+      "parked_stock_conservation_passed": true,
+      "parked_stock_max_residual": 0
+    },
+    "final_time_series": {
+      "all_cohort_inside": 294,
+      "all_cohort_core_vehicles": 237,
+      "all_cohort_periphery_vehicles": 57,
+      "all_cohort_external_waiting": 0,
+      "all_cohort_due": 807,
+      "all_cohort_completed": 513,
+      "time": 1800.0,
+      "due": 657,
+      "inside": 272,
+      "external_waiting": 0,
+      "completed": 385,
+      "core_vehicles": 215,
+      "periphery_vehicles": 57,
+      "queue_vehicles": 285,
+      "tstt_vehicle_seconds": 352000.9440000002,
+      "internal_insertion_waiting": 0,
+      "boundary_insertion_waiting": 0,
+      "parked_total": 383
+    },
+    "tracked_deadlock_vehicles": [
+      {
+        "persistent_trip_id": "t42_0000058",
+        "status": "inside",
+        "inserted_at": 128.0,
+        "arrived_at": null
+      },
+      {
+        "persistent_trip_id": "t42_0000043",
+        "status": "inside",
+        "inserted_at": 215.0,
+        "arrived_at": null
+      },
+      {
+        "persistent_trip_id": "t42_0000094",
+        "status": "inside",
+        "inserted_at": 88.5,
+        "arrived_at": null
+      },
+      {
+        "persistent_trip_id": "internal_42_zone_0_2_0011",
+        "status": "inside",
+        "inserted_at": 277.0,
+        "arrived_at": null
+      }
+    ]
+  },
+  "joined": {
+    "manifest": {
+      "network_hash": "b9f875a1b64bf462cbf5fffa4020b777b9a7f245ff3fe36837fc3514a8f22683",
+      "demand_hash": "d6bbac0a3089f40701d3fcec976a6f6469509ed4c122b26dee4223bb357ad4e4",
+      "config": {
+        "demo_scenario": "synthetic_building_od_peak_v1",
+        "seed": 42,
+        "demand_scale": 1.0,
+        "rate_per_gate": 90,
+        "duration_seconds": 1800,
+        "warmup_seconds": 300,
+        "demand_end_seconds": 1500,
+        "step_seconds": 0.5,
+        "trajectory": false,
+        "internal_demand": {
+          "cars_per_building": 1,
+          "initial_departure_fraction": 0.05,
+          "internal_to_internal_fraction": 0.3,
+          "departure_fraction": 0.4
+        },
+        "policy": "S0",
+        "period": "am",
+        "network_variant": "joined_nijiaqiao_v1"
+      }
+    },
+    "metrics": {
+      "generated": 657,
+      "due": 657,
+      "completed": 638,
+      "inside": 19,
+      "external_waiting": 0,
+      "explicit_failure": 0,
+      "completion_rate": 0.9710806697108066,
+      "tstt_vehicle_seconds": 192555.94400000016,
+      "mean_travel_time_seconds": 289.4830094043887,
+      "p95_travel_time_seconds": 512.5274,
+      "median_travel_time_seconds": 279.332,
+      "external_wait_vehicle_seconds": 740.4440000000011,
+      "core_vehicle_seconds": 79213.0,
+      "periphery_vehicle_seconds": 112612.0,
+      "max_queue_vehicles": 77,
+      "teleports": 0,
+      "collisions": 0,
+      "duration_seconds": 1800.0,
+      "cohort": "peak",
+      "interpretation": "Finite-window cumulative time including due but uninserted target trips. Incomplete trips are right-censored; completed-only mean is secondary.",
+      "all_cohort_generated": 807,
+      "all_cohort_completed": 788,
+      "all_cohort_inserted": 807,
+      "spatial_time_method": "End-of-step rectangular integration; peak core/periphery may differ by <= step boundary terms from exact trip elapsed time.",
+      "queue_population": "All cohorts; stopped-speed threshold <0.1 m/s is a count proxy, not contiguous physical queue length.",
+      "observed_stop_starts": 48,
+      "signal_extensions": 0,
+      "bus_completed": 20,
+      "insertion_wait_population": "Legacy external_waiting fields include all due uninserted trips; split boundary/internal waiting is in stock_timeseries.",
+      "boundary_insertion_wait_vehicle_seconds": 613.9330000000008,
+      "internal_insertion_wait_vehicle_seconds": 126.51100000000031,
+      "initial_parked_total": 442,
+      "internal_departures_generated": 177,
+      "boundary_arrivals_reassigned": 142,
+      "parked_final": 463
+    },
+    "audit": {
+      "conservation_passed": true,
+      "conservation_max_residual": 0,
+      "teleports": 0,
+      "collisions": 0,
+      "explicit_failures": 0,
+      "unexplained_losses": 0,
+      "steps": 3600,
+      "field_calibrated": false,
+      "critical_unknowns": [
+        "Actual signals/turn permissions/driver behavior require field verification",
+        "Synthetic boundary OD and bus/curb events",
+        "No pedestrian demand or nonmotorized agents yet; lane geometry only",
+        "OSM footprints are geographic evidence, not measured population or parking capacity.",
+        "Access positions are connected road proxies, not surveyed entrances or modeled private driveways.",
+        "Parked stock is off-network accounting; cars enter only valid SUMO lanes, with insertion delay retained.",
+        "Boundary arrivals are reassigned to internal destinations, never copied; no new boundary inflow is added.",
+        "Initial stock departures and boundary arrivals are distinct vehicles; arrivals park and do not generate a second journey."
+      ],
+      "status": "passed_software_checks",
+      "parked_stock_conservation_passed": true,
+      "parked_stock_max_residual": 0
+    },
+    "final_time_series": {
+      "all_cohort_inside": 19,
+      "all_cohort_core_vehicles": 6,
+      "all_cohort_periphery_vehicles": 13,
+      "all_cohort_external_waiting": 0,
+      "all_cohort_due": 807,
+      "all_cohort_completed": 788,
+      "time": 1800.0,
+      "due": 657,
+      "inside": 19,
+      "external_waiting": 0,
+      "completed": 638,
+      "core_vehicles": 6,
+      "periphery_vehicles": 13,
+      "queue_vehicles": 1,
+      "tstt_vehicle_seconds": 192555.94400000016,
+      "internal_insertion_waiting": 0,
+      "boundary_insertion_waiting": 0,
+      "parked_total": 463
+    },
+    "tracked_deadlock_vehicles": [
+      {
+        "persistent_trip_id": "t42_0000058",
+        "status": "completed",
+        "inserted_at": 128.0,
+        "arrived_at": 341.0
+      },
+      {
+        "persistent_trip_id": "t42_0000043",
+        "status": "completed",
+        "inserted_at": 215.0,
+        "arrived_at": 467.5
+      },
+      {
+        "persistent_trip_id": "t42_0000094",
+        "status": "completed",
+        "inserted_at": 88.5,
+        "arrived_at": 458.5
+      },
+      {
+        "persistent_trip_id": "internal_42_zone_0_2_0011",
+        "status": "completed",
+        "inserted_at": 277.0,
+        "arrived_at": 633.0
+      }
+    ]
+  }
+}

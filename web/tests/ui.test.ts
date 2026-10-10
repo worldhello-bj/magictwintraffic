@@ -24,7 +24,7 @@ const result = await build({
         b.onLoad({ filter: /.*/, namespace: "mock" }, (args) => ({
           contents:
             args.path === "scene"
-              ? `export class CityScene {constructor(host,network,onSelect){if(window.__forceWebGLFailure)throw new Error("Error creating WebGL context");this.network=network;window.__scene=this}setVehicles(){}setDifference(){}setComparison(v){this.split=v}setCompareNetwork(n){this.otherNetwork=n}setBuildings(v){this.buildings=v}setView(v){this.view=v}stats(){return {fps:0,calls:0,triangles:0}}dispose(){}}`
+              ? `export class CityScene {constructor(host,network,onSelect){if(window.__forceWebGLFailure)throw new Error("Error creating WebGL context");this.network=network;window.__scene=this}setVehicles(){}setTraffic(v,other=false){if(other)this.otherTraffic=v;else this.traffic=v}setDifference(){}setComparison(v){this.split=v}setCompareNetwork(n){this.otherNetwork=n}setBuildings(v){this.buildings=v}setView(v){this.view=v}stats(){return {fps:0,calls:0,triangles:0}}dispose(){}}`
               : `export class Playback{constructor(manifest,url){this.manifest=manifest}async frame(time){return {time,vehicles:[]}}dispose(){}}`,
           loader: "js",
         }));
@@ -80,6 +80,8 @@ async function mount(
   failWebGL = false,
   failCanvas = false,
   warmup = false,
+  extended = false,
+  extendedB = false,
 ) {
   const dom = new JSDOM('<div id="app"></div>', {
     url: "http://localhost/",
@@ -159,12 +161,26 @@ async function mount(
           },
         ],
       };
-    else if (url.endsWith("/manifest.json"))
+    else if (url.endsWith("/manifest.json")) {
       payload = manifest(
         url.includes("/b/") ? "b" : "a",
         url.includes("/b/") ? "S1" : "S0",
       );
-    else if (url.endsWith("/metrics.json"))
+      if (extended && (!url.includes("/b/") || extendedB))
+        Object.assign(
+          payload as object,
+          Object.fromEntries(
+            [
+              "signal_topology",
+              "queue_hotspots",
+              "stock_timeseries",
+              "internal_zones",
+              "od_matrix",
+              "od_csv",
+            ].map((k) => [k, k + ".json"]),
+          ),
+        );
+    } else if (url.endsWith("/metrics.json"))
       payload = {
         tstt_vehicle_seconds: 3600,
         completion_rate: 0.5,
@@ -183,6 +199,86 @@ async function mount(
       payload = [
         { time: 5, inside: 2 },
         { time: 10, inside: 3 },
+      ];
+    else if (extended && url.endsWith("/signal_topology.json"))
+      payload = [
+        {
+          tls: "tls",
+          source: "SUMO",
+          position: [100, 0],
+          links: [
+            {
+              index: 0,
+              incoming_lane: "lane",
+              outgoing_lane: "out",
+              via_lane: ":via",
+            },
+          ],
+        },
+      ];
+    else if (extended && url.endsWith("/signals.json"))
+      payload = [
+        {
+          tls: "tls",
+          time: 0,
+          state: url.includes("/b/") ? "G" : "r",
+          phase: 0,
+        },
+        {
+          tls: "tls",
+          time: 5,
+          state: url.includes("/b/") ? "r" : "G",
+          phase: 1,
+        },
+      ];
+    else if (extended && url.endsWith("/queue_hotspots.json"))
+      payload = [
+        { time: 0, edges: [], total_stopped: 0, threshold_m_s: 0.1 },
+        {
+          time: 5,
+          edges: [{ edge_id: "edge", stopped_vehicles: 8 }],
+          total_stopped: 8,
+          threshold_m_s: 0.1,
+        },
+      ];
+    else if (extended && url.endsWith("/stock_timeseries.json"))
+      payload = [0, 5].map((time) => ({
+        time,
+        parked_total: 100 - time,
+        parked_by_zone: { zone: 100 - time },
+        initial_parked_total: 100,
+        inside: time,
+        internal_insertion_waiting: 0,
+        boundary_insertion_waiting: 0,
+        conservation_residual: 0,
+      }));
+    else if (extended && url.endsWith("/internal_zones.json"))
+      payload = {
+        zones: [
+          {
+            id: "zone",
+            name: "建筑分区",
+            position: [0, 0],
+            initial_parked: 100,
+            building_count: 30,
+            access_edge: "edge",
+            source: "ASSUMED",
+          },
+        ],
+        assumptions: ["未经现场调查"],
+      };
+    else if (extended && url.endsWith("/od_matrix.json"))
+      payload = [
+        {
+          origin: "zone",
+          destination: "exit",
+          origin_kind: "internal",
+          destination_kind: "boundary",
+          interval_start: 0,
+          interval_end: 300,
+          trip_count: 50,
+          source: "ASSUMED",
+        },
       ];
     else payload = [];
     return new Response(JSON.stringify(payload), {
@@ -356,6 +452,101 @@ test("dense demo opens at its recorded warmup offset and remains explicitly unca
       /核心 0 \/ 次区 0/,
     );
     assert.equal(w.document.querySelectorAll(".boundary-key").length, 2);
+  } finally {
+    dom.window.close();
+  }
+});
+
+test("building OD, signal phases, stock and hotspot records stay synchronized on pause and backward seek", async () => {
+  const { dom, w } = await mount(false, false, false, false, true);
+  try {
+    const d = w.document,
+      scene = (w as any).__scene;
+    assert.equal(scene.traffic.signals[0].state, "r");
+    assert.equal(scene.traffic.zones[0].parked, 100);
+    const select = d.querySelector("#signal-select") as HTMLSelectElement;
+    select.value = "tls";
+    select.dispatchEvent(new w.Event("change"));
+    assert.match(
+      d.querySelector("#signal-details")!.textContent!,
+      /lane → out/,
+    );
+    const range = d.querySelector("#timeline-range") as HTMLInputElement;
+    const seek = async (time: number) => {
+      range.value = String(time);
+      range.dispatchEvent(new w.Event("input"));
+      for (let i = 0; i < 3; i++) await new Promise((r) => setTimeout(r, 0));
+    };
+    await seek(6);
+    assert.equal(scene.traffic.signals[0].state, "G");
+    assert.equal(scene.traffic.zones[0].parked, 95);
+    assert.equal(scene.traffic.hotspots[0].stopped_vehicles, 8);
+    await seek(4);
+    assert.equal(scene.traffic.signals[0].state, "r");
+    assert.equal(scene.traffic.zones[0].parked, 100);
+    assert.equal(scene.traffic.hotspots.length, 0);
+    (d.querySelector("#show-signals") as HTMLInputElement).click();
+    assert.equal(scene.traffic.signals.length, 0);
+    (d.querySelector("#recorded-od-button") as HTMLButtonElement).click();
+    assert.ok(d.querySelector("#recorded-od-dialog")!.hasAttribute("open"));
+    assert.match(d.querySelector("#recorded-od-body")!.textContent!, /ASSUMED/);
+    assert.match(
+      (d.querySelector("#recorded-od-download") as HTMLAnchorElement).href,
+      /runs\/a\/od_csv.json$/,
+    );
+    (
+      d.querySelector('[data-close="recorded-od-dialog"]') as HTMLButtonElement
+    ).click();
+    assert.ok(!d.querySelector("#recorded-od-dialog")!.hasAttribute("open"));
+    const run = d.querySelector("#run-select") as HTMLSelectElement;
+    run.value = "b";
+    run.dispatchEvent(new w.Event("change"));
+    for (let i = 0; i < 15; i++) await new Promise((r) => setTimeout(r, 0));
+    assert.equal(scene.traffic.zones.length, 0);
+    assert.equal(scene.traffic.signals.length, 0);
+    assert.equal(d.querySelector("#active-run")!.textContent, "b");
+    assert.ok((d.querySelector("#recorded-od-download") as HTMLElement).hidden);
+  } finally {
+    dom.window.close();
+  }
+});
+
+test("paired views carry independent A/B signals, stock and source-aware inspection at one clock", async () => {
+  const { dom, w } = await mount(false, false, false, false, true, true);
+  try {
+    const d = w.document,
+      scene = (w as any).__scene;
+    const compare = d.querySelector("#compare-select") as HTMLSelectElement;
+    compare.value = "b";
+    compare.dispatchEvent(new w.Event("change"));
+    for (let i = 0; i < 15; i++) await new Promise((r) => setTimeout(r, 0));
+    (d.querySelector('[data-mode="split"]') as HTMLButtonElement).click();
+    assert.equal(scene.traffic.signals[0].state, "r");
+    assert.equal(scene.otherTraffic.signals[0].state, "G");
+    const source = d.querySelector("#traffic-source") as HTMLSelectElement;
+    source.value = "B";
+    source.dispatchEvent(new w.Event("change"));
+    const controller = d.querySelector("#signal-select") as HTMLSelectElement;
+    controller.value = "tls";
+    controller.dispatchEvent(new w.Event("change"));
+    (d.querySelector("[data-signal]") as HTMLButtonElement).click();
+    assert.match(d.querySelector("#selection")!.textContent!, /视图来源B/);
+    assert.match(d.querySelector("#selection")!.textContent!, /SUMO 状态G/);
+    const range = d.querySelector("#timeline-range") as HTMLInputElement;
+    range.value = "6";
+    range.dispatchEvent(new w.Event("input"));
+    for (let i = 0; i < 3; i++) await new Promise((r) => setTimeout(r, 0));
+    assert.equal(scene.traffic.signals[0].state, "G");
+    assert.equal(scene.otherTraffic.signals[0].state, "r");
+    assert.match(d.querySelector("#selection")!.textContent!, /SUMO 状态r/);
+    assert.match(d.querySelector("#traffic-status")!.textContent!, /^B ·/);
+    source.value = "A";
+    source.dispatchEvent(new w.Event("change"));
+    controller.value = "tls";
+    controller.dispatchEvent(new w.Event("change"));
+    (d.querySelector("[data-signal]") as HTMLButtonElement).click();
+    assert.match(d.querySelector("#selection")!.textContent!, /视图来源A/);
+    assert.match(d.querySelector("#selection")!.textContent!, /SUMO 状态G/);
   } finally {
     dom.window.close();
   }

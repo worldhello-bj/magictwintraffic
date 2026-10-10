@@ -1,13 +1,20 @@
 """One process, one deterministic libsumo instance, genuine OSM network."""
 from pathlib import Path
-import json,time,sys,platform,xml.etree.ElementTree as ET,hashlib
+import json,time,sys,platform,xml.etree.ElementTree as ET,hashlib,math
 from .gis import ROOT,write_json,digest
 from .demand import generate_demand
 from .policies import compile_policy,PolicyController,NAMES
 from .evaluator import Evaluator
 from .recorder import Recorder
 
+def scenario_network_paths(config):
+    variant=config.get('network_variant','baseline')
+    if variant not in ('baseline','joined_nijiaqiao_v1'):raise ValueError('Unknown network_variant')
+    scene=ROOT/'data/canonical'/('network.json' if variant=='baseline' else variant+'.json')
+    return scene,ROOT/'networks'/variant/'network.net.xml'
+
 def validate_config(config):
+    scenario_network_paths(config)
     if config.get('policy','S0') not in NAMES:raise ValueError('Unknown policy')
     for key,low,high in [('duration_seconds',10,14400),('demand_scale',0,8),('rate_per_gate',0,3000),('seed',0,2147483647)]:
         if key in config and (not isinstance(config[key],(int,float)) or not low<=config[key]<=high):raise ValueError(f'{key} must lie in [{low},{high}]')
@@ -31,6 +38,18 @@ def validate_config(config):
             if not isinstance(row['rate_per_hour'],(int,float)) or not 0<=row['rate_per_hour']<=3000:raise ValueError('OD rate must lie between0 and3000veh/h')
             a=float(row.get('interval_start',0));b=float(row.get('interval_end',end))
             if not 0<=a<b<=end:raise ValueError('OD interval must lie within demand window')
+    internal=config.get('internal_demand')
+    if internal is not None:
+        if not isinstance(internal,dict):raise ValueError('internal_demand must be an object')
+        allowed_internal={'cars_per_building','departure_fraction','boundary_to_internal_fraction','initial_departure_fraction','internal_to_internal_fraction','local_access_only'}
+        if set(internal)-allowed_internal:raise ValueError('Unknown internal demand parameter')
+        for key,value in internal.items():
+            if key=='local_access_only':
+                if not isinstance(value,bool):raise ValueError('local_access_only must be boolean')
+                continue
+            upper=20 if key=='cars_per_building' else 1
+            if isinstance(value,bool) or not isinstance(value,(int,float)) or not math.isfinite(value) or not 0<=value<=upper:raise ValueError('Invalid internal demand '+key)
+            if key=='cars_per_building' and (not isinstance(value,int) or value<1):raise ValueError('cars_per_building must be an integer from 1 to 20')
     block=config.get('downstream_block')
     if block:
         if not isinstance(block,dict) or set(block)-{'gate_id','start_seconds','end_seconds','speed_m_s'}:raise ValueError('Invalid downstream_block')
@@ -44,7 +63,8 @@ def validate_config(config):
         from .demand import legal_paths
         source=ROOT/'data/canonical/network.json'
         if source.exists():
-            scene=json.loads(source.read_text());net=sumolib.net.readNet(str(ROOT/'networks/baseline/network.net.xml'))
+            source,netpath=scenario_network_paths(config)
+            scene=json.loads(source.read_text());net=sumolib.net.readNet(str(netpath))
             paths=legal_paths(net,scene['gates'])
             for row in config['od']:
                 if row['origin_gate'] not in paths or not any(c['destination_gate']==row['destination_gate'] for c in paths[row['origin_gate']]):raise ValueError('Unknown or unreachable positive OD: '+row['origin_gate']+' -> '+row['destination_gate'])
@@ -53,13 +73,15 @@ def validate_config(config):
 def run_simulation(config,output,progress_callback=None):
     validate_config(config);output=Path(output);output.mkdir(parents=True,exist_ok=True);start=time.perf_counter()
     import libsumo as api,sumolib
-    source=ROOT/'data/canonical/network.json'
+    source,base_network_path=scenario_network_paths(config)
     if not source.exists():raise RuntimeError('Build genuine OSM network first: python scripts/build_network.py')
-    baseline=json.loads(source.read_text());base_net=sumolib.net.readNet(str(ROOT/'networks/baseline/network.net.xml'),withInternal=False)
+    baseline=json.loads(source.read_text());base_net=sumolib.net.readNet(str(base_network_path),withInternal=False)
     # Exogenous inventory and baseline reference frozen BEFORE policy compilation.
     trips,demand=generate_demand(base_net,baseline,config)
-    policy=config.get('policy','S0');network_path,network,policy_manifest=compile_policy(baseline,policy,output,config.get('policy_parameters'))
+    policy=config.get('policy','S0');network_path,network,policy_manifest=compile_policy(baseline,policy,output,config.get('policy_parameters'),network_source=base_network_path)
     write_json(output/'demand.json',demand)
+    from .internal_demand import export_internal_demand
+    export_internal_demand(output,demand)
     dt=float(config.get('step_seconds',.5));control_interval=.5;control_stride=int(round(control_interval/dt));duration=float(config.get('duration_seconds',600));seed=int(config.get('seed',42))
     routes=ET.Element('routes')
     ET.SubElement(routes,'vType',id='car',vClass='passenger',length='4.6',minGap='2.5',maxSpeed='15.0',accel='2.6',decel='4.5',sigma='0.5',tau='1.0',actionStepLength='0.5',speedDev='0.05')
@@ -68,7 +90,11 @@ def run_simulation(config,output,progress_callback=None):
     api.start(['sumo','-n',str(network_path),'-r',str(types),'--step-length',str(dt),'--seed',str(seed),'--time-to-teleport','-1','--max-depart-delay','-1','--collision.action','warn','--no-step-log','true','--duration-log.disable','true','--xml-validation','never','--log',str(output/'sumo.log'),'--error-log',str(output/'sumo-errors.log')])
     evaluator=Evaluator(trips);recorder=Recorder(output/'trajectory',[t['persistent_trip_id'] for t in trips],[l['id'] for l in network['lanes']]) if config.get('trajectory',True) else None
     controller=PolicyController(api,network,policy,config.get('policy_parameters'));events=[];teleports=0;collisions=0;nx=network['origin']['sumo_x'];ny=network['origin']['sumo_y'];advance_time=0.;read_time=0.;record_time=0.;times=0
-    stop_states={};downstream_active=False;downstream_lanes={};signal_states=[];last_signal_states={}
+    internal=demand.get('internal_demand');parked={z['id']:z['initial_parked'] for z in internal['zones']} if internal else {};trip_by_id={t['persistent_trip_id']:t for t in trips};boundary_inserted=0;boundary_completed=0;stock_series=[];queue_hotspots=[]
+    signal_topology=[dict(tls=tls,position=controller.positions.get(tls),links=[dict(index=i,incoming_lane=link[0],outgoing_lane=link[1],via_lane=link[2]) for i,group in enumerate(groups) for link in group],source='SUMO controlled links; signal program is uncalibrated') for tls,groups in controller.links.items()]
+    write_json(output/'signal_topology.json',signal_topology)
+    stop_states={};downstream_active=False;downstream_lanes={};signal_states=[dict(time=0.,tls=tls,state=api.trafficlight.getRedYellowGreenState(tls),phase=api.trafficlight.getPhase(tls)) for tls in controller.links];last_signal_states={row['tls']:row['state'] for row in signal_states}
+    if internal:stock_series.append(dict(time=0.,parked_total=sum(parked.values()),parked_by_zone=parked.copy(),initial_parked_total=internal['initial_parked_total'],boundary_inserted=0,boundary_completed=0,inside=0,internal_insertion_waiting=internal['initial_release_count'],boundary_insertion_waiting=0,conservation_residual=0))
     block=config.get('downstream_block')
     if block:
         gate=next(g for g in network['gates'] if g['id']==block['gate_id'])
@@ -84,7 +110,7 @@ def run_simulation(config,output,progress_callback=None):
                 actual_routes[key]=rr.edges
         for index,trip in enumerate(trips):
             v=trip['persistent_trip_id'];key=(trip['route'][0],trip['route'][-1],trip['vehicle_type']);route=actual_routes[key];rid='r'+str(index);api.route.add(rid,route)
-            api.vehicle.add(v,rid,typeID=trip['vehicle_type'],depart=str(trip['desired_departure']),departLane='best',departSpeed='0')
+            api.vehicle.add(v,rid,typeID=trip['vehicle_type'],depart=str(trip['desired_departure']),departLane='best',departSpeed='0',departPos=str(trip.get('departure_position_m','base')),arrivalPos=str(trip.get('arrival_position_m','max')))
             # Real stopping vehicles create lane blockage. Same exogenous selected trips across policies.
             is_bus=trip['vehicle_type']=='bus';curb=not is_bus and index%18==0
             if is_bus or curb:
@@ -109,18 +135,37 @@ def run_simulation(config,output,progress_callback=None):
             if (step-1)%control_stride==0:controller.step(t-dt)
             api.simulationStep();advance_time+=time.perf_counter()-tick;tick=time.perf_counter()
             active=api.vehicle.getIDList();departed=api.simulation.getDepartedIDList();arrived=api.simulation.getArrivedIDList();teleports+=api.simulation.getStartingTeleportNumber();collisions+=api.simulation.getCollidingVehiclesNumber()
-            positions={};rows=[];queues=0
+            positions={};rows=[];queues=0;edge_queues={}
+            if internal:
+                for v in departed:
+                    trip=trip_by_id[v]
+                    if trip.get('origin_kind')=='internal':parked[trip['origin_gate']]-=1
+                    else:boundary_inserted+=1
+                for v in arrived:
+                    trip=trip_by_id[v]
+                    if trip.get('destination_kind')=='internal':parked[trip['destination_gate']]+=1
+                    else:boundary_completed+=1
+                stock_residual=internal['initial_parked_total']+boundary_inserted-sum(parked.values())-len(active)-boundary_completed
+                if stock_residual or min(parked.values())<0:raise RuntimeError('Physical parked/road/boundary stock conservation violated')
             for v in active:
                 x,y=api.vehicle.getPosition(v);p=(x-nx,y-ny);positions[v]=p;speed=api.vehicle.getSpeed(v);queues+=speed<.1;evaluator.distance[v]=api.vehicle.getDistance(v)
+                if speed<.1:
+                    edge=api.vehicle.getRoadID(v);edge_queues[edge]=edge_queues.get(edge,0)+1
                 stopped=api.vehicle.isStopped(v)
                 if stopped and v not in stop_states:stop_states[v]=t;events.append(dict(time=t,type='stop_started',vehicle_id=v,edge_id=api.vehicle.getRoadID(v)))
                 elif not stopped and v in stop_states:events.append(dict(time=t,type='stop_ended',vehicle_id=v,duration=t-stop_states.pop(v)))
                 if recorder:rows.append((v,p[0],p[1],api.vehicle.getAngle(v),speed,api.vehicle.getLaneID(v),1 if api.vehicle.getTypeID(v)=='bus' else 0))
             evaluator.step(t,dt,active,departed,arrived,positions,queues);read_time+=time.perf_counter()-tick
+            if abs(t/5-round(t/5))<1e-6:
+                queue_hotspots.append(dict(time=t,edges=[dict(edge_id=edge,stopped_vehicles=count) for edge,count in sorted(edge_queues.items(),key=lambda x:(-x[1],x[0]))],total_stopped=queues,threshold_m_s=.1))
+                if internal:
+                    pending_internal=sum(trip_by_id[v].get('origin_kind')=='internal' for v in evaluator.pending)
+                    stock_series.append(dict(time=t,parked_total=sum(parked.values()),parked_by_zone=parked.copy(),initial_parked_total=internal['initial_parked_total'],boundary_inserted=boundary_inserted,boundary_completed=boundary_completed,inside=len(active),internal_insertion_waiting=pending_internal,boundary_insertion_waiting=len(evaluator.pending)-pending_internal,conservation_residual=stock_residual))
+                    evaluator.series[-1].update(internal_insertion_waiting=pending_internal,boundary_insertion_waiting=len(evaluator.pending)-pending_internal,parked_total=sum(parked.values()))
+            for tls in controller.links:
+                state=api.trafficlight.getRedYellowGreenState(tls)
+                if last_signal_states.get(tls)!=state:signal_states.append(dict(time=t,tls=tls,state=state,phase=api.trafficlight.getPhase(tls)));last_signal_states[tls]=state
             if recorder:
-                for tls in controller.links:
-                    state=api.trafficlight.getRedYellowGreenState(tls)
-                    if last_signal_states.get(tls)!=state:signal_states.append(dict(time=t,tls=tls,state=state,phase=api.trafficlight.getPhase(tls)));last_signal_states[tls]=state
                 tick=time.perf_counter();recorder.frame(t,rows);record_time+=time.perf_counter()-tick
             if step%100==0 and progress_callback:progress_callback({'time':t,'duration':duration,'progress':t/duration})
             if step%100==0:write_json(output/'progress.json',dict(time=t,duration=duration,progress=t/duration,inside=len(active)))
@@ -135,12 +180,18 @@ def run_simulation(config,output,progress_callback=None):
         chunks=recorder.close() if recorder else []
         events+=controller.events
         audit=dict(conservation_passed=True,conservation_max_residual=0,teleports=teleports,collisions=collisions,explicit_failures=0,unexplained_losses=0,steps=int(duration/dt),field_calibrated=False,critical_unknowns=['Actual signals/turn permissions/driver behavior require field verification','Synthetic boundary OD and bus/curb events','No pedestrian demand or nonmotorized agents yet; lane geometry only'],status='passed_software_checks' if not teleports and not collisions else 'anomalies_require_review')
+        if internal:
+            metrics['insertion_wait_population']='Legacy external_waiting fields include all due uninserted trips; split boundary/internal waiting is in stock_timeseries.'
+            metrics['boundary_insertion_wait_vehicle_seconds']=sum(max(0,min(duration,evaluator.inserted.get(t['persistent_trip_id'],duration))-t['desired_departure']) for t in trips if t['cohort_id']=='peak' and t.get('origin_kind')=='boundary' and t['desired_departure']<=duration)
+            metrics['internal_insertion_wait_vehicle_seconds']=metrics['external_wait_vehicle_seconds']-metrics['boundary_insertion_wait_vehicle_seconds']
+            metrics['initial_parked_total']=internal['initial_parked_total'];metrics['internal_departures_generated']=internal['internal_departures'];metrics['boundary_arrivals_reassigned']=internal['boundary_arrivals_reassigned'];metrics['parked_final']=sum(parked.values());audit['parked_stock_conservation_passed']=True;audit['parked_stock_max_residual']=0;audit['critical_unknowns']+=internal['limitations']
+        write_json(output/'stock_timeseries.json',stock_series);write_json(output/'queue_hotspots.json',queue_hotspots)
         write_json(output/'signals.json',signal_states);write_json(output/'metrics.json',metrics);write_json(output/'trips.json',summaries);write_json(output/'timeseries.json',evaluator.series);write_json(output/'events.json',events);write_json(output/'audit.json',audit)
         try:
             import pyarrow as pa,pyarrow.parquet as pq
             for name,records in [('trips',summaries),('metrics',evaluator.series),('events',events)]:
                 if records:pq.write_table(pa.Table.from_pylist(records),output/(name+'.parquet'))
         except ImportError:pass
-        manifest=dict(schema_version='1.0',run_id=config.get('run_id',output.name),network_hash=network['network_hash'],demand_hash=demand['demand_hash'],policy_hash=policy_manifest['policy_hash'],engine='SUMO/libsumo',engine_version=api.getVersion()[1],policy=policy,period=config.get('period','am'),seed=seed,step_seconds=dt,action_step_seconds=.5,control_interval_seconds=control_interval,rate_per_gate=config.get('rate_per_gate',120),demand_scale=config.get('demand_scale',1),config=config,cohort={'warmup_seconds':demand['warmup_seconds'],'demand_end_seconds':demand['demand_end_seconds'],'target':'peak'},start_time=0,end_time=duration,duration_seconds=duration,network='network.json',metrics='metrics.json',timeseries='timeseries.json',trips='trips.json',events='events.json',signals='signals.json',audit='audit.json',chunks=chunks,vehicles=[{'id':i,'persistent_trip_id':t['persistent_trip_id'],'type':t['vehicle_type']} for i,t in enumerate(trips)],lanes=[l['id'] for l in network['lanes']],trajectory=dict(record_bytes=32,endianness='little',layout=['time:f32','vehicle_id:u32','x:f32','y:f32','angle:f32','speed:f32','lane_index:u32','flags:u32'],angle_convention='degrees_clockwise_from_north',chunk_seconds=20),wall_time_seconds=time.perf_counter()-start,timing={'initialization_seconds':setup_time,'simulation_seconds':advance_time,'collection_evaluation_seconds':read_time,'trajectory_seconds':record_time},hardware=dict(platform=platform.platform(),processor=platform.processor()),status='completed',valid_for_ranking=not teleports and not collisions,calibration_status='uncalibrated_synthetic_scenario',limitations=audit['critical_unknowns'])
+        manifest=dict(schema_version='1.0',run_id=config.get('run_id',output.name),network_hash=network['network_hash'],demand_hash=demand['demand_hash'],policy_hash=policy_manifest['policy_hash'],engine='SUMO/libsumo',engine_version=api.getVersion()[1],policy=policy,period=config.get('period','am'),seed=seed,step_seconds=dt,action_step_seconds=.5,control_interval_seconds=control_interval,rate_per_gate=config.get('rate_per_gate',120),demand_scale=config.get('demand_scale',1),config=config,cohort={'warmup_seconds':demand['warmup_seconds'],'demand_end_seconds':demand['demand_end_seconds'],'target':'peak'},start_time=0,end_time=duration,duration_seconds=duration,network='network.json',metrics='metrics.json',timeseries='timeseries.json',trips='trips.json',events='events.json',signals='signals.json',signal_topology='signal_topology.json',queue_hotspots='queue_hotspots.json',stock_timeseries='stock_timeseries.json',internal_zones='internal_zones.json' if internal else None,od_matrix='od_matrix.json' if internal else None,od_csv='od_matrix.csv' if internal else None,audit='audit.json',chunks=chunks,vehicles=[{'id':i,'persistent_trip_id':t['persistent_trip_id'],'type':t['vehicle_type']} for i,t in enumerate(trips)],lanes=[l['id'] for l in network['lanes']],trajectory=dict(record_bytes=32,endianness='little',layout=['time:f32','vehicle_id:u32','x:f32','y:f32','angle:f32','speed:f32','lane_index:u32','flags:u32'],angle_convention='degrees_clockwise_from_north',chunk_seconds=20),wall_time_seconds=time.perf_counter()-start,timing={'initialization_seconds':setup_time,'simulation_seconds':advance_time,'collection_evaluation_seconds':read_time,'trajectory_seconds':record_time},hardware=dict(platform=platform.platform(),processor=platform.processor()),status='completed',valid_for_ranking=not teleports and not collisions,calibration_status='uncalibrated_synthetic_scenario',limitations=audit['critical_unknowns'])
         write_json(output/'manifest.json',manifest);return manifest
     finally:api.close()

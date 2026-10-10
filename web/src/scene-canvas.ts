@@ -1,9 +1,12 @@
 /** Real-data, rotatable Canvas fallback when the device cannot create WebGL. */
 import type { Network, Point, Vehicle } from "./types";
+import { emptyTraffic, type TrafficOverlay } from "./traffic-state";
 import type { Selection } from "./scene";
 import { paneCoordinates, polygonBounds } from "./view-geometry";
 export class CitySceneCanvas {
   readonly renderMode = "Canvas 2D";
+  private traffic = emptyTraffic();
+  private otherTraffic = emptyTraffic();
   private canvas = document.createElement("canvas");
   private context: CanvasRenderingContext2D;
   private cache = document.createElement("canvas");
@@ -356,8 +359,12 @@ export class CitySceneCanvas {
         c.stroke();
       }
     }
+    this.drawTraffic(c);
+    if (this.split) this.drawTraffic(c, false, true);
     this.vehiclePane(c, this.vehicles, 0);
     if (this.split) this.vehiclePane(c, this.otherVehicles, this.width / 2);
+    this.drawTraffic(c, true);
+    if (this.split) this.drawTraffic(c, true, true);
     if (this.selected.length) {
       this.path(c, this.selected);
       c.strokeStyle = "#ddb447";
@@ -391,6 +398,55 @@ export class CitySceneCanvas {
     this.lastRender = now;
     this.renderCount++;
   }
+  setTraffic(traffic: TrafficOverlay, other = false) {
+    if (other) this.otherTraffic = traffic;
+    else this.traffic = traffic;
+    this.draw();
+  }
+  private drawTraffic(
+    c: CanvasRenderingContext2D,
+    foreground = false,
+    other = false,
+  ) {
+    const traffic = other ? this.otherTraffic : this.traffic,
+      offset = other ? this.width / 2 : 0;
+    c.save();
+    c.beginPath();
+    c.rect(offset, 0, this.paneWidth(), this.height);
+    c.clip();
+    for (const h of foreground ? [] : traffic.hotspots) {
+      this.path(c, h.shape, offset);
+      c.strokeStyle = "#df664b80";
+      c.lineWidth = Math.min(20, 4 + Math.sqrt(h.stopped_vehicles) * 2);
+      c.stroke();
+    }
+    for (const z of foreground ? traffic.zones : []) {
+      const [x, y] = this.point(z.position, offset);
+      c.fillStyle = "#fffdf3";
+      c.strokeStyle = "#69549b";
+      c.lineWidth = 1.5;
+      c.beginPath();
+      c.rect(x - 9, y - 7, 18, 14);
+      c.fill();
+      c.stroke();
+      c.font = "bold 9px sans-serif";
+      c.textAlign = "center";
+      c.textBaseline = "middle";
+      c.fillStyle = "#594084";
+      c.fillText(z.parked === null ? "?" : String(z.parked), x, y);
+    }
+    for (const s of foreground ? traffic.signals : []) {
+      const [x, y] = this.point(s.position, offset);
+      c.beginPath();
+      c.arc(x, y, 3.5, 0, Math.PI * 2);
+      c.fillStyle = s.color;
+      c.fill();
+      c.lineWidth = 1.2;
+      c.strokeStyle = "#243a34";
+      c.stroke();
+    }
+    c.restore();
+  }
   private pick(e: PointerEvent) {
     const rect = this.canvas.getBoundingClientRect(),
       x = e.clientX - rect.left,
@@ -400,6 +456,28 @@ export class CitySceneCanvas {
       n = right ? this.otherNetwork : this.network,
       vehicles = right ? this.otherVehicles : this.vehicles,
       source = right ? "B" : "A";
+    {
+      const traffic = right ? this.otherTraffic : this.traffic;
+      for (const signal of traffic.signals) {
+        const [px, py] = this.point(signal.position, offset);
+        if (Math.hypot(px - x, py - y) < 6) {
+          this.onSelect({
+            kind: "signal",
+            id: signal.id,
+            data: signal,
+            source,
+          });
+          return;
+        }
+      }
+      for (const zone of traffic.zones) {
+        const [px, py] = this.point(zone.position, offset);
+        if (Math.abs(px - x) < 10 && Math.abs(py - y) < 8) {
+          this.onSelect({ kind: "zone", id: zone.id, data: zone, source });
+          return;
+        }
+      }
+    }
     for (const v of vehicles) {
       const [px, py] = this.point([v.x, v.y], offset);
       if (Math.hypot(px - x, py - y) < 7) {

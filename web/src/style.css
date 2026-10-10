@@ -2005,3 +2005,138 @@ dl {
     top: 198px;
   }
 }
+
+/* Recorded traffic layers live in the inspector, leaving the map unobstructed. */
+.traffic-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  font-size: 11px;
+  margin-bottom: 12px;
+}
+.traffic-toggles label {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.traffic-toggles input {
+  accent-color: #287a68;
+}
+.stock-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+  font-size: 11px;
+  color: #6c7d70;
+}
+.stock-summary strong {
+  display: block;
+  font-size: 20px;
+  color: #354f40;
+  font-variant-numeric: tabular-nums;
+}
+.stock-summary small {
+  grid-column: 1/-1;
+  line-height: 1.6;
+}
+.traffic-observatory details {
+  margin-top: 14px;
+  font-size: 12px;
+}
+.hotspot-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 10px 0;
+}
+.hotspot-row span {
+  overflow-wrap: anywhere;
+}
+.signal-link-list {
+  max-height: 190px;
+  overflow: auto;
+  margin: 8px 0;
+}
+.signal-link-list button {
+  width: 100%;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  text-align: left;
+  padding: 6px;
+  border: 0;
+  background: #f1f3ed;
+  margin-bottom: 2px;
+  color: #4e6055;
+}
+.signal-link-list i {
+  flex: 0 0 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.signal-link-list b {
+  white-space: nowrap;
+  font-size: 11px;
+}
+.signal-link-list span {
+  font-size: 9px;
+  overflow-wrap: anywhere;
+}
+#recorded-od-dialog {
+  width: min(1000px, calc(100vw - 30px));
+  max-width: 1000px;
+}
+#od-assumptions {
+  max-height: 100px;
+  overflow: auto;
+  overflow-wrap: anywhere;
+}
+.recorded-od-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 18px 0;
+}
+.recorded-od-tools input {
+  padding: 10px;
+  border: 1px solid #cad2c5;
+  border-radius: 4px;
+  max-width: 100%;
+}
+.recorded-table-scroll {
+  max-height: 50vh;
+  overflow: auto;
+  border: 1px solid #dce1d6;
+}
+.recorded-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.recorded-table th,
+.recorded-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #dce1d6;
+}
+.recorded-table th {
+  position: sticky;
+  top: 0;
+  background: #eef2e8;
+  z-index: 1;
+  white-space: nowrap;
+}
+.recorded-table td {
+  overflow-wrap: anywhere;
+  min-width: 90px;
+}
+.recorded-table tr:nth-child(even) {
+  background: #f7f8f3;
+}
+#od-page {
+  font-size: 11px;
+}

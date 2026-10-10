@@ -1,0 +1,19 @@
+{
+  "demo_scenario": "synthetic_building_od_moderate_v1",
+  "seed": 42,
+  "demand_scale": 1.0,
+  "rate_per_gate": 160,
+  "duration_seconds": 1800,
+  "warmup_seconds": 300,
+  "demand_end_seconds": 1500,
+  "step_seconds": 0.5,
+  "trajectory": true,
+  "internal_demand": {
+    "cars_per_building": 2,
+    "initial_departure_fraction": 0.05,
+    "internal_to_internal_fraction": 0.3,
+    "departure_fraction": 0.5,
+    "local_access_only": true
+  },
+  "network_variant": "joined_nijiaqiao_v1"
+}

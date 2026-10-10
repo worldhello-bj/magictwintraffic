@@ -1,4 +1,16 @@
 import "./style.css";
+import {
+  emptyTraffic,
+  sampleAt,
+  trafficOverlay,
+  type SignalEvent,
+  type SignalTopology,
+  type QueueSample,
+  type StockSample,
+  type InternalZones,
+  type RecordedOD,
+  type TrafficOverlay,
+} from "./traffic-state";
 import { CityScene, type Selection } from "./scene";
 import { CitySceneCanvas } from "./scene-canvas";
 import { Playback } from "./playback";
@@ -27,9 +39,19 @@ const policies = [
 ];
 const app = document.querySelector<HTMLDivElement>("#app")!;
 app.innerHTML = `<header class="topbar"><a class="brand" href="./" aria-label="MagicTwin 首页"><span class="brand-mark">${icon("logo")}</span><span>MAGIC<span class="brand-thin">TWIN</span><small>TRAFFIC POLICY LAB</small></span></a><div class="project-heading"><span class="project-dot"></span>成都 · 玉林片区 <span class="header-divider"></span><span class="header-sub">街区交通政策实验室</span></div><div class="top-actions"><span id="backend-status" class="status-pill">离线回放</span><button id="evidence-button" class="quiet-button">数据与方法 <span>↗</span></button></div></header>
-<div class="workspace"><aside class="sidebar"><div class="sidebar-title"><span class="eyebrow">EXPERIMENT WORKSPACE</span><h1>每一次改变，<br>都值得对照。</h1><p>在同一份需求下，观察交通的变化。</p></div><div class="section-heading"><span>01 / 实验情景</span><span class="tiny-label">E0 边界需求</span></div><label class="field-label" for="run-select">代表性运行</label><select id="run-select"><option value="">正在读取运行清单…</option></select><div class="segmented period-switch"><button class="active" data-period="am">早高峰</button><button data-period="pm">晚高峰</button></div><div class="input-row"><label>需求倍率 <input id="demand-scale" type="number" value="1" min="0.1" max="5" step="0.1"></label><label>随机种子 <input id="seed" type="number" value="42" min="0" max="2147483647"></label></div><button class="text-button" id="od-button">边界 OD 与输入设置 <span>↗</span></button><div class="section-heading policy-heading"><span>02 / 政策方案</span><span class="tiny-label">8 个方案族</span></div><div class="policy-list">${policies.map(([id, label, desc, num], i) => `<button class="policy-card ${i === 0 ? "selected" : ""}" data-policy="${id}" aria-pressed="${i === 0}"><span class="policy-number">${num}</span><span class="policy-copy"><strong>${label}</strong><small>${desc}</small></span><span class="policy-indicator">${i === 0 ? "●" : "○"}</span></button>`).join("")}</div><div class="policy-detail" id="policy-detail">基准方案 · 配时为实验假设，尚未经现场校准。</div><div id="policy-parameters"></div><button id="run-button" class="primary-button" disabled>提交新实验 <span>↗</span></button><div id="job-status" class="subtle-note">预计算结果可离线回放；修改参数后需后端重新计算。</div><button id="cancel-button" class="text-button hidden">取消当前任务</button><div class="sidebar-footer"><span class="dot-light"></span> SUMO 微观仿真 <span>WebGL 2</span></div></aside>
+<div class="workspace"><aside class="sidebar"><div class="sidebar-title"><span class="eyebrow">EXPERIMENT WORKSPACE</span><h1>每一次改变，<br>都值得对照。</h1><p>在同一份需求下，观察交通的变化。</p></div><div class="section-heading"><span>01 / 实验情景</span><span class="tiny-label">边界 / 建筑 OD</span></div><label class="field-label" for="run-select">代表性运行</label><select id="run-select"><option value="">正在读取运行清单…</option></select><div class="segmented period-switch"><button class="active" data-period="am">早高峰</button><button data-period="pm">晚高峰</button></div><div class="input-row"><label>需求倍率 <input id="demand-scale" type="number" value="1" min="0.1" max="5" step="0.1"></label><label>随机种子 <input id="seed" type="number" value="42" min="0" max="2147483647"></label></div><button class="text-button" id="od-button">边界 OD 与输入设置 <span>↗</span></button><div class="section-heading policy-heading"><span>02 / 政策方案</span><span class="tiny-label">8 个方案族</span></div><div class="policy-list">${policies.map(([id, label, desc, num], i) => `<button class="policy-card ${i === 0 ? "selected" : ""}" data-policy="${id}" aria-pressed="${i === 0}"><span class="policy-number">${num}</span><span class="policy-copy"><strong>${label}</strong><small>${desc}</small></span><span class="policy-indicator">${i === 0 ? "●" : "○"}</span></button>`).join("")}</div><div class="policy-detail" id="policy-detail">基准方案 · 配时为实验假设，尚未经现场校准。</div><div id="policy-parameters"></div><button id="run-button" class="primary-button" disabled>提交新实验 <span>↗</span></button><div id="job-status" class="subtle-note">预计算结果可离线回放；修改参数后需后端重新计算。</div><button id="cancel-button" class="text-button hidden">取消当前任务</button><div class="sidebar-footer"><span class="dot-light"></span> SUMO 微观仿真 <span>WebGL 2</span></div></aside>
 <main class="main"><div class="map-toolbar"><div><span class="eyebrow">URBAN DIGITAL TWIN</span><h2>真实街区，透明实验。<span class="location-tag">YULIN / CHENGDU</span></h2></div><div class="view-controls segmented"><button id="core-view" class="active" title="核心区斜俯视">核心区</button><button id="full-view">全路网</button><button id="top-view">俯视</button></div></div><div class="view-stage"><div id="canvas-host"></div><div class="map-top-left"><span class="data-badge"><i></i><span id="data-status">正在加载真实道路资产</span></span><div class="map-caption">1 km² 核心治理区 <span>/</span> 外围完整交通传播</div></div><div class="map-top-right"><button id="buildings-button" class="map-button active" title="显示或隐藏建筑" aria-pressed="true">▥ 建筑</button><button id="reset-view" class="map-button" title="复位镜头">↺</button></div><div id="split-labels" class="split-labels hidden"><span>A · 基准运行</span><span>B · 对照运行</span></div><div class="map-legend"><span class="legend-label" id="legend-title">车辆速度</span><span><i class="legend-dot slow"></i>停等</span><span><i class="legend-dot mid"></i>低速</span><span><i class="legend-dot fast"></i>畅行</span><span class="boundary-key"><i class="boundary-swatch core"></i>核心区边界</span><span class="boundary-key secondary"><i class="boundary-swatch"></i>次区外边界</span></div><div class="map-scale"><div class="north"><span id="north-arrow">↑</span><b>N</b></div><div id="scale-line"></div><span>100 m · 视平面近似</span></div><div class="navigation-hint"><span class="webgl-hint">左键旋转 · 右键平移 · 中键设置旋转中心</span><span class="canvas-hint">左键旋转 · 右键平移 · 中键设置旋转中心（2D）</span> · 滚轮缩放</div><div class="map-attribution">© OpenStreetMap contributors · 建筑高度为示意</div><div id="scene-error" class="scene-error hidden" role="alert"></div><div class="performance"><span id="performance">渲染初始化</span></div></div><section class="timeline"><div class="timeline-top"><div class="play-controls"><button id="play-button" class="play-button" disabled aria-label="播放">▶</button><button id="rewind-button" class="small-icon" aria-label="回到开始">↺</button><span id="clock" class="clock">00:00</span><span id="duration" class="duration">/ --:--</span><select id="speed" aria-label="回放速度"><option value="1">1×</option><option value="2">2×</option><option value="5">5×</option><option value="10">10×</option></select></div><div class="playback-meta"><span id="sample-status">等待轨迹</span><span class="mini-dot"></span>仅显示已记录状态</div></div><input id="timeline-range" aria-label="仿真时间" type="range" min="0" max="1" step="0.5" value="0" disabled><div class="timeline-labels"><span>起始</span><span id="time-mid">仿真时间（分 : 秒）</span><span id="time-end">结束</span></div><div class="sparkline-row"><span>在网车辆</span><svg id="sparkline" viewBox="0 0 600 28" preserveAspectRatio="none" aria-label="真实在网车辆时序"><path d=""/></svg><span id="series-note">无时序</span></div></section></main>
-<aside class="inspector"><div class="inspector-heading"><span class="eyebrow">SYSTEM OBSERVATORY</span><h2>让结果说话<span class="info-dot">i</span></h2><p>完整路网 · 统一需求口径</p></div><div class="run-label"><span id="active-policy">S0</span><strong id="active-run">尚未选择运行</strong></div><div class="metric-primary"><span>累计系统时间 <small>含边界待入</small></span><div><strong id="metric-tstt">—</strong><em>veh·h</em></div><span class="metric-foot">有限窗口累计量，非最终总旅行时间</span></div><div class="metric-grid"><div><span>完成比例</span><strong id="metric-completion">—</strong><small>已完成 / 已到期</small></div><div><span>末端待入</span><strong id="metric-external">—</strong><small>辆 · 外部积压</small></div><div><span>末端在网</span><strong id="metric-inside">—</strong><small>辆 · 尚未到达</small></div><div><span>异常失败</span><strong id="metric-failures">—</strong><small>单独审计</small></div></div><div class="audit-note" id="audit-note">等待已完成运行的指标与守恒检查。</div><div class="inspector-section"><div class="section-heading"><span>方案对照</span><span class="tiny-label">PAIRED</span></div><select id="compare-select" aria-label="选择对照运行"><option value="">选择同需求的运行</option></select><div class="segmented comparison-switch"><button data-mode="single" class="active">单图</button><button data-mode="split">同步双图</button><button data-mode="diff">速度差值</button></div><div id="comparison-note" class="small-note">同需求哈希才可对照；所有镜头与时刻同步。</div></div><div class="inspector-section selection-section"><div class="section-heading"><span>对象检查器</span><span class="tiny-label">INSPECT</span></div><div id="selection"><div class="empty-selection">⌖</div><strong>从街区中选一个对象</strong><p>点击道路、路口、入口或车辆，查看对应的仿真属性。</p></div></div><button class="provenance-link" id="provenance-button">查看本次运行的证据链 <span>↗</span></button><div class="truth-note"><span>情景实验 / 非实时交通</span><p>真实地图不等于现场复现。需求与控制假设、未完成出行和模型局限均单独披露。</p></div></aside></div><div id="toast" role="status"></div><dialog id="evidence-dialog"><div class="dialog-heading"><span class="eyebrow">PROVENANCE & METHODS</span><button data-close="evidence-dialog" aria-label="关闭">×</button></div><h2>每一帧，都有来源。</h2><p class="dialog-intro">这是使用真实道路几何的离线交通情景实验，不是玉林片区的实时交通或经现场验证的预测。</p><div class="provenance-grid"><article><span class="source-tag">MAP_TAG</span><h3>道路与建筑</h3><p>OpenStreetMap 原始矢量数据。道路和回放由同一份 SUMO 网络生成；建筑高度为示意。</p></article><article><span class="source-tag amber">ASSUMED</span><h3>需求与控制</h3><p>合成边界 OD、实验基准配时和行为参数。没有现场数据时，不称为现状或实际政策收益。</p></article><article><span class="source-tag">DERIVED</span><h3>轨迹与指标</h3><p>只显示 SUMO 实际输出。32 字节记录、20 秒分块、SHA-256 校验；屏幕帧不改变仿真。</p></article><article><span class="source-tag neutral">UNVALIDATED</span><h3>解释范围</h3><p>软件与守恒检查不替代现场校准。单个种子的结果不构成稳定的政策排名。</p></article></div><h3>当前运行身份</h3><dl id="identity"><dt>状态</dt><dd>尚未加载运行</dd></dl><div class="dialog-actions"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">地图许可与署名 ↗</a><button data-close="evidence-dialog" class="primary-button">了解</button></div></dialog><dialog id="od-dialog"><div class="dialog-heading"><span class="eyebrow">BOUNDARY DEMAND / E0</span><button data-close="od-dialog" aria-label="关闭">×</button></div><h2>需求从真实边界进入。</h2><p class="dialog-intro">入口流率是合成实验输入，单位 veh/h。正需求必须合法可达；无法进入的车辆保留外部等待。</p><div class="input-row light"><label>每入口流率（veh/h）<input id="gate-rate" type="number" value="120" min="1" max="1800"></label><label>仿真窗口（秒）<input id="run-duration" type="number" value="600" min="60" max="9900" step="60"></label></div><label class="field-label">入口位置 <select id="gate-select"><option>等待路网</option></select></label><div class="od-note">下方可检查单入口出口比例，也可启用自定义 OD 清单，逐条指定起终点、流率和 5 分钟时段。启用后仅使用清单中的需求。</div><div id="od-rows"></div><div id="od-validation" role="status"></div><div class="custom-od"><label><input id="custom-od-enabled" type="checkbox"> 启用自定义 OD 清单并随实验提交</label><p>时段必须按 300 秒对齐并位于仿真窗口内；无路可达会被服务端拒绝。</p><div id="custom-od-rows"></div><button id="add-od-row" class="text-button">＋ 添加 OD 时段</button></div><div class="dialog-actions"><button id="export-od" class="quiet-button">导出 OD 草案</button><button data-close="od-dialog" class="primary-button">保存本次设置</button></div></dialog>`;
+<aside class="inspector"><div class="inspector-heading"><span class="eyebrow">SYSTEM OBSERVATORY</span><h2>让结果说话<span class="info-dot">i</span></h2><p>完整路网 · 统一需求口径</p></div><div class="run-label"><span id="active-policy">S0</span><strong id="active-run">尚未选择运行</strong></div><div class="metric-primary"><span>累计系统时间 <small>含待入等待</small></span><div><strong id="metric-tstt">—</strong><em>veh·h</em></div><span class="metric-foot">有限窗口累计量，非最终总旅行时间</span></div><div class="metric-grid"><div><span>完成比例</span><strong id="metric-completion">—</strong><small>已完成 / 已到期</small></div><div><span>末端待入</span><strong id="metric-external">—</strong><small>辆 · 全部来源待入</small></div><div><span>末端在网</span><strong id="metric-inside">—</strong><small>辆 · 尚未到达</small></div><div><span>异常失败</span><strong id="metric-failures">—</strong><small>单独审计</small></div></div><div class="audit-note" id="audit-note">等待已完成运行的指标与守恒检查。</div><div class="inspector-section"><div class="section-heading"><span>方案对照</span><span class="tiny-label">PAIRED</span></div><select id="compare-select" aria-label="选择对照运行"><option value="">选择同需求的运行</option></select><div class="segmented comparison-switch"><button data-mode="single" class="active">单图</button><button data-mode="split">同步双图</button><button data-mode="diff">速度差值</button></div><div id="comparison-note" class="small-note">同需求哈希才可对照；所有镜头与时刻同步。</div></div><div class="inspector-section selection-section"><div class="section-heading"><span>对象检查器</span><span class="tiny-label">INSPECT</span></div><div id="selection"><div class="empty-selection">⌖</div><strong>从街区中选一个对象</strong><p>点击道路、路口、入口或车辆，查看对应的仿真属性。</p></div></div><button class="provenance-link" id="provenance-button">查看本次运行的证据链 <span>↗</span></button><div class="truth-note"><span>情景实验 / 非实时交通</span><p>真实地图不等于现场复现。需求与控制假设、未完成出行和模型局限均单独披露。</p></div></aside></div><div id="toast" role="status"></div><dialog id="evidence-dialog"><div class="dialog-heading"><span class="eyebrow">PROVENANCE & METHODS</span><button data-close="evidence-dialog" aria-label="关闭">×</button></div><h2>每一帧，都有来源。</h2><p class="dialog-intro">这是使用真实道路几何的离线交通情景实验，不是玉林片区的实时交通或经现场验证的预测。</p><div class="provenance-grid"><article><span class="source-tag">MAP_TAG</span><h3>道路与建筑</h3><p>OpenStreetMap 原始矢量数据。道路和回放由同一份 SUMO 网络生成；建筑高度为示意。</p></article><article><span class="source-tag amber">ASSUMED</span><h3>需求与控制</h3><p>合成边界 OD、实验基准配时和行为参数。没有现场数据时，不称为现状或实际政策收益。</p></article><article><span class="source-tag">DERIVED</span><h3>轨迹与指标</h3><p>只显示 SUMO 实际输出。32 字节记录、20 秒分块、SHA-256 校验；屏幕帧不改变仿真。</p></article><article><span class="source-tag neutral">UNVALIDATED</span><h3>解释范围</h3><p>软件与守恒检查不替代现场校准。单个种子的结果不构成稳定的政策排名。</p></article></div><h3>当前运行身份</h3><dl id="identity"><dt>状态</dt><dd>尚未加载运行</dd></dl><div class="dialog-actions"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">地图许可与署名 ↗</a><button data-close="evidence-dialog" class="primary-button">了解</button></div></dialog><dialog id="od-dialog"><div class="dialog-heading"><span class="eyebrow">BOUNDARY DEMAND / E0</span><button data-close="od-dialog" aria-label="关闭">×</button></div><h2>需求从真实边界进入。</h2><p class="dialog-intro">入口流率是合成实验输入，单位 veh/h。正需求必须合法可达；无法进入的车辆保留外部等待。</p><div class="input-row light"><label>每入口流率（veh/h）<input id="gate-rate" type="number" value="120" min="1" max="1800"></label><label>仿真窗口（秒）<input id="run-duration" type="number" value="600" min="60" max="9900" step="60"></label></div><label class="field-label">入口位置 <select id="gate-select"><option>等待路网</option></select></label><div class="od-note">下方可检查单入口出口比例，也可启用自定义 OD 清单，逐条指定起终点、流率和 5 分钟时段。启用后仅使用清单中的需求。</div><div id="od-rows"></div><div id="od-validation" role="status"></div><div class="custom-od"><label><input id="custom-od-enabled" type="checkbox"> 启用自定义 OD 清单并随实验提交</label><p>时段必须按 300 秒对齐并位于仿真窗口内；无路可达会被服务端拒绝。</p><div id="custom-od-rows"></div><button id="add-od-row" class="text-button">＋ 添加 OD 时段</button></div><div class="dialog-actions"><button id="export-od" class="quiet-button">导出 OD 草案</button><button data-close="od-dialog" class="primary-button">保存本次设置</button></div></dialog>`;
+document
+  .querySelector(".selection-section")!
+  .insertAdjacentHTML(
+    "beforebegin",
+    `<section class="inspector-section traffic-observatory"><div class="section-heading"><span>建筑出行 · 信号 · 停等</span><span class="tiny-label">RECORDED</span></div><div class="traffic-toggles"><label><input id="show-signals" type="checkbox" checked>信号灯</label><label><input id="show-hotspots" type="checkbox" checked>停等热点</label><label><input id="show-stock" type="checkbox" checked>建筑存量</label></div><p class="small-note">红 / 黄 / 绿 = SUMO 转向连接状态；灰 = 其他状态。紫框数字 = 建筑分区停放量（假设）。热点按停等车辆数标示，非排队长度。双图分别显示 A / B 各自的已记录状态。</p><label class="field-label" for="traffic-source">检查数据来源</label><select id="traffic-source"><option value="A">A · 当前运行</option><option value="B" disabled>B · 对照运行（未选）</option></select><div id="traffic-status" class="small-note">此运行未提供扩展记录。</div><div id="stock-summary" class="stock-summary"></div><label class="field-label" for="signal-select">信号控制器 / 转向连接</label><select id="signal-select"><option value="">选择信号控制器</option></select><div id="signal-details"></div><details><summary>当前停等最多的道路</summary><div id="hotspot-list"></div></details><button id="recorded-od-button" class="text-button">查看本次运行 OD 表格 ↗</button></section>`,
+  );
+document.body.insertAdjacentHTML(
+  "beforeend",
+  `<dialog id="recorded-od-dialog"><div class="dialog-heading"><span class="eyebrow">RECORDED SCENARIO OD</span><button data-close="recorded-od-dialog" aria-label="关闭">×</button></div><h2>建筑与边界的出行表</h2><p class="dialog-intro">本次运行的合成需求。建筑按约 250 m 网格聚合，出入口由路网推定；停放量与出行分配未经现场调查。数量是指定时段的出行辆次，不是实时车辆数。</p><div id="od-assumptions" class="small-note"></div><div class="recorded-od-tools"><input id="recorded-od-search" type="search" placeholder="搜索起点、终点或来源" aria-label="搜索运行 OD"><a id="recorded-od-download" class="text-button" download>下载完整 OD CSV ↗</a></div><div class="recorded-table-scroll"><table class="recorded-table"><thead><tr><th>起点</th><th>终点</th><th>类型</th><th>时段 / s</th><th>出行辆次</th><th>来源</th></tr></thead><tbody id="recorded-od-body"></tbody></table></div><div class="dialog-actions"><button id="od-prev" class="quiet-button">上一页</button><span id="od-page"></span><button id="od-next" class="quiet-button">下一页</button></div></dialog>`,
+);
 const $ = <T extends HTMLElement = HTMLElement>(id: string) =>
   document.getElementById(id) as T;
 let network: Network,
@@ -60,7 +82,66 @@ let network: Network,
   lastAnimation = 0,
   pendingSeek: number | undefined,
   comparisonEpoch = 0;
-let signalEvents: Metric[] = [];
+let signalEvents: SignalEvent[] = [];
+let signalTopology: SignalTopology[] = [],
+  queueSamples: QueueSample[] = [],
+  stockSamples: StockSample[] = [],
+  internalZones: InternalZones | undefined,
+  recordedOD: RecordedOD[] = [],
+  displayedTraffic: TrafficOverlay = emptyTraffic(),
+  odPage = 0;
+let otherTrafficData: {
+  network?: Network;
+  signals: SignalEvent[];
+  topology: SignalTopology[];
+  queues: QueueSample[];
+  stocks: StockSample[];
+  zones?: InternalZones;
+  od: RecordedOD[];
+  csv?: string;
+} = { signals: [], topology: [], queues: [], stocks: [], od: [] };
+let displayedOtherTraffic: TrafficOverlay = emptyTraffic();
+let mainODCsv: string | undefined;
+const inspectionIsB = () =>
+  $<HTMLSelectElement>("traffic-source").value === "B";
+const inspectionOverlay = () =>
+  inspectionIsB() ? displayedOtherTraffic : displayedTraffic;
+function refreshTrafficSources() {
+  const option = $<HTMLSelectElement>("traffic-source").options[1];
+  option.disabled = !otherManifest;
+  option.textContent = otherManifest
+    ? `B · ${otherRun?.label ?? otherManifest.run_id}`
+    : "B · 对照运行（未选）";
+  if (!otherManifest) $<HTMLSelectElement>("traffic-source").value = "A";
+  const selected = $<HTMLSelectElement>("signal-select").value;
+  const topology = inspectionIsB() ? otherTrafficData.topology : signalTopology;
+  $("signal-select").innerHTML =
+    '<option value="">选择信号控制器</option>' +
+    topology
+      .map(
+        (t) =>
+          `<option value="${esc(t.tls)}">${esc(t.tls)} · ${t.links.length} 连接</option>`,
+      )
+      .join("");
+  if (topology.some((t) => t.tls === selected))
+    $<HTMLSelectElement>("signal-select").value = selected;
+  const csv = inspectionIsB() ? otherTrafficData.csv : mainODCsv;
+  $("recorded-od-download").hidden = !csv;
+  if (csv) $<HTMLAnchorElement>("recorded-od-download").href = csv;
+  else $("recorded-od-download").removeAttribute("href");
+}
+function resetOtherTraffic() {
+  otherTrafficData = {
+    signals: [],
+    topology: [],
+    queues: [],
+    stocks: [],
+    od: [],
+  };
+  displayedOtherTraffic = emptyTraffic();
+  city?.setTraffic(displayedOtherTraffic, true);
+  refreshTrafficSources();
+}
 let selectedObject: Selection | undefined;
 function toast(message: string) {
   $("toast").textContent = message;
@@ -107,6 +188,8 @@ function selectObject(s: Selection) {
     vehicle: "车辆",
     gate: "边界口",
     junction: "路口",
+    signal: "转向信号",
+    zone: "建筑停放分区",
   };
   const fields =
     s.kind === "lane"
@@ -128,13 +211,35 @@ function selectObject(s: Selection) {
               ["方向", d.direction],
             ]
           : [["位置", JSON.stringify(d.position)]];
-  if (s.kind === "junction" && s.source !== "B") {
-    const tls = city?.network.traffic_lights?.find((t) =>
-      t.junction_ids.includes(s.id),
-    )?.id;
-    let state: Metric | undefined;
-    for (let i = signalEvents.length - 1; i >= 0; i--) {
-      const event = signalEvents[i];
+  if (s.kind === "signal")
+    fields.push(
+      ["控制器", d.tls],
+      ["连接索引", d.index],
+      ["进入车道", d.incoming_lane],
+      ["驶出车道", d.outgoing_lane],
+      ["SUMO 状态", d.state],
+      ["相位编号", d.phase],
+      ["最近状态变化", `${d.time} s`],
+      ["来源", d.source],
+    );
+  if (s.kind === "zone")
+    fields.push(
+      ["分区名称", d.name],
+      ["当前停放 / 辆", d.parked ?? "未记录"],
+      ["初始停放 / 辆", d.initial_parked],
+      ["建筑数量", d.building_count],
+      ["推定接入道路", d.access_edge],
+      ["来源", d.source],
+      ["解释", "假设停放存量；标记为聚合分区中心，并非实测停车场或车辆轨迹"],
+    );
+  if (s.kind === "junction") {
+    const tls = (
+      s.source === "B" ? otherTrafficData.network : city?.network
+    )?.traffic_lights?.find((t) => t.junction_ids.includes(s.id))?.id;
+    let state: SignalEvent | undefined;
+    const events = s.source === "B" ? otherTrafficData.signals : signalEvents;
+    for (let i = events.length - 1; i >= 0; i--) {
+      const event = events[i];
       if (event.tls === tls && Number(event.time) <= current) {
         state = event;
         break;
@@ -148,12 +253,12 @@ function selectObject(s: Selection) {
         ["状态记录", `${state.time} s`],
       );
   }
+  fields.push(["视图来源", s.source ?? "A"]);
   fields.push([
     "运行",
     s.source === "B" ? otherManifest?.run_id : manifest?.run_id,
   ]);
-  if (s.kind === "junction" && s.source === "B")
-    fields.push(["信号状态", "请单独打开 B 运行检查对应记录"]);
+
   $("selection").innerHTML =
     `<span class="object-type">${names[s.kind]}</span><h3>${esc(s.id)}</h3><dl>${fields.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl><p class="small-note">来自当前路网 / 已记录状态</p>`;
 }
@@ -311,6 +416,21 @@ async function loadRun(run: RunEntry) {
   comparisonEpoch++;
   pendingSeek = undefined;
   signalEvents = [];
+  mainODCsv = undefined;
+  signalTopology = [];
+  queueSamples = [];
+  stockSamples = [];
+  internalZones = undefined;
+  recordedOD = [];
+  displayedTraffic = emptyTraffic();
+  city?.setTraffic(displayedTraffic);
+  $("signal-select").innerHTML = '<option value="">选择信号控制器</option>';
+  $("stock-summary").textContent = "";
+  $("signal-details").textContent = "";
+  $("hotspot-list").textContent = "";
+  $("traffic-status").textContent = "正在读取扩展记录…";
+  $("recorded-od-download").removeAttribute("href");
+  $("recorded-od-download").hidden = true;
   selectedObject = undefined;
   playing = false;
   playback?.dispose();
@@ -319,6 +439,7 @@ async function loadRun(run: RunEntry) {
   otherPlayback = undefined;
   otherManifest = undefined;
   otherRun = undefined;
+  resetOtherTraffic();
   city?.setVehicles([]);
   city?.setVehicles([], true);
   city?.setDifference(false);
@@ -363,10 +484,11 @@ async function loadRun(run: RunEntry) {
     );
     $("active-run").textContent = run.label ?? run.run_id;
     $("active-policy").textContent = run.policy ?? String(m.policy ?? "RUN");
-    $("data-status").textContent =
-      run.scenario_kind === "uncalibrated_synthetic_busy_demo"
-        ? "真实路网 · 合成高需求演示（未校准）"
-        : "真实路网 · 已校验运行";
+    $("data-status").textContent = run.scenario_kind?.startsWith(
+      "uncalibrated_synthetic",
+    )
+      ? "真实路网 · 合成高需求演示（未校准）"
+      : "真实路网 · 已校验运行";
     $("duration").textContent = `/ ${fmt(end)}`;
     $("time-end").textContent = fmt(end);
     const range = $<HTMLInputElement>("timeline-range");
@@ -405,10 +527,61 @@ async function loadSupplemental(m: Manifest, url: string, token: number) {
     json<Metric[]>(resource("timeseries")),
     json<Metric>(resource("audit")),
     json<Metric[]>(resource("events")),
-    json<Metric[]>(resource("signals")),
+    json<SignalEvent[]>(resource("signals")),
   ]);
   if (token !== epoch) return;
   signalEvents = result[3].status === "fulfilled" ? result[3].value : [];
+  const optional = async <T>(key: string): Promise<T | undefined> =>
+    typeof m[key] === "string" ? json<T>(resource(key)) : undefined;
+  const extras = await Promise.allSettled([
+    optional<SignalTopology[]>("signal_topology"),
+    optional<QueueSample[]>("queue_hotspots"),
+    optional<StockSample[]>("stock_timeseries"),
+    optional<InternalZones>("internal_zones"),
+    optional<RecordedOD[]>("od_matrix"),
+  ]);
+  if (token !== epoch) return;
+  signalTopology =
+    extras[0].status === "fulfilled" ? (extras[0].value ?? []) : [];
+  queueSamples =
+    extras[1].status === "fulfilled" ? (extras[1].value ?? []) : [];
+  stockSamples =
+    extras[2].status === "fulfilled" ? (extras[2].value ?? []) : [];
+  internalZones =
+    extras[3].status === "fulfilled" ? extras[3].value : undefined;
+  recordedOD =
+    (extras[4].status === "fulfilled" ? extras[4].value : undefined) ??
+    internalZones?.od_matrix ??
+    [];
+  queueSamples.sort((a, b) => a.time - b.time);
+  stockSamples.sort((a, b) => a.time - b.time);
+  $("signal-select").innerHTML =
+    '<option value="">选择信号控制器</option>' +
+    signalTopology
+      .map(
+        (t) =>
+          `<option value="${esc(t.tls)}">${esc(t.tls)} · ${t.links.length} 连接</option>`,
+      )
+      .join("");
+  if (typeof m.od_csv === "string") {
+    $<HTMLAnchorElement>("recorded-od-download").href = resource("od_csv");
+    mainODCsv = resource("od_csv");
+    $("recorded-od-download").hidden = false;
+  }
+  $("od-assumptions").textContent = internalZones
+    ? [internalZones.assumptions, internalZones.limitations]
+        .filter(Boolean)
+        .map((v) => (typeof v === "string" ? v : JSON.stringify(v)))
+        .join("；")
+    : "此运行未提供建筑分区 OD 数据。";
+  refreshTrafficSources();
+  odPage = 0;
+  renderRecordedOD();
+  updateTraffic();
+  const failedExtras = extras.filter((r) => r.status === "rejected").length;
+  if (failedExtras)
+    $("traffic-status").textContent += ` · ${failedExtras} 项扩展数据未能加载`;
+
   if (result[0].status === "fulfilled" && metrics)
     renderMetrics({ ...metrics, timeseries: result[0].value });
   if (result[1].status === "fulfilled") {
@@ -446,6 +619,157 @@ async function loadSupplemental(m: Manifest, url: string, token: number) {
     );
   }
 }
+function updateTraffic() {
+  const primaryQueue = sampleAt(queueSamples, current),
+    primaryStock = sampleAt(stockSamples, current);
+  const otherQueue = sampleAt(otherTrafficData.queues, current),
+    otherStock = sampleAt(otherTrafficData.stocks, current);
+  const queue = inspectionIsB() ? otherQueue : primaryQueue,
+    stock = inspectionIsB() ? otherStock : primaryStock;
+  displayedTraffic = trafficOverlay(
+    city?.network ?? network,
+    signalTopology,
+    signalEvents,
+    primaryQueue,
+    internalZones,
+    primaryStock,
+    current,
+  );
+  displayedOtherTraffic = otherTrafficData.network
+    ? trafficOverlay(
+        otherTrafficData.network,
+        otherTrafficData.topology,
+        otherTrafficData.signals,
+        otherQueue,
+        otherTrafficData.zones,
+        otherStock,
+        current,
+      )
+    : emptyTraffic();
+  const shown = (overlay: TrafficOverlay) => ({
+    signals: $<HTMLInputElement>("show-signals").checked ? overlay.signals : [],
+    hotspots: $<HTMLInputElement>("show-hotspots").checked
+      ? overlay.hotspots
+      : [],
+    zones: $<HTMLInputElement>("show-stock").checked ? overlay.zones : [],
+  });
+  city?.setTraffic(shown(displayedTraffic));
+  city?.setTraffic(shown(displayedOtherTraffic), true);
+  const inspected = inspectionOverlay(),
+    topology = inspectionIsB() ? otherTrafficData.topology : signalTopology;
+  $("traffic-status").textContent =
+    `${inspectionIsB() ? "B" : "A"} · ${topology.length ? `${topology.length} 个控制器 · ${inspected.signals.length} 个转向灯` : "无可定位信号记录"}${queue ? ` · ${queue.time.toFixed(1)} s 停等 ${queue.total_stopped} 辆（速度 < ${queue.threshold_m_s} m/s）` : " · 无停等记录"}`;
+  $("stock-summary").innerHTML = stock
+    ? `<span>初始停放<strong>${stock.initial_parked_total}</strong></span><span>当前停放<strong>${stock.parked_total}</strong></span><span>在网行驶<strong>${stock.inside}</strong></span><span>内部待入<strong>${stock.internal_insertion_waiting}</strong></span><span>边界待入<strong>${stock.boundary_insertion_waiting}</strong></span><span>守恒残差<strong>${stock.conservation_residual}</strong></span><small>停放与待入不计入道路可见车辆 · ${stock.time.toFixed(1)} s 记录</small>`
+    : "";
+  $("hotspot-list").innerHTML = queue
+    ? [...queue.edges]
+        .sort((a, b) => b.stopped_vehicles - a.stopped_vehicles)
+        .filter((e) => e.stopped_vehicles > 0)
+        .slice(0, 6)
+        .map(
+          (e) =>
+            `<div class="hotspot-row"><span>${esc(((inspectionIsB() ? otherTrafficData.network : city?.network)?.edges ?? []).find((r) => r.id === e.edge_id)?.name || e.edge_id)}</span><strong>${e.stopped_vehicles} 辆</strong></div>`,
+        )
+        .join("") || '<p class="small-note">当前没有停等车辆</p>'
+    : '<p class="small-note">没有记录</p>';
+  renderSignalDetails();
+  if (selectedObject?.kind === "signal") {
+    const value = (
+      selectedObject.source === "B" ? displayedOtherTraffic : displayedTraffic
+    ).signals.find((s) => s.id === selectedObject!.id);
+    if (value) selectObject({ ...selectedObject, data: value });
+  }
+  if (selectedObject?.kind === "zone") {
+    const value = (
+      selectedObject.source === "B" ? displayedOtherTraffic : displayedTraffic
+    ).zones.find((z) => z.id === selectedObject!.id);
+    if (value) selectObject({ ...selectedObject, data: value });
+  }
+}
+function renderSignalDetails() {
+  const id = $<HTMLSelectElement>("signal-select").value;
+  const signals = inspectionOverlay().signals.filter((s) => s.tls === id);
+  $("signal-details").innerHTML = signals.length
+    ? `<p class="small-note">相位 ${signals[0].phase} · 最近变化 ${signals[0].time} s。G 优先通行 / g 让行通行 / y 黄 / r 红。每行是一条真实转向连接。</p><div class="signal-link-list">${signals.map((s) => `<button data-signal="${esc(s.id)}"><i style="background:${s.color}"></i><b>${s.index} · ${s.state}</b><span>${esc(s.incoming_lane)} → ${esc(s.outgoing_lane)}</span></button>`).join("")}</div>`
+    : "";
+  $("signal-details")
+    .querySelectorAll<HTMLElement>("[data-signal]")
+    .forEach((b) =>
+      b.addEventListener("click", () => {
+        const s = signals.find((s) => s.id === b.dataset.signal)!;
+        selectObject({
+          kind: "signal",
+          id: s.id,
+          data: s,
+          source: inspectionIsB() ? "B" : "A",
+        });
+      }),
+    );
+}
+function renderRecordedOD() {
+  const sourceZones = inspectionIsB() ? otherTrafficData.zones : internalZones;
+  $("od-assumptions").textContent =
+    `${inspectionIsB() ? "B" : "A"} · ${inspectionIsB() ? (otherManifest?.run_id ?? "未选对照") : (manifest?.run_id ?? "")} · ` +
+    (sourceZones
+      ? [sourceZones.assumptions, sourceZones.limitations]
+          .filter(Boolean)
+          .map((v) => (typeof v === "string" ? v : JSON.stringify(v)))
+          .join("；")
+      : "此运行未提供建筑分区 OD 数据。");
+  const search = $<HTMLInputElement>("recorded-od-search").value.toLowerCase();
+  const zoneName = (id: string) =>
+    (inspectionIsB() ? otherTrafficData.zones : internalZones)?.zones.find(
+      (z) => z.id === id,
+    )?.name;
+  const kindName = (kind: string) =>
+    kind === "internal" ? "建筑" : kind === "boundary" ? "边界" : kind;
+  const rows = (inspectionIsB() ? otherTrafficData.od : recordedOD).filter(
+    (r) =>
+      `${r.origin} ${r.destination} ${r.source}`.toLowerCase().includes(search),
+  );
+  const pages = Math.max(1, Math.ceil(rows.length / 100));
+  odPage = Math.min(odPage, pages - 1);
+  $("recorded-od-body").innerHTML =
+    rows
+      .slice(odPage * 100, (odPage + 1) * 100)
+      .map(
+        (r) =>
+          `<tr><td>${zoneName(r.origin) ? `${esc(zoneName(r.origin))}<br>` : ""}${esc(r.origin)}</td><td>${zoneName(r.destination) ? `${esc(zoneName(r.destination))}<br>` : ""}${esc(r.destination)}</td><td>${esc(kindName(r.origin_kind))} → ${esc(kindName(r.destination_kind))}</td><td>${r.interval_start}–${r.interval_end}</td><td>${r.trip_count}</td><td>${esc(r.source)}</td></tr>`,
+      )
+      .join("") ||
+    '<tr><td colspan="6">本次运行没有匹配的已记录 OD；输入草案另见左侧设置。</td></tr>';
+  $("od-page").textContent =
+    `${rows.length} 条 · ${rows.reduce((n, r) => n + r.trip_count, 0)} 辆次 · ${odPage + 1}/${pages} 页`;
+  $<HTMLButtonElement>("od-prev").disabled = odPage === 0;
+  $<HTMLButtonElement>("od-next").disabled = odPage >= pages - 1;
+}
+for (const id of ["show-signals", "show-hotspots", "show-stock"])
+  $(id).addEventListener("change", updateTraffic);
+$("traffic-source").addEventListener("change", () => {
+  refreshTrafficSources();
+  updateTraffic();
+  odPage = 0;
+  renderRecordedOD();
+});
+$("signal-select").addEventListener("change", renderSignalDetails);
+$("recorded-od-button").addEventListener("click", () => {
+  renderRecordedOD();
+  $<HTMLDialogElement>("recorded-od-dialog").showModal();
+});
+$("recorded-od-search").addEventListener("input", () => {
+  refreshTrafficSources();
+  odPage = 0;
+  renderRecordedOD();
+});
+$("od-prev").addEventListener("click", () => {
+  odPage--;
+  renderRecordedOD();
+});
+$("od-next").addEventListener("click", () => {
+  odPage++;
+  renderRecordedOD();
+});
 function showSceneError(message: string) {
   $("scene-error").textContent = message;
   $("scene-error").classList.remove("hidden");
@@ -469,6 +793,7 @@ async function seek(time: number) {
     otherFrame = second?.vehicles ?? [];
     city?.setVehicles(lastFrame);
     city?.setVehicles(otherFrame, true);
+    updateTraffic();
     if (selectedObject?.kind === "junction") selectObject(selectedObject);
     if (mode === "diff") city?.setDifference(true, lastFrame, otherFrame);
     $("clock").textContent = fmt(current);
@@ -530,6 +855,7 @@ async function compareRun(id: string) {
   otherPlayback = undefined;
   otherManifest = undefined;
   otherRun = undefined;
+  resetOtherTraffic();
   if (!id) {
     mode = "single";
     city?.setComparison(false);
@@ -570,6 +896,37 @@ async function compareRun(id: string) {
     otherPlayback = new Playback(m, url);
     otherManifest = m;
     otherRun = run;
+    const resource = (key: string) =>
+      url.includes("/api/runs/")
+        ? url.replace(/\/manifest$/, "/" + key)
+        : new URL(String(m[key] ?? key + ".json"), url).href;
+    const optional = async <T>(key: string): Promise<T | undefined> =>
+      typeof m[key] === "string" || key === "signals"
+        ? json<T>(resource(key))
+        : undefined;
+    const extra = await Promise.allSettled([
+      optional<SignalEvent[]>("signals"),
+      optional<SignalTopology[]>("signal_topology"),
+      optional<QueueSample[]>("queue_hotspots"),
+      optional<StockSample[]>("stock_timeseries"),
+      optional<InternalZones>("internal_zones"),
+      optional<RecordedOD[]>("od_matrix"),
+    ]);
+    if (token !== comparisonEpoch) return;
+    otherTrafficData = {
+      network: compareNetwork,
+      signals: extra[0].status === "fulfilled" ? (extra[0].value ?? []) : [],
+      topology: extra[1].status === "fulfilled" ? (extra[1].value ?? []) : [],
+      queues: extra[2].status === "fulfilled" ? (extra[2].value ?? []) : [],
+      stocks: extra[3].status === "fulfilled" ? (extra[3].value ?? []) : [],
+      zones: extra[4].status === "fulfilled" ? extra[4].value : undefined,
+      od: extra[5].status === "fulfilled" ? (extra[5].value ?? []) : [],
+      csv: typeof m.od_csv === "string" ? resource("od_csv") : undefined,
+    };
+    otherTrafficData.queues.sort((a, b) => a.time - b.time);
+    otherTrafficData.stocks.sort((a, b) => a.time - b.time);
+    refreshTrafficSources();
+    updateTraffic();
     $("comparison-note").textContent =
       `需求哈希一致 · ${run.label ?? run.run_id}。${m.network_hash !== manifest.network_hash ? "结构变化：棕色标出通行权限改变的车道；仅支持双图。" : "双图共享镜头、时间和色阶。"}`;
     await seek(current);

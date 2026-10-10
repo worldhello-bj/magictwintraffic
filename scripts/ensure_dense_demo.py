@@ -46,7 +46,7 @@ def available_packaged(root, config):
     try:
         manifests = [validate_manifest(root / 'web/public/data/runs' / run_id(p), config, p, packaged=True) for p in POLICIES]
         catalog = json.loads((root / 'web/public/data/catalog.json').read_text())
-        entries = catalog['runs'][:2]
+        entries = [entry for entry in catalog['runs'] if entry['run_id'] in {run_id(p) for p in POLICIES}]
         return (len({m['demand_hash'] for m in manifests}) == 1
                 and [e['run_id'] for e in entries] == [run_id(p) for p in POLICIES]
                 and all(e.get('playback_start_seconds') == config['warmup_seconds'] for e in entries))

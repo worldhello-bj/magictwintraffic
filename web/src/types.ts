@@ -40,6 +40,12 @@ export interface ChunkInfo {
   uncompressed_bytes?: number;
 }
 export interface Manifest {
+  signal_topology?: string | null;
+  queue_hotspots?: string | null;
+  stock_timeseries?: string | null;
+  internal_zones?: string | null;
+  od_matrix?: string | null;
+  od_csv?: string | null;
   schema_version: string;
   run_id: string;
   network_hash: string;

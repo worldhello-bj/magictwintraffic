@@ -14,8 +14,9 @@ def package(source,destination,sample_seconds=None):
   asset=destination/'networks'/(network['network_hash']+'.json');write(asset,network);manifest['network']='../../networks/'+asset.name
  obsolete=target/'network.json'
  if obsolete.exists():obsolete.unlink()
- for filename in ['metrics.json','timeseries.json','signals.json','events.json','audit.json']:
+ for filename in ['metrics.json','timeseries.json','signals.json','events.json','audit.json','signal_topology.json','queue_hotspots.json','stock_timeseries.json','internal_zones.json','od_matrix.json']:
   if (source/filename).exists():write(target/filename,json.loads((source/filename).read_text()))
+ if (source/'od_matrix.csv').exists():shutil.copyfile(source/'od_matrix.csv',target/'od_matrix.csv')
  if (target/'trajectory').exists():shutil.rmtree(target/'trajectory')
  (target/'trajectory').mkdir()
  chunks=[]
