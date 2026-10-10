@@ -9,7 +9,7 @@ from .recorder import Recorder
 
 def scenario_network_paths(config):
     variant=config.get('network_variant','baseline')
-    if variant not in ('baseline','joined_nijiaqiao_v1'):raise ValueError('Unknown network_variant')
+    if variant not in ('baseline','joined_nijiaqiao_v1','joined_nijiaqiao_access_v2','joined_north_surface_v3'):raise ValueError('Unknown network_variant')
     scene=ROOT/'data/canonical'/('network.json' if variant=='baseline' else variant+'.json')
     return scene,ROOT/'networks'/variant/'network.net.xml'
 

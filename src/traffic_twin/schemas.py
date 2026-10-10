@@ -41,7 +41,7 @@ class InternalDemand(BaseModel):
 class Scenario(BaseModel):
     model_config = ConfigDict(extra="forbid", allow_inf_nan=False, strict=True)
     network_id: Literal["baseline"] = "baseline"
-    network_variant: Literal["baseline", "joined_nijiaqiao_v1"] = "baseline"
+    network_variant: Literal["baseline", "joined_nijiaqiao_v1", "joined_nijiaqiao_access_v2", "joined_north_surface_v3"] = "baseline"
     policy: Literal["S0", "S1", "S2", "S3", "S4", "S5", "S6", "S7"] = "S0"
     policy_parameters: PolicyParameters | None = None
     downstream_block: DownstreamBlock | None = None

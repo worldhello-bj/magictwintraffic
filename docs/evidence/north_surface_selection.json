@@ -1,0 +1,1506 @@
+{
+  "status": "experimental_surface_cluster_selected_for_counterfactual_not_field_calibrated",
+  "parent_variant": "joined_nijiaqiao_access_v2",
+  "parent_hash": "85ca1ace1c2ee131c4dafe90b7fc991dff3ed7e72fe1a5a4b33ff0109cf03d56",
+  "nodes": [
+    {
+      "id": "1445484323",
+      "position": [
+        397.595,
+        995.384
+      ],
+      "shape": [
+        [
+          407.965,
+          997.264
+        ],
+        [
+          408.045,
+          994.064
+        ],
+        [
+          402.525,
+          989.914
+        ],
+        [
+          392.925,
+          989.694
+        ],
+        [
+          392.245,
+          991.974
+        ],
+        [
+          391.435,
+          992.774
+        ],
+        [
+          390.325,
+          993.344
+        ],
+        [
+          388.895,
+          993.684
+        ],
+        [
+          387.165,
+          993.804
+        ],
+        [
+          387.165,
+          997.004
+        ],
+        [
+          389.385,
+          997.444
+        ],
+        [
+          390.145,
+          997.994
+        ],
+        [
+          390.695,
+          998.774
+        ],
+        [
+          391.005,
+          999.774
+        ],
+        [
+          391.095,
+          1000.994
+        ],
+        [
+          403.895,
+          1001.214
+        ]
+      ],
+      "type": "priority"
+    },
+    {
+      "id": "1492405916",
+      "position": [
+        418.955,
+        995.774
+      ],
+      "shape": [
+        [
+          426.125,
+          997.464
+        ],
+        [
+          426.165,
+          994.264
+        ],
+        [
+          423.955,
+          993.794
+        ],
+        [
+          423.195,
+          993.234
+        ],
+        [
+          422.655,
+          992.454
+        ],
+        [
+          422.345,
+          991.454
+        ],
+        [
+          422.255,
+          990.234
+        ],
+        [
+          415.855,
+          990.124
+        ],
+        [
+          415.365,
+          992.354
+        ],
+        [
+          414.805,
+          993.124
+        ],
+        [
+          414.015,
+          993.674
+        ],
+        [
+          413.005,
+          993.994
+        ],
+        [
+          411.785,
+          994.094
+        ],
+        [
+          411.745,
+          997.294
+        ],
+        [
+          413.955,
+          997.764
+        ],
+        [
+          414.715,
+          998.324
+        ],
+        [
+          415.255,
+          999.104
+        ],
+        [
+          415.565,
+          1000.104
+        ],
+        [
+          415.655,
+          1001.314
+        ],
+        [
+          422.055,
+          1001.434
+        ],
+        [
+          422.535,
+          999.204
+        ],
+        [
+          423.105,
+          998.434
+        ],
+        [
+          423.895,
+          997.884
+        ],
+        [
+          424.895,
+          997.564
+        ]
+      ],
+      "type": "priority"
+    },
+    {
+      "id": "4550568579",
+      "position": [
+        386.825,
+        970.224
+      ],
+      "shape": [
+        [
+          394.035,
+          971.774
+        ],
+        [
+          394.005,
+          968.574
+        ],
+        [
+          391.795,
+          968.144
+        ],
+        [
+          391.015,
+          967.594
+        ],
+        [
+          390.465,
+          966.824
+        ],
+        [
+          390.125,
+          965.834
+        ],
+        [
+          390.015,
+          964.614
+        ],
+        [
+          383.615,
+          964.624
+        ],
+        [
+          383.165,
+          966.864
+        ],
+        [
+          382.605,
+          967.644
+        ],
+        [
+          381.805,
+          968.204
+        ],
+        [
+          380.795,
+          968.544
+        ],
+        [
+          379.545,
+          968.664
+        ],
+        [
+          379.565,
+          971.864
+        ],
+        [
+          381.765,
+          972.294
+        ],
+        [
+          382.515,
+          972.844
+        ],
+        [
+          383.035,
+          973.614
+        ],
+        [
+          383.325,
+          974.614
+        ],
+        [
+          383.385,
+          975.824
+        ],
+        [
+          389.775,
+          976.104
+        ],
+        [
+          390.335,
+          973.714
+        ],
+        [
+          390.935,
+          972.874
+        ],
+        [
+          391.745,
+          972.264
+        ],
+        [
+          392.785,
+          971.904
+        ]
+      ],
+      "type": "priority"
+    },
+    {
+      "id": "5436607837",
+      "position": [
+        407.375,
+        995.644
+      ],
+      "shape": [
+        [
+          417.725,
+          997.364
+        ],
+        [
+          417.755,
+          994.164
+        ],
+        [
+          414.675,
+          993.684
+        ],
+        [
+          413.605,
+          993.114
+        ],
+        [
+          412.845,
+          992.324
+        ],
+        [
+          412.395,
+          991.314
+        ],
+        [
+          412.265,
+          990.094
+        ],
+        [
+          402.665,
+          989.944
+        ],
+        [
+          397.065,
+          993.774
+        ],
+        [
+          396.975,
+          996.964
+        ],
+        [
+          400.875,
+          1001.064
+        ],
+        [
+          413.675,
+          1001.294
+        ],
+        [
+          414.155,
+          999.084
+        ],
+        [
+          414.725,
+          998.324
+        ],
+        [
+          415.505,
+          997.774
+        ],
+        [
+          416.505,
+          997.454
+        ]
+      ],
+      "type": "priority"
+    },
+    {
+      "id": "5436607839",
+      "position": [
+        385.745,
+        995.404
+      ],
+      "shape": [
+        [
+          393.025,
+          996.994
+        ],
+        [
+          393.015,
+          993.794
+        ],
+        [
+          390.815,
+          993.354
+        ],
+        [
+          390.055,
+          992.794
+        ],
+        [
+          389.535,
+          992.024
+        ],
+        [
+          389.245,
+          991.024
+        ],
+        [
+          389.185,
+          989.804
+        ],
+        [
+          382.795,
+          989.524
+        ],
+        [
+          382.205,
+          992.064
+        ],
+        [
+          381.575,
+          992.974
+        ],
+        [
+          380.705,
+          993.664
+        ],
+        [
+          379.615,
+          994.114
+        ],
+        [
+          378.295,
+          994.334
+        ],
+        [
+          378.525,
+          997.524
+        ],
+        [
+          380.735,
+          997.804
+        ],
+        [
+          381.495,
+          998.304
+        ],
+        [
+          382.045,
+          999.044
+        ],
+        [
+          382.355,
+          1000.024
+        ],
+        [
+          382.445,
+          1001.234
+        ],
+        [
+          388.845,
+          1001.344
+        ],
+        [
+          389.345,
+          998.934
+        ],
+        [
+          389.925,
+          998.084
+        ],
+        [
+          390.735,
+          997.474
+        ],
+        [
+          391.765,
+          997.114
+        ]
+      ],
+      "type": "priority"
+    },
+    {
+      "id": "5436607841",
+      "position": [
+        419.415,
+        969.434
+      ],
+      "shape": [
+        [
+          426.585,
+          971.174
+        ],
+        [
+          426.645,
+          967.974
+        ],
+        [
+          424.425,
+          967.484
+        ],
+        [
+          423.665,
+          966.914
+        ],
+        [
+          423.115,
+          966.124
+        ],
+        [
+          422.805,
+          965.124
+        ],
+        [
+          422.715,
+          963.904
+        ],
+        [
+          416.315,
+          963.784
+        ],
+        [
+          415.805,
+          966.174
+        ],
+        [
+          415.195,
+          967.034
+        ],
+        [
+          414.365,
+          967.674
+        ],
+        [
+          413.295,
+          968.094
+        ],
+        [
+          411.995,
+          968.294
+        ],
+        [
+          412.195,
+          971.494
+        ],
+        [
+          414.405,
+          971.794
+        ],
+        [
+          415.165,
+          972.304
+        ],
+        [
+          415.705,
+          973.044
+        ],
+        [
+          416.025,
+          974.024
+        ],
+        [
+          416.115,
+          975.234
+        ],
+        [
+          422.515,
+          975.344
+        ],
+        [
+          422.995,
+          972.994
+        ],
+        [
+          423.565,
+          972.174
+        ],
+        [
+          424.355,
+          971.604
+        ],
+        [
+          425.355,
+          971.264
+        ]
+      ],
+      "type": "priority"
+    },
+    {
+      "id": "cluster_1445484321_4550568575",
+      "position": [
+        402.975,
+        970.154
+      ],
+      "shape": [
+        [
+          416.805,
+          971.204
+        ],
+        [
+          416.605,
+          968.004
+        ],
+        [
+          414.395,
+          967.704
+        ],
+        [
+          413.625,
+          967.194
+        ],
+        [
+          413.085,
+          966.454
+        ],
+        [
+          412.765,
+          965.474
+        ],
+        [
+          412.675,
+          964.254
+        ],
+        [
+          393.475,
+          963.934
+        ],
+        [
+          392.985,
+          966.514
+        ],
+        [
+          392.395,
+          967.424
+        ],
+        [
+          391.595,
+          968.074
+        ],
+        [
+          390.565,
+          968.464
+        ],
+        [
+          389.315,
+          968.604
+        ],
+        [
+          389.335,
+          971.804
+        ],
+        [
+          391.545,
+          972.234
+        ],
+        [
+          392.315,
+          972.784
+        ],
+        [
+          392.855,
+          973.554
+        ],
+        [
+          393.165,
+          974.554
+        ],
+        [
+          393.245,
+          975.774
+        ],
+        [
+          412.485,
+          976.084
+        ],
+        [
+          412.995,
+          973.484
+        ],
+        [
+          413.595,
+          972.554
+        ],
+        [
+          414.435,
+          971.864
+        ],
+        [
+          415.505,
+          971.414
+        ]
+      ],
+      "type": "traffic_light"
+    }
+  ],
+  "incident_edges": [
+    {
+      "id": "115625956",
+      "name": "人民南路四段 - Renminnanlu 4 Duan",
+      "osm_way_id": "115625956",
+      "from_node": "1445484323",
+      "to_node": "cluster_1445484321_4550568575",
+      "length": 13.95,
+      "speed": 13.89,
+      "lanes": [
+        "115625956_0",
+        "115625956_1",
+        "115625956_2"
+      ],
+      "shape": [
+        [
+          397.725,
+          989.804
+        ],
+        [
+          398.045,
+          975.854
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.primary",
+      "osm_tags": {
+        "highway": "primary",
+        "lanes": "3",
+        "name": "人民南路四段 - Renminnanlu 4 Duan",
+        "name:en": "Renminnanlu 4 Duan",
+        "name:zh": "人民南路四段",
+        "oneway": "yes",
+        "surface": "asphalt"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "115625972#1",
+      "name": "人民南路三段",
+      "osm_way_id": "115625972",
+      "from_node": "4794975945",
+      "to_node": "1445484323",
+      "length": 410.74,
+      "speed": 13.89,
+      "lanes": [
+        "115625972#1_0",
+        "115625972#1_1",
+        "115625972#1_2",
+        "115625972#1_3"
+      ],
+      "shape": [
+        [
+          390.555,
+          1411.784
+        ],
+        [
+          395.145,
+          1140.154
+        ],
+        [
+          397.495,
+          1001.104
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.primary",
+      "osm_tags": {
+        "foot": "yes",
+        "highway": "primary",
+        "lanes": "4",
+        "name": "人民南路三段",
+        "name:en": "Section 3 Renmin Road South",
+        "name:zh": "人民南路三段",
+        "oneway": "yes",
+        "surface": "asphalt"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "131319574#14",
+      "name": "人民南路四段",
+      "osm_way_id": "131319574",
+      "from_node": "5213238594",
+      "to_node": "5436607841",
+      "length": 4.38,
+      "speed": 8.33,
+      "lanes": [
+        "131319574#14_0",
+        "131319574#14_1"
+      ],
+      "shape": [
+        [
+          419.595,
+          959.464
+        ],
+        [
+          419.515,
+          963.844
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.tertiary",
+      "osm_tags": {
+        "cycleway:right": "track",
+        "highway": "tertiary",
+        "lanes": "2",
+        "name": "人民南路四段",
+        "oneway": "yes"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "131319574#15",
+      "name": "人民南路四段",
+      "osm_way_id": "131319574",
+      "from_node": "5436607841",
+      "to_node": "1492405916",
+      "length": 14.89,
+      "speed": 8.33,
+      "lanes": [
+        "131319574#15_0",
+        "131319574#15_1"
+      ],
+      "shape": [
+        [
+          419.315,
+          975.289
+        ],
+        [
+          419.055,
+          990.179
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.tertiary",
+      "osm_tags": {
+        "cycleway:right": "track",
+        "highway": "tertiary",
+        "lanes": "2",
+        "name": "人民南路四段",
+        "oneway": "yes"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "136005112#0",
+      "name": "人民南路三段",
+      "osm_way_id": "136005112",
+      "from_node": "1492405916",
+      "to_node": "11699319252",
+      "length": 5.92,
+      "speed": 8.33,
+      "lanes": [
+        "136005112#0_0",
+        "136005112#0_1"
+      ],
+      "shape": [
+        [
+          418.855,
+          1001.374
+        ],
+        [
+          418.755,
+          1007.289
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.tertiary",
+      "osm_tags": {
+        "cycleway:right": "track",
+        "highway": "tertiary",
+        "lanes": "2",
+        "name": "人民南路三段",
+        "name:en": "Renminnanlu 3 Duan",
+        "name:zh": "人民南路三段",
+        "oneway": "yes"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "136053867#2",
+      "name": "人民南路四段",
+      "osm_way_id": "136053867",
+      "from_node": "12628350177",
+      "to_node": "cluster_1445484321_4550568575",
+      "length": 683.39,
+      "speed": 13.89,
+      "lanes": [
+        "136053867#2_0",
+        "136053867#2_1",
+        "136053867#2_2"
+      ],
+      "shape": [
+        [
+          419.895,
+          280.894
+        ],
+        [
+          407.885,
+          964.174
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.primary",
+      "osm_tags": {
+        "highway": "primary",
+        "lanes": "3",
+        "name": "人民南路四段",
+        "name:en": "Renminnanlu 4 Duan",
+        "name:zh": "人民南路四段",
+        "oneway": "yes",
+        "surface": "asphalt"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "136053867#3",
+      "name": "人民南路四段",
+      "osm_way_id": "136053867",
+      "from_node": "cluster_1445484321_4550568575",
+      "to_node": "5436607837",
+      "length": 14.02,
+      "speed": 13.89,
+      "lanes": [
+        "136053867#3_0",
+        "136053867#3_1",
+        "136053867#3_2"
+      ],
+      "shape": [
+        [
+          407.685,
+          976.004
+        ],
+        [
+          407.465,
+          990.014
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.primary",
+      "osm_tags": {
+        "highway": "primary",
+        "lanes": "3",
+        "name": "人民南路四段",
+        "name:en": "Renminnanlu 4 Duan",
+        "name:zh": "人民南路四段",
+        "oneway": "yes",
+        "surface": "asphalt"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "459143617#4",
+      "name": "人民南路三段",
+      "osm_way_id": "459143617",
+      "from_node": "5436607846",
+      "to_node": "5436607839",
+      "length": 10.68,
+      "speed": 8.33,
+      "lanes": [
+        "459143617#4_0",
+        "459143617#4_1"
+      ],
+      "shape": [
+        [
+          385.465,
+          1011.969
+        ],
+        [
+          385.645,
+          1001.289
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.tertiary",
+      "osm_tags": {
+        "cycleway:right": "track",
+        "highway": "tertiary",
+        "lanes": "2",
+        "name": "人民南路三段",
+        "oneway": "yes"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "459143633#0",
+      "name": "人民南路四段",
+      "osm_way_id": "459143633",
+      "from_node": "cluster_1445484321_4550568575",
+      "to_node": "12628350176",
+      "length": 683.42,
+      "speed": 13.89,
+      "lanes": [
+        "459143633#0_0",
+        "459143633#0_1",
+        "459143633#0_2"
+      ],
+      "shape": [
+        [
+          398.275,
+          964.014
+        ],
+        [
+          409.685,
+          280.694
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.primary",
+      "osm_tags": {
+        "highway": "primary",
+        "lanes": "3",
+        "name": "人民南路四段",
+        "name:en": "Renminnanlu 4 Duan",
+        "name:zh": "人民南路四段",
+        "oneway": "yes",
+        "surface": "asphalt"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "459143638#0",
+      "name": "人民南路三段",
+      "osm_way_id": "459143638",
+      "from_node": "5436607837",
+      "to_node": "1445484327",
+      "length": 410.83,
+      "speed": 13.89,
+      "lanes": [
+        "459143638#0_0",
+        "459143638#0_1",
+        "459143638#0_2",
+        "459143638#0_3"
+      ],
+      "shape": [
+        [
+          407.275,
+          1001.179
+        ],
+        [
+          400.085,
+          1411.944
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.primary",
+      "osm_tags": {
+        "highway": "primary",
+        "lanes": "4",
+        "name": "人民南路三段",
+        "name:en": "Section 3 Renmin Road South",
+        "name:zh": "人民南路三段",
+        "oneway": "yes",
+        "surface": "asphalt"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "476664219#0",
+      "name": "人民南路四段",
+      "osm_way_id": "476664219",
+      "from_node": "5436607839",
+      "to_node": "4550568579",
+      "length": 13.71,
+      "speed": 8.33,
+      "lanes": [
+        "476664219#0_0",
+        "476664219#0_1"
+      ],
+      "shape": [
+        [
+          385.99,
+          989.664
+        ],
+        [
+          386.58,
+          975.964
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.tertiary",
+      "osm_tags": {
+        "cycleway:right": "track",
+        "highway": "tertiary",
+        "lanes": "2",
+        "name": "人民南路四段",
+        "oneway": "yes"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "476664219#1",
+      "name": "人民南路四段",
+      "osm_way_id": "476664219",
+      "from_node": "4550568579",
+      "to_node": "5436607833",
+      "length": 12.18,
+      "speed": 8.33,
+      "lanes": [
+        "476664219#1_0",
+        "476664219#1_1"
+      ],
+      "shape": [
+        [
+          386.815,
+          964.619
+        ],
+        [
+          386.785,
+          952.439
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.tertiary",
+      "osm_tags": {
+        "cycleway:right": "track",
+        "highway": "tertiary",
+        "lanes": "2",
+        "name": "人民南路四段",
+        "oneway": "yes"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "890791639#2",
+      "name": "一环路南二段辅路",
+      "osm_way_id": "890791639",
+      "from_node": "5436607843",
+      "to_node": "1492405916",
+      "length": 4.18,
+      "speed": 11.11,
+      "lanes": [
+        "890791639#2_0"
+      ],
+      "shape": [
+        [
+          430.315,
+          995.914
+        ],
+        [
+          426.145,
+          995.864
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.secondary",
+      "osm_tags": {
+        "cycleway:right": "track",
+        "highway": "secondary",
+        "name": "一环路南二段辅路",
+        "name:en": "1st Ring Road Southern 2nd Section",
+        "name:zh": "一环路南二段",
+        "oneway": "yes"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "890791639#3",
+      "name": "一环路南二段辅路",
+      "osm_way_id": "890791639",
+      "from_node": "1492405916",
+      "to_node": "5436607837",
+      "length": 0.2,
+      "speed": 11.11,
+      "lanes": [
+        "890791639#3_0"
+      ],
+      "shape": [
+        [
+          414.855,
+          995.724
+        ],
+        [
+          414.655,
+          995.724
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.secondary",
+      "osm_tags": {
+        "cycleway:right": "track",
+        "highway": "secondary",
+        "name": "一环路南二段辅路",
+        "name:en": "1st Ring Road Southern 2nd Section",
+        "name:zh": "一环路南二段",
+        "oneway": "yes"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "890791640#1",
+      "name": "一环路南二段辅路",
+      "osm_way_id": "890791640",
+      "from_node": "cluster_1445484321_4550568575",
+      "to_node": "5436607841",
+      "length": 0.2,
+      "speed": 11.11,
+      "lanes": [
+        "890791640#1_0"
+      ],
+      "shape": [
+        [
+          414.295,
+          969.754
+        ],
+        [
+          414.495,
+          969.744
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.secondary",
+      "osm_tags": {
+        "cycleway:right": "track",
+        "highway": "secondary",
+        "name": "一环路南二段辅路",
+        "name:en": "1st Ring Road Southern 2nd Section",
+        "name:zh": "一环路南二段",
+        "oneway": "yes"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "890791640#2",
+      "name": "一环路南二段辅路",
+      "osm_way_id": "890791640",
+      "from_node": "5436607841",
+      "to_node": "4550569689",
+      "length": 10.41,
+      "speed": 11.11,
+      "lanes": [
+        "890791640#2_0"
+      ],
+      "shape": [
+        [
+          426.615,
+          969.574
+        ],
+        [
+          437.015,
+          969.764
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.secondary",
+      "osm_tags": {
+        "cycleway:right": "track",
+        "highway": "secondary",
+        "name": "一环路南二段辅路",
+        "name:en": "1st Ring Road Southern 2nd Section",
+        "name:zh": "一环路南二段",
+        "oneway": "yes"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "954864900#0",
+      "name": "一环路南三段辅路",
+      "osm_way_id": "954864900",
+      "from_node": "5436607837",
+      "to_node": "1445484323",
+      "length": 0.2,
+      "speed": 11.11,
+      "lanes": [
+        "954864900#0_0"
+      ],
+      "shape": [
+        [
+          402.615,
+          995.514
+        ],
+        [
+          402.415,
+          995.514
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.secondary",
+      "osm_tags": {
+        "cycleway:right": "track",
+        "highway": "secondary",
+        "name": "一环路南三段辅路",
+        "oneway": "yes"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "954864900#1",
+      "name": "一环路南三段辅路",
+      "osm_way_id": "954864900",
+      "from_node": "1445484323",
+      "to_node": "5436607839",
+      "length": 0.2,
+      "speed": 11.11,
+      "lanes": [
+        "954864900#1_0"
+      ],
+      "shape": [
+        [
+          390.195,
+          995.394
+        ],
+        [
+          389.995,
+          995.394
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.secondary",
+      "osm_tags": {
+        "cycleway:right": "track",
+        "highway": "secondary",
+        "name": "一环路南三段辅路",
+        "oneway": "yes"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "954864900#2",
+      "name": "一环路南三段辅路",
+      "osm_way_id": "954864900",
+      "from_node": "5436607839",
+      "to_node": "5436607851",
+      "length": 9.97,
+      "speed": 11.11,
+      "lanes": [
+        "954864900#2_0"
+      ],
+      "shape": [
+        [
+          378.415,
+          995.924
+        ],
+        [
+          368.465,
+          996.634
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.secondary",
+      "osm_tags": {
+        "cycleway:right": "track",
+        "highway": "secondary",
+        "name": "一环路南三段辅路",
+        "oneway": "yes"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "954864901#3",
+      "name": "一环路南三段辅路",
+      "osm_way_id": "954864901",
+      "from_node": "5436607829",
+      "to_node": "4550568579",
+      "length": 20.49,
+      "speed": 11.11,
+      "lanes": [
+        "954864901#3_0"
+      ],
+      "shape": [
+        [
+          359.065,
+          970.374
+        ],
+        [
+          379.555,
+          970.264
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.secondary",
+      "osm_tags": {
+        "cycleway:right": "track",
+        "highway": "secondary",
+        "name": "一环路南三段辅路",
+        "name:en": "1 Huanlu Nan 3 Duan",
+        "oneway": "yes"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    },
+    {
+      "id": "954864901#4",
+      "name": "一环路南三段辅路",
+      "osm_way_id": "954864901",
+      "from_node": "4550568579",
+      "to_node": "cluster_1445484321_4550568575",
+      "length": 0.2,
+      "speed": 11.11,
+      "lanes": [
+        "954864901#4_0"
+      ],
+      "shape": [
+        [
+          391.575,
+          970.194
+        ],
+        [
+          391.775,
+          970.194
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.secondary",
+      "osm_tags": {
+        "cycleway:right": "track",
+        "highway": "secondary",
+        "name": "一环路南三段辅路",
+        "name:en": "1 Huanlu Nan 3 Duan",
+        "oneway": "yes"
+      },
+      "display_elevation": 0.0,
+      "layer": 0
+    }
+  ],
+  "expected_removed_external_edges": [
+    "115625956",
+    "131319574#15",
+    "136053867#3",
+    "476664219#0",
+    "890791639#3",
+    "890791640#1",
+    "954864900#0",
+    "954864900#1",
+    "954864901#4"
+  ],
+  "all_incident_source_layer_bridge_tunnel_tags_absent": true,
+  "excluded_underpass_edges": [
+    {
+      "id": "459143642",
+      "name": "省体育馆下穿隧道",
+      "osm_way_id": "459143642",
+      "from_node": "5436607828",
+      "to_node": "4550568567",
+      "length": 112.07,
+      "speed": 13.89,
+      "lanes": [
+        "459143642_0",
+        "459143642_1"
+      ],
+      "shape": [
+        [
+          343.405,
+          981.224
+        ],
+        [
+          455.465,
+          980.504
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.primary",
+      "osm_tags": {
+        "highway": "primary",
+        "layer": "-1",
+        "name": "省体育馆下穿隧道",
+        "oneway": "yes",
+        "surface": "asphalt",
+        "tunnel": "yes"
+      },
+      "display_elevation": -5.0,
+      "layer": -1
+    },
+    {
+      "id": "564190171",
+      "name": "省体育馆下穿隧道",
+      "osm_way_id": "564190171",
+      "from_node": "5213238579",
+      "to_node": "5436607834",
+      "length": 111.8,
+      "speed": 13.89,
+      "lanes": [
+        "564190171_0",
+        "564190171_1"
+      ],
+      "shape": [
+        [
+          455.435,
+          989.424
+        ],
+        [
+          343.635,
+          989.204
+        ]
+      ],
+      "allows_passenger": true,
+      "type": "highway.primary",
+      "osm_tags": {
+        "highway": "primary",
+        "layer": "-1",
+        "name": "省体育馆下穿隧道",
+        "oneway": "yes",
+        "surface": "asphalt",
+        "tunnel": "yes"
+      },
+      "display_elevation": -5.0,
+      "layer": -1
+    }
+  ],
+  "rationale": "Saved-state single-vehicle isolation identifies spatial crossing blockage by t42_0000576 on 0.20m edge890791639#3, within a circular upstream leader chain containing multiple0.20m external edges. Not an automatic proximity join. Test as one surface junction while preserving independent grade-separated underpass.",
+  "source_limit": "Absence of elevation tags and consistent source shared-node connectivity support a bounded model hypothesis; not a field survey or observed traffic-light plan."
+}

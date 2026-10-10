@@ -1,0 +1,2196 @@
+{
+  "status": "Topology counterfactual, not same-network policy comparison and not field calibration.",
+  "same_demand_hash": "446b4e09d11d08279129f9d496a06324ce6b590ed7562f07cc9505c758bb295a",
+  "same_exogenous_inventory": true,
+  "source_run_id": "high_pressure_S0_am_42_v2",
+  "target_run_id": "north_surface_counterfactual_S0_am_42_v3_movementfix",
+  "source_network_hash": "85ca1ace1c2ee131c4dafe90b7fc991dff3ed7e72fe1a5a4b33ff0109cf03d56",
+  "target_network_hash": "852d34522be4f77627849a30201cc92eb0d6d0208466302f26c9f9d90dc21b19",
+  "source": {
+    "run_id": "high_pressure_S0_am_42_v2",
+    "config": {
+      "demo_scenario": "synthetic_building_od_high_pressure_access_v2",
+      "seed": 42,
+      "demand_scale": 1.0,
+      "rate_per_gate": 360,
+      "duration_seconds": 4200,
+      "warmup_seconds": 300,
+      "demand_end_seconds": 1800,
+      "step_seconds": 0.5,
+      "trajectory": true,
+      "internal_demand": {
+        "cars_per_building": 3,
+        "initial_departure_fraction": 0.03,
+        "internal_to_internal_fraction": 0.3,
+        "departure_fraction": 0.7,
+        "local_access_only": true
+      },
+      "network_variant": "joined_nijiaqiao_access_v2",
+      "policy": "S0",
+      "period": "am",
+      "run_id": "high_pressure_S0_am_42_v2"
+    },
+    "network_hash": "85ca1ace1c2ee131c4dafe90b7fc991dff3ed7e72fe1a5a4b33ff0109cf03d56",
+    "demand_hash": "446b4e09d11d08279129f9d496a06324ce6b590ed7562f07cc9505c758bb295a",
+    "metrics": {
+      "generated": 3520,
+      "due": 3520,
+      "completed": 2411,
+      "inside": 683,
+      "external_waiting": 426,
+      "explicit_failure": 0,
+      "completion_rate": 0.6849431818181818,
+      "tstt_vehicle_seconds": 4674935.766000003,
+      "mean_travel_time_seconds": 504.6788768145998,
+      "p95_travel_time_seconds": 1486.0030000000002,
+      "median_travel_time_seconds": 356.67499999999995,
+      "external_wait_vehicle_seconds": 1302448.766,
+      "core_vehicle_seconds": 1094368.5,
+      "periphery_vehicle_seconds": 2278460.0,
+      "max_queue_vehicles": 986,
+      "teleports": 0,
+      "collisions": 0,
+      "duration_seconds": 4200.0,
+      "cohort": "peak",
+      "interpretation": "Finite-window cumulative time including due but uninserted target trips. Incomplete trips are right-censored; completed-only mean is secondary.",
+      "all_cohort_generated": 4042,
+      "all_cohort_completed": 2916,
+      "all_cohort_inserted": 3616,
+      "spatial_time_method": "End-of-step rectangular integration; peak core/periphery may differ by <= step boundary terms from exact trip elapsed time.",
+      "queue_population": "All cohorts; stopped-speed threshold <0.1 m/s is a count proxy, not contiguous physical queue length.",
+      "observed_stop_starts": 164,
+      "signal_extensions": 0,
+      "bus_completed": 16,
+      "insertion_wait_population": "Legacy external_waiting fields include all due uninserted trips; split boundary/internal waiting is in stock_timeseries.",
+      "boundary_insertion_wait_vehicle_seconds": 1301615.057,
+      "internal_insertion_wait_vehicle_seconds": 833.7090000000317,
+      "initial_parked_total": 1187,
+      "internal_departures_generated": 830,
+      "boundary_arrivals_reassigned": 741,
+      "parked_final": 1196
+    },
+    "audit": {
+      "conservation_passed": true,
+      "conservation_max_residual": 0,
+      "teleports": 0,
+      "collisions": 0,
+      "explicit_failures": 0,
+      "unexplained_losses": 0,
+      "steps": 8400,
+      "field_calibrated": false,
+      "critical_unknowns": [
+        "Actual signals/turn permissions/driver behavior require field verification",
+        "Synthetic boundary OD and bus/curb events",
+        "No pedestrian demand or nonmotorized agents yet; lane geometry only",
+        "OSM footprints are geographic evidence, not measured population or parking capacity.",
+        "Access positions are connected road proxies, not surveyed entrances or modeled private driveways.",
+        "Parked stock is off-network accounting; cars enter only valid SUMO lanes, with insertion delay retained.",
+        "Boundary arrivals are reassigned to internal destinations, never copied; no new boundary inflow is added.",
+        "Initial stock departures and boundary arrivals are distinct vehicles; arrivals park and do not generate a second journey."
+      ],
+      "status": "passed_software_checks",
+      "parked_stock_conservation_passed": true,
+      "parked_stock_max_residual": 0
+    },
+    "observation_window_seconds": [
+      600,
+      1800
+    ],
+    "occupancy": {
+      "all_cohort_inside": {
+        "mean": 1162.8008298755187,
+        "peak": 1306
+      },
+      "all_cohort_core_vehicles": {
+        "mean": 432.1991701244813,
+        "peak": 486
+      },
+      "all_cohort_periphery_vehicles": {
+        "mean": 730.6016597510373,
+        "peak": 843
+      },
+      "all_cohort_external_waiting": {
+        "mean": 227.83817427385893,
+        "peak": 428
+      },
+      "queue_vehicles": {
+        "mean": 624.6141078838174,
+        "peak": 977
+      }
+    },
+    "sampled_space_mean_speed_km_h": 13.087323009152566,
+    "sampled_core_space_mean_speed_km_h": 12.40875914905961,
+    "completed_only_mean_delay_seconds": 313.88502097060643,
+    "peak_strict_core_stopped": 354,
+    "clearance_time_seconds": null,
+    "recovery_tail_seconds": 2400.0,
+    "final_state": {
+      "all_cohort_inside": 700,
+      "all_cohort_core_vehicles": 172,
+      "all_cohort_periphery_vehicles": 528,
+      "all_cohort_external_waiting": 426,
+      "all_cohort_due": 4042,
+      "all_cohort_completed": 2916,
+      "time": 4200.0,
+      "due": 3520,
+      "inside": 683,
+      "external_waiting": 426,
+      "completed": 2411,
+      "core_vehicles": 172,
+      "periphery_vehicles": 511,
+      "queue_vehicles": 700,
+      "tstt_vehicle_seconds": 4674935.766000003,
+      "internal_insertion_waiting": 0,
+      "boundary_insertion_waiting": 426,
+      "parked_total": 1196
+    },
+    "snapshots": [
+      {
+        "all_cohort_inside": 415,
+        "all_cohort_core_vehicles": 162,
+        "all_cohort_periphery_vehicles": 253,
+        "all_cohort_external_waiting": 11,
+        "all_cohort_due": 522,
+        "all_cohort_completed": 96,
+        "time": 300.0,
+        "due": 0,
+        "inside": 0,
+        "external_waiting": 0,
+        "completed": 0,
+        "core_vehicles": 0,
+        "periphery_vehicles": 0,
+        "queue_vehicles": 96,
+        "tstt_vehicle_seconds": 0.0,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 11,
+        "parked_total": 1111
+      },
+      {
+        "all_cohort_inside": 839,
+        "all_cohort_core_vehicles": 339,
+        "all_cohort_periphery_vehicles": 500,
+        "all_cohort_external_waiting": 40,
+        "all_cohort_due": 1334,
+        "all_cohort_completed": 455,
+        "time": 600.0,
+        "due": 812,
+        "inside": 689,
+        "external_waiting": 39,
+        "completed": 84,
+        "core_vehicles": 284,
+        "periphery_vehicles": 405,
+        "queue_vehicles": 286,
+        "tstt_vehicle_seconds": 114881.96399999998,
+        "internal_insertion_waiting": 3,
+        "boundary_insertion_waiting": 37,
+        "parked_total": 992
+      },
+      {
+        "all_cohort_inside": 1062,
+        "all_cohort_core_vehicles": 402,
+        "all_cohort_periphery_vehicles": 660,
+        "all_cohort_external_waiting": 114,
+        "all_cohort_due": 2161,
+        "all_cohort_completed": 985,
+        "time": 900.0,
+        "due": 1639,
+        "inside": 1015,
+        "external_waiting": 114,
+        "completed": 510,
+        "core_vehicles": 387,
+        "periphery_vehicles": 628,
+        "queue_vehicles": 406,
+        "tstt_vehicle_seconds": 395797.5639999999,
+        "internal_insertion_waiting": 2,
+        "boundary_insertion_waiting": 112,
+        "parked_total": 908
+      },
+      {
+        "all_cohort_inside": 1223,
+        "all_cohort_core_vehicles": 438,
+        "all_cohort_periphery_vehicles": 785,
+        "all_cohort_external_waiting": 228,
+        "all_cohort_due": 2954,
+        "all_cohort_completed": 1503,
+        "time": 1200.0,
+        "due": 2432,
+        "inside": 1197,
+        "external_waiting": 228,
+        "completed": 1007,
+        "core_vehicles": 431,
+        "periphery_vehicles": 766,
+        "queue_vehicles": 619,
+        "tstt_vehicle_seconds": 782402.1919999992,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 228,
+        "parked_total": 887
+      },
+      {
+        "all_cohort_inside": 1282,
+        "all_cohort_core_vehicles": 470,
+        "all_cohort_periphery_vehicles": 812,
+        "all_cohort_external_waiting": 340,
+        "all_cohort_due": 3589,
+        "all_cohort_completed": 1967,
+        "time": 1500.0,
+        "due": 3067,
+        "inside": 1263,
+        "external_waiting": 340,
+        "completed": 1464,
+        "core_vehicles": 468,
+        "periphery_vehicles": 795,
+        "queue_vehicles": 780,
+        "tstt_vehicle_seconds": 1240837.705,
+        "internal_insertion_waiting": 1,
+        "boundary_insertion_waiting": 339,
+        "parked_total": 897
+      },
+      {
+        "all_cohort_inside": 1300,
+        "all_cohort_core_vehicles": 461,
+        "all_cohort_periphery_vehicles": 839,
+        "all_cohort_external_waiting": 428,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 2314,
+        "time": 1800.0,
+        "due": 3520,
+        "inside": 1283,
+        "external_waiting": 428,
+        "completed": 1809,
+        "core_vehicles": 461,
+        "periphery_vehicles": 822,
+        "queue_vehicles": 873,
+        "tstt_vehicle_seconds": 1737621.2660000024,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 428,
+        "parked_total": 960
+      },
+      {
+        "all_cohort_inside": 1040,
+        "all_cohort_core_vehicles": 367,
+        "all_cohort_periphery_vehicles": 673,
+        "all_cohort_external_waiting": 426,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 2576,
+        "time": 2100.0,
+        "due": 3520,
+        "inside": 1023,
+        "external_waiting": 426,
+        "completed": 2071,
+        "core_vehicles": 367,
+        "periphery_vehicles": 656,
+        "queue_vehicles": 800,
+        "tstt_vehicle_seconds": 2206775.2660000026,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 426,
+        "parked_total": 1044
+      },
+      {
+        "all_cohort_inside": 906,
+        "all_cohort_core_vehicles": 244,
+        "all_cohort_periphery_vehicles": 662,
+        "all_cohort_external_waiting": 426,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 2710,
+        "time": 2400.0,
+        "due": 3520,
+        "inside": 889,
+        "external_waiting": 426,
+        "completed": 2205,
+        "core_vehicles": 244,
+        "periphery_vehicles": 645,
+        "queue_vehicles": 769,
+        "tstt_vehicle_seconds": 2618374.2660000026,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 426,
+        "parked_total": 1106
+      },
+      {
+        "all_cohort_inside": 788,
+        "all_cohort_core_vehicles": 206,
+        "all_cohort_periphery_vehicles": 582,
+        "all_cohort_external_waiting": 426,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 2828,
+        "time": 2700.0,
+        "due": 3520,
+        "inside": 771,
+        "external_waiting": 426,
+        "completed": 2323,
+        "core_vehicles": 206,
+        "periphery_vehicles": 565,
+        "queue_vehicles": 717,
+        "tstt_vehicle_seconds": 2993985.2660000026,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 426,
+        "parked_total": 1158
+      },
+      {
+        "all_cohort_inside": 725,
+        "all_cohort_core_vehicles": 179,
+        "all_cohort_periphery_vehicles": 546,
+        "all_cohort_external_waiting": 426,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 2891,
+        "time": 3000.0,
+        "due": 3520,
+        "inside": 708,
+        "external_waiting": 426,
+        "completed": 2386,
+        "core_vehicles": 179,
+        "periphery_vehicles": 529,
+        "queue_vehicles": 698,
+        "tstt_vehicle_seconds": 3340859.7660000026,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 426,
+        "parked_total": 1187
+      },
+      {
+        "all_cohort_inside": 703,
+        "all_cohort_core_vehicles": 172,
+        "all_cohort_periphery_vehicles": 531,
+        "all_cohort_external_waiting": 426,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 2913,
+        "time": 3300.0,
+        "due": 3520,
+        "inside": 686,
+        "external_waiting": 426,
+        "completed": 2408,
+        "core_vehicles": 172,
+        "periphery_vehicles": 514,
+        "queue_vehicles": 696,
+        "tstt_vehicle_seconds": 3676645.7660000026,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 426,
+        "parked_total": 1196
+      },
+      {
+        "all_cohort_inside": 700,
+        "all_cohort_core_vehicles": 172,
+        "all_cohort_periphery_vehicles": 528,
+        "all_cohort_external_waiting": 426,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 2916,
+        "time": 3600.0,
+        "due": 3520,
+        "inside": 683,
+        "external_waiting": 426,
+        "completed": 2411,
+        "core_vehicles": 172,
+        "periphery_vehicles": 511,
+        "queue_vehicles": 700,
+        "tstt_vehicle_seconds": 4009535.7660000026,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 426,
+        "parked_total": 1196
+      },
+      {
+        "all_cohort_inside": 700,
+        "all_cohort_core_vehicles": 172,
+        "all_cohort_periphery_vehicles": 528,
+        "all_cohort_external_waiting": 426,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 2916,
+        "time": 3900.0,
+        "due": 3520,
+        "inside": 683,
+        "external_waiting": 426,
+        "completed": 2411,
+        "core_vehicles": 172,
+        "periphery_vehicles": 511,
+        "queue_vehicles": 700,
+        "tstt_vehicle_seconds": 4342235.766000003,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 426,
+        "parked_total": 1196
+      },
+      {
+        "all_cohort_inside": 700,
+        "all_cohort_core_vehicles": 172,
+        "all_cohort_periphery_vehicles": 528,
+        "all_cohort_external_waiting": 426,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 2916,
+        "time": 4200.0,
+        "due": 3520,
+        "inside": 683,
+        "external_waiting": 426,
+        "completed": 2411,
+        "core_vehicles": 172,
+        "periphery_vehicles": 511,
+        "queue_vehicles": 700,
+        "tstt_vehicle_seconds": 4674935.766000003,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 426,
+        "parked_total": 1196
+      }
+    ],
+    "top_stopped_edges": [
+      {
+        "edge_id": "136053867#2",
+        "road": "人民南路四段",
+        "stopped": 286,
+        "time": 3335.0
+      },
+      {
+        "edge_id": "136004880#4",
+        "road": "人民南路四段",
+        "stopped": 96,
+        "time": 1880.0
+      },
+      {
+        "edge_id": "458891623#3",
+        "road": "二环路南三段",
+        "stopped": 95,
+        "time": 2380.0
+      },
+      {
+        "edge_id": "136053867#0",
+        "road": "人民南路四段",
+        "stopped": 85,
+        "time": 2035.0
+      },
+      {
+        "edge_id": "136053867#1",
+        "road": "人民南路四段",
+        "stopped": 61,
+        "time": 2270.0
+      },
+      {
+        "edge_id": "459143633#1",
+        "road": "人民南路四段",
+        "stopped": 45,
+        "time": 1325.0
+      },
+      {
+        "edge_id": "37132266#8",
+        "road": "倪家桥路",
+        "stopped": 40,
+        "time": 930.0
+      },
+      {
+        "edge_id": "785085443",
+        "road": "",
+        "stopped": 39,
+        "time": 1780.0
+      },
+      {
+        "edge_id": "458891623#2",
+        "road": "二环路南三段",
+        "stopped": 37,
+        "time": 1380.0
+      },
+      {
+        "edge_id": "267232614#0",
+        "road": "紫荆北路",
+        "stopped": 36,
+        "time": 1745.0
+      },
+      {
+        "edge_id": "1521446137#0",
+        "road": "一环路南二段",
+        "stopped": 34,
+        "time": 1535.0
+      },
+      {
+        "edge_id": "954864901#1",
+        "road": "一环路南三段辅路",
+        "stopped": 31,
+        "time": 1605.0
+      },
+      {
+        "edge_id": "1521446137#4",
+        "road": "一环路南二段",
+        "stopped": 28,
+        "time": 775.0
+      },
+      {
+        "edge_id": "890791639#0",
+        "road": "一环路南二段辅路",
+        "stopped": 26,
+        "time": 650.0
+      },
+      {
+        "edge_id": "1448610366",
+        "road": "一环路南二段",
+        "stopped": 25,
+        "time": 2630.0
+      },
+      {
+        "edge_id": "890791637#2",
+        "road": "一环路南三段",
+        "stopped": 24,
+        "time": 1630.0
+      },
+      {
+        "edge_id": "-28621532#1",
+        "road": "玉林南路",
+        "stopped": 24,
+        "time": 1465.0
+      },
+      {
+        "edge_id": "1505070689#1",
+        "road": "一环路南三段",
+        "stopped": 24,
+        "time": 3055.0
+      },
+      {
+        "edge_id": "1448610363#1",
+        "road": "人民南路四段",
+        "stopped": 23,
+        "time": 710.0
+      },
+      {
+        "edge_id": "267232476#1",
+        "road": "紫竹中街",
+        "stopped": 23,
+        "time": 1805.0
+      }
+    ],
+    "observed_lane_storage_pressure": [
+      {
+        "lane_id": "1521446137#0_0",
+        "edge_id": "1521446137#0",
+        "road": "一环路南二段",
+        "samples": 718,
+        "observed_seconds": 3590,
+        "longest_continuous_seconds": 3560,
+        "longest_start": 645.0,
+        "peak_stopped": 17,
+        "example": {
+          "time": 590.0,
+          "stopped": 17,
+          "tail_m": 5.92,
+          "head_m": 119.58,
+          "span_m": 113.66,
+          "lane_length_m": 120.58
+        }
+      },
+      {
+        "lane_id": "785085443_0",
+        "edge_id": "785085443",
+        "road": "",
+        "samples": 670,
+        "observed_seconds": 3350,
+        "longest_continuous_seconds": 3350,
+        "longest_start": 855.0,
+        "peak_stopped": 33,
+        "example": {
+          "time": 860.0,
+          "stopped": 33,
+          "tail_m": 11.13,
+          "head_m": 238.33,
+          "span_m": 227.21,
+          "lane_length_m": 239.37
+        }
+      },
+      {
+        "lane_id": "890791639#0_0",
+        "edge_id": "890791639#0",
+        "road": "一环路南二段辅路",
+        "samples": 677,
+        "observed_seconds": 3385,
+        "longest_continuous_seconds": 3160,
+        "longest_start": 1045.0,
+        "peak_stopped": 26,
+        "example": {
+          "time": 650.0,
+          "stopped": 26,
+          "tail_m": 3.41,
+          "head_m": 180.99,
+          "span_m": 177.58,
+          "lane_length_m": 182.94
+        }
+      },
+      {
+        "lane_id": "1521446137#4_0",
+        "edge_id": "1521446137#4",
+        "road": "一环路南二段",
+        "samples": 688,
+        "observed_seconds": 3440,
+        "longest_continuous_seconds": 3140,
+        "longest_start": 1065.0,
+        "peak_stopped": 14,
+        "example": {
+          "time": 500.0,
+          "stopped": 14,
+          "tail_m": 6.35,
+          "head_m": 98.98,
+          "span_m": 92.63,
+          "lane_length_m": 99.54
+        }
+      },
+      {
+        "lane_id": "1521446137#4_1",
+        "edge_id": "1521446137#4",
+        "road": "一环路南二段",
+        "samples": 653,
+        "observed_seconds": 3265,
+        "longest_continuous_seconds": 3095,
+        "longest_start": 1110.0,
+        "peak_stopped": 14,
+        "example": {
+          "time": 775.0,
+          "stopped": 14,
+          "tail_m": 1.03,
+          "head_m": 93.36,
+          "span_m": 92.33,
+          "lane_length_m": 99.54
+        }
+      },
+      {
+        "lane_id": "1521446136#1_1",
+        "edge_id": "1521446136#1",
+        "road": "一环路南二段",
+        "samples": 595,
+        "observed_seconds": 2975,
+        "longest_continuous_seconds": 2975,
+        "longest_start": 1230.0,
+        "peak_stopped": 11,
+        "example": {
+          "time": 1280.0,
+          "stopped": 11,
+          "tail_m": 3.98,
+          "head_m": 74.99,
+          "span_m": 71.0,
+          "lane_length_m": 75.42
+        }
+      },
+      {
+        "lane_id": "1521446137#0_1",
+        "edge_id": "1521446137#0",
+        "road": "一环路南二段",
+        "samples": 536,
+        "observed_seconds": 2680,
+        "longest_continuous_seconds": 2680,
+        "longest_start": 1525.0,
+        "peak_stopped": 17,
+        "example": {
+          "time": 1535.0,
+          "stopped": 17,
+          "tail_m": 5.92,
+          "head_m": 119.57,
+          "span_m": 113.65,
+          "lane_length_m": 120.58
+        }
+      },
+      {
+        "lane_id": "954864901#1_0",
+        "edge_id": "954864901#1",
+        "road": "一环路南三段辅路",
+        "samples": 529,
+        "observed_seconds": 2645,
+        "longest_continuous_seconds": 2645,
+        "longest_start": 1560.0,
+        "peak_stopped": 31,
+        "example": {
+          "time": 1605.0,
+          "stopped": 31,
+          "tail_m": 1.61,
+          "head_m": 214.65,
+          "span_m": 213.04,
+          "lane_length_m": 218.32
+        }
+      },
+      {
+        "lane_id": "136053867#2_0",
+        "edge_id": "136053867#2",
+        "road": "人民南路四段",
+        "samples": 501,
+        "observed_seconds": 2505,
+        "longest_continuous_seconds": 2505,
+        "longest_start": 1700.0,
+        "peak_stopped": 94,
+        "example": {
+          "time": 1705.0,
+          "stopped": 94,
+          "tail_m": 7.04,
+          "head_m": 675.34,
+          "span_m": 668.3,
+          "lane_length_m": 683.39
+        }
+      },
+      {
+        "lane_id": "1505070689#2_0",
+        "edge_id": "1505070689#2",
+        "road": "一环路南三段",
+        "samples": 481,
+        "observed_seconds": 2405,
+        "longest_continuous_seconds": 2405,
+        "longest_start": 1800.0,
+        "peak_stopped": 23,
+        "example": {
+          "time": 1805.0,
+          "stopped": 23,
+          "tail_m": 7.65,
+          "head_m": 163.92,
+          "span_m": 156.26,
+          "lane_length_m": 167.58
+        }
+      },
+      {
+        "lane_id": "136053867#2_2",
+        "edge_id": "136053867#2",
+        "road": "人民南路四段",
+        "samples": 476,
+        "observed_seconds": 2380,
+        "longest_continuous_seconds": 2380,
+        "longest_start": 1825.0,
+        "peak_stopped": 97,
+        "example": {
+          "time": 1910.0,
+          "stopped": 97,
+          "tail_m": 0.68,
+          "head_m": 682.39,
+          "span_m": 681.72,
+          "lane_length_m": 683.39
+        }
+      },
+      {
+        "lane_id": "136053867#1_0",
+        "edge_id": "136053867#1",
+        "road": "人民南路四段",
+        "samples": 431,
+        "observed_seconds": 2155,
+        "longest_continuous_seconds": 2155,
+        "longest_start": 2050.0,
+        "peak_stopped": 30,
+        "example": {
+          "time": 2055.0,
+          "stopped": 30,
+          "tail_m": 10.49,
+          "head_m": 224.32,
+          "span_m": 213.84,
+          "lane_length_m": 226.46
+        }
+      },
+      {
+        "lane_id": "136053867#1_2",
+        "edge_id": "136053867#1",
+        "road": "人民南路四段",
+        "samples": 389,
+        "observed_seconds": 1945,
+        "longest_continuous_seconds": 1945,
+        "longest_start": 2260.0,
+        "peak_stopped": 31,
+        "example": {
+          "time": 2270.0,
+          "stopped": 31,
+          "tail_m": 12.04,
+          "head_m": 225.07,
+          "span_m": 213.04,
+          "lane_length_m": 226.46
+        }
+      },
+      {
+        "lane_id": "1448610366_1",
+        "edge_id": "1448610366",
+        "road": "一环路南二段",
+        "samples": 339,
+        "observed_seconds": 1695,
+        "longest_continuous_seconds": 1695,
+        "longest_start": 2510.0,
+        "peak_stopped": 25,
+        "example": {
+          "time": 2630.0,
+          "stopped": 25,
+          "tail_m": 6.83,
+          "head_m": 177.3,
+          "span_m": 170.47,
+          "lane_length_m": 178.26
+        }
+      },
+      {
+        "lane_id": "1505070689#1_0",
+        "edge_id": "1505070689#1",
+        "road": "一环路南三段",
+        "samples": 242,
+        "observed_seconds": 1210,
+        "longest_continuous_seconds": 1210,
+        "longest_start": 2995.0,
+        "peak_stopped": 24,
+        "example": {
+          "time": 3055.0,
+          "stopped": 24,
+          "tail_m": 7.12,
+          "head_m": 170.5,
+          "span_m": 163.38,
+          "lane_length_m": 171.51
+        }
+      },
+      {
+        "lane_id": "136053867#2_1",
+        "edge_id": "136053867#2",
+        "road": "人民南路四段",
+        "samples": 175,
+        "observed_seconds": 875,
+        "longest_continuous_seconds": 875,
+        "longest_start": 3330.0,
+        "peak_stopped": 95,
+        "example": {
+          "time": 3335.0,
+          "stopped": 95,
+          "tail_m": 8.6,
+          "head_m": 676.1,
+          "span_m": 667.5,
+          "lane_length_m": 683.39
+        }
+      },
+      {
+        "lane_id": "136004880#2_3",
+        "edge_id": "136004880#2",
+        "road": "人民南路四段",
+        "samples": 119,
+        "observed_seconds": 595,
+        "longest_continuous_seconds": 495,
+        "longest_start": 1365.0,
+        "peak_stopped": 8,
+        "example": {
+          "time": 1460.0,
+          "stopped": 8,
+          "tail_m": 2.95,
+          "head_m": 52.67,
+          "span_m": 49.73,
+          "lane_length_m": 55.69
+        }
+      },
+      {
+        "lane_id": "136004880#4_3",
+        "edge_id": "136004880#4",
+        "road": "人民南路四段",
+        "samples": 124,
+        "observed_seconds": 620,
+        "longest_continuous_seconds": 250,
+        "longest_start": 1490.0,
+        "peak_stopped": 34,
+        "example": {
+          "time": 1175.0,
+          "stopped": 34,
+          "tail_m": 0.0,
+          "head_m": 234.54,
+          "span_m": 234.54,
+          "lane_length_m": 241.09
+        }
+      },
+      {
+        "lane_id": "37132266#5_0",
+        "edge_id": "37132266#5",
+        "road": "倪家桥路",
+        "samples": 85,
+        "observed_seconds": 425,
+        "longest_continuous_seconds": 125,
+        "longest_start": 985.0,
+        "peak_stopped": 9,
+        "example": {
+          "time": 985.0,
+          "stopped": 9,
+          "tail_m": 6.21,
+          "head_m": 63.03,
+          "span_m": 56.82,
+          "lane_length_m": 64.03
+        }
+      },
+      {
+        "lane_id": "37132267#3_0",
+        "edge_id": "37132267#3",
+        "road": "玉林南街",
+        "samples": 78,
+        "observed_seconds": 390,
+        "longest_continuous_seconds": 120,
+        "longest_start": 1290.0,
+        "peak_stopped": 8,
+        "example": {
+          "time": 430.0,
+          "stopped": 8,
+          "tail_m": 10.71,
+          "head_m": 60.42,
+          "span_m": 49.71,
+          "lane_length_m": 61.42
+        }
+      },
+      {
+        "lane_id": "-28621532#2_0",
+        "edge_id": "-28621532#2",
+        "road": "玉林南路",
+        "samples": 108,
+        "observed_seconds": 540,
+        "longest_continuous_seconds": 120,
+        "longest_start": 1515.0,
+        "peak_stopped": 6,
+        "example": {
+          "time": 635.0,
+          "stopped": 6,
+          "tail_m": 5.37,
+          "head_m": 40.93,
+          "span_m": 35.56,
+          "lane_length_m": 44.07
+        }
+      },
+      {
+        "lane_id": "136053867#0_0",
+        "edge_id": "136053867#0",
+        "road": "人民南路四段",
+        "samples": 49,
+        "observed_seconds": 245,
+        "longest_continuous_seconds": 105,
+        "longest_start": 1465.0,
+        "peak_stopped": 26,
+        "example": {
+          "time": 1935.0,
+          "stopped": 26,
+          "tail_m": 19.43,
+          "head_m": 212.3,
+          "span_m": 192.88,
+          "lane_length_m": 213.3
+        }
+      },
+      {
+        "lane_id": "37132266#4_0",
+        "edge_id": "37132266#4",
+        "road": "倪家桥路",
+        "samples": 65,
+        "observed_seconds": 325,
+        "longest_continuous_seconds": 90,
+        "longest_start": 1025.0,
+        "peak_stopped": 6,
+        "example": {
+          "time": 1030.0,
+          "stopped": 6,
+          "tail_m": 10.63,
+          "head_m": 46.2,
+          "span_m": 35.56,
+          "lane_length_m": 47.2
+        }
+      },
+      {
+        "lane_id": "37132266#2_0",
+        "edge_id": "37132266#2",
+        "road": "倪家桥路",
+        "samples": 81,
+        "observed_seconds": 405,
+        "longest_continuous_seconds": 80,
+        "longest_start": 1040.0,
+        "peak_stopped": 7,
+        "example": {
+          "time": 1135.0,
+          "stopped": 7,
+          "tail_m": 3.52,
+          "head_m": 46.12,
+          "span_m": 42.61,
+          "lane_length_m": 47.13
+        }
+      },
+      {
+        "lane_id": "136053867#0_2",
+        "edge_id": "136053867#0",
+        "road": "人民南路四段",
+        "samples": 176,
+        "observed_seconds": 880,
+        "longest_continuous_seconds": 80,
+        "longest_start": 1455.0,
+        "peak_stopped": 31,
+        "example": {
+          "time": 710.0,
+          "stopped": 31,
+          "tail_m": 0.15,
+          "head_m": 213.2,
+          "span_m": 213.05,
+          "lane_length_m": 213.3
+        }
+      },
+      {
+        "lane_id": "-28621532#0_0",
+        "edge_id": "-28621532#0",
+        "road": "玉林南路",
+        "samples": 163,
+        "observed_seconds": 815,
+        "longest_continuous_seconds": 80,
+        "longest_start": 850.0,
+        "peak_stopped": 17,
+        "example": {
+          "time": 880.0,
+          "stopped": 17,
+          "tail_m": 7.5,
+          "head_m": 121.12,
+          "span_m": 113.62,
+          "lane_length_m": 122.12
+        }
+      },
+      {
+        "lane_id": "136053867#0_1",
+        "edge_id": "136053867#0",
+        "road": "人民南路四段",
+        "samples": 54,
+        "observed_seconds": 270,
+        "longest_continuous_seconds": 80,
+        "longest_start": 1475.0,
+        "peak_stopped": 29,
+        "example": {
+          "time": 1480.0,
+          "stopped": 29,
+          "tail_m": 3.58,
+          "head_m": 202.44,
+          "span_m": 198.85,
+          "lane_length_m": 213.3
+        }
+      },
+      {
+        "lane_id": "267232614#1_0",
+        "edge_id": "267232614#1",
+        "road": "紫荆北路",
+        "samples": 97,
+        "observed_seconds": 485,
+        "longest_continuous_seconds": 75,
+        "longest_start": 1900.0,
+        "peak_stopped": 8,
+        "example": {
+          "time": 1350.0,
+          "stopped": 8,
+          "tail_m": 5.58,
+          "head_m": 55.29,
+          "span_m": 49.71,
+          "lane_length_m": 62.36
+        }
+      },
+      {
+        "lane_id": "37132250#3_0",
+        "edge_id": "37132250#3",
+        "road": "紫竹北街",
+        "samples": 53,
+        "observed_seconds": 265,
+        "longest_continuous_seconds": 75,
+        "longest_start": 1940.0,
+        "peak_stopped": 9,
+        "example": {
+          "time": 1550.0,
+          "stopped": 9,
+          "tail_m": 9.17,
+          "head_m": 66.04,
+          "span_m": 56.87,
+          "lane_length_m": 67.05
+        }
+      },
+      {
+        "lane_id": "37132266#7_0",
+        "edge_id": "37132266#7",
+        "road": "倪家桥路",
+        "samples": 98,
+        "observed_seconds": 490,
+        "longest_continuous_seconds": 70,
+        "longest_start": 920.0,
+        "peak_stopped": 8,
+        "example": {
+          "time": 835.0,
+          "stopped": 8,
+          "tail_m": 5.33,
+          "head_m": 55.04,
+          "span_m": 49.71,
+          "lane_length_m": 56.04
+        }
+      }
+    ],
+    "measurement_notes": [
+      "Speed is vehicle-frame arithmetic mean at 5s sampled states, 600s to demand end, not trip harmonic space-mean speed.",
+      "Stopped = speed <0.1m/s, all cohorts. Queue count is not physical contiguous length.",
+      "Lane storage pressure requires >=4 stopped cars, tail <=20m from lane start, head >=70% lane length, all consecutive front-position gaps <=20m. It is a reproducible spillback proxy, not proof of upstream junction blockage.",
+      "Recovery clearance requires zero in-network and zero due waiting after demand end. Unfinished trips remain included in finite-window TSTT.",
+      "Completed-only delay subtracts route free-flow reference and is secondary because unfinished trips are censored."
+    ]
+  },
+  "target": {
+    "run_id": "north_surface_counterfactual_S0_am_42_v3_movementfix",
+    "config": {
+      "demo_scenario": "synthetic_building_od_high_pressure_access_v2",
+      "seed": 42,
+      "demand_scale": 1.0,
+      "rate_per_gate": 360,
+      "duration_seconds": 4200,
+      "warmup_seconds": 300,
+      "demand_end_seconds": 1800,
+      "step_seconds": 0.5,
+      "trajectory": true,
+      "internal_demand": {
+        "cars_per_building": 3,
+        "initial_departure_fraction": 0.03,
+        "internal_to_internal_fraction": 0.3,
+        "departure_fraction": 0.7,
+        "local_access_only": true
+      },
+      "network_variant": "joined_north_surface_v3",
+      "policy": "S0",
+      "period": "am",
+      "run_id": "north_surface_counterfactual_S0_am_42_v3_movementfix"
+    },
+    "network_hash": "852d34522be4f77627849a30201cc92eb0d6d0208466302f26c9f9d90dc21b19",
+    "demand_hash": "446b4e09d11d08279129f9d496a06324ce6b590ed7562f07cc9505c758bb295a",
+    "metrics": {
+      "generated": 3520,
+      "due": 3520,
+      "completed": 3462,
+      "inside": 58,
+      "external_waiting": 0,
+      "explicit_failure": 0,
+      "completion_rate": 0.9835227272727273,
+      "tstt_vehicle_seconds": 2820209.2660000017,
+      "mean_travel_time_seconds": 761.2336533795493,
+      "p95_travel_time_seconds": 2270.19125,
+      "median_travel_time_seconds": 541.0905,
+      "external_wait_vehicle_seconds": 348757.266,
+      "core_vehicle_seconds": 1103803.0,
+      "periphery_vehicle_seconds": 1367678.0,
+      "max_queue_vehicles": 859,
+      "teleports": 0,
+      "collisions": 0,
+      "duration_seconds": 4200.0,
+      "cohort": "peak",
+      "interpretation": "Finite-window cumulative time including due but uninserted target trips. Incomplete trips are right-censored; completed-only mean is secondary.",
+      "all_cohort_generated": 4042,
+      "all_cohort_completed": 3984,
+      "all_cohort_inserted": 4042,
+      "spatial_time_method": "End-of-step rectangular integration; peak core/periphery may differ by <= step boundary terms from exact trip elapsed time.",
+      "queue_population": "All cohorts; stopped-speed threshold <0.1 m/s is a count proxy, not contiguous physical queue length.",
+      "observed_stop_starts": 194,
+      "signal_extensions": 0,
+      "bus_completed": 24,
+      "insertion_wait_population": "Legacy external_waiting fields include all due uninserted trips; split boundary/internal waiting is in stock_timeseries.",
+      "boundary_insertion_wait_vehicle_seconds": 347873.057,
+      "internal_insertion_wait_vehicle_seconds": 884.2090000000317,
+      "initial_parked_total": 1187,
+      "internal_departures_generated": 830,
+      "boundary_arrivals_reassigned": 741,
+      "parked_final": 1303
+    },
+    "audit": {
+      "conservation_passed": true,
+      "conservation_max_residual": 0,
+      "teleports": 0,
+      "collisions": 0,
+      "explicit_failures": 0,
+      "unexplained_losses": 0,
+      "steps": 8400,
+      "field_calibrated": false,
+      "critical_unknowns": [
+        "Actual signals/turn permissions/driver behavior require field verification",
+        "Synthetic boundary OD and bus/curb events",
+        "No pedestrian demand or nonmotorized agents yet; lane geometry only",
+        "OSM footprints are geographic evidence, not measured population or parking capacity.",
+        "Access positions are connected road proxies, not surveyed entrances or modeled private driveways.",
+        "Parked stock is off-network accounting; cars enter only valid SUMO lanes, with insertion delay retained.",
+        "Boundary arrivals are reassigned to internal destinations, never copied; no new boundary inflow is added.",
+        "Initial stock departures and boundary arrivals are distinct vehicles; arrivals park and do not generate a second journey."
+      ],
+      "status": "passed_software_checks",
+      "parked_stock_conservation_passed": true,
+      "parked_stock_max_residual": 0
+    },
+    "observation_window_seconds": [
+      600,
+      1800
+    ],
+    "occupancy": {
+      "all_cohort_inside": {
+        "mean": 1158.7966804979253,
+        "peak": 1283
+      },
+      "all_cohort_core_vehicles": {
+        "mean": 458.20746887966806,
+        "peak": 519
+      },
+      "all_cohort_periphery_vehicles": {
+        "mean": 700.5892116182573,
+        "peak": 812
+      },
+      "all_cohort_external_waiting": {
+        "mean": 117.15767634854772,
+        "peak": 225
+      },
+      "queue_vehicles": {
+        "mean": 521.0705394190871,
+        "peak": 764
+      }
+    },
+    "sampled_space_mean_speed_km_h": 14.564227156901644,
+    "sampled_core_space_mean_speed_km_h": 12.492858151382531,
+    "completed_only_mean_delay_seconds": 564.7651779428734,
+    "peak_strict_core_stopped": 375,
+    "clearance_time_seconds": null,
+    "recovery_tail_seconds": 2400.0,
+    "final_state": {
+      "all_cohort_inside": 58,
+      "all_cohort_core_vehicles": 58,
+      "all_cohort_periphery_vehicles": 0,
+      "all_cohort_external_waiting": 0,
+      "all_cohort_due": 4042,
+      "all_cohort_completed": 3984,
+      "time": 4200.0,
+      "due": 3520,
+      "inside": 58,
+      "external_waiting": 0,
+      "completed": 3462,
+      "core_vehicles": 58,
+      "periphery_vehicles": 0,
+      "queue_vehicles": 37,
+      "tstt_vehicle_seconds": 2820209.2660000017,
+      "internal_insertion_waiting": 0,
+      "boundary_insertion_waiting": 0,
+      "parked_total": 1303
+    },
+    "snapshots": [
+      {
+        "all_cohort_inside": 428,
+        "all_cohort_core_vehicles": 171,
+        "all_cohort_periphery_vehicles": 257,
+        "all_cohort_external_waiting": 2,
+        "all_cohort_due": 522,
+        "all_cohort_completed": 92,
+        "time": 300.0,
+        "due": 0,
+        "inside": 0,
+        "external_waiting": 0,
+        "completed": 0,
+        "core_vehicles": 0,
+        "periphery_vehicles": 0,
+        "queue_vehicles": 125,
+        "tstt_vehicle_seconds": 0.0,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 2,
+        "parked_total": 1110
+      },
+      {
+        "all_cohort_inside": 849,
+        "all_cohort_core_vehicles": 347,
+        "all_cohort_periphery_vehicles": 502,
+        "all_cohort_external_waiting": 17,
+        "all_cohort_due": 1334,
+        "all_cohort_completed": 468,
+        "time": 600.0,
+        "due": 812,
+        "inside": 710,
+        "external_waiting": 17,
+        "completed": 85,
+        "core_vehicles": 291,
+        "periphery_vehicles": 419,
+        "queue_vehicles": 264,
+        "tstt_vehicle_seconds": 114623.46399999998,
+        "internal_insertion_waiting": 2,
+        "boundary_insertion_waiting": 15,
+        "parked_total": 992
+      },
+      {
+        "all_cohort_inside": 1094,
+        "all_cohort_core_vehicles": 445,
+        "all_cohort_periphery_vehicles": 649,
+        "all_cohort_external_waiting": 55,
+        "all_cohort_due": 2161,
+        "all_cohort_completed": 1012,
+        "time": 900.0,
+        "due": 1639,
+        "inside": 1066,
+        "external_waiting": 55,
+        "completed": 518,
+        "core_vehicles": 435,
+        "periphery_vehicles": 631,
+        "queue_vehicles": 423,
+        "tstt_vehicle_seconds": 392560.5639999999,
+        "internal_insertion_waiting": 2,
+        "boundary_insertion_waiting": 53,
+        "parked_total": 922
+      },
+      {
+        "all_cohort_inside": 1229,
+        "all_cohort_core_vehicles": 493,
+        "all_cohort_periphery_vehicles": 736,
+        "all_cohort_external_waiting": 122,
+        "all_cohort_due": 2954,
+        "all_cohort_completed": 1603,
+        "time": 1200.0,
+        "due": 2432,
+        "inside": 1223,
+        "external_waiting": 122,
+        "completed": 1087,
+        "core_vehicles": 488,
+        "periphery_vehicles": 735,
+        "queue_vehicles": 454,
+        "tstt_vehicle_seconds": 765635.1919999991,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 122,
+        "parked_total": 894
+      },
+      {
+        "all_cohort_inside": 1268,
+        "all_cohort_core_vehicles": 497,
+        "all_cohort_periphery_vehicles": 771,
+        "all_cohort_external_waiting": 180,
+        "all_cohort_due": 3589,
+        "all_cohort_completed": 2141,
+        "time": 1500.0,
+        "due": 3067,
+        "inside": 1267,
+        "external_waiting": 180,
+        "completed": 1620,
+        "core_vehicles": 496,
+        "periphery_vehicles": 771,
+        "queue_vehicles": 615,
+        "tstt_vehicle_seconds": 1185577.2049999994,
+        "internal_insertion_waiting": 1,
+        "boundary_insertion_waiting": 179,
+        "parked_total": 920
+      },
+      {
+        "all_cohort_inside": 1209,
+        "all_cohort_core_vehicles": 470,
+        "all_cohort_periphery_vehicles": 739,
+        "all_cohort_external_waiting": 225,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 2608,
+        "time": 1800.0,
+        "due": 3520,
+        "inside": 1209,
+        "external_waiting": 225,
+        "completed": 2086,
+        "core_vehicles": 470,
+        "periphery_vehicles": 739,
+        "queue_vehicles": 679,
+        "tstt_vehicle_seconds": 1620780.7660000017,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 225,
+        "parked_total": 998
+      },
+      {
+        "all_cohort_inside": 833,
+        "all_cohort_core_vehicles": 379,
+        "all_cohort_periphery_vehicles": 454,
+        "all_cohort_external_waiting": 199,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 3010,
+        "time": 2100.0,
+        "due": 3520,
+        "inside": 833,
+        "external_waiting": 199,
+        "completed": 2488,
+        "core_vehicles": 379,
+        "periphery_vehicles": 454,
+        "queue_vehicles": 429,
+        "tstt_vehicle_seconds": 1986978.2660000017,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 199,
+        "parked_total": 1093
+      },
+      {
+        "all_cohort_inside": 589,
+        "all_cohort_core_vehicles": 270,
+        "all_cohort_periphery_vehicles": 319,
+        "all_cohort_external_waiting": 143,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 3310,
+        "time": 2400.0,
+        "due": 3520,
+        "inside": 589,
+        "external_waiting": 143,
+        "completed": 2788,
+        "core_vehicles": 270,
+        "periphery_vehicles": 319,
+        "queue_vehicles": 346,
+        "tstt_vehicle_seconds": 2247705.2660000017,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 143,
+        "parked_total": 1131
+      },
+      {
+        "all_cohort_inside": 395,
+        "all_cohort_core_vehicles": 221,
+        "all_cohort_periphery_vehicles": 174,
+        "all_cohort_external_waiting": 133,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 3514,
+        "time": 2700.0,
+        "due": 3520,
+        "inside": 395,
+        "external_waiting": 133,
+        "completed": 2992,
+        "core_vehicles": 221,
+        "periphery_vehicles": 174,
+        "queue_vehicles": 189,
+        "tstt_vehicle_seconds": 2436733.2660000017,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 133,
+        "parked_total": 1160
+      },
+      {
+        "all_cohort_inside": 325,
+        "all_cohort_core_vehicles": 201,
+        "all_cohort_periphery_vehicles": 124,
+        "all_cohort_external_waiting": 70,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 3647,
+        "time": 3000.0,
+        "due": 3520,
+        "inside": 325,
+        "external_waiting": 70,
+        "completed": 3125,
+        "core_vehicles": 201,
+        "periphery_vehicles": 124,
+        "queue_vehicles": 147,
+        "tstt_vehicle_seconds": 2574222.7660000017,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 70,
+        "parked_total": 1194
+      },
+      {
+        "all_cohort_inside": 266,
+        "all_cohort_core_vehicles": 171,
+        "all_cohort_periphery_vehicles": 95,
+        "all_cohort_external_waiting": 18,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 3758,
+        "time": 3300.0,
+        "due": 3520,
+        "inside": 266,
+        "external_waiting": 18,
+        "completed": 3236,
+        "core_vehicles": 171,
+        "periphery_vehicles": 95,
+        "queue_vehicles": 136,
+        "tstt_vehicle_seconds": 2676084.7660000017,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 18,
+        "parked_total": 1221
+      },
+      {
+        "all_cohort_inside": 187,
+        "all_cohort_core_vehicles": 128,
+        "all_cohort_periphery_vehicles": 59,
+        "all_cohort_external_waiting": 0,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 3855,
+        "time": 3600.0,
+        "due": 3520,
+        "inside": 187,
+        "external_waiting": 0,
+        "completed": 3333,
+        "core_vehicles": 128,
+        "periphery_vehicles": 59,
+        "queue_vehicles": 98,
+        "tstt_vehicle_seconds": 2746811.2660000017,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 0,
+        "parked_total": 1243
+      },
+      {
+        "all_cohort_inside": 122,
+        "all_cohort_core_vehicles": 101,
+        "all_cohort_periphery_vehicles": 21,
+        "all_cohort_external_waiting": 0,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 3920,
+        "time": 3900.0,
+        "due": 3520,
+        "inside": 122,
+        "external_waiting": 0,
+        "completed": 3398,
+        "core_vehicles": 101,
+        "periphery_vehicles": 21,
+        "queue_vehicles": 73,
+        "tstt_vehicle_seconds": 2793007.2660000017,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 0,
+        "parked_total": 1263
+      },
+      {
+        "all_cohort_inside": 58,
+        "all_cohort_core_vehicles": 58,
+        "all_cohort_periphery_vehicles": 0,
+        "all_cohort_external_waiting": 0,
+        "all_cohort_due": 4042,
+        "all_cohort_completed": 3984,
+        "time": 4200.0,
+        "due": 3520,
+        "inside": 58,
+        "external_waiting": 0,
+        "completed": 3462,
+        "core_vehicles": 58,
+        "periphery_vehicles": 0,
+        "queue_vehicles": 37,
+        "tstt_vehicle_seconds": 2820209.2660000017,
+        "internal_insertion_waiting": 0,
+        "boundary_insertion_waiting": 0,
+        "parked_total": 1303
+      }
+    ],
+    "top_stopped_edges": [
+      {
+        "edge_id": "136053867#2",
+        "road": "人民南路四段",
+        "stopped": 113,
+        "time": 1390.0
+      },
+      {
+        "edge_id": "458891623#3",
+        "road": "二环路南三段",
+        "stopped": 98,
+        "time": 2320.0
+      },
+      {
+        "edge_id": "136004880#4",
+        "road": "人民南路四段",
+        "stopped": 96,
+        "time": 1960.0
+      },
+      {
+        "edge_id": "136053867#0",
+        "road": "人民南路四段",
+        "stopped": 87,
+        "time": 2345.0
+      },
+      {
+        "edge_id": "459143633#0",
+        "road": "人民南路四段",
+        "stopped": 84,
+        "time": 1635.0
+      },
+      {
+        "edge_id": "459143633#1",
+        "road": "人民南路四段",
+        "stopped": 68,
+        "time": 1530.0
+      },
+      {
+        "edge_id": "37132266#8",
+        "road": "倪家桥路",
+        "stopped": 40,
+        "time": 940.0
+      },
+      {
+        "edge_id": "267232614#0",
+        "road": "紫荆北路",
+        "stopped": 36,
+        "time": 1870.0
+      },
+      {
+        "edge_id": "785085443",
+        "road": "",
+        "stopped": 34,
+        "time": 1570.0
+      },
+      {
+        "edge_id": "458891623#2",
+        "road": "二环路南三段",
+        "stopped": 30,
+        "time": 1315.0
+      },
+      {
+        "edge_id": "954864901#1",
+        "road": "一环路南三段辅路",
+        "stopped": 30,
+        "time": 1100.0
+      },
+      {
+        "edge_id": "1521446137#4",
+        "road": "一环路南二段",
+        "stopped": 28,
+        "time": 1930.0
+      },
+      {
+        "edge_id": "890791639#0",
+        "road": "一环路南二段辅路",
+        "stopped": 26,
+        "time": 495.0
+      },
+      {
+        "edge_id": "-28621532#1",
+        "road": "玉林南路",
+        "stopped": 24,
+        "time": 1675.0
+      },
+      {
+        "edge_id": "890791637#2",
+        "road": "一环路南三段",
+        "stopped": 22,
+        "time": 1155.0
+      },
+      {
+        "edge_id": "1521446137#0",
+        "road": "一环路南二段",
+        "stopped": 21,
+        "time": 1080.0
+      },
+      {
+        "edge_id": "267232476#1",
+        "road": "紫竹中街",
+        "stopped": 21,
+        "time": 1680.0
+      },
+      {
+        "edge_id": "115625972#1",
+        "road": "人民南路三段",
+        "stopped": 20,
+        "time": 1040.0
+      },
+      {
+        "edge_id": "890791637#1",
+        "road": "一环路南三段",
+        "stopped": 18,
+        "time": 1450.0
+      },
+      {
+        "edge_id": "-28621532#0",
+        "road": "玉林南路",
+        "stopped": 17,
+        "time": 960.0
+      }
+    ],
+    "observed_lane_storage_pressure": [
+      {
+        "lane_id": "136004880#2_3",
+        "edge_id": "136004880#2",
+        "road": "人民南路四段",
+        "samples": 332,
+        "observed_seconds": 1660,
+        "longest_continuous_seconds": 620,
+        "longest_start": 1960.0,
+        "peak_stopped": 8,
+        "example": {
+          "time": 1445.0,
+          "stopped": 8,
+          "tail_m": 2.97,
+          "head_m": 52.67,
+          "span_m": 49.71,
+          "lane_length_m": 55.69
+        }
+      },
+      {
+        "lane_id": "1521446137#0_0",
+        "edge_id": "1521446137#0",
+        "road": "一环路南二段",
+        "samples": 286,
+        "observed_seconds": 1430,
+        "longest_continuous_seconds": 390,
+        "longest_start": 1735.0,
+        "peak_stopped": 17,
+        "example": {
+          "time": 600.0,
+          "stopped": 17,
+          "tail_m": 5.96,
+          "head_m": 119.58,
+          "span_m": 113.63,
+          "lane_length_m": 120.58
+        }
+      },
+      {
+        "lane_id": "785085443_0",
+        "edge_id": "785085443",
+        "road": "",
+        "samples": 124,
+        "observed_seconds": 620,
+        "longest_continuous_seconds": 375,
+        "longest_start": 1765.0,
+        "peak_stopped": 33,
+        "example": {
+          "time": 1300.0,
+          "stopped": 33,
+          "tail_m": 11.05,
+          "head_m": 238.33,
+          "span_m": 227.28,
+          "lane_length_m": 239.37
+        }
+      },
+      {
+        "lane_id": "136004880#4_3",
+        "edge_id": "136004880#4",
+        "road": "人民南路四段",
+        "samples": 405,
+        "observed_seconds": 2025,
+        "longest_continuous_seconds": 340,
+        "longest_start": 3095.0,
+        "peak_stopped": 34,
+        "example": {
+          "time": 1175.0,
+          "stopped": 34,
+          "tail_m": 0.03,
+          "head_m": 235.27,
+          "span_m": 235.24,
+          "lane_length_m": 241.09
+        }
+      },
+      {
+        "lane_id": "136053867#0_0",
+        "edge_id": "136053867#0",
+        "road": "人民南路四段",
+        "samples": 100,
+        "observed_seconds": 500,
+        "longest_continuous_seconds": 280,
+        "longest_start": 1695.0,
+        "peak_stopped": 29,
+        "example": {
+          "time": 2025.0,
+          "stopped": 29,
+          "tail_m": 5.5,
+          "head_m": 212.3,
+          "span_m": 206.81,
+          "lane_length_m": 213.3
+        }
+      },
+      {
+        "lane_id": "890791639#0_0",
+        "edge_id": "890791639#0",
+        "road": "一环路南二段辅路",
+        "samples": 295,
+        "observed_seconds": 1475,
+        "longest_continuous_seconds": 175,
+        "longest_start": 1770.0,
+        "peak_stopped": 26,
+        "example": {
+          "time": 495.0,
+          "stopped": 26,
+          "tail_m": 3.54,
+          "head_m": 181.11,
+          "span_m": 177.58,
+          "lane_length_m": 182.94
+        }
+      },
+      {
+        "lane_id": "1521446137#4_0",
+        "edge_id": "1521446137#4",
+        "road": "一环路南二段",
+        "samples": 270,
+        "observed_seconds": 1350,
+        "longest_continuous_seconds": 175,
+        "longest_start": 1795.0,
+        "peak_stopped": 14,
+        "example": {
+          "time": 515.0,
+          "stopped": 14,
+          "tail_m": 5.81,
+          "head_m": 98.27,
+          "span_m": 92.46,
+          "lane_length_m": 99.54
+        }
+      },
+      {
+        "lane_id": "37132266#2_0",
+        "edge_id": "37132266#2",
+        "road": "倪家桥路",
+        "samples": 116,
+        "observed_seconds": 580,
+        "longest_continuous_seconds": 170,
+        "longest_start": 1535.0,
+        "peak_stopped": 6,
+        "example": {
+          "time": 810.0,
+          "stopped": 6,
+          "tail_m": 10.62,
+          "head_m": 46.12,
+          "span_m": 35.51,
+          "lane_length_m": 47.13
+        }
+      },
+      {
+        "lane_id": "136053867#0_2",
+        "edge_id": "136053867#0",
+        "road": "人民南路四段",
+        "samples": 468,
+        "observed_seconds": 2340,
+        "longest_continuous_seconds": 150,
+        "longest_start": 1290.0,
+        "peak_stopped": 31,
+        "example": {
+          "time": 710.0,
+          "stopped": 31,
+          "tail_m": 0.16,
+          "head_m": 213.2,
+          "span_m": 213.04,
+          "lane_length_m": 213.3
+        }
+      },
+      {
+        "lane_id": "136053867#0_1",
+        "edge_id": "136053867#0",
+        "road": "人民南路四段",
+        "samples": 94,
+        "observed_seconds": 470,
+        "longest_continuous_seconds": 150,
+        "longest_start": 1815.0,
+        "peak_stopped": 29,
+        "example": {
+          "time": 1520.0,
+          "stopped": 29,
+          "tail_m": 3.82,
+          "head_m": 208.24,
+          "span_m": 204.43,
+          "lane_length_m": 213.3
+        }
+      },
+      {
+        "lane_id": "954864901#1_0",
+        "edge_id": "954864901#1",
+        "road": "一环路南三段辅路",
+        "samples": 76,
+        "observed_seconds": 380,
+        "longest_continuous_seconds": 130,
+        "longest_start": 1820.0,
+        "peak_stopped": 30,
+        "example": {
+          "time": 1100.0,
+          "stopped": 30,
+          "tail_m": 5.74,
+          "head_m": 211.7,
+          "span_m": 205.96,
+          "lane_length_m": 218.32
+        }
+      },
+      {
+        "lane_id": "37132266#4_0",
+        "edge_id": "37132266#4",
+        "road": "倪家桥路",
+        "samples": 100,
+        "observed_seconds": 500,
+        "longest_continuous_seconds": 120,
+        "longest_start": 1545.0,
+        "peak_stopped": 6,
+        "example": {
+          "time": 990.0,
+          "stopped": 6,
+          "tail_m": 10.67,
+          "head_m": 46.2,
+          "span_m": 35.52,
+          "lane_length_m": 47.2
+        }
+      },
+      {
+        "lane_id": "1521446137#4_1",
+        "edge_id": "1521446137#4",
+        "road": "一环路南二段",
+        "samples": 27,
+        "observed_seconds": 135,
+        "longest_continuous_seconds": 110,
+        "longest_start": 1870.0,
+        "peak_stopped": 14,
+        "example": {
+          "time": 1930.0,
+          "stopped": 14,
+          "tail_m": 0.19,
+          "head_m": 92.92,
+          "span_m": 92.73,
+          "lane_length_m": 99.54
+        }
+      },
+      {
+        "lane_id": "37132266#5_0",
+        "edge_id": "37132266#5",
+        "road": "倪家桥路",
+        "samples": 102,
+        "observed_seconds": 510,
+        "longest_continuous_seconds": 110,
+        "longest_start": 1545.0,
+        "peak_stopped": 9,
+        "example": {
+          "time": 985.0,
+          "stopped": 9,
+          "tail_m": 6.22,
+          "head_m": 63.03,
+          "span_m": 56.81,
+          "lane_length_m": 64.03
+        }
+      },
+      {
+        "lane_id": "267226974#8_0",
+        "edge_id": "267226974#8",
+        "road": "新光路",
+        "samples": 134,
+        "observed_seconds": 670,
+        "longest_continuous_seconds": 95,
+        "longest_start": 1405.0,
+        "peak_stopped": 6,
+        "example": {
+          "time": 195.0,
+          "stopped": 6,
+          "tail_m": 8.28,
+          "head_m": 42.9,
+          "span_m": 34.62,
+          "lane_length_m": 45.0
+        }
+      },
+      {
+        "lane_id": "136004880#4_2",
+        "edge_id": "136004880#4",
+        "road": "人民南路四段",
+        "samples": 24,
+        "observed_seconds": 120,
+        "longest_continuous_seconds": 90,
+        "longest_start": 1955.0,
+        "peak_stopped": 33,
+        "example": {
+          "time": 1960.0,
+          "stopped": 33,
+          "tail_m": 6.41,
+          "head_m": 234.81,
+          "span_m": 228.4,
+          "lane_length_m": 241.09
+        }
+      },
+      {
+        "lane_id": "-28621532#0_0",
+        "edge_id": "-28621532#0",
+        "road": "玉林南路",
+        "samples": 162,
+        "observed_seconds": 810,
+        "longest_continuous_seconds": 70,
+        "longest_start": 955.0,
+        "peak_stopped": 17,
+        "example": {
+          "time": 960.0,
+          "stopped": 17,
+          "tail_m": 7.49,
+          "head_m": 121.12,
+          "span_m": 113.63,
+          "lane_length_m": 122.12
+        }
+      },
+      {
+        "lane_id": "-28621532#2_0",
+        "edge_id": "-28621532#2",
+        "road": "玉林南路",
+        "samples": 85,
+        "observed_seconds": 425,
+        "longest_continuous_seconds": 65,
+        "longest_start": 1665.0,
+        "peak_stopped": 6,
+        "example": {
+          "time": 635.0,
+          "stopped": 6,
+          "tail_m": 5.38,
+          "head_m": 40.93,
+          "span_m": 35.55,
+          "lane_length_m": 44.07
+        }
+      },
+      {
+        "lane_id": "267226974#7_0",
+        "edge_id": "267226974#7",
+        "road": "新光路",
+        "samples": 87,
+        "observed_seconds": 435,
+        "longest_continuous_seconds": 60,
+        "longest_start": 1445.0,
+        "peak_stopped": 6,
+        "example": {
+          "time": 310.0,
+          "stopped": 6,
+          "tail_m": 5.57,
+          "head_m": 41.08,
+          "span_m": 35.52,
+          "lane_length_m": 42.07
+        }
+      },
+      {
+        "lane_id": "37132266#7_0",
+        "edge_id": "37132266#7",
+        "road": "倪家桥路",
+        "samples": 85,
+        "observed_seconds": 425,
+        "longest_continuous_seconds": 55,
+        "longest_start": 935.0,
+        "peak_stopped": 8,
+        "example": {
+          "time": 785.0,
+          "stopped": 8,
+          "tail_m": 5.33,
+          "head_m": 55.04,
+          "span_m": 49.71,
+          "lane_length_m": 56.04
+        }
+      },
+      {
+        "lane_id": "-37132266#7_0",
+        "edge_id": "-37132266#7",
+        "road": "倪家桥路",
+        "samples": 11,
+        "observed_seconds": 55,
+        "longest_continuous_seconds": 55,
+        "longest_start": 1040.0,
+        "peak_stopped": 8,
+        "example": {
+          "time": 1040.0,
+          "stopped": 8,
+          "tail_m": 5.25,
+          "head_m": 55.04,
+          "span_m": 49.79,
+          "lane_length_m": 56.04
+        }
+      },
+      {
+        "lane_id": "267232614#1_0",
+        "edge_id": "267232614#1",
+        "road": "紫荆北路",
+        "samples": 93,
+        "observed_seconds": 465,
+        "longest_continuous_seconds": 55,
+        "longest_start": 1290.0,
+        "peak_stopped": 8,
+        "example": {
+          "time": 1290.0,
+          "stopped": 8,
+          "tail_m": 5.5,
+          "head_m": 55.29,
+          "span_m": 49.79,
+          "lane_length_m": 62.36
+        }
+      },
+      {
+        "lane_id": "459143633#1_0",
+        "edge_id": "459143633#1",
+        "road": "人民南路四段",
+        "samples": 187,
+        "observed_seconds": 935,
+        "longest_continuous_seconds": 50,
+        "longest_start": 995.0,
+        "peak_stopped": 32,
+        "example": {
+          "time": 595.0,
+          "stopped": 32,
+          "tail_m": 5.29,
+          "head_m": 225.44,
+          "span_m": 220.15,
+          "lane_length_m": 226.44
+        }
+      },
+      {
+        "lane_id": "28621532#2_0",
+        "edge_id": "28621532#2",
+        "road": "玉林南路",
+        "samples": 27,
+        "observed_seconds": 135,
+        "longest_continuous_seconds": 45,
+        "longest_start": 1725.0,
+        "peak_stopped": 6,
+        "example": {
+          "time": 945.0,
+          "stopped": 6,
+          "tail_m": 7.56,
+          "head_m": 43.07,
+          "span_m": 35.51,
+          "lane_length_m": 44.07
+        }
+      },
+      {
+        "lane_id": "458891623#3_2",
+        "edge_id": "458891623#3",
+        "road": "二环路南三段",
+        "samples": 74,
+        "observed_seconds": 370,
+        "longest_continuous_seconds": 45,
+        "longest_start": 2365.0,
+        "peak_stopped": 42,
+        "example": {
+          "time": 2270.0,
+          "stopped": 42,
+          "tail_m": 2.86,
+          "head_m": 296.08,
+          "span_m": 293.22,
+          "lane_length_m": 297.88
+        }
+      },
+      {
+        "lane_id": "37132250#3_0",
+        "edge_id": "37132250#3",
+        "road": "紫竹北街",
+        "samples": 48,
+        "observed_seconds": 240,
+        "longest_continuous_seconds": 45,
+        "longest_start": 1945.0,
+        "peak_stopped": 9,
+        "example": {
+          "time": 1485.0,
+          "stopped": 9,
+          "tail_m": 9.24,
+          "head_m": 66.04,
+          "span_m": 56.8,
+          "lane_length_m": 67.05
+        }
+      },
+      {
+        "lane_id": "37132250#1_0",
+        "edge_id": "37132250#1",
+        "road": "紫竹北街",
+        "samples": 41,
+        "observed_seconds": 205,
+        "longest_continuous_seconds": 45,
+        "longest_start": 1965.0,
+        "peak_stopped": 9,
+        "example": {
+          "time": 1655.0,
+          "stopped": 9,
+          "tail_m": 4.09,
+          "head_m": 60.98,
+          "span_m": 56.89,
+          "lane_length_m": 61.99
+        }
+      },
+      {
+        "lane_id": "-28621532#1_0",
+        "edge_id": "-28621532#1",
+        "road": "玉林南路",
+        "samples": 37,
+        "observed_seconds": 185,
+        "longest_continuous_seconds": 45,
+        "longest_start": 1670.0,
+        "peak_stopped": 24,
+        "example": {
+          "time": 1675.0,
+          "stopped": 24,
+          "tail_m": 11.42,
+          "head_m": 174.78,
+          "span_m": 163.36,
+          "lane_length_m": 175.78
+        }
+      },
+      {
+        "lane_id": "37132267#3_0",
+        "edge_id": "37132267#3",
+        "road": "玉林南街",
+        "samples": 22,
+        "observed_seconds": 110,
+        "longest_continuous_seconds": 35,
+        "longest_start": 1380.0,
+        "peak_stopped": 8,
+        "example": {
+          "time": 430.0,
+          "stopped": 8,
+          "tail_m": 10.71,
+          "head_m": 60.42,
+          "span_m": 49.71,
+          "lane_length_m": 61.42
+        }
+      },
+      {
+        "lane_id": "37132250#2_0",
+        "edge_id": "37132250#2",
+        "road": "紫竹北街",
+        "samples": 30,
+        "observed_seconds": 150,
+        "longest_continuous_seconds": 35,
+        "longest_start": 1960.0,
+        "peak_stopped": 15,
+        "example": {
+          "time": 1540.0,
+          "stopped": 15,
+          "tail_m": 9.57,
+          "head_m": 109.01,
+          "span_m": 99.44,
+          "lane_length_m": 110.02
+        }
+      }
+    ],
+    "measurement_notes": [
+      "Speed is vehicle-frame arithmetic mean at 5s sampled states, 600s to demand end, not trip harmonic space-mean speed.",
+      "Stopped = speed <0.1m/s, all cohorts. Queue count is not physical contiguous length.",
+      "Lane storage pressure requires >=4 stopped cars, tail <=20m from lane start, head >=70% lane length, all consecutive front-position gaps <=20m. It is a reproducible spillback proxy, not proof of upstream junction blockage.",
+      "Recovery clearance requires zero in-network and zero due waiting after demand end. Unfinished trips remain included in finite-window TSTT.",
+      "Completed-only delay subtracts route free-flow reference and is secondary because unfinished trips are censored."
+    ]
+  },
+  "interpretation": "Read in combination with movement and grade-separation audit before promotion; compare pressure and recovery without reducing demand.",
+  "same_ids_departure_times_origin_destination_behavior_seeds": true,
+  "trajectory_interventions": "None: ordinary SUMO safe insertion, no vehicle deletion, no teleport or safety changes in either compared run."
+}

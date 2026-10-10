@@ -1,0 +1,194 @@
+[
+  {
+    "removed_vehicle": {
+      "id": "bus42_1_675",
+      "lane": ":cluster_1445484321_4550568575_0_0",
+      "position": 6.45,
+      "leader": [
+        "internal_42_zone_1_2_0021",
+        17.04
+      ],
+      "foes": []
+    },
+    "target_remaining": true,
+    "target_lane": ":1492405916_2_1",
+    "target_pos": 1.5,
+    "target_speed": 0.0
+  },
+  {
+    "removed_vehicle": {
+      "id": "internal_42_zone_2_0_0001",
+      "lane": "890791639#1_0",
+      "position": 4.0,
+      "leader": [
+        "t42_0000542",
+        8.881784197001252e-16
+      ],
+      "foes": []
+    },
+    "target_remaining": true,
+    "target_lane": ":1492405916_2_1",
+    "target_pos": 1.5,
+    "target_speed": 0.0
+  },
+  {
+    "removed_vehicle": {
+      "id": "t42_0000044",
+      "lane": "136053867#3_2",
+      "position": 5.92,
+      "leader": [
+        "t42_0000510",
+        0.0
+      ],
+      "foes": []
+    },
+    "target_remaining": true,
+    "target_lane": ":1492405916_2_1",
+    "target_pos": 1.5,
+    "target_speed": 0.0
+  },
+  {
+    "removed_vehicle": {
+      "id": "t42_0000268",
+      "lane": ":1445484323_0_0",
+      "position": 5.22,
+      "leader": [
+        "t42_0001809",
+        0.0016154866115760669
+      ],
+      "foes": []
+    },
+    "target_remaining": true,
+    "target_lane": ":1492405916_2_1",
+    "target_pos": 1.5,
+    "target_speed": 0.0
+  },
+  {
+    "removed_vehicle": {
+      "id": "t42_0000510",
+      "lane": "136053867#3_2",
+      "position": 13.02,
+      "leader": [
+        "t42_0000268",
+        5.45
+      ],
+      "foes": []
+    },
+    "target_remaining": true,
+    "target_lane": ":1492405916_2_1",
+    "target_pos": 1.5,
+    "target_speed": 0.0
+  },
+  {
+    "removed_vehicle": {
+      "id": "t42_0000542",
+      "lane": ":5436607843_1_0",
+      "position": 3.99,
+      "leader": [
+        "t42_0000600",
+        4.440892098500626e-16
+      ],
+      "foes": []
+    },
+    "target_remaining": true,
+    "target_lane": ":1492405916_2_1",
+    "target_pos": 1.5,
+    "target_speed": 0.0
+  },
+  {
+    "removed_vehicle": {
+      "id": "t42_0000576",
+      "lane": "890791639#3_0",
+      "position": 0.1,
+      "leader": [
+        "t42_0000268",
+        10.459999999999997
+      ],
+      "foes": []
+    },
+    "target_remaining": false,
+    "target_lane": null,
+    "target_pos": null,
+    "target_speed": null
+  },
+  {
+    "removed_vehicle": {
+      "id": "t42_0000600",
+      "lane": "890791639#2_0",
+      "position": 3.18,
+      "leader": [
+        "t42_0000576",
+        5.289999999999999
+      ],
+      "foes": []
+    },
+    "target_remaining": true,
+    "target_lane": ":1492405916_2_1",
+    "target_pos": 1.5,
+    "target_speed": 0.0
+  },
+  {
+    "removed_vehicle": {
+      "id": "t42_0001809",
+      "lane": "954864900#1_0",
+      "position": 0.1,
+      "leader": [
+        "t42_0000673",
+        6.32
+      ],
+      "foes": []
+    },
+    "target_remaining": true,
+    "target_lane": ":1492405916_2_1",
+    "target_pos": 1.5,
+    "target_speed": 0.0
+  },
+  {
+    "removed_vehicle": {
+      "id": "t42_0001841",
+      "lane": "115625972#1_0",
+      "position": 409.74,
+      "leader": [
+        "t42_0001809",
+        0.79
+      ],
+      "foes": []
+    },
+    "target_remaining": true,
+    "target_lane": ":1492405916_2_1",
+    "target_pos": 1.5,
+    "target_speed": 0.0
+  },
+  {
+    "removed_vehicle": {
+      "id": "t42_0001844",
+      "lane": "115625956_0",
+      "position": 12.95,
+      "leader": [
+        "t42_0001940",
+        8.45
+      ],
+      "foes": []
+    },
+    "target_remaining": true,
+    "target_lane": ":1492405916_2_1",
+    "target_pos": 1.5,
+    "target_speed": 0.0
+  },
+  {
+    "removed_vehicle": {
+      "id": "t42_0001847",
+      "lane": ":1445484323_4_2",
+      "position": 1.56,
+      "leader": [
+        "bus42_1_675",
+        24.101356812153817
+      ],
+      "foes": []
+    },
+    "target_remaining": true,
+    "target_lane": ":1492405916_2_1",
+    "target_pos": 1.5,
+    "target_speed": 0.0
+  }
+]

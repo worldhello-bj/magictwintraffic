@@ -1,0 +1,40 @@
+{
+  "joined_nodes": [
+    "1492405916",
+    "5436607837",
+    "1445484323",
+    "5436607839",
+    "4550568579",
+    "cluster_1445484321_4550568575",
+    "5436607841"
+  ],
+  "expected_removed_external_edges": [
+    "115625956",
+    "131319574#15",
+    "136053867#3",
+    "476664219#0",
+    "890791639#3",
+    "890791640#1",
+    "954864900#0",
+    "954864900#1",
+    "954864901#4"
+  ],
+  "excluded_grade_separated_nodes": [
+    "5436607828",
+    "4550568567"
+  ],
+  "excluded_grade_separated_edges": [
+    "459143642"
+  ],
+  "source_review": "Selected seven surface nodes span approximately34m east-west and26m north-south. Incident source ways primary/secondary/tertiary, one-way=yes, no tunnel/bridge/layer tags, no tunnel edge incident. OSM origin reviewed; merge remains simulation topology counterfactual, not field-verified signal design.",
+  "evidence": "docs/evidence/north_surface_selection.json",
+  "extra_connections": [
+    {
+      "from": "136053867#2",
+      "to": "459143633#0",
+      "fromLane": 2,
+      "toLane": 2
+    }
+  ],
+  "extra_connection_reason": "Preserve source-contracted U-turn, verified passenger and bus legal through source ring; use compatible default lane permissions."
+}

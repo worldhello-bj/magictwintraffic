@@ -1,0 +1,8 @@
+run_id,rate_per_gate,cars_per_building,departure_fraction,initial_departure_fraction,max_network,max_core,max_stopped,completed,generated,final_inside,final_waiting,clearance_time_seconds,completion_in_final_600_seconds,teleports,collisions
+pressure_probe_b3_r240_am_42_v1,240,3,0.7,0.03,757,352,387,3017,3017,0,0,3255.0,0,0,0
+pressure_probe_b3_r300_am_42_v1,300,3,0.7,0.03,960,408,548,3516,3516,0,0,3845.0,27,0,0
+pressure_probe_b3_r360_am_42_v1,360,3,0.7,0.03,1306,486,986,2916,4042,700,426,,0,0,0
+pressure_probe_r220_am_42_v1,220,5,0.85,0.1,1309,699,1224,1744,3220,1224,252,,0,0,0
+pressure_probe_r280_am_42_v1,280,5,0.85,0.1,1291,626,993,2809,3840,780,251,,0,0,0
+pressure_probe_r420_am_42_v1,420,5,0.85,0.1,1880,864,1526,3385,5063,1172,506,,20,0,0
+pressure_probe_r560_am_42_v1,560,5,0.85,0.1,2746,1061,2448,2931,6296,2323,1042,,48,0,0

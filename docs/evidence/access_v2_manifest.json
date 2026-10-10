@@ -1,0 +1,208 @@
+{
+  "network_variant": "joined_nijiaqiao_access_v2",
+  "network_hash": "85ca1ace1c2ee131c4dafe90b7fc991dff3ed7e72fe1a5a4b33ff0109cf03d56",
+  "parent_network_hash": "b9f875a1b64bf462cbf5fffa4020b777b9a7f245ff3fe36837fc3514a8f22683",
+  "source_ways": {
+    "1033678581": {
+      "tags": {
+        "description": "This path is mainly used by residents who live in shou hang xin cheng. It's a short cut to join the main road.",
+        "highway": "path",
+        "horse": "no",
+        "motor_vehicle": "yes"
+      },
+      "version": "2",
+      "timestamp": "2022-02-21T03:30:59Z",
+      "url": "https://www.openstreetmap.org/way/1033678581"
+    },
+    "1491845448": {
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "service",
+        "horse": "yes",
+        "lit": "no",
+        "motor_vehicle": "yes",
+        "name": "玉林五巷",
+        "width": "4"
+      },
+      "version": "1",
+      "timestamp": "2026-03-23T13:37:27Z",
+      "url": "https://www.openstreetmap.org/way/1491845448"
+    }
+  },
+  "external_edges_changed": [
+    "-1033678581",
+    "-1491845448",
+    "1033678581",
+    "1491845448"
+  ],
+  "lane_permission_changes": {
+    "-1491845448_0": {
+      "old_allow": "pedestrian delivery bicycle",
+      "new_allow": "pedestrian delivery bicycle passenger",
+      "old_disallow": null,
+      "new_disallow": null
+    },
+    "-1033678581_0": {
+      "old_allow": "pedestrian bicycle",
+      "new_allow": "pedestrian bicycle passenger",
+      "old_disallow": null,
+      "new_disallow": null
+    },
+    "1033678581_0": {
+      "old_allow": "pedestrian bicycle",
+      "new_allow": "pedestrian bicycle passenger",
+      "old_disallow": null,
+      "new_disallow": null
+    },
+    "1491845448_0": {
+      "old_allow": "pedestrian delivery bicycle",
+      "new_allow": "pedestrian delivery bicycle passenger",
+      "old_disallow": null,
+      "new_disallow": null
+    },
+    ":6258805265_1_0": {
+      "old_allow": "pedestrian bicycle",
+      "new_allow": "pedestrian bicycle passenger",
+      "old_disallow": null,
+      "new_disallow": null
+    },
+    ":6258805265_3_0": {
+      "old_allow": "pedestrian bicycle",
+      "new_allow": "pedestrian bicycle passenger",
+      "old_disallow": null,
+      "new_disallow": null
+    },
+    ":6258805265_17_0": {
+      "old_allow": "pedestrian bicycle",
+      "new_allow": "pedestrian bicycle passenger",
+      "old_disallow": null,
+      "new_disallow": null
+    },
+    ":13671760147_0_0": {
+      "old_allow": "pedestrian delivery bicycle",
+      "new_allow": "pedestrian delivery bicycle passenger",
+      "old_disallow": null,
+      "new_disallow": null
+    },
+    ":9523120706_0_0": {
+      "old_allow": "pedestrian bicycle",
+      "new_allow": "pedestrian bicycle passenger",
+      "old_disallow": null,
+      "new_disallow": null
+    },
+    ":13671760148_0_0": {
+      "old_allow": "pedestrian delivery bicycle",
+      "new_allow": "pedestrian delivery bicycle passenger",
+      "old_disallow": null,
+      "new_disallow": null
+    },
+    ":13671760147_1_0": {
+      "old_allow": "pedestrian delivery bicycle",
+      "new_allow": "pedestrian delivery bicycle passenger",
+      "old_disallow": null,
+      "new_disallow": null
+    },
+    ":6258805265_9_0": {
+      "old_allow": "pedestrian bicycle",
+      "new_allow": "pedestrian bicycle passenger",
+      "old_disallow": null,
+      "new_disallow": null
+    }
+  },
+  "compatible_connections": [
+    {
+      "from": "-1033678581",
+      "to": "-668355785#1",
+      "fromLane": "0",
+      "toLane": "0",
+      "via": ":6258805265_1_0",
+      "dir": "s",
+      "state": "M",
+      "via_chain": [
+        ":6258805265_1_0"
+      ]
+    },
+    {
+      "from": "-1033678581",
+      "to": "1033678581",
+      "fromLane": "0",
+      "toLane": "0",
+      "via": ":6258805265_3_0",
+      "dir": "t",
+      "state": "m",
+      "via_chain": [
+        ":6258805265_17_0",
+        ":6258805265_3_0"
+      ]
+    },
+    {
+      "from": "-1491845448",
+      "to": "-374644409#1",
+      "fromLane": "0",
+      "toLane": "0",
+      "keepClear": "0",
+      "via": ":13671760147_0_0",
+      "dir": "s",
+      "state": "M",
+      "via_chain": [
+        ":13671760147_0_0"
+      ]
+    },
+    {
+      "from": "1033678581",
+      "to": "-1033678581",
+      "fromLane": "0",
+      "toLane": "0",
+      "via": ":9523120706_0_0",
+      "dir": "t",
+      "state": "M",
+      "via_chain": [
+        ":9523120706_0_0"
+      ]
+    },
+    {
+      "from": "1491845448",
+      "to": "-1491845448",
+      "fromLane": "0",
+      "toLane": "0",
+      "via": ":13671760148_0_0",
+      "dir": "t",
+      "state": "M",
+      "via_chain": [
+        ":13671760148_0_0"
+      ]
+    },
+    {
+      "from": "374644409#1",
+      "to": "1491845448",
+      "fromLane": "0",
+      "toLane": "0",
+      "via": ":13671760147_1_0",
+      "dir": "s",
+      "state": "M",
+      "via_chain": [
+        ":13671760147_1_0"
+      ]
+    },
+    {
+      "from": "668355785#1",
+      "to": "1033678581",
+      "fromLane": "0",
+      "toLane": "0",
+      "via": ":6258805265_9_0",
+      "dir": "s",
+      "state": "M",
+      "via_chain": [
+        ":6258805265_9_0"
+      ]
+    }
+  ],
+  "geometry_width_speed_signals_connections_unchanged": true,
+  "parent_network_unchanged": true,
+  "baseline_hash": "c7d7ae80352aa191ac485fb7c909f575d2589511f8d0cd8ab1cdf520e79913b3",
+  "field_verified": false,
+  "build_key": "8f2fddb81465bf996ffa27c4f877d36568a82781514ffd4f8f21a0a813f27ab4",
+  "canonical_hash": "53469fd3da48df844d9bae6a1d0b6d1657b30c025033a009869a65b7d4a546ca",
+  "status": "ready"
+}

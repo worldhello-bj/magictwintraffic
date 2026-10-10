@@ -1,0 +1,19 @@
+{
+  "demo_scenario": "synthetic_building_od_high_pressure_surface_v3",
+  "seed": 42,
+  "demand_scale": 1.0,
+  "rate_per_gate": 360,
+  "duration_seconds": 4200,
+  "warmup_seconds": 300,
+  "demand_end_seconds": 1800,
+  "step_seconds": 0.5,
+  "trajectory": true,
+  "internal_demand": {
+    "cars_per_building": 3,
+    "initial_departure_fraction": 0.03,
+    "internal_to_internal_fraction": 0.3,
+    "departure_fraction": 0.7,
+    "local_access_only": true
+  },
+  "network_variant": "joined_north_surface_v3"
+}

@@ -8,9 +8,9 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0",
     "test": "node --import tsx --test tests/*.test.ts",
-    "predev": "python ../scripts/restore_assets.py && python ../scripts/ensure_dense_demo.py && python ../scripts/ensure_internal_demo.py",
-    "prebuild": "python ../scripts/restore_assets.py && python ../scripts/ensure_dense_demo.py && python ../scripts/ensure_internal_demo.py",
-    "pretest": "python ../scripts/restore_assets.py && python ../scripts/ensure_dense_demo.py && python ../scripts/ensure_internal_demo.py"
+    "predev": "python ../scripts/restore_assets.py && python ../scripts/ensure_dense_demo.py && python ../scripts/ensure_internal_demo.py && python ../scripts/ensure_high_pressure_demo.py",
+    "prebuild": "python ../scripts/restore_assets.py && python ../scripts/ensure_dense_demo.py && python ../scripts/ensure_internal_demo.py && python ../scripts/ensure_high_pressure_demo.py",
+    "pretest": "python ../scripts/restore_assets.py && python ../scripts/ensure_dense_demo.py && python ../scripts/ensure_internal_demo.py && python ../scripts/ensure_high_pressure_demo.py"
   },
   "dependencies": {
     "three": "0.180.0"

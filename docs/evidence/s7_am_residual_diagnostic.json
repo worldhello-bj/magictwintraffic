@@ -1,0 +1,638 @@
+{
+  "scenario": "high_pressure_S7_am_42_v3",
+  "reference": "high_pressure_S0_am_42_v3",
+  "network_variant": "joined_north_surface_v3",
+  "network_hash": "852d34522be4f77627849a30201cc92eb0d6d0208466302f26c9f9d90dc21b19",
+  "same_demand_hash": "446b4e09d11d08279129f9d496a06324ce6b590ed7562f07cc9505c758bb295a",
+  "s7_final_state": {
+    "all_cohort_inside": 809,
+    "all_cohort_core_vehicles": 485,
+    "all_cohort_periphery_vehicles": 324,
+    "all_cohort_external_waiting": 53,
+    "all_cohort_due": 4042,
+    "all_cohort_completed": 3180,
+    "time": 4200.0,
+    "due": 3520,
+    "inside": 806,
+    "external_waiting": 53,
+    "completed": 2661,
+    "core_vehicles": 482,
+    "periphery_vehicles": 324,
+    "queue_vehicles": 809,
+    "tstt_vehicle_seconds": 3942088.2660000017,
+    "internal_insertion_waiting": 0,
+    "boundary_insertion_waiting": 53,
+    "parked_total": 998
+  },
+  "s0_final_state": {
+    "all_cohort_inside": 58,
+    "all_cohort_core_vehicles": 58,
+    "all_cohort_periphery_vehicles": 0,
+    "all_cohort_external_waiting": 0,
+    "all_cohort_due": 4042,
+    "all_cohort_completed": 3984,
+    "time": 4200.0,
+    "due": 3520,
+    "inside": 58,
+    "external_waiting": 0,
+    "completed": 3462,
+    "core_vehicles": 58,
+    "periphery_vehicles": 0,
+    "queue_vehicles": 37,
+    "tstt_vehicle_seconds": 2820209.2660000017,
+    "internal_insertion_waiting": 0,
+    "boundary_insertion_waiting": 0,
+    "parked_total": 1303
+  },
+  "primary_persistent_block_junction": {
+    "id": "432452987",
+    "location": "倪家桥路 × 玉林街/玉林南街",
+    "wgs84_lon_lat": [
+      104.0598522,
+      30.6273133
+    ],
+    "source_tags": {
+      "highway": "traffic_signals",
+      "traffic_signals": "signal",
+      "traffic_signals:direction": "both"
+    },
+    "source_node_url": "https://www.openstreetmap.org/node/432452987",
+    "sumo_type": "traffic_light",
+    "source_ways": [
+      "37132266",
+      "37132267",
+      "569688469"
+    ],
+    "incident_edges": [
+      {
+        "id": "-37132266#5",
+        "name": "倪家桥路",
+        "length_m": 64.03,
+        "source_tags": {
+          "highway": "secondary",
+          "name": "倪家桥路",
+          "name:en": "Ni Jia Qiao Lu",
+          "name:zh": "倪家桥路"
+        },
+        "source_url": "https://www.openstreetmap.org/way/37132266"
+      },
+      {
+        "id": "-37132266#6",
+        "name": "倪家桥路",
+        "length_m": 38.77,
+        "source_tags": {
+          "highway": "secondary",
+          "name": "倪家桥路",
+          "name:en": "Ni Jia Qiao Lu",
+          "name:zh": "倪家桥路"
+        },
+        "source_url": "https://www.openstreetmap.org/way/37132266"
+      },
+      {
+        "id": "-37132267#3",
+        "name": "玉林南街",
+        "length_m": 61.42,
+        "source_tags": {
+          "highway": "tertiary",
+          "name": "玉林南街"
+        },
+        "source_url": "https://www.openstreetmap.org/way/37132267"
+      },
+      {
+        "id": "-569688469#0",
+        "name": "玉林街",
+        "length_m": 177.88,
+        "source_tags": {
+          "highway": "tertiary",
+          "name": "玉林街"
+        },
+        "source_url": "https://www.openstreetmap.org/way/569688469"
+      },
+      {
+        "id": "37132266#5",
+        "name": "倪家桥路",
+        "length_m": 64.03,
+        "source_tags": {
+          "highway": "secondary",
+          "name": "倪家桥路",
+          "name:en": "Ni Jia Qiao Lu",
+          "name:zh": "倪家桥路"
+        },
+        "source_url": "https://www.openstreetmap.org/way/37132266"
+      },
+      {
+        "id": "37132266#6",
+        "name": "倪家桥路",
+        "length_m": 38.77,
+        "source_tags": {
+          "highway": "secondary",
+          "name": "倪家桥路",
+          "name:en": "Ni Jia Qiao Lu",
+          "name:zh": "倪家桥路"
+        },
+        "source_url": "https://www.openstreetmap.org/way/37132266"
+      },
+      {
+        "id": "37132267#3",
+        "name": "玉林南街",
+        "length_m": 61.42,
+        "source_tags": {
+          "highway": "tertiary",
+          "name": "玉林南街"
+        },
+        "source_url": "https://www.openstreetmap.org/way/37132267"
+      },
+      {
+        "id": "569688469#0",
+        "name": "玉林街",
+        "length_m": 177.88,
+        "source_tags": {
+          "highway": "tertiary",
+          "name": "玉林街"
+        },
+        "source_url": "https://www.openstreetmap.org/way/569688469"
+      }
+    ],
+    "earliest_continuous_wait_start_estimate_s": 1278.0,
+    "heads": [
+      {
+        "id": "internal_42_zone_1_2_0055",
+        "road": ":432452987_9",
+        "lane": ":432452987_9_0",
+        "pos": 1.5151603154275064,
+        "wait": 2876.5,
+        "tls": [
+          [
+            "joined_nijiaqiao_v1",
+            15,
+            414.3948396845725,
+            "r"
+          ],
+          [
+            "joined_north_surface_v3",
+            26,
+            1360.2748396845725,
+            "r"
+          ]
+        ],
+        "leader": null,
+        "route": [
+          "-100288988#5",
+          "100288988#5",
+          "100288988#6",
+          "37132266#3",
+          "37132266#4",
+          "37132266#5",
+          "37132266#6",
+          "37132266#7",
+          "37132266#8",
+          "136053867#1",
+          "136053867#2",
+          "459143638#0"
+        ],
+        "route_index": 5,
+        "stop": 0
+      },
+      {
+        "id": "internal_42_zone_2_0_0004",
+        "road": ":432452987_6",
+        "lane": ":432452987_6_0",
+        "pos": 3.9889915986834916,
+        "wait": 2852.5,
+        "tls": [
+          [
+            "1159176576",
+            0,
+            143.4910084013165,
+            "G"
+          ]
+        ],
+        "leader": null,
+        "route": [
+          "485149339#0",
+          "485149339#1",
+          "485149339#2",
+          "485149339#3",
+          "-485149339#3",
+          "-485149339#2",
+          "-485149339#1",
+          "-485149339#0",
+          "37132267#1",
+          "37132267#2",
+          "37132267#3",
+          "-37132266#5",
+          "-37132266#4",
+          "-37132266#3",
+          "-100288988#6",
+          "-100288988#5",
+          "-100288988#4",
+          "-100288988#2",
+          "-100288988#1",
+          "-100288988#0",
+          "-463266993#2"
+        ],
+        "route_index": 10,
+        "stop": 0
+      },
+      {
+        "id": "internal_42_zone_2_3_0023",
+        "road": ":432452987_12",
+        "lane": ":432452987_12_0",
+        "pos": 2.3043238558251544,
+        "wait": 2920.5,
+        "tls": [
+          [
+            "1159176576",
+            1,
+            139.98567614417485,
+            "G"
+          ],
+          [
+            "cluster_11799930337_432452986",
+            1,
+            201.51567614417485,
+            "G"
+          ],
+          [
+            "314635491",
+            6,
+            410.3556761441748,
+            "g"
+          ],
+          [
+            "8013476764",
+            1,
+            534.9556761441747,
+            "r"
+          ],
+          [
+            "1159176368",
+            0,
+            593.4356761441747,
+            "r"
+          ],
+          [
+            "4548211590",
+            1,
+            915.0856761441747,
+            "r"
+          ],
+          [
+            "8013476765",
+            2,
+            938.4156761441748,
+            "g"
+          ]
+        ],
+        "leader": null,
+        "route": [
+          "266228437#2",
+          "266228436#3",
+          "266228436#4",
+          "-569688469#2",
+          "-569688469#1",
+          "-569688469#0",
+          "-37132266#5",
+          "-37132266#4",
+          "-37132266#3",
+          "-37132266#2",
+          "-37132266#0",
+          "-28621532#3",
+          "-28621532#2",
+          "-28621532#1",
+          "-28621532#0",
+          "-1447297430",
+          "458891623#4",
+          "458891623#5",
+          "458891623#6",
+          "458891623#7",
+          "458891623#8",
+          "-276196015#4",
+          "-276196015#3",
+          "-276196015#2",
+          "569688474#0",
+          "569688474#1",
+          "569688474#2",
+          "569688490#0",
+          "569688490#1",
+          "569688490#2",
+          "569688490#3",
+          "-37132256#0",
+          "37132250#0",
+          "-267232476#1",
+          "267232477"
+        ],
+        "route_index": 5,
+        "stop": 0
+      },
+      {
+        "id": "internal_42_zone_2_3_0035",
+        "road": ":432452987_13",
+        "lane": ":432452987_13_0",
+        "pos": 9.402764717907433,
+        "wait": 2922.0,
+        "tls": [
+          [
+            "1159176227",
+            14,
+            241.72723528209258,
+            "r"
+          ]
+        ],
+        "leader": null,
+        "route": [
+          "266228437#2",
+          "266228436#3",
+          "266228436#4",
+          "-569688469#2",
+          "-569688469#1",
+          "-569688469#0",
+          "-37132267#3",
+          "-37132267#2",
+          "-37132267#1",
+          "485149339#0"
+        ],
+        "route_index": 5,
+        "stop": 0
+      },
+      {
+        "id": "t42_0001259",
+        "road": ":432452987_2",
+        "lane": ":432452987_2_0",
+        "pos": 3.968987084655472,
+        "wait": 2896.0,
+        "tls": [
+          [
+            "1159176227",
+            12,
+            246.93101291534452,
+            "r"
+          ]
+        ],
+        "leader": null,
+        "route": [
+          "459143617#4",
+          "459143633#0",
+          "459143633#1",
+          "-37132266#8",
+          "-37132266#7",
+          "-37132266#6",
+          "-37132267#3",
+          "-37132267#2",
+          "-37132267#1",
+          "-136054938#1",
+          "-1285599800",
+          "1285599800"
+        ],
+        "route_index": 5,
+        "stop": 0
+      }
+    ],
+    "potential_response_relations": [
+      {
+        "link_index": 2,
+        "vehicle_id": "t42_0001259",
+        "potential_yield_to_occupied_links": [
+          9,
+          6
+        ],
+        "geometric_foes_among_occupied_links": [
+          9,
+          6,
+          13
+        ]
+      },
+      {
+        "link_index": 6,
+        "vehicle_id": "internal_42_zone_2_0_0004",
+        "potential_yield_to_occupied_links": [
+          9,
+          12,
+          13,
+          2
+        ],
+        "geometric_foes_among_occupied_links": [
+          9,
+          12,
+          13,
+          2
+        ]
+      },
+      {
+        "link_index": 9,
+        "vehicle_id": "internal_42_zone_1_2_0055",
+        "potential_yield_to_occupied_links": [
+          6
+        ],
+        "geometric_foes_among_occupied_links": [
+          6,
+          13,
+          2
+        ]
+      },
+      {
+        "link_index": 12,
+        "vehicle_id": "internal_42_zone_2_3_0023",
+        "potential_yield_to_occupied_links": [],
+        "geometric_foes_among_occupied_links": [
+          6
+        ]
+      },
+      {
+        "link_index": 13,
+        "vehicle_id": "internal_42_zone_2_3_0035",
+        "potential_yield_to_occupied_links": [
+          9,
+          2
+        ],
+        "geometric_foes_among_occupied_links": [
+          9,
+          6,
+          2
+        ]
+      }
+    ]
+  },
+  "late_signal_observations": {
+    "window": [
+      3300,
+      4200
+    ],
+    "state_change_records": 66,
+    "state_counts": {
+      "yyyyrrrryyyyrrrr": 11,
+      "rrrrrrrrrrrrrrrr": 22,
+      "rrrrGGggrrrrGGgg": 11,
+      "rrrryyyyrrrryyyy": 11,
+      "GGggrrrrGGggrrrr": 11
+    },
+    "last_states": [
+      {
+        "time": 4045.0,
+        "tls": "432452987",
+        "state": "yyyyrrrryyyyrrrr",
+        "phase": 1
+      },
+      {
+        "time": 4048.0,
+        "tls": "432452987",
+        "state": "rrrrrrrrrrrrrrrr",
+        "phase": 2
+      },
+      {
+        "time": 4049.0,
+        "tls": "432452987",
+        "state": "rrrrGGggrrrrGGgg",
+        "phase": 3
+      },
+      {
+        "time": 4086.0,
+        "tls": "432452987",
+        "state": "rrrryyyyrrrryyyy",
+        "phase": 4
+      },
+      {
+        "time": 4089.0,
+        "tls": "432452987",
+        "state": "rrrrrrrrrrrrrrrr",
+        "phase": 5
+      },
+      {
+        "time": 4090.0,
+        "tls": "432452987",
+        "state": "GGggrrrrGGggrrrr",
+        "phase": 0
+      },
+      {
+        "time": 4127.0,
+        "tls": "432452987",
+        "state": "yyyyrrrryyyyrrrr",
+        "phase": 1
+      },
+      {
+        "time": 4130.0,
+        "tls": "432452987",
+        "state": "rrrrrrrrrrrrrrrr",
+        "phase": 2
+      },
+      {
+        "time": 4131.0,
+        "tls": "432452987",
+        "state": "rrrrGGggrrrrGGgg",
+        "phase": 3
+      },
+      {
+        "time": 4168.0,
+        "tls": "432452987",
+        "state": "rrrryyyyrrrryyyy",
+        "phase": 4
+      },
+      {
+        "time": 4171.0,
+        "tls": "432452987",
+        "state": "rrrrrrrrrrrrrrrr",
+        "phase": 5
+      },
+      {
+        "time": 4172.0,
+        "tls": "432452987",
+        "state": "GGggrrrrGGggrrrr",
+        "phase": 0
+      }
+    ]
+  },
+  "s7_controller_events": {
+    "extensions_total": 81,
+    "last_extensions": [
+      {
+        "time": 3872.5,
+        "type": "green_extension",
+        "tls": "432452987",
+        "phase": 0,
+        "duration": 8.0,
+        "queue": 52,
+        "bus": false,
+        "downstream_space": true
+      },
+      {
+        "time": 3913.5,
+        "type": "green_extension",
+        "tls": "432452987",
+        "phase": 3,
+        "duration": 8.0,
+        "queue": 84,
+        "bus": false,
+        "downstream_space": true
+      },
+      {
+        "time": 3954.5,
+        "type": "green_extension",
+        "tls": "432452987",
+        "phase": 0,
+        "duration": 8.0,
+        "queue": 52,
+        "bus": false,
+        "downstream_space": true
+      },
+      {
+        "time": 3995.5,
+        "type": "green_extension",
+        "tls": "432452987",
+        "phase": 3,
+        "duration": 8.0,
+        "queue": 84,
+        "bus": false,
+        "downstream_space": true
+      },
+      {
+        "time": 4036.5,
+        "type": "green_extension",
+        "tls": "432452987",
+        "phase": 0,
+        "duration": 8.0,
+        "queue": 52,
+        "bus": false,
+        "downstream_space": true
+      },
+      {
+        "time": 4077.5,
+        "type": "green_extension",
+        "tls": "432452987",
+        "phase": 3,
+        "duration": 8.0,
+        "queue": 84,
+        "bus": false,
+        "downstream_space": true
+      },
+      {
+        "time": 4118.5,
+        "type": "green_extension",
+        "tls": "432452987",
+        "phase": 0,
+        "duration": 8.0,
+        "queue": 52,
+        "bus": false,
+        "downstream_space": true
+      },
+      {
+        "time": 4159.5,
+        "type": "green_extension",
+        "tls": "432452987",
+        "phase": 3,
+        "duration": 8.0,
+        "queue": 84,
+        "bus": false,
+        "downstream_space": true
+      }
+    ]
+  },
+  "mechanism_supported": "Five stopped vehicles occupy conflicting internal links of a single surface junction while upstream queues persist. Signals continue alternating green/yellow/all-red. The S7 extension guard only tests outgoing-lane occupancy; it continues reporting downstream_space=True while the internal intersection is blocked. This supports policy-condition-sensitive simulated internal-junction gridlock/spillback and exposes an incomplete receiving-space check.",
+  "mechanism_not_established": [
+    "Static response relations indicate potential reciprocal yielding, not a measured per-vehicle causal graph. No saved-state deletion intervention was run for this final S7 case.",
+    "Same-network S0 drainage establishes outcome sensitivity to control/trajectory evolution, not real-world inevitability or proof that SUMO conflict handling is fully realistic.",
+    "No new 0.20m external-edge split was found at this primary lock junction; nearby incident external segments are38.77–177.88m. No evidence here justifies another automatic junction merge.",
+    "Secondary late stalled heads near node8013476765 are retained in snapshots; this bounded review does not claim all809 vehicles share one independently proved causal chain."
+  ],
+  "decision": "Keep frozen v3 and negative S7 outcome. No network mutation, vehicle removal, teleporting, policy retuning or extra capacity introduced. Controller redesign/field calibration require a separate study.",
+  "code_reference": "src/traffic_twin/policies.py PolicyController.step:receiving uses getLastStepOccupancy(outgoing), not internal via-lane occupancy."
+}

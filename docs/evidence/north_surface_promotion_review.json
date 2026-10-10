@@ -1,0 +1,636 @@
+{
+  "source": {
+    "run_id": "high_pressure_S0_am_42_v2",
+    "network_hash": "85ca1ace1c2ee131c4dafe90b7fc991dff3ed7e72fe1a5a4b33ff0109cf03d56",
+    "demand_hash": "446b4e09d11d08279129f9d496a06324ce6b590ed7562f07cc9505c758bb295a",
+    "config": {
+      "demo_scenario": "synthetic_building_od_high_pressure_access_v2",
+      "seed": 42,
+      "demand_scale": 1.0,
+      "rate_per_gate": 360,
+      "duration_seconds": 4200,
+      "warmup_seconds": 300,
+      "demand_end_seconds": 1800,
+      "step_seconds": 0.5,
+      "trajectory": true,
+      "internal_demand": {
+        "cars_per_building": 3,
+        "initial_departure_fraction": 0.03,
+        "internal_to_internal_fraction": 0.3,
+        "departure_fraction": 0.7,
+        "local_access_only": true
+      },
+      "network_variant": "joined_nijiaqiao_access_v2",
+      "policy": "S0",
+      "period": "am",
+      "run_id": "high_pressure_S0_am_42_v2"
+    },
+    "final_state": {
+      "all_cohort_inside": 700,
+      "all_cohort_core_vehicles": 172,
+      "all_cohort_periphery_vehicles": 528,
+      "all_cohort_external_waiting": 426,
+      "all_cohort_due": 4042,
+      "all_cohort_completed": 2916,
+      "time": 4200.0,
+      "due": 3520,
+      "inside": 683,
+      "external_waiting": 426,
+      "completed": 2411,
+      "core_vehicles": 172,
+      "periphery_vehicles": 511,
+      "queue_vehicles": 700,
+      "tstt_vehicle_seconds": 4674935.766000003,
+      "internal_insertion_waiting": 0,
+      "boundary_insertion_waiting": 426,
+      "parked_total": 1196
+    },
+    "metrics": {
+      "generated": 3520,
+      "due": 3520,
+      "completed": 2411,
+      "inside": 683,
+      "external_waiting": 426,
+      "explicit_failure": 0,
+      "completion_rate": 0.6849431818181818,
+      "tstt_vehicle_seconds": 4674935.766000003,
+      "mean_travel_time_seconds": 504.6788768145998,
+      "p95_travel_time_seconds": 1486.0030000000002,
+      "median_travel_time_seconds": 356.67499999999995,
+      "external_wait_vehicle_seconds": 1302448.766,
+      "core_vehicle_seconds": 1094368.5,
+      "periphery_vehicle_seconds": 2278460.0,
+      "max_queue_vehicles": 986,
+      "teleports": 0,
+      "collisions": 0,
+      "duration_seconds": 4200.0,
+      "cohort": "peak",
+      "interpretation": "Finite-window cumulative time including due but uninserted target trips. Incomplete trips are right-censored; completed-only mean is secondary.",
+      "all_cohort_generated": 4042,
+      "all_cohort_completed": 2916,
+      "all_cohort_inserted": 3616,
+      "spatial_time_method": "End-of-step rectangular integration; peak core/periphery may differ by <= step boundary terms from exact trip elapsed time.",
+      "queue_population": "All cohorts; stopped-speed threshold <0.1 m/s is a count proxy, not contiguous physical queue length.",
+      "observed_stop_starts": 164,
+      "signal_extensions": 0,
+      "bus_completed": 16,
+      "insertion_wait_population": "Legacy external_waiting fields include all due uninserted trips; split boundary/internal waiting is in stock_timeseries.",
+      "boundary_insertion_wait_vehicle_seconds": 1301615.057,
+      "internal_insertion_wait_vehicle_seconds": 833.7090000000317,
+      "initial_parked_total": 1187,
+      "internal_departures_generated": 830,
+      "boundary_arrivals_reassigned": 741,
+      "parked_final": 1196
+    },
+    "collisions": 0,
+    "teleports": 0,
+    "conservation_passed": true,
+    "parked_stock_conservation_passed": true,
+    "last_queue": {
+      "time": 4200.0,
+      "edges": [
+        {
+          "edge_id": "136053867#2",
+          "stopped_vehicles": 286
+        },
+        {
+          "edge_id": "136053867#1",
+          "stopped_vehicles": 61
+        },
+        {
+          "edge_id": "785085443",
+          "stopped_vehicles": 39
+        },
+        {
+          "edge_id": "1521446137#0",
+          "stopped_vehicles": 34
+        },
+        {
+          "edge_id": "954864901#1",
+          "stopped_vehicles": 31
+        },
+        {
+          "edge_id": "1521446137#4",
+          "stopped_vehicles": 27
+        },
+        {
+          "edge_id": "890791639#0",
+          "stopped_vehicles": 26
+        },
+        {
+          "edge_id": "1448610366",
+          "stopped_vehicles": 25
+        },
+        {
+          "edge_id": "1505070689#1",
+          "stopped_vehicles": 24
+        },
+        {
+          "edge_id": "1505070689#2",
+          "stopped_vehicles": 23
+        },
+        {
+          "edge_id": "136053867#0",
+          "stopped_vehicles": 19
+        },
+        {
+          "edge_id": "115625972#1",
+          "stopped_vehicles": 18
+        },
+        {
+          "edge_id": "1521446136#1",
+          "stopped_vehicles": 11
+        },
+        {
+          "edge_id": "1521446137#1",
+          "stopped_vehicles": 7
+        },
+        {
+          "edge_id": "1521446137#3",
+          "stopped_vehicles": 6
+        },
+        {
+          "edge_id": "459143642",
+          "stopped_vehicles": 5
+        },
+        {
+          "edge_id": "-475633215#2",
+          "stopped_vehicles": 4
+        },
+        {
+          "edge_id": "1521446136#2",
+          "stopped_vehicles": 4
+        },
+        {
+          "edge_id": "1521446136#4",
+          "stopped_vehicles": 4
+        },
+        {
+          "edge_id": "-475633215#1",
+          "stopped_vehicles": 3
+        },
+        {
+          "edge_id": "1505070689#0",
+          "stopped_vehicles": 3
+        },
+        {
+          "edge_id": "538608185#5",
+          "stopped_vehicles": 3
+        },
+        {
+          "edge_id": "954864901#3",
+          "stopped_vehicles": 3
+        },
+        {
+          "edge_id": "115625956",
+          "stopped_vehicles": 2
+        },
+        {
+          "edge_id": "136053867#3",
+          "stopped_vehicles": 2
+        },
+        {
+          "edge_id": ":13275518524_0",
+          "stopped_vehicles": 2
+        },
+        {
+          "edge_id": ":13876804851_0",
+          "stopped_vehicles": 2
+        },
+        {
+          "edge_id": ":5213238549_0",
+          "stopped_vehicles": 2
+        },
+        {
+          "edge_id": "1521446136#0",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": "459143617#4",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": "476664219#0",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": "538608173#2",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": "890791639#1",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": "890791639#2",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": "890791639#3",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": "954864900#1",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": "954864901#4",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": ":1159174527_3",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": ":11775516166_0",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": ":11775516167_1",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": ":12628350177_0",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": ":13876804845_0",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": ":1492405916_2",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": ":4550568567_0",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": ":4550568579_4",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": ":5213238476_0",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": ":5436607829_1",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": ":5436607843_1",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": ":5478294728_0",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": ":cluster_14067914575_1916386490_10",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": ":cluster_1445484321_4550568575_0",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": ":cluster_1445484321_4550568575_11",
+          "stopped_vehicles": 1
+        }
+      ],
+      "total_stopped": 700,
+      "threshold_m_s": 0.1
+    },
+    "late_clearance": [
+      {
+        "time": 3000.0,
+        "all_cohort_completed": 2891,
+        "all_cohort_inside": 725,
+        "all_cohort_external_waiting": 426
+      },
+      {
+        "time": 3300.0,
+        "all_cohort_completed": 2913,
+        "all_cohort_inside": 703,
+        "all_cohort_external_waiting": 426
+      },
+      {
+        "time": 3600.0,
+        "all_cohort_completed": 2916,
+        "all_cohort_inside": 700,
+        "all_cohort_external_waiting": 426
+      },
+      {
+        "time": 3900.0,
+        "all_cohort_completed": 2916,
+        "all_cohort_inside": 700,
+        "all_cohort_external_waiting": 426
+      },
+      {
+        "time": 4200.0,
+        "all_cohort_completed": 2916,
+        "all_cohort_inside": 700,
+        "all_cohort_external_waiting": 426
+      }
+    ]
+  },
+  "promoted": {
+    "run_id": "north_surface_counterfactual_S0_am_42_v3_movementfix",
+    "network_hash": "852d34522be4f77627849a30201cc92eb0d6d0208466302f26c9f9d90dc21b19",
+    "demand_hash": "446b4e09d11d08279129f9d496a06324ce6b590ed7562f07cc9505c758bb295a",
+    "config": {
+      "demo_scenario": "synthetic_building_od_high_pressure_access_v2",
+      "seed": 42,
+      "demand_scale": 1.0,
+      "rate_per_gate": 360,
+      "duration_seconds": 4200,
+      "warmup_seconds": 300,
+      "demand_end_seconds": 1800,
+      "step_seconds": 0.5,
+      "trajectory": true,
+      "internal_demand": {
+        "cars_per_building": 3,
+        "initial_departure_fraction": 0.03,
+        "internal_to_internal_fraction": 0.3,
+        "departure_fraction": 0.7,
+        "local_access_only": true
+      },
+      "network_variant": "joined_north_surface_v3",
+      "policy": "S0",
+      "period": "am",
+      "run_id": "north_surface_counterfactual_S0_am_42_v3_movementfix"
+    },
+    "final_state": {
+      "all_cohort_inside": 58,
+      "all_cohort_core_vehicles": 58,
+      "all_cohort_periphery_vehicles": 0,
+      "all_cohort_external_waiting": 0,
+      "all_cohort_due": 4042,
+      "all_cohort_completed": 3984,
+      "time": 4200.0,
+      "due": 3520,
+      "inside": 58,
+      "external_waiting": 0,
+      "completed": 3462,
+      "core_vehicles": 58,
+      "periphery_vehicles": 0,
+      "queue_vehicles": 37,
+      "tstt_vehicle_seconds": 2820209.2660000017,
+      "internal_insertion_waiting": 0,
+      "boundary_insertion_waiting": 0,
+      "parked_total": 1303
+    },
+    "metrics": {
+      "generated": 3520,
+      "due": 3520,
+      "completed": 3462,
+      "inside": 58,
+      "external_waiting": 0,
+      "explicit_failure": 0,
+      "completion_rate": 0.9835227272727273,
+      "tstt_vehicle_seconds": 2820209.2660000017,
+      "mean_travel_time_seconds": 761.2336533795493,
+      "p95_travel_time_seconds": 2270.19125,
+      "median_travel_time_seconds": 541.0905,
+      "external_wait_vehicle_seconds": 348757.266,
+      "core_vehicle_seconds": 1103803.0,
+      "periphery_vehicle_seconds": 1367678.0,
+      "max_queue_vehicles": 859,
+      "teleports": 0,
+      "collisions": 0,
+      "duration_seconds": 4200.0,
+      "cohort": "peak",
+      "interpretation": "Finite-window cumulative time including due but uninserted target trips. Incomplete trips are right-censored; completed-only mean is secondary.",
+      "all_cohort_generated": 4042,
+      "all_cohort_completed": 3984,
+      "all_cohort_inserted": 4042,
+      "spatial_time_method": "End-of-step rectangular integration; peak core/periphery may differ by <= step boundary terms from exact trip elapsed time.",
+      "queue_population": "All cohorts; stopped-speed threshold <0.1 m/s is a count proxy, not contiguous physical queue length.",
+      "observed_stop_starts": 194,
+      "signal_extensions": 0,
+      "bus_completed": 24,
+      "insertion_wait_population": "Legacy external_waiting fields include all due uninserted trips; split boundary/internal waiting is in stock_timeseries.",
+      "boundary_insertion_wait_vehicle_seconds": 347873.057,
+      "internal_insertion_wait_vehicle_seconds": 884.2090000000317,
+      "initial_parked_total": 1187,
+      "internal_departures_generated": 830,
+      "boundary_arrivals_reassigned": 741,
+      "parked_final": 1303
+    },
+    "collisions": 0,
+    "teleports": 0,
+    "conservation_passed": true,
+    "parked_stock_conservation_passed": true,
+    "last_queue": {
+      "time": 4200.0,
+      "edges": [
+        {
+          "edge_id": "136004880#4",
+          "stopped_vehicles": 17
+        },
+        {
+          "edge_id": "136053867#0",
+          "stopped_vehicles": 14
+        },
+        {
+          "edge_id": ":1492582891_0",
+          "stopped_vehicles": 2
+        },
+        {
+          "edge_id": "-37132266#0",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": "-37132266#2",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": "569688469#0",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": "569688469#2",
+          "stopped_vehicles": 1
+        }
+      ],
+      "total_stopped": 37,
+      "threshold_m_s": 0.1
+    },
+    "late_clearance": [
+      {
+        "time": 3000.0,
+        "all_cohort_completed": 3647,
+        "all_cohort_inside": 325,
+        "all_cohort_external_waiting": 70
+      },
+      {
+        "time": 3300.0,
+        "all_cohort_completed": 3758,
+        "all_cohort_inside": 266,
+        "all_cohort_external_waiting": 18
+      },
+      {
+        "time": 3600.0,
+        "all_cohort_completed": 3855,
+        "all_cohort_inside": 187,
+        "all_cohort_external_waiting": 0
+      },
+      {
+        "time": 3900.0,
+        "all_cohort_completed": 3920,
+        "all_cohort_inside": 122,
+        "all_cohort_external_waiting": 0
+      },
+      {
+        "time": 4200.0,
+        "all_cohort_completed": 3984,
+        "all_cohort_inside": 58,
+        "all_cohort_external_waiting": 0
+      }
+    ]
+  },
+  "rejected_initial_variant": {
+    "run_id": "north_surface_counterfactual_S0_am_42_v3",
+    "network_hash": "ac8e0fb8ddcb522254b8797d923e4bf07b16c58cb1dedf9976f5759b48d1ebfc",
+    "demand_hash": "446b4e09d11d08279129f9d496a06324ce6b590ed7562f07cc9505c758bb295a",
+    "config": {
+      "demo_scenario": "synthetic_building_od_high_pressure_access_v2",
+      "seed": 42,
+      "demand_scale": 1.0,
+      "rate_per_gate": 360,
+      "duration_seconds": 4200,
+      "warmup_seconds": 300,
+      "demand_end_seconds": 1800,
+      "step_seconds": 0.5,
+      "trajectory": true,
+      "internal_demand": {
+        "cars_per_building": 3,
+        "initial_departure_fraction": 0.03,
+        "internal_to_internal_fraction": 0.3,
+        "departure_fraction": 0.7,
+        "local_access_only": true
+      },
+      "network_variant": "joined_north_surface_v3",
+      "policy": "S0",
+      "period": "am",
+      "run_id": "north_surface_counterfactual_S0_am_42_v3"
+    },
+    "final_state": {
+      "all_cohort_inside": 50,
+      "all_cohort_core_vehicles": 50,
+      "all_cohort_periphery_vehicles": 0,
+      "all_cohort_external_waiting": 0,
+      "all_cohort_due": 4042,
+      "all_cohort_completed": 3992,
+      "time": 4200.0,
+      "due": 3520,
+      "inside": 50,
+      "external_waiting": 0,
+      "completed": 3470,
+      "core_vehicles": 50,
+      "periphery_vehicles": 0,
+      "queue_vehicles": 2,
+      "tstt_vehicle_seconds": 2818383.7660000017,
+      "internal_insertion_waiting": 0,
+      "boundary_insertion_waiting": 0,
+      "parked_total": 1311
+    },
+    "metrics": {
+      "generated": 3520,
+      "due": 3520,
+      "completed": 3470,
+      "inside": 50,
+      "external_waiting": 0,
+      "explicit_failure": 0,
+      "completion_rate": 0.9857954545454546,
+      "tstt_vehicle_seconds": 2818383.7660000017,
+      "mean_travel_time_seconds": 766.0623291066282,
+      "p95_travel_time_seconds": 2243.8015499999997,
+      "median_travel_time_seconds": 539.532,
+      "external_wait_vehicle_seconds": 335428.766,
+      "core_vehicle_seconds": 1051317.5,
+      "periphery_vehicle_seconds": 1431662.5,
+      "max_queue_vehicles": 796,
+      "teleports": 0,
+      "collisions": 0,
+      "duration_seconds": 4200.0,
+      "cohort": "peak",
+      "interpretation": "Finite-window cumulative time including due but uninserted target trips. Incomplete trips are right-censored; completed-only mean is secondary.",
+      "all_cohort_generated": 4042,
+      "all_cohort_completed": 3992,
+      "all_cohort_inserted": 4042,
+      "spatial_time_method": "End-of-step rectangular integration; peak core/periphery may differ by <= step boundary terms from exact trip elapsed time.",
+      "queue_population": "All cohorts; stopped-speed threshold <0.1 m/s is a count proxy, not contiguous physical queue length.",
+      "observed_stop_starts": 194,
+      "signal_extensions": 0,
+      "bus_completed": 24,
+      "insertion_wait_population": "Legacy external_waiting fields include all due uninserted trips; split boundary/internal waiting is in stock_timeseries.",
+      "boundary_insertion_wait_vehicle_seconds": 334561.057,
+      "internal_insertion_wait_vehicle_seconds": 867.7090000000317,
+      "initial_parked_total": 1187,
+      "internal_departures_generated": 830,
+      "boundary_arrivals_reassigned": 741,
+      "parked_final": 1311
+    },
+    "collisions": 0,
+    "teleports": 0,
+    "conservation_passed": true,
+    "parked_stock_conservation_passed": true,
+    "last_queue": {
+      "time": 4200.0,
+      "edges": [
+        {
+          "edge_id": "-37132266#0",
+          "stopped_vehicles": 1
+        },
+        {
+          "edge_id": "569688469#2",
+          "stopped_vehicles": 1
+        }
+      ],
+      "total_stopped": 2,
+      "threshold_m_s": 0.1
+    },
+    "late_clearance": [
+      {
+        "time": 3000.0,
+        "all_cohort_completed": 3655,
+        "all_cohort_inside": 328,
+        "all_cohort_external_waiting": 59
+      },
+      {
+        "time": 3300.0,
+        "all_cohort_completed": 3769,
+        "all_cohort_inside": 263,
+        "all_cohort_external_waiting": 10
+      },
+      {
+        "time": 3600.0,
+        "all_cohort_completed": 3859,
+        "all_cohort_inside": 183,
+        "all_cohort_external_waiting": 0
+      },
+      {
+        "time": 3900.0,
+        "all_cohort_completed": 3927,
+        "all_cohort_inside": 115,
+        "all_cohort_external_waiting": 0
+      },
+      {
+        "time": 4200.0,
+        "all_cohort_completed": 3992,
+        "all_cohort_inside": 50,
+        "all_cohort_external_waiting": 0
+      }
+    ]
+  },
+  "source_field_status": "OSM-based model corrections, no field validation. Experimental rebuilt signals are not observed Chengdu timing.",
+  "movement_review": "north_surface_review.json",
+  "source_node_and_grade_review": "north_surface_selection.json",
+  "isolation_diagnostic": "north_lock_diagnostic.json",
+  "exact_same_demand_hash": true,
+  "exact_same_trip_count": 4042,
+  "initial_variant_promoted": false,
+  "promoted_variant": "joined_north_surface_v3",
+  "interpretation": "The removal of sustained north-junction lock is a correction of topology/control representation, not an S0/S7 intervention effect;58 unfinished vehicles remain explicitly at4200s, with continued discharge."
+}

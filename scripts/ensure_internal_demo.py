@@ -13,7 +13,7 @@ def available(root=ROOT):
     try:
         catalog=json.loads((root/'web/public/data/catalog.json').read_text())
         ids=[f'internal_moderate_{policy}_{period}_42_v1' for period in ('am','pm') for policy in ('S0','S7')]
-        if [e['run_id'] for e in catalog['runs'][:4]]!=ids:return False
+        if not set(ids).issubset({e['run_id'] for e in catalog['runs']}):return False
         if not any(e['run_id']=='internal_demo_S0_am_42_v1' for e in catalog['runs']):return False
         for run_id in ids+['internal_demo_S0_am_42_v1']:
             expected_config=config if run_id.startswith('internal_moderate_') else json.loads((root/'scenarios/internal_peak_demo.json').read_text())

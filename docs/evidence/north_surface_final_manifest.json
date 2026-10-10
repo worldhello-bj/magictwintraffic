@@ -1,0 +1,77 @@
+{
+  "network_variant": "joined_north_surface_v3",
+  "network_hash": "852d34522be4f77627849a30201cc92eb0d6d0208466302f26c9f9d90dc21b19",
+  "baseline_network_hash": "85ca1ace1c2ee131c4dafe90b7fc991dff3ed7e72fe1a5a4b33ff0109cf03d56",
+  "removed_external_edges": [
+    "115625956",
+    "131319574#15",
+    "136053867#3",
+    "476664219#0",
+    "890791639#3",
+    "890791640#1",
+    "954864900#0",
+    "954864900#1",
+    "954864901#4"
+  ],
+  "joined_nodes": [
+    "1492405916",
+    "5436607837",
+    "1445484323",
+    "5436607839",
+    "4550568579",
+    "cluster_1445484321_4550568575",
+    "5436607841"
+  ],
+  "joined_node": "joined_north_surface_v3",
+  "baseline_unchanged": true,
+  "buildings_preserved": true,
+  "gates_preserved": true,
+  "external_edges": 1514,
+  "lanes": 6001,
+  "junctions": 682,
+  "traffic_lights": 43,
+  "source_variant": "joined_nijiaqiao_access_v2",
+  "grade_separation_review": {
+    "joined_nodes": [
+      "1492405916",
+      "5436607837",
+      "1445484323",
+      "5436607839",
+      "4550568579",
+      "cluster_1445484321_4550568575",
+      "5436607841"
+    ],
+    "expected_removed_external_edges": [
+      "115625956",
+      "131319574#15",
+      "136053867#3",
+      "476664219#0",
+      "890791639#3",
+      "890791640#1",
+      "954864900#0",
+      "954864900#1",
+      "954864901#4"
+    ],
+    "excluded_grade_separated_nodes": [
+      "5436607828",
+      "4550568567"
+    ],
+    "excluded_grade_separated_edges": [
+      "459143642"
+    ],
+    "source_review": "Selected seven surface nodes span approximately34m east-west and26m north-south. Incident source ways primary/secondary/tertiary, one-way=yes, no tunnel/bridge/layer tags, no tunnel edge incident. OSM origin reviewed; merge remains simulation topology counterfactual, not field-verified signal design.",
+    "evidence": "docs/evidence/north_surface_selection.json",
+    "extra_connections": [
+      {
+        "from": "136053867#2",
+        "to": "459143633#0",
+        "fromLane": 2,
+        "toLane": 2
+      }
+    ],
+    "extra_connection_reason": "Preserve source-contracted U-turn, verified passenger and bus legal through source ring; use compatible default lane permissions."
+  },
+  "build_key": "6829ad439c64302468f438ce39ef3677bce7ab7ed44d89d9fb4de80c90a10170",
+  "canonical_hash": "7f3937fc5b9e97a294c9eba881769c7fcaee6c8636c912a328b67e63692e03b1",
+  "status": "ready"
+}
