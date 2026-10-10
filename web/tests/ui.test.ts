@@ -75,7 +75,12 @@ const manifest = (id: string, policy: string) => ({
   events: "events.json",
   audit: "audit.json",
 });
-async function mount(online = false, failWebGL = false, failCanvas = false) {
+async function mount(
+  online = false,
+  failWebGL = false,
+  failCanvas = false,
+  warmup = false,
+) {
   const dom = new JSDOM('<div id="app"></div>', {
     url: "http://localhost/",
     runScripts: "outside-only",
@@ -138,6 +143,10 @@ async function mount(online = false, failWebGL = false, failCanvas = false) {
         runs: [
           {
             run_id: "a",
+            playback_start_seconds: warmup ? 300 : undefined,
+            scenario_kind: warmup
+              ? "uncalibrated_synthetic_busy_demo"
+              : undefined,
             policy: "S0",
             manifest: "runs/a/manifest.json",
             metrics: "runs/a/metrics.json",
@@ -329,6 +338,24 @@ test("even when both graphics contexts fail, valid run metrics remain independen
       w.document.querySelector("#scene-error")?.classList.contains("hidden"),
       false,
     );
+  } finally {
+    dom.window.close();
+  }
+});
+
+test("dense demo opens at its recorded warmup offset and remains explicitly uncalibrated", async () => {
+  const { dom, w } = await mount(false, false, false, true);
+  try {
+    assert.equal(w.document.querySelector("#clock")?.textContent, "05:00");
+    assert.match(
+      w.document.querySelector("#data-status")?.textContent ?? "",
+      /合成高需求演示（未校准）/,
+    );
+    assert.match(
+      w.document.querySelector("#sample-status")?.textContent ?? "",
+      /核心 0 \/ 次区 0/,
+    );
+    assert.equal(w.document.querySelectorAll(".boundary-key").length, 2);
   } finally {
     dom.window.close();
   }

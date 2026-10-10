@@ -1286,14 +1286,8 @@ dialog input {
     gap: 9px;
     font-size: 7px;
   }
-  .boundary-key {
-    display: none !important;
-  }
   .map-scale {
     right: 20px;
-  }
-  .playback-meta {
-    display: none;
   }
   .timeline {
     padding: 17px 20px;
@@ -1876,5 +1870,138 @@ dl {
   }
   .status-pill {
     font-size: 10px;
+  }
+}
+
+/* Source study polygons and shared navigation origin. */
+.map-legend {
+  flex-wrap: wrap;
+  max-width: calc(100% - 145px);
+}
+.map-legend .boundary-key {
+  display: flex;
+  color: #187e78;
+}
+.map-legend .boundary-key.secondary {
+  color: #a16b26;
+  border-left: 0;
+  padding-left: 0;
+}
+.boundary-swatch {
+  display: inline-block;
+  width: 20px;
+  border-top: 2px solid #b17b36;
+}
+.boundary-swatch.core {
+  border-top: 2px dashed #187e78;
+}
+.navigation-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 28px;
+  font-size: 10px;
+  color: #526c60;
+  pointer-events: none;
+  background: #f6f9f0cf;
+  padding: 3px 6px;
+  border-radius: 3px;
+}
+.canvas-hint,
+.canvas-fallback .webgl-hint {
+  display: none;
+}
+.canvas-fallback .canvas-hint {
+  display: inline;
+}
+.split-labels {
+  inset: 0;
+  align-items: flex-start;
+  padding-top: 200px;
+}
+.split-labels:after {
+  top: 0;
+  bottom: 0;
+  height: auto;
+  z-index: 0;
+  border-left: 1px solid #6c897b;
+  box-shadow: 1px 0 0 #ffffffb3;
+}
+.orbit-pivot {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #295f63;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.orbit-pivot::before,
+.orbit-pivot::after {
+  content: "";
+  position: absolute;
+  background: #295f63;
+}
+.orbit-pivot::before {
+  width: 22px;
+  height: 1px;
+  left: -5px;
+  top: 5px;
+}
+.orbit-pivot::after {
+  width: 1px;
+  height: 22px;
+  top: -5px;
+  left: 5px;
+}
+@media (max-width: 600px) {
+  .navigation-hint {
+    left: 12px;
+    font-size: 9px;
+  }
+  .map-legend {
+    max-width: calc(100% - 36px);
+    gap: 6px;
+  }
+}
+
+/* Essential study boundaries and current occupancy stay visible on laptops. */
+.timeline-top {
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+.playback-meta {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  line-height: 1.5;
+  color: #60785f;
+}
+#sample-status {
+  color: #395e50;
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 1180px) {
+  .map-toolbar .view-controls {
+    top: 112px;
+  }
+  .map-top-left {
+    top: 157px;
+  }
+  .map-top-right {
+    top: 151px;
+  }
+  .renderer-note {
+    top: 210px;
+  }
+  .map-legend {
+    max-width: calc(100% - 40px);
+  }
+}
+@media (max-width: 600px) {
+  .map-top-right {
+    top: 112px;
+  }
+  .renderer-note {
+    top: 198px;
   }
 }

@@ -33,7 +33,8 @@ def package(source,destination,sample_seconds=None):
   chunks.append(updated)
  manifest['chunks']=chunks;manifest['trajectory_step_seconds']=sample_seconds or manifest['step_seconds'];manifest['recording_export']=dict(source_run_id=run_id,source_physics_step_seconds=manifest['step_seconds'],display_sample_seconds=manifest['trajectory_step_seconds'],method='Exact recorded-frame subsampling; no interpolated or fabricated states; evaluator unchanged',network_deduplicated=True)
  write(target/'manifest.json',manifest)
- label=f"{manifest['policy']} · {'9900s 完整参考 / 1Hz回放' if manifest['duration_seconds']==9900 else '600s 机制演示 / 2Hz回放'}"
+ label=f"{manifest['policy']} · {manifest['duration_seconds']:g}s / {1/manifest['trajectory_step_seconds']:g}Hz回放"
+ if manifest.get('config',{}).get('demo_scenario'):label=f"{manifest['policy']} · 合成高需求演示 / 预热{manifest['config']['warmup_seconds']:g}s / {1/manifest['trajectory_step_seconds']:g}Hz"
  return dict(run_id=run_id,label=label,policy=manifest['policy'],manifest=f'runs/{run_id}/manifest.json',metrics=f'runs/{run_id}/metrics.json',duration_seconds=manifest['duration_seconds'],trajectory_step_seconds=manifest['trajectory_step_seconds'])
 if __name__=='__main__':
  parser=argparse.ArgumentParser();parser.add_argument('--previews',default='preview');parser.add_argument('--full',default='replay_S0_am_42_d1');args=parser.parse_args();dest=ROOT/'web/public/data';dest.mkdir(parents=True,exist_ok=True);write(dest/'network.json',json.loads((ROOT/'data/canonical/network.json').read_text()))
