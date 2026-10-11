@@ -1,0 +1,19 @@
+{
+  "recovered_at_utc": "2026-10-11T01:08:03Z",
+  "repository_url": "https://github.com/worldhello-bj/magictwintraffic",
+  "remote_main": "62f7b86333df6d9d6cabed3d55b513bf840ba9c5",
+  "remote_branches": {
+    "dot/traffic-navigation-density": "fc0677a6e0fa6d7df28a029121db08018909dd52",
+    "dot/traffic-policy-lab": "d497fc6cd2dc8d42488e4200f1d39cc501a12b9f"
+  },
+  "commits_not_found_by_github_api": [
+    "e64e34b48867edd33e41256c345df37d628c2d75",
+    "fa8cdd16a69c75f202e5e57f4b08b8b08e7754c5",
+    "594cc63",
+    "0b01b223b7022ccd73a6aea0b1d4c2d16a7ef6be"
+  ],
+  "bundled_assets_restored": 16,
+  "all_bundled_sha256_verified": true,
+  "original_40_run_person_records_recovered": false,
+  "caution": "Remote is an earlier vehicle simulation stage. Do not regenerate persons or claim reconstructed 40-run data from this source. Preserved Site data must retain provenance and exact bytes."
+}

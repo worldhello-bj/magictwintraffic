@@ -175,3 +175,7 @@ cd web && npm test && npm run build
 ## 建筑 OD、初始停车与高峰信号演示
 
 最终高压回放包含建筑片区初始库存、内部产生/吸引、可下载 OD 表、真实 SUMO 信号与逐路段统计。所有库存和需求参数明确标记为未校准假设，边界流量不会复制，两层守恒逐步检查。[建筑 OD 说明](docs/internal_building_od.md)保留早期方法和诊断；旧演示不再由前端启动自动生成。
+
+## Recovered 40-run visual story
+
+The standalone [visual-story entry](visual-story/README.md) contains the recovered and boundary-safe aggregate visualization, build commands, and tests. Its [preserved data and provenance](recovery/README.md) are independent of this repository’s earlier vehicle simulation and `web/` application. It does not rerun or replace the earlier simulation core.
