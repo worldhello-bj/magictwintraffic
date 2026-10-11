@@ -1,0 +1,369 @@
+{
+  "scope": "Read-only reanalysis of recovered historical aggregate exports; no simulation rerun or original person-record reconstruction.",
+  "source_directory": "/workspace/shared/chengdu-recovered-repo/recovery/site-v10/story-data",
+  "source_site_commit": "77306a89fc4d89b5f7477df62696ae0bef82547d",
+  "catalog_sha256": "3f5b37972d461a0a56e1329a5307a23f17e5a5ee186fd4711bc25c8631116beb",
+  "all_40_run_hashes_verified": true,
+  "network_hash": "852d34522be4f77627849a30201cc92eb0d6d0208466302f26c9f9d90dc21b19",
+  "inventory_hash": "d4075e12c54a17aa125b4e0575172e6ef2f69ab89cc65f681bc3eb68181f4e52",
+  "run_sha256": "129515e87cb00f0d85e05134fe823c3e71d87ed25256829e2c92338f56b574a3",
+  "historical_source_directory": "runs/mode_policy_v2/pm_43_bus",
+  "historical_source_hashes_not_recovered_files": {
+    "summary.json": "c74347b156c81e606376cafca72ce46fea9a489101a69d16401a39655d4eaf83",
+    "assignment.json": "983f62ccb853c577dbff3386116955aff534c4ad6005ddf5cdabd3a0f3e8dbc8",
+    "timeseries.json": "a335c945cf2bc78250f863834db780b74b1aa3b51b9bb7f9a7554721faa1ab50",
+    "edge_heat.csv.gz": "fb6b4654fa01d1459ebba79c9d5be1eeceb7f17495b855ddff58e24e43b141be",
+    "persons.jsonl.gz": "ef7a9a6a4d738776f8b6dd659b030c2cecdb0f56ad80e856ce21f85bd4082d4c"
+  },
+  "paired_comparisons": [
+    {
+      "period": "am",
+      "seed": 42,
+      "cohort": 4018,
+      "bus_people": 72,
+      "bus_share_pct": 1.7919362867098059,
+      "baseline_completed": 3891,
+      "bus_completed": 3873,
+      "completed_difference": -18,
+      "restricted_mean_difference_s": 30.236684917869525,
+      "stopped_vehicle_seconds_difference": -63605.0,
+      "stopped_vehicle_seconds_difference_pct": -1.7325633657028439
+    },
+    {
+      "period": "am",
+      "seed": 43,
+      "cohort": 4044,
+      "bus_people": 86,
+      "bus_share_pct": 2.126607319485658,
+      "baseline_completed": 3930,
+      "bus_completed": 3903,
+      "completed_difference": -27,
+      "restricted_mean_difference_s": 28.246909000989262,
+      "stopped_vehicle_seconds_difference": -59730.0,
+      "stopped_vehicle_seconds_difference_pct": -1.5230717447624498
+    },
+    {
+      "period": "am",
+      "seed": 44,
+      "cohort": 3942,
+      "bus_people": 63,
+      "bus_share_pct": 1.5981735159817352,
+      "baseline_completed": 3809,
+      "bus_completed": 3804,
+      "completed_difference": -5,
+      "restricted_mean_difference_s": 85.09157787924914,
+      "stopped_vehicle_seconds_difference": 129160.0,
+      "stopped_vehicle_seconds_difference_pct": 3.706456454302054
+    },
+    {
+      "period": "pm",
+      "seed": 42,
+      "cohort": 3991,
+      "bus_people": 61,
+      "bus_share_pct": 1.5284389877223754,
+      "baseline_completed": 3991,
+      "bus_completed": 3991,
+      "completed_difference": 0,
+      "restricted_mean_difference_s": 16.85504885993487,
+      "stopped_vehicle_seconds_difference": 15305.0,
+      "stopped_vehicle_seconds_difference_pct": 0.5815776123968552
+    },
+    {
+      "period": "pm",
+      "seed": 43,
+      "cohort": 3829,
+      "bus_people": 51,
+      "bus_share_pct": 1.3319404544267432,
+      "baseline_completed": 3829,
+      "bus_completed": 2202,
+      "completed_difference": -1627,
+      "restricted_mean_difference_s": 1660.762731783756,
+      "stopped_vehicle_seconds_difference": 4711530.0,
+      "stopped_vehicle_seconds_difference_pct": 179.29151476867108
+    },
+    {
+      "period": "pm",
+      "seed": 44,
+      "cohort": 3820,
+      "bus_people": 58,
+      "bus_share_pct": 1.5183246073298429,
+      "baseline_completed": 3814,
+      "bus_completed": 3820,
+      "completed_difference": 6,
+      "restricted_mean_difference_s": -20.362827225130786,
+      "stopped_vehicle_seconds_difference": -167855.0,
+      "stopped_vehicle_seconds_difference_pct": -5.8275903970003595
+    }
+  ],
+  "pm43_final": {
+    "cohort": 3829,
+    "completed": 2202,
+    "all_unfinished": 1627,
+    "status_counts": {
+      "completed": 2202,
+      "unfinished": 1210,
+      "not_inserted": 417
+    },
+    "mode_counts": {
+      "car": 3778,
+      "bus": 51
+    },
+    "minimum_unfinished_car_people": 1576
+  },
+  "late_exported_series": {
+    "start_s": 6330,
+    "end_s": 7200,
+    "sample_step_s": 30,
+    "sample_count": 30,
+    "constant_values": {
+      "road_vehicles": 1204,
+      "stopped_vehicles": 1184,
+      "completed_people": 2202,
+      "sumo_person_objects": 16,
+      "scheduled_due_people": 3829,
+      "started_people": 3412,
+      "due_unfinished_people": 1627
+    },
+    "caution": "Intermediate person-event fields have known boundary sampling issues; this describes exported samples, not an independently reconstructed person event ledger."
+  },
+  "final_road_windows": {
+    "last_two_windows_identical": true,
+    "observed_edge_count": 83,
+    "mean_stopped_sum": 1184.0,
+    "zero_speed_edge_count": 68,
+    "mean_vehicles_on_zero_speed_edges": 964.0
+  },
+  "constant_zero_speed_roads": [
+    {
+      "edge_index": 1115,
+      "edge_id": "458891623#3",
+      "road_name": "二环路南三段",
+      "constant_zero_speed_window_start_min": 20,
+      "end_min": 120,
+      "mean_vehicles": 121.0,
+      "mean_stopped_vehicles": 121.0,
+      "observed_mean_speed_kmh": 0.0
+    },
+    {
+      "edge_index": 1113,
+      "edge_id": "458891623#2",
+      "road_name": "二环路南三段",
+      "constant_zero_speed_window_start_min": 30,
+      "end_min": 120,
+      "mean_vehicles": 75.0,
+      "mean_stopped_vehicles": 75.0,
+      "observed_mean_speed_kmh": 0.0
+    },
+    {
+      "edge_index": 213,
+      "edge_id": "-28621532#1",
+      "road_name": "玉林南路",
+      "constant_zero_speed_window_start_min": 20,
+      "end_min": 120,
+      "mean_vehicles": 24.0,
+      "mean_stopped_vehicles": 24.0,
+      "observed_mean_speed_kmh": 0.0
+    },
+    {
+      "edge_index": 967,
+      "edge_id": "267232614#0",
+      "road_name": "紫荆北路",
+      "constant_zero_speed_window_start_min": 25,
+      "end_min": 120,
+      "mean_vehicles": 36.0,
+      "mean_stopped_vehicles": 36.0,
+      "observed_mean_speed_kmh": 0.0
+    },
+    {
+      "edge_index": 964,
+      "edge_id": "267232476#1",
+      "road_name": "紫竹中街",
+      "constant_zero_speed_window_start_min": 25,
+      "end_min": 120,
+      "mean_vehicles": 23.0,
+      "mean_stopped_vehicles": 23.0,
+      "observed_mean_speed_kmh": 0.0
+    },
+    {
+      "edge_index": 1021,
+      "edge_id": "37132250#0",
+      "road_name": "紫竹北街",
+      "constant_zero_speed_window_start_min": 35,
+      "end_min": 120,
+      "mean_vehicles": 35.0,
+      "mean_stopped_vehicles": 35.0,
+      "observed_mean_speed_kmh": 0.0
+    },
+    {
+      "edge_index": 281,
+      "edge_id": "-37132266#8",
+      "road_name": "倪家桥路",
+      "constant_zero_speed_window_start_min": 65,
+      "end_min": 120,
+      "mean_vehicles": 40.0,
+      "mean_stopped_vehicles": 40.0,
+      "observed_mean_speed_kmh": 0.0
+    },
+    {
+      "edge_index": 770,
+      "edge_id": "136053867#0",
+      "road_name": "人民南路四段",
+      "constant_zero_speed_window_start_min": 70,
+      "end_min": 120,
+      "mean_vehicles": 77.0,
+      "mean_stopped_vehicles": 77.0,
+      "observed_mean_speed_kmh": 0.0
+    },
+    {
+      "edge_index": 166,
+      "edge_id": "-265592586#0",
+      "road_name": "玉林北路",
+      "constant_zero_speed_window_start_min": 90,
+      "end_min": 120,
+      "mean_vehicles": 50.0,
+      "mean_stopped_vehicles": 50.0,
+      "observed_mean_speed_kmh": 0.0
+    }
+  ],
+  "speed_definition_pending_verification": {
+    "catalog_definition": "路段车辆观测加权均速。没有车辆观测的路段为空，不作零速。",
+    "stopped_definition": "路段5秒采样的停等车秒 / 300秒；包括道路上计划停站，不等于排队长度或纯拥堵延误。",
+    "road_columns": [
+      "edge_index",
+      "mean_stopped_vehicles",
+      "observed_mean_speed_kmh",
+      "mean_vehicles"
+    ],
+    "explanation": "Same-window mean stopped count equals mean vehicle count, but reported observed mean speed exceeds 0.36 km/h on 15 edges. This requires checking population/threshold/aggregation implementation; missing original source prevents declaring a confirmed calculation bug.",
+    "rows": [
+      {
+        "edge_index": 748,
+        "edge_id": "136004880#1",
+        "road_name": "人民南路四段",
+        "mean_stopped_vehicles": 2.0,
+        "observed_mean_speed_kmh": 30.0024,
+        "mean_vehicles": 2.0
+      },
+      {
+        "edge_index": 749,
+        "edge_id": "136004880#2",
+        "road_name": "人民南路四段",
+        "mean_stopped_vehicles": 7.0,
+        "observed_mean_speed_kmh": 15.0012,
+        "mean_vehicles": 7.0
+      },
+      {
+        "edge_index": 750,
+        "edge_id": "136004880#3",
+        "road_name": "人民南路四段",
+        "mean_stopped_vehicles": 2.0,
+        "observed_mean_speed_kmh": 30.0024,
+        "mean_vehicles": 2.0
+      },
+      {
+        "edge_index": 751,
+        "edge_id": "136004880#4",
+        "road_name": "人民南路四段",
+        "mean_stopped_vehicles": 40.0,
+        "observed_mean_speed_kmh": 2.381143,
+        "mean_vehicles": 40.0
+      },
+      {
+        "edge_index": 776,
+        "edge_id": "136069028#1",
+        "road_name": "人民南路四段",
+        "mean_stopped_vehicles": 20.0,
+        "observed_mean_speed_kmh": 6.522261,
+        "mean_vehicles": 20.0
+      },
+      {
+        "edge_index": 806,
+        "edge_id": "1447297430",
+        "road_name": "新光路",
+        "mean_stopped_vehicles": 2.0,
+        "observed_mean_speed_kmh": 13.332,
+        "mean_vehicles": 2.0
+      },
+      {
+        "edge_index": 954,
+        "edge_id": "267226974#2",
+        "road_name": "新光路",
+        "mean_stopped_vehicles": 21.0,
+        "observed_mean_speed_kmh": 1.818,
+        "mean_vehicles": 21.0
+      },
+      {
+        "edge_index": 955,
+        "edge_id": "267226974#3",
+        "road_name": "新光路",
+        "mean_stopped_vehicles": 10.0,
+        "observed_mean_speed_kmh": 6.666,
+        "mean_vehicles": 10.0
+      },
+      {
+        "edge_index": 956,
+        "edge_id": "267226974#4",
+        "road_name": "新光路",
+        "mean_stopped_vehicles": 14.0,
+        "observed_mean_speed_kmh": 4.9995,
+        "mean_vehicles": 14.0
+      },
+      {
+        "edge_index": 957,
+        "edge_id": "267226974#5",
+        "road_name": "新光路",
+        "mean_stopped_vehicles": 6.0,
+        "observed_mean_speed_kmh": 9.999,
+        "mean_vehicles": 6.0
+      },
+      {
+        "edge_index": 958,
+        "edge_id": "267226974#6",
+        "road_name": "新光路",
+        "mean_stopped_vehicles": 7.0,
+        "observed_mean_speed_kmh": 8.888001,
+        "mean_vehicles": 7.0
+      },
+      {
+        "edge_index": 959,
+        "edge_id": "267226974#7",
+        "road_name": "新光路",
+        "mean_stopped_vehicles": 7.0,
+        "observed_mean_speed_kmh": 4.9995,
+        "mean_vehicles": 7.0
+      },
+      {
+        "edge_index": 960,
+        "edge_id": "267226974#8",
+        "road_name": "新光路",
+        "mean_stopped_vehicles": 12.0,
+        "observed_mean_speed_kmh": 3.076615,
+        "mean_vehicles": 12.0
+      },
+      {
+        "edge_index": 1123,
+        "edge_id": "459143633#0",
+        "road_name": "人民南路四段",
+        "mean_stopped_vehicles": 38.0,
+        "observed_mean_speed_kmh": 2.5002,
+        "mean_vehicles": 38.0
+      },
+      {
+        "edge_index": 1124,
+        "edge_id": "459143633#1",
+        "road_name": "人民南路四段",
+        "mean_stopped_vehicles": 32.0,
+        "observed_mean_speed_kmh": 2.941412,
+        "mean_vehicles": 32.0
+      }
+    ]
+  },
+  "interpretation": "Persistent blockage/frozen-output anomaly is supported. Exact deadlock, bus-stop causation, or general bus policy harm is not established. Retain original evidence and qualify the graphical interpretation.",
+  "rerun_inputs_needed": [
+    "Exact 7200-second model/export source and SUMO version, or explicitly versioned new diagnostic model",
+    "Matched person inventory/assignment with OD, desired departures and mode mapping",
+    "Bus routes, vehicle schedules, stops, capacity and boarding/alighting/dwell rules",
+    "Per-person stages and per-vehicle position/speed/type/leader/conflict/signal/stop events, insertion queue and outlet throughput"
+  ],
+  "minimal_design": "PM43 paired four-arm check: baseline; remove only 51 car trips; add same bus vehicles without removing cars; combined car replacement and actual bus passengers. Diagnose 15–25 min onset before single-factor mechanism changes; then repeat three seeds and AM/PM. Preserve fixed 120-minute results and extend observation without forced deletion/teleporting."
+}

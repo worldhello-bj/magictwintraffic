@@ -91,3 +91,38 @@ test('unchecked and checked Apply preserve preference and keep maps, chart, read
  // Applying an unchecked value works even if an event was not dispatched first.
  element('show-comparison').checked=false;choose('priority','am',44);await element('apply-case').onclick();checkSingle();
 });
+
+test('bus chapter opens a regular repeat and presents all six matched outcomes without generalizing the anomaly',async()=>{
+ api.resetPreference();await api.oe(2);
+ assert.equal(api.state().u.id,'pm_42_bus');assert.equal(element('bus-summary').hidden,false);
+ assert.match(element('chapter-headline').innerHTML,/晚峰两组变化小/);
+ assert.match(element('chapter-body').textContent,/早峰三组的每人观察时间均上升/);
+ const html=element('bus-summary').innerHTML;
+ const ids=[...html.matchAll(/data-bus-run="([^"]+)"/g)].map(x=>x[1]);
+ assert.deepEqual(ids,['am_42_bus','am_43_bus','am_44_bus','pm_42_bus','pm_43_bus','pm_44_bus']);
+ const expected=[[30.2,-18],[28.2,-27],[85.1,-5],[16.9,0],[1660.8,-1627],[-20.4,6]];
+ for(const [index,id] of ids.entries()){
+  const run=catalog.runs.find(r=>r.id===id),ref=catalog.runs.find(r=>r.id===run.reference_id),delta=api.te(ref,run);
+  assert.equal(Number(delta.seconds.toFixed(1)),expected[index][0]);assert.equal(delta.completed,expected[index][1]);
+  const card=html.match(new RegExp('data-bus-run="'+id+'"[\\s\\S]*?</button>'))[0];
+  const signed=(n,d=0)=>(n>0?'+':'')+n.toLocaleString('zh-CN',{minimumFractionDigits:d,maximumFractionDigits:d});
+  assert.ok(card.includes(signed(delta.seconds,1)+' 秒 / 人'));assert.ok(card.includes('（'+signed(delta.completed)+'）'));
+ }
+ assert.match(html,/晚峰第2组 · 异常待查/);assert.match(html,/尚不能证明具体原因/);
+ api.Se();assert.match(element('result-matrix').innerHTML,/第2组 · 异常待查/);
+ await api.oe(1);assert.equal(element('bus-summary').hidden,true);
+});
+
+test('bus anomaly separates not-inserted people from other unfinished travel and preserves all vehicle records',async()=>{
+ await api.re('pm',43,'bus');
+ const meta=api.state().u,html=element('bus-summary').innerHTML;
+ assert.equal(meta.cohort-meta.completed,1627);assert.equal(meta.status_counts.not_inserted,417);assert.equal(meta.status_counts.unfinished,1210);
+ assert.equal(meta.status_counts.not_inserted+meta.status_counts.unfinished,1627);
+ assert.match(html,/51人改乘公交（1.33%）/);assert.match(html,/其余3,778人为小汽车出行/);
+ assert.match(html,/1,627人未完成，其中417人未进入路网，另1,210人仍未完成出行/);
+ assert.match(html,/不能把这1,627人都说成在路上排队/);
+ assert.match(element('result-strip').innerHTML,/不是路上排队人数/);
+ assert.match(api.template,/包含公交等车辆在道路上的计划停站，不等于纯拥堵延误/);
+ const tail=read(meta.file).series.filter(row=>row[0]>=6330);
+ assert.equal(tail.length,30);for(const row of tail)assert.deepEqual(row.slice(1,4),[1204,1184,2202]);
+});
